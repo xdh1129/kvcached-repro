@@ -2,6 +2,17 @@
 
 在我們的機器（8× NVIDIA RTX PRO 6000 Blackwell，每張 96 GB）上重現 [kvcached](https://github.com/ovg-project/kvcached) 和 [Prism](https://arxiv.org/abs/2505.04021) 的 multi-LLM serving workload，量測 VRAM 壓力。目標是確認 multi-LLM serving 時 VRAM 會不會不夠，作為 weight swapping 和 KV offload 研究的 motivation。
 
+## 對照圖
+
+![Prism 8-model comparison](results/comparison/prism_8m2g_comparison.png)
+
+- **(a) 不做 swap**：GPU 1 上的 4 個模型依序載入。第 4 個模型（Mistral-Nemo-12B）的權重載入後，GPU 用到 95.4 / 95.6 GiB 就 OOM，這時還沒有送出任何 request。
+- **(b) DRAM weight swapping**：同一張 GPU、同樣的模型。閒置的模型把權重放在 host DRAM，有 request 時才換回 GPU（▲），空間不夠時換出（▽）。
+- **(c) 能服務的 request**：不做 swap 時，model_4 起不來，它的 262 個 request（35%）沒有 server 可以處理。這是依啟動失敗推算的，這組沒有實際重播 trace。做 DRAM swap 時，754 個 request 實測全部成功。
+- **(d) swap 成本**：從 DRAM 喚醒一個模型需要 0.15–0.52 秒，大致和模型大小成正比。整段 trace 共 9 次 swap、約 3.3 秒。
+
+圖由 `analysis/plot_comparison.py` 產生。
+
 ## 實驗：Prism §7.2「8 個模型、2 張 GPU」，預設設定
 
 | 項目 | 設定 |
