@@ -42,6 +42,38 @@ def title(ax, text, sub):
     ax.text(0, 1.02, sub, transform=ax.transAxes, fontsize=8, color=MUTED, va="bottom")
 
 
+def request_panel(ax, reqs, names, colors, labels, x_end, min_block=70):
+    """One horizontal line per request, grouped by model and ordered by arrival.
+
+    Light segment: sent until first token (queued). Solid: first token until done
+    (decoding). Gray to x_end: never got a first token. Each model's block is at
+    least min_block rows tall so small groups' labels stay apart. Returns the
+    number of rows used.
+    """
+    y, ticks = 0, []
+    for n in names:
+        d = reqs[reqs.model == n].sort_values("scheduled_s")
+        start, block = y, max(len(d), min_block)
+        y += (block - len(d)) / 2
+        for _, q in d.iterrows():
+            if q.ok:
+                ax.hlines(y, q.sent_s, q.first_token_s, color=colors[n], alpha=0.25, linewidth=1.2)
+                ax.hlines(y, q.first_token_s, q.done_s, color=colors[n], linewidth=1.2)
+            else:
+                ax.hlines(y, q.sent_s, x_end, color=NEUTRAL, linewidth=1.2)
+            y += 1
+        ticks.append((start + block / 2, f"{labels[n]}\n{len(d)} req, {int(d.ok.sum())} done"))
+        y = start + block + 6
+        ax.axhline(y - 3, color=GRID, linewidth=0.8)
+    ax.set_yticks([t for t, _ in ticks], [lbl for _, lbl in ticks], fontsize=8, color=INK)
+    ax.set_ylim(y, -2)
+    ax.grid(axis="x", color=GRID, linewidth=0.8)
+    for side in ("top", "right"):
+        ax.spines[side].set_visible(False)
+    ax.tick_params(colors=MUTED, labelsize=8)
+    return y
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--run", default=os.path.join(ROOT, "results", "prism_8m2g_noswap_default"))
@@ -94,27 +126,7 @@ def main():
     style(ax_m)
 
     # (b) one line per request, grouped by model, ordered by arrival
-    y, ticks = 0, []
-    for n in names:
-        d = reqs[reqs.model == n].sort_values("scheduled_s")
-        start, block = y, max(len(d), 70)  # minimum block height keeps small groups' labels apart
-        y += (block - len(d)) / 2
-        for _, q in d.iterrows():
-            if q.ok:
-                ax_r.hlines(y, q.sent_s, q.first_token_s, color=colors[n], alpha=0.25, linewidth=1.2)
-                ax_r.hlines(y, q.first_token_s, q.done_s, color=colors[n], linewidth=1.2)
-            else:
-                ax_r.hlines(y, q.sent_s, x_end, color=NEUTRAL, linewidth=1.2)
-            y += 1
-        ticks.append((start + block / 2, f"{labels[n]}\n{len(d)} req, {int(d.ok.sum())} done"))
-        y = start + block + 6
-        ax_r.axhline(y - 3, color=GRID, linewidth=0.8)
-    ax_r.set_yticks([t for t, _ in ticks], [lbl for _, lbl in ticks], fontsize=8, color=INK)
-    ax_r.set_ylim(y, -2)
-    ax_r.grid(axis="x", color=GRID, linewidth=0.8)
-    for side in ("top", "right"):
-        ax_r.spines[side].set_visible(False)
-    ax_r.tick_params(colors=MUTED, labelsize=8)
+    request_panel(ax_r, reqs, names, colors, labels, x_end)
     title(ax_r, "(b) Every request, from arrival to completion",
           "light = queued, waiting for KV memory · solid = decoding · gray = never got a first token "
           f"(still queued when the run was stopped at {stopped_s:.0f} s)")

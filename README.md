@@ -28,6 +28,20 @@
 
 圖由 `analysis/plot_noswap_memory.py` 產生。
 
+### 兩張 GPU 的 request serving timeline
+
+![No-swap request timeline on both GPUs](results/comparison/prism_8m2g_noswap_requests.png)
+
+每個 request 一條線：淺色是排隊（等 KV 記憶體）、深色是生成、灰色是從沒拿到第一個 token。兩張 GPU 共用同一條時間軸，兩條點線分別是第一個和最後一個 request 到達的時間（0 秒和 120 秒）。
+
+- **GPU 1**：
+  - model_4 的 262 個 request 全是灰色，一個都沒開始。
+  - model_1 的排隊段愈拉愈長：TTFT 中位數 94 秒，最後一個 request 到第 284 秒才完成。
+  - GPU 1 共完成 340 / 602 個 request。
+- **GPU 2**：幾乎看不到淺色的排隊段。model_5 的 TTFT 中位數 0.04 秒，最後一個 request 在第 123 秒完成，也就是最後一個 request 到達後 3 秒。GPU 2 共完成 152 / 152 個 request。
+
+圖由 `analysis/plot_noswap_requests.py` 產生。
+
 ## 實驗：Prism §7.2「8 個模型、2 張 GPU」，預設設定
 
 | 項目 | 設定 |
@@ -86,7 +100,7 @@
 
 | 資料夾 | 內容 |
 |---|---|
-| `results/comparison/` | 主圖 `prism_8m2g_noswap_timeline.png`、兩張 GPU 並排的記憶體圖 `prism_8m2g_noswap_memory.png`、附錄的對照圖 `prism_8m2g_comparison.png` |
+| `results/comparison/` | 主圖 `prism_8m2g_noswap_timeline.png`、兩張 GPU 並排的記憶體圖 `prism_8m2g_noswap_memory.png`、兩張 GPU 的 request timeline `prism_8m2g_noswap_requests.png`、附錄的對照圖 `prism_8m2g_comparison.png` |
 | `results/memory_demand/` | 用 trace 算出的記憶體需求下界（時間 ×0.2）|
 | `results/memory_demand_timescale1/` | 同上，時間不縮放 |
 | `results/prism_8m2g_noswap_default/` | 實測，不做 swap（完整版：啟動失敗的模型會跳過，然後照樣重播 trace） |
@@ -117,6 +131,7 @@ bash scripts/setup_env.sh                              # .venv：vLLM 0.30.0 + k
 CONTINUE_ON_FAIL=1 bash scripts/run_prism_trace.sh kvcached prism_8m2g_noswap_default   # 不做 swap
 .venv/bin/python analysis/plot_noswap_timeline.py                                       # 主圖
 .venv/bin/python analysis/plot_noswap_memory.py                                         # 兩張 GPU 的記憶體
+.venv/bin/python analysis/plot_noswap_requests.py                                       # 兩張 GPU 的 request timeline
 SWAP=1 bash scripts/run_prism_trace.sh kvcached prism_8m2g_swap_dram_default           # 附錄：DRAM swap
 .venv/bin/python analysis/plot_comparison.py                                            # 附錄：對照圖
 ```
