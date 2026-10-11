@@ -18,6 +18,16 @@
 
 圖由 `analysis/plot_noswap_timeline.py` 產生，資料在 `results/prism_8m2g_noswap_default/`。
 
+### 兩張 GPU 的記憶體並排
+
+![No-swap memory on both GPUs](results/comparison/prism_8m2g_noswap_memory.png)
+
+- **左邊 GPU 1**（Prism 的 GPU0）：4 個模型載入後就佔掉 92.2 GiB，trace 期間最高 93.7 GiB，只剩 1.9 GiB，已經用到 kvcached 的安全保留區（灰色）。model_4 的 request 完全沒跑，GPU 1 只完成 340 / 602 個 request。
+- **右邊 GPU 2**（Prism 的 GPU1）：4 個較小的模型共 49.4 GiB，還剩 46 GiB，152 / 152 個 request 全部完成。
+- 兩格的 y 軸相同，可以直接比較。
+
+圖由 `analysis/plot_noswap_memory.py` 產生。
+
 ## 實驗：Prism §7.2「8 個模型、2 張 GPU」，預設設定
 
 | 項目 | 設定 |
@@ -76,7 +86,7 @@
 
 | 資料夾 | 內容 |
 |---|---|
-| `results/comparison/` | 主圖 `prism_8m2g_noswap_timeline.png`；附錄的對照圖 `prism_8m2g_comparison.png` |
+| `results/comparison/` | 主圖 `prism_8m2g_noswap_timeline.png`、兩張 GPU 並排的記憶體圖 `prism_8m2g_noswap_memory.png`、附錄的對照圖 `prism_8m2g_comparison.png` |
 | `results/memory_demand/` | 用 trace 算出的記憶體需求下界（時間 ×0.2）|
 | `results/memory_demand_timescale1/` | 同上，時間不縮放 |
 | `results/prism_8m2g_noswap_default/` | 實測，不做 swap（完整版：啟動失敗的模型會跳過，然後照樣重播 trace） |
@@ -106,6 +116,7 @@ bash scripts/setup_env.sh                              # .venv：vLLM 0.30.0 + k
 .venv/bin/python analysis/memory_demand.py && .venv/bin/python analysis/plot_memory_demand.py
 CONTINUE_ON_FAIL=1 bash scripts/run_prism_trace.sh kvcached prism_8m2g_noswap_default   # 不做 swap
 .venv/bin/python analysis/plot_noswap_timeline.py                                       # 主圖
+.venv/bin/python analysis/plot_noswap_memory.py                                         # 兩張 GPU 的記憶體
 SWAP=1 bash scripts/run_prism_trace.sh kvcached prism_8m2g_swap_dram_default           # 附錄：DRAM swap
 .venv/bin/python analysis/plot_comparison.py                                            # 附錄：對照圖
 ```
