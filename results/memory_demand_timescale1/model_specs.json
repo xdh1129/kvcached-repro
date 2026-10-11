@@ -1,0 +1,22 @@
+{
+  "mistralai/Mistral-Nemo-Instruct-2407": {
+    "params": 12247782400,
+    "weight_bytes": 24495564800,
+    "kv_bytes_per_token": 163840
+  },
+  "meta-llama/Meta-Llama-3.1-8B": {
+    "params": 8030261248,
+    "weight_bytes": 16060522496,
+    "kv_bytes_per_token": 131072
+  },
+  "mistralai/Mistral-7B-Instruct-v0.2": {
+    "params": 7241732096,
+    "weight_bytes": 14483464192,
+    "kv_bytes_per_token": 131072
+  },
+  "meta-llama/Llama-3.2-3B": {
+    "params": 3212749824,
+    "weight_bytes": 6425499648,
+    "kv_bytes_per_token": 114688
+  }
+}

@@ -1,0 +1,4 @@
+name	gpu	port	startup_s	gpu_used_mib	instance_mib
+model_1	1	31001	58	27058	27036
+model_2	1	31002	38	52854	25788
+model_3	1	31003	58	71377	18518

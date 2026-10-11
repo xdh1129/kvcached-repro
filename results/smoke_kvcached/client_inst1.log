@@ -1,0 +1,39 @@
+/home/poc/xdh/kvcached-repro/third_party/kvcached/benchmarks/bench_latency_benefit/bench_kvcached_vllm.py:1572: DeprecationWarning: benchmark_serving.py is deprecated and will be removed in a future version. Please use 'vllm bench serve' instead.
+  main(args)
+Namespace(backend='vllm', base_url=None, host='localhost', port=12346, endpoint='/v1/completions', dataset_name='random', dataset_path=None, no_stream=False, max_concurrency=None, model='Qwen/Qwen3-8B', model_endpoints=None, tokenizer=None, use_beam_search=False, num_prompts=43, logprobs=None, request_rate=inf, burstiness=1.0, seed=0, trust_remote_code=False, disable_tqdm=False, profile=False, save_result=True, save_detailed=False, append_result=False, metadata=['unified_start_time=1791621169.677494667'], result_dir=None, result_filename='/home/poc/xdh/kvcached-repro/results/smoke_kvcached/metrics/inst1.json', ignore_eos=True, percentile_metrics='ttft,tpot,itl,e2el', metric_percentiles='99', goodput=None, request_id_prefix='benchmark-serving', custom_output_len=256, custom_skip_chat_template=False, sonnet_input_len=550, sonnet_output_len=150, sonnet_prefix_len=200, sharegpt_output_len=None, random_input_len=256, random_output_len=128, random_range_ratio=0.0, random_prefix_len=0, hf_subset=None, hf_split=None, hf_output_len=None, top_p=None, top_k=None, min_p=None, temperature=None, tokenizer_mode='auto', served_model_name=None, lora_modules=None, ramp_up_strategy='ramp-up-down', ramp_up_start_rps=None, ramp_up_end_rps=None, ramp_start_rps=0, ramp_peak_rps=4, ramp_end_rps=1, ramp_increment=1)
+INFO 10-10 16:32:57 [utils.py:90] Sampling input_len from [256, 256] and output_len from [128, 128]
+Starting initial single prompt test run...
+Initial test run completed. Starting main benchmark run...
+Traffic ramp-up-down strategy: 0 -> 4 -> 1 RPS (increment: +/-1 RPS per second)
+Burstiness factor: 1.0 (Poisson process)
+Maximum request concurrency: None
+  0%|          | 0/43 [00:00<?, ?it/s]  2%|▏         | 1/43 [00:01<01:03,  1.51s/it]  5%|▍         | 2/43 [00:02<00:50,  1.23s/it]  7%|▋         | 3/43 [00:03<00:35,  1.12it/s]  9%|▉         | 4/43 [00:03<00:28,  1.36it/s] 12%|█▏        | 5/43 [00:03<00:22,  1.69it/s] 14%|█▍        | 6/43 [00:04<00:18,  1.97it/s] 16%|█▋        | 7/43 [00:04<00:16,  2.23it/s] 19%|█▊        | 8/43 [00:04<00:13,  2.59it/s] 21%|██        | 9/43 [00:05<00:11,  2.88it/s] 23%|██▎       | 10/43 [00:05<00:10,  3.17it/s] 26%|██▌       | 11/43 [00:05<00:09,  3.39it/s] 28%|██▊       | 12/43 [00:05<00:09,  3.30it/s] 30%|███       | 13/43 [00:06<00:09,  3.18it/s] 33%|███▎      | 14/43 [00:06<00:09,  3.20it/s] 35%|███▍      | 15/43 [00:07<00:10,  2.62it/s] 37%|███▋      | 16/43 [00:07<00:11,  2.36it/s] 40%|███▉      | 17/43 [00:09<00:24,  1.05it/s] 42%|████▏     | 18/43 [00:11<00:28,  1.15s/it] 44%|████▍     | 19/43 [00:12<00:26,  1.09s/it] 47%|████▋     | 20/43 [00:13<00:24,  1.06s/it] 49%|████▉     | 21/43 [00:14<00:23,  1.05s/it] 51%|█████     | 22/43 [00:15<00:21,  1.04s/it] 53%|█████▎    | 23/43 [00:16<00:21,  1.08s/it] 56%|█████▌    | 24/43 [00:18<00:23,  1.22s/it] 58%|█████▊    | 25/43 [00:19<00:23,  1.32s/it] 60%|██████    | 26/43 [00:21<00:23,  1.39s/it] 63%|██████▎   | 27/43 [00:22<00:20,  1.28s/it] 65%|██████▌   | 28/43 [00:23<00:17,  1.19s/it] 67%|██████▋   | 29/43 [00:24<00:15,  1.13s/it] 70%|██████▉   | 30/43 [00:25<00:14,  1.09s/it] 72%|███████▏  | 31/43 [00:26<00:12,  1.06s/it] 74%|███████▍  | 32/43 [00:27<00:11,  1.04s/it] 77%|███████▋  | 33/43 [00:28<00:10,  1.04s/it] 79%|███████▉  | 34/43 [00:29<00:09,  1.02s/it] 81%|████████▏ | 35/43 [00:30<00:08,  1.02s/it] 84%|████████▎ | 36/43 [00:31<00:07,  1.01s/it] 86%|████████▌ | 37/43 [00:32<00:06,  1.02s/it] 88%|████████▊ | 38/43 [00:33<00:05,  1.01s/it] 91%|█████████ | 39/43 [00:34<00:03,  1.00it/s] 93%|█████████▎| 40/43 [00:35<00:02,  1.01it/s] 95%|█████████▌| 41/43 [00:36<00:01,  1.01it/s] 98%|█████████▊| 42/43 [00:37<00:01,  1.00s/it]100%|██████████| 43/43 [00:38<00:00,  1.01it/s]100%|██████████| 43/43 [00:38<00:00,  1.13it/s]
+Ramp pattern: 0 -> 4 -> 1 RPS
+Ramp up: 4s, Peak: 0s, Ramp down: 3s
+Total duration: 7s
+RPS schedule: [1, 2, 3, 4, 3, 2, 1]
+============ Serving Benchmark Result ============
+Successful requests:                     43        
+Benchmark duration (s):                  38.15     
+Total input tokens:                      11008     
+Total generated tokens:                  5504      
+Request throughput (req/s):              1.13      
+Output token throughput (tok/s):         144.26    
+Total Token throughput (tok/s):          432.77    
+---------------Time to First Token----------------
+Mean TTFT (ms):                          84.14     
+Median TTFT (ms):                        83.18     
+P99 TTFT (ms):                           142.29    
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          26.66     
+Median TPOT (ms):                        25.77     
+P99 TPOT (ms):                           39.95     
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           26.66     
+Median ITL (ms):                         25.40     
+P99 ITL (ms):                            62.26     
+----------------End-to-end Latency----------------
+Mean E2EL (ms):                          3469.35   
+Median E2EL (ms):                        3355.80   
+P99 E2EL (ms):                           5202.73   
+==================================================

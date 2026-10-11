@@ -1,0 +1,11 @@
+{
+  "trace": "/home/poc/xdh/kvcached-repro/third_party/prism-research/benchmark/multi-model/real_trace.pkl",
+  "placement": "/home/poc/xdh/kvcached-repro/third_party/prism-research/experiments/experiments_1/model_configs/swap_8_2gpus.json",
+  "time_scale": 1.0,
+  "replications": [
+    1
+  ],
+  "capacity_gib": 95.5927734375,
+  "dt": 0.05,
+  "out": "results/memory_demand_timescale1"
+}

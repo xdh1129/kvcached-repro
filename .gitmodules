@@ -1,0 +1,6 @@
+[submodule "third_party/kvcached"]
+	path = third_party/kvcached
+	url = https://github.com/ovg-project/kvcached.git
+[submodule "third_party/prism-research"]
+	path = third_party/prism-research
+	url = https://github.com/Multi-LLM/prism-research.git

@@ -1,0 +1,128 @@
+{
+  "config": {
+    "mode": "kvcached",
+    "date": "2026-10-10T23:35:41+08:00",
+    "repo_git": "none",
+    "kvcached_git": "v0.1.6",
+    "prism_git": "595ec1f",
+    "vllm": "0.30.0",
+    "torch": "2.13.0+cu130",
+    "driver": "580.159.03",
+    "gpu_name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+    "prism_gpus": "1 2",
+    "placement": "/home/poc/xdh/kvcached-repro/third_party/prism-research/experiments/experiments_1/model_configs/swap_8_2gpus.json",
+    "time_scale": "0.2",
+    "replication": "1",
+    "max_model_len": "4096",
+    "kvcached_gpu_utilization": "0.95",
+    "sample_interval": "0.25",
+    "launch_start": "1791646544.607720767",
+    "launch_failed": "1"
+  },
+  "launch_failed": true,
+  "gpus": {
+    "1": {
+      "total_gib": 95.59,
+      "models": [
+        "model_1",
+        "model_2",
+        "model_3",
+        "model_4"
+      ],
+      "peak_used_gib": 95.42,
+      "min_free_gib": 0.17
+    },
+    "2": {
+      "total_gib": 95.59,
+      "models": [
+        "model_5",
+        "model_6",
+        "model_7",
+        "model_8"
+      ],
+      "peak_used_gib": 0.63,
+      "min_free_gib": 94.96
+    }
+  },
+  "instances": {
+    "model_1": {
+      "model": "mistralai/Mistral-Nemo-Instruct-2407",
+      "gpu": 1,
+      "port": 31001,
+      "started": true,
+      "startup_s": 58,
+      "memory_when_healthy_gib": 26.4,
+      "weights_gib": 22.85,
+      "cudagraph_gib": 0.4,
+      "torch_peak_bytes": 1510013440.0,
+      "kv_capacity_tokens": 413648.0,
+      "engine_init_s": 25.9
+    },
+    "model_2": {
+      "model": "mistralai/Mistral-Nemo-Instruct-2407",
+      "gpu": 1,
+      "port": 31002,
+      "started": true,
+      "startup_s": 38,
+      "memory_when_healthy_gib": 25.18,
+      "weights_gib": 22.85,
+      "cudagraph_gib": 0.4,
+      "torch_peak_bytes": 973099520.0,
+      "kv_capacity_tokens": 416928.0,
+      "engine_init_s": 13.11
+    },
+    "model_3": {
+      "model": "meta-llama/Meta-Llama-3.1-8B",
+      "gpu": 1,
+      "port": 31003,
+      "started": true,
+      "startup_s": 58,
+      "memory_when_healthy_gib": 18.08,
+      "weights_gib": 15.0,
+      "cudagraph_gib": 0.35,
+      "torch_peak_bytes": 1184952832.0,
+      "kv_capacity_tokens": 583792.0,
+      "engine_init_s": 21.7
+    },
+    "model_4": {
+      "model": "mistralai/Mistral-Nemo-Instruct-2407",
+      "gpu": 1,
+      "port": 31004,
+      "started": false,
+      "weights_gib": 22.85,
+      "errors": [
+        "OutOfMemoryError",
+        "RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}",
+        "out of memory"
+      ]
+    },
+    "model_5": {
+      "model": "mistralai/Mistral-7B-Instruct-v0.2",
+      "gpu": 2,
+      "port": 31005,
+      "started": false,
+      "log_missing": true
+    },
+    "model_6": {
+      "model": "mistralai/Mistral-7B-Instruct-v0.2",
+      "gpu": 2,
+      "port": 31006,
+      "started": false,
+      "log_missing": true
+    },
+    "model_7": {
+      "model": "meta-llama/Llama-3.2-3B",
+      "gpu": 2,
+      "port": 31007,
+      "started": false,
+      "log_missing": true
+    },
+    "model_8": {
+      "model": "meta-llama/Llama-3.2-3B",
+      "gpu": 2,
+      "port": 31008,
+      "started": false,
+      "log_missing": true
+    }
+  }
+}

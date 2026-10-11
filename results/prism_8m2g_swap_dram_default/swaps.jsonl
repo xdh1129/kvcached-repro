@@ -1,0 +1,9 @@
+{"t": 11.2891, "t_unix": 1791649707.274, "gpu": 2, "instance": "model_5", "action": "wake", "reason": "model_5", "duration_s": 0.3055, "drained_s": null, "gpu_used_mib_before": 7902, "gpu_used_mib_after": 21880}
+{"t": 11.0861, "t_unix": 1791649707.071, "gpu": 1, "instance": "model_1", "action": "wake", "reason": "model_1", "duration_s": 0.5122, "drained_s": null, "gpu_used_mib_before": 9028, "gpu_used_mib_after": 32992}
+{"t": 13.1678, "t_unix": 1791649709.152, "gpu": 2, "instance": "model_7", "action": "wake", "reason": "model_7", "duration_s": 0.1545, "drained_s": null, "gpu_used_mib_before": 21944, "gpu_used_mib_after": 28680}
+{"t": 13.545, "t_unix": 1791649709.529, "gpu": 2, "instance": "model_6", "action": "wake", "reason": "model_6", "duration_s": 0.3049, "drained_s": null, "gpu_used_mib_before": 28680, "gpu_used_mib_after": 42658}
+{"t": 19.8742, "t_unix": 1791649715.859, "gpu": 1, "instance": "model_2", "action": "wake", "reason": "model_2", "duration_s": 0.5182, "drained_s": null, "gpu_used_mib_before": 33414, "gpu_used_mib_after": 57378}
+{"t": 52.2699, "t_unix": 1791649748.254, "gpu": 1, "instance": "model_4", "action": "wake", "reason": "model_4", "duration_s": 0.5237, "drained_s": null, "gpu_used_mib_before": 60210, "gpu_used_mib_after": 84254}
+{"t": 101.6245, "t_unix": 1791649797.609, "gpu": 1, "instance": "model_2", "action": "sleep", "reason": "model_3", "duration_s": 0.5199, "drained_s": null, "gpu_used_mib_before": 89660, "gpu_used_mib_after": 65512}
+{"t": 102.1447, "t_unix": 1791649798.129, "gpu": 1, "instance": "model_3", "action": "wake", "reason": "model_3", "duration_s": 0.3495, "drained_s": null, "gpu_used_mib_before": 65512, "gpu_used_mib_after": 81434}
+{"t": 129.1201, "t_unix": 1791649825.105, "gpu": 2, "instance": "model_8", "action": "wake", "reason": "model_8", "duration_s": 0.1577, "drained_s": null, "gpu_used_mib_before": 43592, "gpu_used_mib_after": 50330}
