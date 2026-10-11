@@ -8,6 +8,9 @@
 # SLEEP_AFTER_START=1 enables vLLM sleep mode and puts each instance to sleep
 # (level 1: weights backed up to CPU DRAM) right after it is healthy, so the next
 # one has room; startup.tsv then also records memory while asleep.
+# CONTINUE_ON_FAIL=1 records an instance that fails to start in failed.tsv
+# ("name<TAB>gpu<TAB>port<TAB>seconds") and goes on with the rest; otherwise the
+# first failure stops the launch.
 set -euo pipefail
 
 ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
@@ -23,6 +26,8 @@ printf 'name\tgpu\tport\tstartup_s\tgpu_used_mib\tinstance_mib\tfirst_sleep_s\ti
 
 export VLLM_USE_V1=1
 SLEEP_AFTER_START=${SLEEP_AFTER_START:-0}
+CONTINUE_ON_FAIL=${CONTINUE_ON_FAIL:-0}
+: > "$RUN_DIR/failed.tsv"
 
 common_args=(--no-enable-prefix-caching --max-model-len "$MAX_MODEL_LEN")
 if [[ "$SLEEP_AFTER_START" == 1 ]]; then
@@ -82,7 +87,14 @@ while IFS=$'\t' read -r name model gpu port; do
         "${common_args[@]}" "${mode_args[@]}" > "$log" 2>&1 < /dev/null &
     pid=$!
     printf '%s\t%s\t%s\n' "$name" "$port" "$pid" >> "$RUN_DIR/servers.tsv"
-    wait_healthy "$port" "$pid"
+    if ! wait_healthy "$port" "$pid"; then
+        [[ "$CONTINUE_ON_FAIL" == 1 ]] || exit 1
+        kill -TERM -- "-$pid" 2> /dev/null || true
+        printf '%s\t%s\t%s\t%s\n' "$name" "$gpu" "$port" "$((SECONDS - start))" >> "$RUN_DIR/failed.tsv"
+        echo "[$MODE] $name failed to start; continuing (CONTINUE_ON_FAIL=1)"
+        sleep 5  # let the failed process group release its memory
+        continue
+    fi
     startup_s=$((SECONDS - start))
     used=$(nvidia-smi -i "$gpu" --query-gpu=memory.used --format=csv,noheader,nounits)
     awake_mib=$(pgid_mib "$pid")

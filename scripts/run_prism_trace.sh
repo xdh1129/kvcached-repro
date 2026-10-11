@@ -8,6 +8,8 @@
 #      SWAP=1      DRAM weight swapping: instances start asleep and scripts/swap_proxy.py
 #                  wakes them on demand, evicting idle LRU instances for room
 #      HEADROOM_GIB  swap proxy free-memory margin beyond the wake size (default 3)
+#      CONTINUE_ON_FAIL=1  an instance that fails to start is skipped (failed.tsv) and the
+#                  trace still runs; requests for it fail and are recorded as failures
 # Output: results/<run_name>/ (see analysis/prism_run_report.py for the report)
 # A launch failure (e.g. out of memory) is a result too: the run stops, keeps its
 # data and still writes the report.
@@ -80,12 +82,16 @@ trap cleanup EXIT
 MONITOR_PID=$!
 
 echo "launch_start=$(date +%s.%N)" >> "$RUN_DIR/config.txt"
-if ! SLEEP_AFTER_START=$SWAP bash "$ROOT/scripts/launch_servers.sh" "$MODE" "$RUN_DIR"; then
+if ! SLEEP_AFTER_START=$SWAP CONTINUE_ON_FAIL=${CONTINUE_ON_FAIL:-0} \
+    bash "$ROOT/scripts/launch_servers.sh" "$MODE" "$RUN_DIR"; then
     echo "launch_failed=1" >> "$RUN_DIR/config.txt"
     echo "launch failed; keeping data in $RUN_DIR" >&2
     exit 1
 fi
 echo "launch_end=$(date +%s.%N)" >> "$RUN_DIR/config.txt"
+if [[ -s "$RUN_DIR/failed.tsv" ]]; then
+    echo "failed_instances=$(cut -f1 "$RUN_DIR/failed.tsv" | paste -sd,)" >> "$RUN_DIR/config.txt"
+fi
 
 replay_args=()
 if [[ "$SWAP" == 1 ]]; then
