@@ -6,6 +6,7 @@ Encoding, shared by every figure:
 Every series is also labeled directly or in a legend, so color never carries identity alone.
 
 Inputs: results/prism_8m2g_rep2_kvp_<config>/ (one run per config, replication 2).
+Figures label the pressured GPU as "Prism GPU0" (our GPU 1), matching the placement file.
 Outputs: results/comparison/slides/{restore_vs_kv,restore_breakdown,dram_traffic,ttft_cdf}.png
 
 usage: python analysis/plot_paths_slides.py
@@ -106,7 +107,7 @@ def fig_restore_vs_kv():
               ("Weights restored from SSD (POSIX or GDS)", ["ssd+ssd", "gds+gds"])]
     for ax, (title, cfgs) in zip(axes, panels):
         for c in cfgs:
-            res = [r for r in DATA[c][0] if r["event"] == "resume"]  # GPU 1 wakes
+            res = [r for r in DATA[c][0] if r["event"] == "resume"]  # wakes on Prism GPU0
             x = np.array([r.get("kv_bytes", 0) / GB for r in res])
             y = np.array([restore_s(r) for r in res])
             st = style(c)
@@ -126,7 +127,7 @@ def fig_restore_vs_kv():
     axes[0].set_ylabel("Restore time (s)")
     axes[0].set_ylim(0, None)
     headline(fig, "Restore time = weights floor + KV size / KV-path bandwidth",
-             "GPU 1 (3x Mistral-Nemo-12B, 25 GB weights each, + Llama-3.1-8B, 17 GB). One point per wake during "
+             "Prism GPU0 (3x Mistral-Nemo-12B, 25 GB weights each, + Llama-3.1-8B, 17 GB). One point per wake during "
              "the trace. Lines: least-squares fits, labeled with the KV path's bandwidth. Recompute (gray): no KV.")
     for ax in axes:
         ax.margins(x=0)
@@ -173,7 +174,7 @@ def fig_restore_breakdown():
                        Line2D([], [], color=INK, linestyle=":", label="serial: one after the other")],
               loc="lower left", bbox_to_anchor=(0, 1.01), ncol=4, frameon=False, fontsize=15)
     headline(fig, "Two paths at once: restore time is the longer path, not the sum",
-             "One wake of model_1 (Mistral-Nemo-12B, 25 GB weights) per config: the one whose KV is closest to "
+             "Prism GPU0. One wake of model_1 (Mistral-Nemo-12B, 25 GB weights) per config: the one whose KV is closest to "
              "8 GB. Upper bar = weights (hatched when from storage), lower bar = KV.")
     save(fig, "restore_breakdown.png")
 
@@ -183,7 +184,7 @@ STORAGE = {"ssd", "gds"}
 
 
 def traffic(cfg):
-    """GB on GPU 1: through host DRAM (sleep/wake, weights+state / KV) and SSD I/O, plus the startup save."""
+    """GB on Prism GPU0 (our GPU 1): through host DRAM (sleep/wake, weights+state / KV) and SSD I/O, plus the startup save."""
     trace, startup, _ = DATA[cfg]
     t = dict(startup_dram=0.0, startup_ssd=0.0, sleep_weights=0.0, sleep_kv=0.0, wake_weights=0.0,
              wake_kv=0.0, ssd=0.0)
@@ -258,7 +259,7 @@ def fig_dram_traffic():
                             Patch(color=GRAY, label="trace: SSD I/O")],
                    loc="lower left", bbox_to_anchor=(0, 1.09), ncol=2, frameon=False, fontsize=15)
     headline(fig, "Weights are saved once, then read back on every wake",
-             "GPU 1 (3x Mistral-Nemo-12B + Llama-3.1-8B). A trace sleep writes only KV + ~0.6 GB state; "
+             "Prism GPU0 (3x Mistral-Nemo-12B + Llama-3.1-8B). A trace sleep writes only KV + ~0.6 GB state; "
              "a wake reads the whole model (17-25 GB). GDS keeps KV out of DRAM; POSIX SSD passes a host buffer.")
     save(fig, "dram_traffic.png")
 
@@ -286,7 +287,7 @@ def fig_ttft():
     axes[1].legend(loc="center left", bbox_to_anchor=(1.03, 0.5), frameon=False, fontsize=16, labelspacing=0.9)
     n = len(DATA["dram+dram"][2])
     headline(fig, "DRAM weights + SSD/GDS KV: the shortest TTFT tail",
-             f"Requests to the pressured GPU (4 models, {n} requests). Prism Arena trace, time scale 0.2, "
+             f"Requests to Prism GPU0 (3x Nemo-12B + Llama-8B, {n} requests). Arena-Chat trace, time scale 0.2, "
              "replication 2, one run per config.")
     save(fig, "ttft_cdf.png")
 
