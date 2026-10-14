@@ -16,6 +16,8 @@
 #      KV_PRESSURE=1   with PATHS: the proxy also time-shares a GPU whose busy instances
 #                  are short of KV memory (swap_proxy.py --kv-pressure)
 #      PRESSURE_FREE_GIB  free-memory threshold for KV pressure (default 6)
+#      SCHEDULE=<ref run dir>  with PATHS: replay the reference run's sleeps and wakes instead
+#                  of the LRU / KV-pressure policy (swap_proxy.py --schedule)
 #      HEADROOM_GIB  swap proxy free-memory margin beyond the wake size (default 3)
 #      CONTINUE_ON_FAIL=1  an instance that fails to start is skipped (failed.tsv) and the
 #                  trace still runs; requests for it fail and are recorded as failures
@@ -48,7 +50,9 @@ if [[ -n "$PATHS" ]]; then
     export TIERED_PARALLEL=$([[ "$PATHS" == *:seq ]] && echo 0 || echo 1)
     export TIERED_ROOT=${TIERED_ROOT:-/mnt/raid0/xdh/tiered/$RUN_NAME}
     proxy_args=(--keep --min-resident-s "$MIN_RESIDENT_S")
-    if [[ "${KV_PRESSURE:-0}" == 1 ]]; then
+    if [[ -n "${SCHEDULE:-}" ]]; then
+        proxy_args+=(--schedule "$SCHEDULE")
+    elif [[ "${KV_PRESSURE:-0}" == 1 ]]; then
         proxy_args+=(--kv-pressure --pressure-free-gib "${PRESSURE_FREE_GIB:-6}")
     fi
 fi
@@ -93,6 +97,7 @@ done
         echo "tiered_root=$TIERED_ROOT"
         echo "min_resident_s=$MIN_RESIDENT_S"
         echo "kv_pressure=${KV_PRESSURE:-0}"
+        [[ -n "${SCHEDULE:-}" ]] && echo "schedule=$SCHEDULE"
         [[ "${KV_PRESSURE:-0}" == 1 ]] && echo "pressure_free_gib=${PRESSURE_FREE_GIB:-6}"
     else
         echo "swap=$([[ "$SWAP" == 1 ]] && echo dram || echo none)"

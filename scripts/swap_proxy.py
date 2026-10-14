@@ -55,8 +55,20 @@ Writes to <run_dir>:
                         arrive_s, ready_s, swap_wait_s, cold (needed a wake),
                         evictions (sleeps done to make room), done_s, status
 
+--schedule <ref run_dir> (with --keep): replays the sleeps and wakes of a reference
+run instead of deciding them, so that configs that differ only in the offload
+path see the same evictions at the same times. Times are taken relative to the
+first request arrival of each run. Per GPU, actions run in order, each at its
+scheduled time or as soon as the previous one finishes (if a slower path falls
+behind). A wake also waits until the GPU has room for it. A request for an
+asleep instance waits for that instance's next scheduled wake; if none is left,
+the normal policy wakes it. A scheduled sleep of an instance that was idle in
+the reference first waits for this run's in-flight requests on it to finish.
+The LRU and KV-pressure policies are off while replaying. Each replayed swap records scheduled_s and lag_s in swaps.jsonl.
+
 usage: python swap_proxy.py <run_dir> [--port 30999] [--headroom-gib 3]
-                            [--keep [--min-resident-s 5] [--kv-pressure [--pressure-free-gib 6]]]
+                            [--keep [--min-resident-s 5] [--kv-pressure [--pressure-free-gib 6]]
+                                    [--schedule REF_RUN_DIR]]
 """
 
 import argparse
@@ -95,6 +107,7 @@ class Proxy:
         self.run_dir = run_dir
         self.headroom_mib = headroom_mib
         self.keep, self.min_resident_s = keep, min_resident_s
+        self.schedule = None  # set by load_schedule (--schedule)
         self.kv_pressure, self.pressure_free_mib = kv_pressure, pressure_free_mib
         self.starve_s, self.pressure_cooldown_s, self.poll_s = starve_s, pressure_cooldown_s, poll_s
         self.t0 = time.time()
@@ -128,7 +141,7 @@ class Proxy:
                 pass
         return total
 
-    async def _swap(self, inst, action, reason):
+    async def _swap(self, inst, action, reason, extra=None):
         before, _ = self.used_free_mib(inst.gpu)
         inst_before = self.instance_mib(inst)
         inflight = inst.inflight
@@ -155,7 +168,7 @@ class Proxy:
             "t": round(t - self.t0, 4), "t_unix": round(t, 3), "gpu": inst.gpu, "instance": inst.name,
             "action": action, "reason": reason, "duration_s": round(dur, 4), "drained_s": drained,
             "gpu_used_mib_before": before, "gpu_used_mib_after": after,
-            "inflight": inflight, "need_mib": inst.need_mib}) + "\n")
+            "inflight": inflight, "need_mib": inst.need_mib, **(extra or {})}) + "\n")
         self.swaps.flush()
 
     async def ensure_awake(self, inst, evict_busy=True):
@@ -291,8 +304,13 @@ class Proxy:
         rec = {"id": request.headers.get("X-Request-Id"), "instance": inst.name,
                "arrive_s": round(time.time() - self.t0, 4)}
         inst.last_used = time.time()  # LRU: a request arriving or finishing counts as use
+        if self.schedule is not None and self.anchor is None:
+            self.start_schedule()
         try:
-            rec["cold"], rec["evictions"] = await self.ensure_awake(inst)
+            if self.schedule is not None and not inst.serving and self.pending_wakes.get(inst.name):
+                rec["cold"], rec["evictions"] = await self.wait_scheduled_wake(inst)
+            else:
+                rec["cold"], rec["evictions"] = await self.ensure_awake(inst)
             # No await between the awake check above and this increment, so a
             # concurrent eviction cannot pick this instance in between.
             inst.inflight += 1
@@ -324,6 +342,76 @@ class Proxy:
                 self.cond[inst.gpu].notify_all()
         return resp
 
+    # -- replaying a reference run's sleeps and wakes (--schedule) --
+
+    def load_schedule(self, ref_dir):
+        """Per GPU: [(seconds after the first request, instance, action)] from a reference run."""
+        swaps = [json.loads(l) for l in open(os.path.join(ref_dir, "swaps.jsonl"))]
+        reqs = [json.loads(l) for l in open(os.path.join(ref_dir, "proxy_requests.jsonl"))]
+        first = min(r["arrive_s"] for r in reqs)
+        self.schedule = {}
+        self.pending_wakes = {}
+        for sw in sorted(swaps, key=lambda x: x["t"]):
+            self.schedule.setdefault(sw["gpu"], []).append(
+                (sw["t"] - first, sw["instance"], sw["action"], sw.get("inflight", 0)))
+            if sw["action"] == "wake":
+                self.pending_wakes[sw["instance"]] = self.pending_wakes.get(sw["instance"], 0) + 1
+        self.anchor = None
+
+    def start_schedule(self):
+        self.anchor = time.time()
+        for gpu, acts in self.schedule.items():
+            asyncio.get_running_loop().create_task(self._run_schedule(gpu, acts))
+
+    async def _run_schedule(self, gpu, acts):
+        cond = self.cond[gpu]
+        for t, name, action, ref_inflight in acts:
+            delay = self.anchor + t - time.time()
+            if delay > 0:
+                await asyncio.sleep(delay)
+            inst = self.instances[name]
+            async with cond:
+                if action == "wake":
+                    while not inst.awake:
+                        _, free = self.used_free_mib(gpu)
+                        if free >= inst.need_mib + self.headroom_mib:
+                            break
+                        try:  # memory frees as requests finish
+                            await asyncio.wait_for(cond.wait(), timeout=0.5)
+                        except TimeoutError:
+                            pass
+                    if not inst.awake:
+                        await self._swap(inst, "wake", "schedule", self._lag(t))
+                    # only now: a request seeing no pending wake falls back to the policy
+                    self.pending_wakes[name] -= 1
+                elif inst.awake:
+                    # The reference slept an idle instance: let this run's stragglers finish
+                    # first instead of freezing requests the reference never froze.
+                    while ref_inflight == 0 and inst.inflight > 0:
+                        try:
+                            await asyncio.wait_for(cond.wait(), timeout=0.5)
+                        except TimeoutError:
+                            pass
+                    await self._swap(inst, "sleep", "schedule", self._lag(t))
+                cond.notify_all()
+        print(f"schedule for GPU {gpu} done", flush=True)
+        for inst in self.instances.values():  # safety net: nothing stays frozen after the schedule
+            if inst.gpu == gpu and not inst.awake and inst.inflight:
+                asyncio.get_running_loop().create_task(self._rewake(inst))
+
+    def _lag(self, t):
+        return {"scheduled_s": round(t, 4), "lag_s": round(time.time() - self.anchor - t, 4)}
+
+    async def wait_scheduled_wake(self, inst):
+        """Wait for inst's next scheduled wake (falls back to the policy if no wake is left)."""
+        cond = self.cond[inst.gpu]
+        async with cond:
+            while not inst.serving and self.pending_wakes.get(inst.name):
+                await cond.wait()
+        if not inst.serving:
+            return await self.ensure_awake(inst)
+        return False, 0
+
     def _log(self, rec):
         self.reqlog.write(json.dumps(rec) + "\n")
         self.reqlog.flush()
@@ -347,14 +435,22 @@ async def main():
                     help="an instance counts as starved after queueing this long")
     ap.add_argument("--pressure-cooldown-s", type=float, default=2.0)
     ap.add_argument("--poll-s", type=float, default=0.5)
+    ap.add_argument("--schedule", metavar="REF_RUN_DIR",
+                    help="with --keep: replay the sleeps/wakes of this reference run instead of the policy")
     args = ap.parse_args()
     if args.kv_pressure and not args.keep:
         ap.error("--kv-pressure needs --keep")
+    if args.schedule and not args.keep:
+        ap.error("--schedule needs --keep")
+    if args.schedule:
+        args.kv_pressure = False
 
     proxy = Proxy(args.run_dir, int(args.headroom_gib * 1024), args.keep, args.min_resident_s, args.kv_pressure,
                   int(args.pressure_free_gib * 1024), args.starve_s, args.pressure_cooldown_s, args.poll_s)
     # force_close: an instance asleep for a while lets uvicorn close idle keep-alive
     # connections; reusing one fails the next request with ServerDisconnectedError.
+    if args.schedule:
+        proxy.load_schedule(args.schedule)
     proxy.session = aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=3600),
                                           connector=aiohttp.TCPConnector(limit=0, force_close=True))
     app = web.Application(client_max_size=64 * MIB)

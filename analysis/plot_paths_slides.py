@@ -5,7 +5,7 @@ Encoding, shared by every figure:
   line/mark  where the weights come from: DRAM = solid line / circle; SSD or GDS = dashed / triangle
 Every series is also labeled directly or in a legend, so color never carries identity alone.
 
-Inputs: results/prism_8m2g_rep2_kvp_<config>/ (one run per config, replication 2).
+Inputs: results/<PLOT_PREFIX><config>/ (default prism_8m2g_rep2_kvp_, one run per config, replication 2).
 Figures label the pressured GPU as "Prism GPU0" (our GPU 1), matching the placement file.
 Outputs: results/comparison/slides/{restore_vs_kv,restore_breakdown,dram_traffic,ttft_cdf}.png
 
@@ -26,8 +26,10 @@ import numpy as np
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 RES = os.path.join(ROOT, "results")
-OUT = os.path.join(RES, "comparison", "slides")
-PREFIX = "prism_8m2g_rep2_kvp_"
+# PLOT_PREFIX / PLOT_OUT / PLOT_NOTE select another set of runs (e.g. the schedule replays).
+PREFIX = os.environ.get("PLOT_PREFIX", "prism_8m2g_rep2_kvp_")
+OUT = os.path.join(RES, "comparison", os.environ.get("PLOT_OUT", "slides"))
+RUN_NOTE = os.environ.get("PLOT_NOTE", "one run per config")
 HOT_GPU = 1  # our GPU 1 = Prism's GPU0, the pressured one
 GB = 1e9
 
@@ -141,6 +143,7 @@ def fig_restore_breakdown():
     fig, ax = plt.subplots()
     fig.subplots_adjust(left=0.24, right=0.97, top=0.70, bottom=0.12)
     rows = list(CONFIGS)[::-1]
+    xmax = 0.0
     for i, c in enumerate(rows):
         res = [r for r in DATA[c][0] if r["event"] == "resume" and r["inst"] == "model_1"]
         if c == "dram+recompute":
@@ -160,11 +163,12 @@ def fig_restore_breakdown():
             note = f"{restore_s(r):.2f} s  (serial {seq:.2f} s), KV {r['kv_bytes'] / GB:.1f} GB"
         else:
             note = f"{restore_s(r):.2f} s  (KV dropped, re-prefilled later)"
-        ax.text(max(restore_s(r), seq if "kv_end_s" in r else 0) + 0.1, i, note, va="center", fontsize=16,
-                color=INK)
+        right = max(restore_s(r), seq if "kv_end_s" in r else 0)
+        xmax = max(xmax, right)
+        ax.text(right + 0.1, i, note, va="center", fontsize=16, color=INK)
     ax.set_yticks(range(len(rows)), [CONFIGS[c][0] for c in rows])
     ax.set_xlabel("Seconds from the start of the wake")
-    ax.set_xlim(0, 9.5)
+    ax.set_xlim(0, max(9.5, xmax + 4.5))  # room for the note right of the serial marker
     ax.grid(axis="y", visible=False)
     from matplotlib.patches import Patch
     from matplotlib.lines import Line2D
@@ -288,7 +292,7 @@ def fig_ttft():
     n = len(DATA["dram+dram"][2])
     headline(fig, "Keeping KV avoids the recompute tail of Prism's approach",
              f"Requests to Prism GPU0 (3x Nemo-12B + Llama-8B, {n} requests). Arena-Chat trace, time scale 0.2, "
-             "replication 2, one run per config.")
+             f"replication 2, {RUN_NOTE}.")
     save(fig, "ttft_cdf.png")
 
 
