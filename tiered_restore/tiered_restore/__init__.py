@@ -24,6 +24,7 @@ Configuration (environment):
   TIERED_LOG       JSON-lines file, one line per suspend/resume
   TIERED_IO_THREADS, TIERED_CHUNK_MB   I/O parallelism and chunk size (8, 64)
   TIERED_GDS_CHUNK_MB   GDS chunk size, registered per I/O (256)
+  TIERED_DRAM_KV_RESERVE_GB   pinned DRAM reserved for KV at the first sleep (24)
 """
 
 import os

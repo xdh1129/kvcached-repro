@@ -32,7 +32,15 @@ def _chunks(regions, chunk):
 
 
 class DramStore:
-    """Pinned host buffer per kind; one CUDA stream does every copy."""
+    """Pinned host buffer per kind; one CUDA stream does every copy.
+
+    Pinning host memory is slow (~2-3 s for 8-12 GB). Allocating it inside a sleep
+    put those seconds on the critical path of a busy model's eviction and of every
+    wake queued behind it. So the KV buffer is reserved up front
+    (TIERED_DRAM_KV_RESERVE_GB, default 24) on the first save, which happens in the
+    sleep right after launch. If a KV save still needs more, the buffer grows,
+    and the save reports the time spent pinning (alloc_s).
+    """
 
     name = "dram"
 
@@ -40,22 +48,28 @@ class DramStore:
         self.device = device
         self.buffers: dict[str, torch.Tensor] = {}
         self.stream = None
+        self.kv_reserve = int(float(os.environ.get("TIERED_DRAM_KV_RESERVE_GB", "24")) * (1 << 30))
 
     def _buffer(self, kind, size):
+        """(buffer, seconds spent pinning new host memory)"""
         buf = self.buffers.get(kind)
-        if buf is None or buf.numel() < size:
-            # Pinning is slow (seconds for tens of GB): grow geometrically so KV saves rarely re-pin.
-            grown = size if buf is None or kind == "weights" else max(size, buf.numel() * 3 // 2)
-            self.buffers[kind] = None
-            self.buffers[kind] = buf = torch.empty(grown, dtype=torch.uint8, pin_memory=True)
-        return buf
+        if buf is not None and buf.numel() >= size:
+            return buf, 0.0
+        t = time.perf_counter()
+        want = size
+        if kind == "kv":
+            want = max(size, self.kv_reserve if buf is None else buf.numel() * 3 // 2)
+        self.buffers[kind] = None
+        self.buffers[kind] = buf = torch.empty(want, dtype=torch.uint8, pin_memory=True)
+        return buf, time.perf_counter() - t
 
     def _copy(self, kind, regions, to_gpu):
         torch.cuda.set_device(self.device)
         if self.stream is None:
             self.stream = torch.cuda.Stream()
         size = max((off + n for _, n, off in regions), default=0)
-        base = self._buffer(kind, size).data_ptr()
+        buf, alloc_s = self._buffer(kind, size)
+        base = buf.data_ptr()
         s = self.stream.cuda_stream
         for gpu_ptr, n, off in regions:
             if to_gpu:
@@ -64,7 +78,7 @@ class DramStore:
                 _check(cudart.cudaMemcpyAsync(base + off, gpu_ptr, n, cudart.cudaMemcpyKind.cudaMemcpyDeviceToHost, s))
         self.stream.synchronize()
         moved = sum(n for _, n, _ in regions)
-        return {"bytes": moved, "host_bytes": moved}
+        return {"bytes": moved, "host_bytes": moved, "alloc_s": alloc_s}
 
     def save(self, kind, regions):
         return self._copy(kind, regions, to_gpu=False)

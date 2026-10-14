@@ -286,7 +286,7 @@ def fig_ttft():
     axes[1].set_title("Tail (top 5%)", loc="left", fontweight="bold", pad=12)
     axes[1].legend(loc="center left", bbox_to_anchor=(1.03, 0.5), frameon=False, fontsize=16, labelspacing=0.9)
     n = len(DATA["dram+dram"][2])
-    headline(fig, "DRAM weights + SSD/GDS KV: the shortest TTFT tail",
+    headline(fig, "Keeping KV avoids the recompute tail of Prism's approach",
              f"Requests to Prism GPU0 (3x Nemo-12B + Llama-8B, {n} requests). Arena-Chat trace, time scale 0.2, "
              "replication 2, one run per config.")
     save(fig, "ttft_cdf.png")

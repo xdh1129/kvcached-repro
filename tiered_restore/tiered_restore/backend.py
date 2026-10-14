@@ -192,7 +192,8 @@ class TieredBackend(SleepModeBackend):
         rec.update(kv_pages=len(kv_regions), kv_bytes=st["bytes"], kv_save_s=time.perf_counter() - t,
                    kv_save_host_bytes=st["host_bytes"],
                    kv_save_unregistered_chunks=st.get("unregistered_chunks", 0),
-                   kv_save_gate_wait_s=st.get("gate_wait_s", 0))
+                   kv_save_gate_wait_s=st.get("gate_wait_s", 0),
+                   kv_save_alloc_s=st.get("alloc_s", 0))
         if self.verify:
             self.sums = {r[0]: _checksum(*r[:2]) for r in self.weight_regions + self.state_regions + kv_regions}
 
