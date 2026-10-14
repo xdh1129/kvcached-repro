@@ -59,21 +59,24 @@ def style(cfg):
 
 
 def load(cfg):
+    """(trace records, startup records, TTFTs), all for the instances on HOT_GPU only.
+
+    Startup records are the sleep each instance does right after launch, before the
+    trace; that is where the weights are written to their store, once.
+    """
     d = os.path.join(RES, PREFIX + cfg)
     swaps = [json.loads(l) for l in open(os.path.join(d, "swaps.jsonl"))]
     t0 = min(s["t_unix"] for s in swaps)
-    recs = []
-    for f in glob.glob(os.path.join(d, "tiered_*.jsonl")):
-        name = os.path.basename(f)[len("tiered_"):-len(".jsonl")]
-        for line in open(f):
-            r = json.loads(line)
-            if r["t_unix"] >= t0 - 1:
-                recs.append(dict(r, inst=name))
     with open(os.path.join(d, "instances.tsv")) as f:
         hot = {name for name, _, gpu, _ in csv.reader(f, delimiter="\t") if int(gpu) == HOT_GPU}
+    trace, startup = [], []
+    for name in hot:
+        for line in open(os.path.join(d, f"tiered_{name}.jsonl")):
+            r = dict(json.loads(line), inst=name)
+            (trace if r["t_unix"] >= t0 - 1 else startup).append(r)
     reqs = [json.loads(l) for l in open(os.path.join(d, "requests.jsonl"))]
     ttft = np.array(sorted(r["ttft_s"] for r in reqs if r["ok"] and r["model"] in hot))
-    return recs, ttft
+    return trace, startup, ttft
 
 
 DATA = {c: load(c) for c in CONFIGS}
@@ -103,7 +106,7 @@ def fig_restore_vs_kv():
               ("Weights restored from SSD (POSIX or GDS)", ["ssd+ssd", "gds+gds"])]
     for ax, (title, cfgs) in zip(axes, panels):
         for c in cfgs:
-            res = [r for r in DATA[c][0] if r["event"] == "resume"]
+            res = [r for r in DATA[c][0] if r["event"] == "resume"]  # GPU 1 wakes
             x = np.array([r.get("kv_bytes", 0) / GB for r in res])
             y = np.array([restore_s(r) for r in res])
             st = style(c)
@@ -123,8 +126,8 @@ def fig_restore_vs_kv():
     axes[0].set_ylabel("Restore time (s)")
     axes[0].set_ylim(0, None)
     headline(fig, "Restore time = weights floor + KV size / KV-path bandwidth",
-             "One point per wake during the trace (weights: Nemo-12B 25 GB, Llama-8B 17 GB). Lines: least-squares "
-             "fits, labeled with the KV path's effective bandwidth. Recompute (gray) restores no KV.")
+             "GPU 1 (3x Mistral-Nemo-12B, 25 GB weights each, + Llama-3.1-8B, 17 GB). One point per wake during "
+             "the trace. Lines: least-squares fits, labeled with the KV path's bandwidth. Recompute (gray): no KV.")
     for ax in axes:
         ax.margins(x=0)
     axes[1].set_xlim(-0.3, 15.5)
@@ -176,56 +179,87 @@ def fig_restore_breakdown():
 
 
 # 3. DRAM traffic -------------------------------------------------------------------------
-def dram_split(cfg):
-    """GB through host DRAM during the trace, split by direction and by weights(+state) / KV."""
-    out = {"sleep_weights": 0, "sleep_kv": 0, "wake_weights": 0, "wake_kv": 0}
-    for r in DATA[cfg][0]:
+STORAGE = {"ssd", "gds"}
+
+
+def traffic(cfg):
+    """GB on GPU 1: through host DRAM (sleep/wake, weights+state / KV) and SSD I/O, plus the startup save."""
+    trace, startup, _ = DATA[cfg]
+    t = dict(startup_dram=0.0, startup_ssd=0.0, sleep_weights=0.0, sleep_kv=0.0, wake_weights=0.0,
+             wake_kv=0.0, ssd=0.0)
+    for r in startup:  # the one-time weight save (+ state) right after launch
+        moved = r.get("weights_save_host_bytes", 0) + r["state_save_host_bytes"] + r["kv_save_host_bytes"]
+        t["startup_dram"] += moved / GB
+        if r["weights_path"] in STORAGE:
+            t["startup_ssd"] += (r["weights_bytes"] + r["state_bytes"]) / GB
+    for r in trace:
         if r["event"] == "resume":
-            out["wake_weights"] += r["weights_host_bytes"] / GB
-            out["wake_kv"] += r.get("kv_host_bytes", 0) / GB
+            t["wake_weights"] += r["weights_host_bytes"] / GB
+            t["wake_kv"] += r.get("kv_host_bytes", 0) / GB
+            t["ssd"] += (r["weights_bytes"] if r["weights_path"] in STORAGE else 0) / GB
+            t["ssd"] += (r.get("kv_bytes", 0) if r["kv_path"] in STORAGE else 0) / GB
         else:
-            out["sleep_weights"] += r["state_save_host_bytes"] / GB
-            out["sleep_kv"] += r["kv_save_host_bytes"] / GB
-    return out
+            t["sleep_weights"] += r["state_save_host_bytes"] / GB
+            t["sleep_kv"] += r["kv_save_host_bytes"] / GB
+            t["ssd"] += (r["state_bytes"] if r["weights_path"] in STORAGE else 0) / GB
+            t["ssd"] += (r["kv_bytes"] if r["kv_path"] in STORAGE else 0) / GB
+    return t
 
 
 def fig_dram_traffic():
-    rows = json.load(open(os.path.join(RES, "comparison", "paths_rep2.json")))
+    from matplotlib.patches import Patch
+
     cfgs = list(CONFIGS)[::-1]
-    split = {c: dram_split(c) for c in cfgs}
-    fig, axes = plt.subplots(1, 3, sharey=True, gridspec_kw=dict(width_ratios=[1.6, 1.6, 1], wspace=0.2))
-    fig.subplots_adjust(left=0.245, right=0.97, top=0.68, bottom=0.12)
+    tr = {c: traffic(c) for c in cfgs}
+    fig, axes = plt.subplots(1, 3, sharey=True, gridspec_kw=dict(width_ratios=[1.6, 1.6, 1.3], wspace=0.2))
+    fig.subplots_adjust(left=0.245, right=0.97, top=0.64, bottom=0.12)
     y = np.arange(len(cfgs))
     W_C, KV_C = "#52514e", "#86b6ef"
-    for ax, key, title in ((axes[0], "sleep", "Sleep: GPU → DRAM"), (axes[1], "wake", "Wake: DRAM → GPU")):
-        w = np.array([split[c][key + "_weights"] for c in cfgs])
-        kv = np.array([split[c][key + "_kv"] for c in cfgs])
-        ax.barh(y, w, height=0.55, color=W_C, edgecolor=SURFACE, linewidth=2,
-                label="weights + runtime state" if key == "wake" else "runtime state (weights are saved once, at startup)")
-        ax.barh(y, kv, left=w, height=0.55, color=KV_C, edgecolor=SURFACE, linewidth=2, label="KV")
-        for yi, a, b in zip(y, w, kv):
-            ax.text(a + b + 5, yi, f"{a + b:.0f}" + (f"  (KV {b:.0f})" if b >= 1 else ""), va="center", fontsize=15)
-        ax.set_xlim(0, 470)
-        ax.set_title(title, loc="left", fontweight="bold", pad=10)
+    hatch = dict(facecolor=SURFACE, edgecolor=W_C, hatch="///", linewidth=1.5)
+    # sleep: startup save (hatched) + trace sleeps; wake: trace wakes
+    a = axes[0]
+    st = np.array([tr[c]["startup_dram"] for c in cfgs])
+    w = np.array([tr[c]["sleep_weights"] for c in cfgs])
+    kv = np.array([tr[c]["sleep_kv"] for c in cfgs])
+    a.barh(y, st, height=0.55, **hatch)
+    a.barh(y, w, left=st, height=0.55, color=W_C, edgecolor=SURFACE, linewidth=2)
+    a.barh(y, kv, left=st + w, height=0.55, color=KV_C, edgecolor=SURFACE, linewidth=2)
+    for yi, s0, a1, b1 in zip(y, st, w, kv):
+        a.text(s0 + a1 + b1 + 5, yi, f"{s0 + a1 + b1:.0f}" + (f"  (trace {a1 + b1:.0f})" if s0 else ""),
+               va="center", fontsize=15)
+    a.set_title("Sleep: GPU → DRAM", loc="left", fontweight="bold", pad=10)
+    b = axes[1]
+    w = np.array([tr[c]["wake_weights"] for c in cfgs])
+    kv = np.array([tr[c]["wake_kv"] for c in cfgs])
+    b.barh(y, w, height=0.55, color=W_C, edgecolor=SURFACE, linewidth=2)
+    b.barh(y, kv, left=w, height=0.55, color=KV_C, edgecolor=SURFACE, linewidth=2)
+    for yi, a1, b1 in zip(y, w, kv):
+        b.text(a1 + b1 + 5, yi, f"{a1 + b1:.0f}" + (f"  (KV {b1:.0f})" if b1 >= 1 else ""), va="center", fontsize=15)
+    b.set_title("Wake: DRAM → GPU", loc="left", fontweight="bold", pad=10)
+    for ax in axes[:2]:
+        ax.set_xlim(0, 420)
         ax.set_xlabel("GB")
-    from matplotlib.patches import Patch
-    axes[0].legend(handles=[Patch(color=W_C, label="weights + runtime state (weights are written to DRAM once, at startup)"),
-                            Patch(color=KV_C, label="KV")],
-                   loc="lower left", bbox_to_anchor=(0, 1.09), ncol=2, frameon=False, fontsize=15)
-    b = axes[2]
-    ssd = [rows[c]["storage_io_gb"] for c in cfgs]
-    b.barh(y, ssd, height=0.55, color=GRAY)
-    for yi, v in zip(y, ssd):
-        b.text(v + 6, yi, f"{v:.0f}", va="center", fontsize=15)
-    b.set_title("SSD I/O", loc="left", fontweight="bold", pad=10)
-    b.set_xlabel("GB")
-    b.set_xlim(0, 520)
+    c3 = axes[2]
+    st = np.array([tr[c]["startup_ssd"] for c in cfgs])
+    io = np.array([tr[c]["ssd"] for c in cfgs])
+    c3.barh(y, st, height=0.55, **hatch)
+    c3.barh(y, io, left=st, height=0.55, color=GRAY, edgecolor=SURFACE, linewidth=2)
+    for yi, s0, v in zip(y, st, io):
+        c3.text(s0 + v + 6, yi, f"{s0 + v:.0f}", va="center", fontsize=15)
+    c3.set_title("SSD I/O", loc="left", fontweight="bold", pad=10)
+    c3.set_xlim(0, 520)
+    c3.set_xlabel("GB")
     axes[0].set_yticks(y, [CONFIGS[c][0] for c in cfgs])
     for ax in axes:
         ax.grid(axis="y", visible=False)
-    headline(fig, "Weights dominate DRAM traffic; GDS keeps KV out of DRAM",
-             "Trace totals (startup weight saves excluded). Each wake reads the whole model (17-25 GB); a sleep "
-             "writes only KV + ~0.6 GB state. POSIX SSD I/O also passes a host bounce buffer.")
+    axes[0].legend(handles=[Patch(label="startup: weights saved once", **hatch),
+                            Patch(color=W_C, label="trace: weights + runtime state"),
+                            Patch(color=KV_C, label="trace: KV"),
+                            Patch(color=GRAY, label="trace: SSD I/O")],
+                   loc="lower left", bbox_to_anchor=(0, 1.09), ncol=2, frameon=False, fontsize=15)
+    headline(fig, "Weights are saved once, then read back on every wake",
+             "GPU 1 (3x Mistral-Nemo-12B + Llama-3.1-8B). A trace sleep writes only KV + ~0.6 GB state; "
+             "a wake reads the whole model (17-25 GB). GDS keeps KV out of DRAM; POSIX SSD passes a host buffer.")
     save(fig, "dram_traffic.png")
 
 
@@ -234,7 +268,7 @@ def fig_ttft():
     fig, axes = plt.subplots(1, 2, gridspec_kw=dict(wspace=0.15))
     fig.subplots_adjust(left=0.07, right=0.68, top=0.74, bottom=0.12)
     for c in CONFIGS:
-        t = DATA[c][1]
+        t = DATA[c][2]
         q = np.arange(1, len(t) + 1) / len(t)
         st = style(c)
         for ax in axes:
@@ -250,7 +284,7 @@ def fig_ttft():
     axes[1].set_xlim(0.3, 60)
     axes[1].set_title("Tail (top 5%)", loc="left", fontweight="bold", pad=12)
     axes[1].legend(loc="center left", bbox_to_anchor=(1.03, 0.5), frameon=False, fontsize=16, labelspacing=0.9)
-    n = len(DATA["dram+dram"][1])
+    n = len(DATA["dram+dram"][2])
     headline(fig, "DRAM weights + SSD/GDS KV: the shortest TTFT tail",
              f"Requests to the pressured GPU (4 models, {n} requests). Prism Arena trace, time scale 0.2, "
              "replication 2, one run per config.")
