@@ -8,6 +8,9 @@
 # SLEEP_AFTER_START=1 enables vLLM sleep mode and puts each instance to sleep
 # (level 1: weights backed up to CPU DRAM) right after it is healthy, so the next
 # one has room; startup.tsv then also records memory while asleep.
+# TIERED_WEIGHTS / TIERED_KV set (with sleep mode): the tiered_restore plugin
+# offloads weights and KV to those paths. Each instance gets its own files under
+# $TIERED_ROOT/<name> and logs to <run_dir>/tiered_<name>.jsonl.
 # CONTINUE_ON_FAIL=1 records an instance that fails to start in failed.tsv
 # ("name<TAB>gpu<TAB>port<TAB>seconds") and goes on with the rest; otherwise the
 # first failure stops the launch.
@@ -82,7 +85,12 @@ while IFS=$'\t' read -r name model gpu port; do
     log="$RUN_DIR/server_${name}.log"
     echo "[$MODE] starting $name ($model) on GPU $gpu port $port -> $log"
     start=$SECONDS
-    CUDA_VISIBLE_DEVICES=$gpu KVCACHED_IPC_NAME="kvc_${name}_${port}" setsid vllm serve "$model" \
+    tiered_env=()
+    if [[ -n "${TIERED_WEIGHTS:-}" ]]; then
+        mkdir -p "$TIERED_ROOT/$name"
+        tiered_env=(TIERED_DIR="$TIERED_ROOT/$name" TIERED_LOG="$RUN_DIR/tiered_${name}.jsonl")
+    fi
+    env "${tiered_env[@]}" CUDA_VISIBLE_DEVICES=$gpu KVCACHED_IPC_NAME="kvc_${name}_${port}" setsid vllm serve "$model" \
         --host localhost --port "$port" \
         "${common_args[@]}" "${mode_args[@]}" > "$log" 2>&1 < /dev/null &
     pid=$!

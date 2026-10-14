@@ -1,0 +1,13 @@
+diff --git a/csrc/inc/gpu_vmm.hpp b/csrc/inc/gpu_vmm.hpp
+index 86c28c9..e6dbc40 100644
+--- a/csrc/inc/gpu_vmm.hpp
++++ b/csrc/inc/gpu_vmm.hpp
+@@ -197,6 +197,8 @@ inline allocation_prop_t make_pinned_device_allocation_prop(int dev_idx) {
+   prop.type = CU_MEM_ALLOCATION_TYPE_PINNED;
+   prop.location.type = CU_MEM_LOCATION_TYPE_DEVICE;
+   prop.location.id = dev_idx;
++  // Lets GPUDirect Storage / RDMA (cuFileBufRegister) pin KV pages for P2P DMA.
++  prop.allocFlags.gpuDirectRDMACapable = 1;
+   return prop;
+ }
+ 

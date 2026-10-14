@@ -6,7 +6,8 @@ suspend(level=1):
      Mutable regions (runner/sampler state allocated during load_model) are
      saved on every sleep. Both use the weights path.
   2. KV: the in-use kvcached pages (pages holding blocks of the frozen
-     requests) are saved to the KV store and unmapped.
+     requests) are saved to the KV store and unmapped. With TIERED_KV=recompute
+     nothing is saved: the requests were preempted and re-prefill on wake.
   3. Every cumem allocation is unmapped and released.
 resume():
   1. Physical memory is mapped back at the same virtual addresses (cumem
@@ -28,6 +29,7 @@ import threading
 import time
 
 import torch
+from torch._subclasses.fake_tensor import FakeTensor
 from vllm.device_allocator.cumem import CuMemAllocator, create_and_map, unmap_and_release
 from vllm.device_allocator.sleep_mode_backend import SleepModeBackend
 from vllm.logger import init_logger
@@ -76,7 +78,7 @@ class TieredBackend(SleepModeBackend):
         self.device = torch.cuda.current_device()
         threads, chunk_mb = int(_env("TIERED_IO_THREADS", "8")), int(_env("TIERED_CHUNK_MB", "64"))
         self.stores = {}
-        for path in {self.weights_path, self.kv_path}:
+        for path in {self.weights_path, self.kv_path} - {"recompute"}:
             self.stores[path] = make_store(path, self.device, self.root, threads, chunk_mb)
         # [(gpu_ptr, nbytes, store_offset)], fixed at the first sleep: static weights and mutable state
         self.weight_regions = self.state_regions = None
@@ -126,10 +128,12 @@ class TieredBackend(SleepModeBackend):
         try:
             objs = gc.get_objects()
             module_ptrs = {t.untyped_storage().data_ptr() for o in objs if isinstance(o, torch.nn.Module)
-                           for t in itertools.chain(o.parameters(recurse=False), o.buffers(recurse=False))}
+                           for t in itertools.chain(o.parameters(recurse=False), o.buffers(recurse=False))
+                           if not isinstance(t, FakeTensor)}
             mutable = set()
             for o in objs:
-                if isinstance(o, torch.Tensor) and o.is_cuda:
+                # FakeTensors (torch.compile tracing leftovers) own no memory
+                if isinstance(o, torch.Tensor) and o.is_cuda and not isinstance(o, FakeTensor):
                     p = o.untyped_storage().data_ptr()
                     i = bisect.bisect_right(starts, p) - 1
                     if p not in module_ptrs and i >= 0 and p < starts[i] + size[starts[i]]:
@@ -181,11 +185,14 @@ class TieredBackend(SleepModeBackend):
                    state_save_s=time.perf_counter() - t, state_save_host_bytes=st["host_bytes"])
 
         t = time.perf_counter()
-        self.kv_saved = self._kv_pages()
+        # recompute: vLLM's cache reset already preempted the frozen requests; nothing to keep
+        self.kv_saved = [] if self.kv_path == "recompute" else self._kv_pages()
         kv_regions = [r for _, _, regions in self.kv_saved for r in regions]
         st = self.stores[self.kv_path].save("kv", kv_regions) if kv_regions else {"bytes": 0, "host_bytes": 0}
         rec.update(kv_pages=len(kv_regions), kv_bytes=st["bytes"], kv_save_s=time.perf_counter() - t,
-                   kv_save_host_bytes=st["host_bytes"])
+                   kv_save_host_bytes=st["host_bytes"],
+                   kv_save_unregistered_chunks=st.get("unregistered_chunks", 0),
+                   kv_save_gate_wait_s=st.get("gate_wait_s", 0))
         if self.verify:
             self.sums = {r[0]: _checksum(*r[:2]) for r in self.weight_regions + self.state_regions + kv_regions}
 
@@ -246,7 +253,7 @@ class TieredBackend(SleepModeBackend):
                 for kind, regions in parts:
                     if regions:
                         for k, v in store.load(kind, regions).items():
-                            moved[k] += v
+                            moved[k] = moved.get(k, 0) + v  # bytes, host_bytes, GDS counters
             except BaseException as e:  # re-raised on the calling thread
                 errors.append(e)
                 return

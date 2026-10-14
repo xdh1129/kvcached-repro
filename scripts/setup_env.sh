@@ -6,6 +6,9 @@ ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 cd "$ROOT"
 
 git submodule update --init third_party/kvcached
+# KV pages must be GPUDirect-RDMA capable for GDS registration (tiered_restore's gds path).
+git -C third_party/kvcached apply --check ../../patches/kvcached-gpudirect-rdma.patch 2> /dev/null \
+    && git -C third_party/kvcached apply ../../patches/kvcached-gpudirect-rdma.patch
 
 uv venv .venv --python 3.12
 source .venv/bin/activate
@@ -19,5 +22,6 @@ uv pip install setuptools wheel ninja pandas matplotlib nvidia-ml-py
 
 source scripts/cuda_env.sh
 uv pip install -e third_party/kvcached --no-build-isolation --no-cache-dir
+uv pip install -e tiered_restore --no-build-isolation
 
 python -c "import torch, vllm, kvcached; print('torch', torch.__version__, 'cuda', torch.version.cuda); print('vllm', vllm.__version__); print('kvcached', kvcached.__file__)"

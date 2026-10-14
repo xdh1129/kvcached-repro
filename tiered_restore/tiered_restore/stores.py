@@ -7,8 +7,10 @@ holds. save() copies GPU -> store, load() copies store -> GPU. Each call returns
 the bytes moved and how many of them passed through host DRAM.
 """
 
+import fcntl
 import os
 import threading
+import time
 from concurrent.futures import ThreadPoolExecutor
 
 import torch
@@ -42,7 +44,10 @@ class DramStore:
     def _buffer(self, kind, size):
         buf = self.buffers.get(kind)
         if buf is None or buf.numel() < size:
-            self.buffers[kind] = buf = torch.empty(size, dtype=torch.uint8, pin_memory=True)
+            # Pinning is slow (seconds for tens of GB): grow geometrically so KV saves rarely re-pin.
+            grown = size if buf is None or kind == "weights" else max(size, buf.numel() * 3 // 2)
+            self.buffers[kind] = None
+            self.buffers[kind] = buf = torch.empty(grown, dtype=torch.uint8, pin_memory=True)
         return buf
 
     def _copy(self, kind, regions, to_gpu):
@@ -136,20 +141,79 @@ class SsdStore(_FileStore):
                 raise IOError(f"short write at {off} in {kind}")
 
 
+class _HostGate:
+    """Host-wide mutual exclusion across processes (flock), shared by the threads of one process.
+
+    The first thread of a process to enter takes the file lock; the last to leave
+    releases it. Threads of the same process (weights and KV loads) run together.
+    """
+
+    def __init__(self, path: str):
+        self.fd = os.open(path, os.O_CREAT | os.O_RDWR, 0o600)
+        self.cv = threading.Lock()
+        self.users = 0
+
+    def enter(self) -> float:
+        t = time.perf_counter()
+        with self.cv:
+            if self.users == 0:
+                fcntl.flock(self.fd, fcntl.LOCK_EX)  # other threads of this process wait on cv meanwhile
+            self.users += 1
+        return time.perf_counter() - t
+
+    def leave(self) -> None:
+        with self.cv:
+            self.users -= 1
+            if self.users == 0:
+                fcntl.flock(self.fd, fcntl.LOCK_UN)
+
+
 class GdsStore(_FileStore):
-    """cuFile reads/writes straight between the NVMe and GPU memory (no host bounce)."""
+    """cuFile reads/writes straight between the NVMe and GPU memory (no host bounce).
+
+    Each I/O chunk is registered with cuFileBufRegister just for that I/O. An
+    unregistered GPU buffer makes cuFile stage every 1 MiB through internal GPU
+    bounce buffers and copy them on a CUDA stream. That copy competes with other
+    processes' kernels on the GPU: measured 13.3 -> 2.3 GiB/s on a GPU busy with
+    another model, unless an idle GPU near the NVMe is visible to host the bounce
+    buffers. A registered chunk is DMAed in place and keeps ~12.6 GiB/s (chunks of
+    256 MiB, registration cost included). Registering a whole multi-GiB region at
+    once does not help (2.6 GiB/s), hence per-chunk registration. The memory is
+    remapped on every wake, so registrations cannot outlive one I/O.
+
+    GDS transfers of different processes are serialized host-wide (flock on
+    TIERED_GDS_LOCK, default <parent of TIERED_DIR>/.gds.lock). Two processes
+    reading concurrently got only ~2-3 GiB/s each (about 6 in total) in this
+    Python path, while one at a time gets ~13; they share the same SSDs anyway.
+    gdsio does not show this (6.5 + 6.5); the cause is not known yet.
+    """
 
     name = "gds"
     via_host = False
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, device: int, root: str, threads: int, chunk_mb: int):
         import cuda.bindings.cufile as cufile
 
         self.cufile = cufile
         cufile.driver_open()
         self.handles: dict[str, int] = {}
         self.descrs = {}
-        super().__init__(*args, **kwargs)
+        self.lock = threading.Lock()
+        self.unregistered = 0  # chunks that could not be registered (slow bounce-buffer path)
+        super().__init__(device, root, threads, int(os.environ.get("TIERED_GDS_CHUNK_MB", "256")))
+        self.gate = _HostGate(os.environ.get("TIERED_GDS_LOCK") or
+                              os.path.join(os.path.dirname(os.path.normpath(root)), ".gds.lock"))
+
+    def _run(self, kind, regions, to_gpu):
+        before = self.unregistered
+        wait = self.gate.enter()
+        try:
+            st = super()._run(kind, regions, to_gpu)
+        finally:
+            self.gate.leave()
+        st["unregistered_chunks"] = self.unregistered - before
+        st["gate_wait_s"] = wait
+        return st
 
     def _opened(self, kind, fd):
         cf = self.cufile
@@ -163,7 +227,18 @@ class GdsStore(_FileStore):
     def _io(self, kind, gpu_ptr, n, off, to_gpu):
         fh = self.handles[kind]
         fn = self.cufile.read if to_gpu else self.cufile.write
-        got = fn(fh, gpu_ptr, n, off, 0)
+        try:
+            self.cufile.buf_register(gpu_ptr, n, 0)
+        except self.cufile.cuFileError:
+            # e.g. memory from cuMemCreate without gpuDirectRDMACapable: fall back to bounce buffers
+            with self.lock:
+                self.unregistered += 1
+            got = fn(fh, gpu_ptr, n, off, 0)
+        else:
+            try:
+                got = fn(fh, gpu_ptr, n, off, 0)
+            finally:
+                self.cufile.buf_deregister(gpu_ptr)
         if got != n:
             raise IOError(f"cuFile {'read' if to_gpu else 'write'} {got}/{n} at {off} in {kind}")
 

@@ -4,3 +4,4 @@ __pycache__/
 logs/
 cufile.log
 *.egg-info/
+results/.suite_*.log

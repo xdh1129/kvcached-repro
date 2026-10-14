@@ -1,0 +1,26 @@
+mode=kvcached
+date=2026-10-15T00:17:43+08:00
+repo_git=0bc4fea
+kvcached_git=v0.1.6
+prism_git=595ec1f
+vllm=0.30.0
+torch=2.13.0+cu130
+driver=580.159.03
+gpu_name=NVIDIA RTX PRO 6000 Blackwell Server Edition
+prism_gpus=1 2
+placement=/home/poc/xdh/kvcached-repro/third_party/prism-research/experiments/experiments_1/model_configs/swap_8_2gpus.json
+time_scale=0.2
+replication=2
+max_model_len=4096
+kvcached_gpu_utilization=0.95
+sample_interval=0.25
+swap=tiered paths=dram+gds weights=dram kv=gds parallel=1
+tiered_root=/mnt/raid0/xdh/tiered/prism_8m2g_rep2_kvp_dram+gds
+min_resident_s=5
+kv_pressure=1
+pressure_free_gib=6
+swap_headroom_gib=3
+launch_start=1791994667.178244969
+launch_end=1791994992.829332479
+workload_start=1791995004.002
+workload_end=1791995165.634369705

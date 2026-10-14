@@ -6,7 +6,7 @@ is set, it also does three things:
 
 1. Selects ``tiered`` in place of the default ``cumem`` backend. vLLM 0.30
    has no CLI flag for ``sleep_mode_backend``.
-2. Keeps the KV of paused requests. ``sleep(level=1, mode="keep")`` normally
+2. Keeps the KV of paused requests (unless TIERED_KV=recompute). ``sleep(level=1, mode="keep")`` normally
    resets the prefix cache with ``reset_running_requests=True``, which preempts
    the frozen requests and throws their KV away. Under PAUSED_ALL ("keep") the
    cache reset is now skipped, so the requests resume on the restored KV.
@@ -15,12 +15,15 @@ is set, it also does three things:
 
 Configuration (environment):
   TIERED_WEIGHTS   dram | ssd | gds   where weights go on sleep
-  TIERED_KV        dram | ssd | gds   where in-use KV pages go on sleep
+  TIERED_KV        dram | ssd | gds   where in-use KV pages go on sleep;
+                   recompute: KV is not kept (Prism's RECOMPUTE preemption): vLLM's
+                   cache reset preempts the frozen requests, which re-prefill on wake
   TIERED_PARALLEL  1 (default) loads weights and KV concurrently on wake; 0 loads
                    weights first, then KV
   TIERED_DIR       directory for ssd/gds files (one per instance)
   TIERED_LOG       JSON-lines file, one line per suspend/resume
   TIERED_IO_THREADS, TIERED_CHUNK_MB   I/O parallelism and chunk size (8, 64)
+  TIERED_GDS_CHUNK_MB   GDS chunk size, registered per I/O (256)
 """
 
 import os
@@ -37,7 +40,8 @@ def register() -> None:
         return
     setattr(SleepModeBackendFactory, _PATCHED, True)
     _select_tiered_backend(SleepModeBackendFactory)
-    _keep_kv_on_keep_pause()
+    if os.environ.get("TIERED_KV") != "recompute":
+        _keep_kv_on_keep_pause()
     _record_kvcached_tensors()
 
 

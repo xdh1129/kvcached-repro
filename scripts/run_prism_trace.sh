@@ -7,6 +7,15 @@
 #      PLACEMENT   Prism-format placement JSON (default: swap_8_2gpus.json)
 #      SWAP=1      DRAM weight swapping: instances start asleep and scripts/swap_proxy.py
 #                  wakes them on demand, evicting idle LRU instances for room
+#      PATHS=<weights>+<kv>[:seq]  agent-restore swapping with the tiered_restore plugin,
+#                  e.g. dram+gds: weights offloaded to DRAM, KV to GDS (paths: dram|ssd|gds).
+#                  Implies SWAP=1, and the proxy evicts without draining (--keep).
+#                  :seq loads weights then KV instead of both at once.
+#                  Files go to TIERED_ROOT (default /mnt/raid0/xdh/tiered/<run_name>), removed at the end.
+#      MIN_RESIDENT_S  with PATHS: minimum residency of a busy woken instance (default 5)
+#      KV_PRESSURE=1   with PATHS: the proxy also time-shares a GPU whose busy instances
+#                  are short of KV memory (swap_proxy.py --kv-pressure)
+#      PRESSURE_FREE_GIB  free-memory threshold for KV pressure (default 6)
 #      HEADROOM_GIB  swap proxy free-memory margin beyond the wake size (default 3)
 #      CONTINUE_ON_FAIL=1  an instance that fails to start is skipped (failed.tsv) and the
 #                  trace still runs; requests for it fail and are recorded as failures
@@ -29,6 +38,20 @@ TIME_SCALE=${TIME_SCALE:-0.2}
 REPLICATION=${REPLICATION:-1}
 SWAP=${SWAP:-0}
 HEADROOM_GIB=${HEADROOM_GIB:-3}
+PATHS=${PATHS:-}
+MIN_RESIDENT_S=${MIN_RESIDENT_S:-5}
+proxy_args=()
+if [[ -n "$PATHS" ]]; then
+    SWAP=1
+    paths=${PATHS%%:*}
+    export TIERED_WEIGHTS=${paths%+*} TIERED_KV=${paths#*+}
+    export TIERED_PARALLEL=$([[ "$PATHS" == *:seq ]] && echo 0 || echo 1)
+    export TIERED_ROOT=${TIERED_ROOT:-/mnt/raid0/xdh/tiered/$RUN_NAME}
+    proxy_args=(--keep --min-resident-s "$MIN_RESIDENT_S")
+    if [[ "${KV_PRESSURE:-0}" == 1 ]]; then
+        proxy_args+=(--kv-pressure --pressure-free-gib "${PRESSURE_FREE_GIB:-6}")
+    fi
+fi
 PROXY_PORT=${PROXY_PORT:-30999}
 PLACEMENT=${PLACEMENT:-"$ROOT/third_party/prism-research/experiments/experiments_1/model_configs/swap_8_2gpus.json"}
 mkdir -p "$RUN_DIR"
@@ -65,7 +88,15 @@ done
     echo "max_model_len=$MAX_MODEL_LEN"
     echo "kvcached_gpu_utilization=$KVCACHED_GPU_UTILIZATION"
     echo "sample_interval=0.25"
-    echo "swap=$([[ "$SWAP" == 1 ]] && echo dram || echo none)"
+    if [[ -n "$PATHS" ]]; then
+        echo "swap=tiered paths=$PATHS weights=$TIERED_WEIGHTS kv=$TIERED_KV parallel=$TIERED_PARALLEL"
+        echo "tiered_root=$TIERED_ROOT"
+        echo "min_resident_s=$MIN_RESIDENT_S"
+        echo "kv_pressure=${KV_PRESSURE:-0}"
+        [[ "${KV_PRESSURE:-0}" == 1 ]] && echo "pressure_free_gib=${PRESSURE_FREE_GIB:-6}"
+    else
+        echo "swap=$([[ "$SWAP" == 1 ]] && echo dram || echo none)"
+    fi
     [[ "$SWAP" == 1 ]] && echo "swap_headroom_gib=$HEADROOM_GIB"
 } > "$RUN_DIR/config.txt"
 
@@ -74,6 +105,7 @@ cleanup() {
     [[ -n "$PROXY_PID" ]] && kill "$PROXY_PID" 2> /dev/null
     [[ -n "$MONITOR_PID" ]] && kill "$MONITOR_PID" 2> /dev/null && wait "$MONITOR_PID" 2> /dev/null
     bash "$ROOT/scripts/stop_servers.sh" "$RUN_DIR"
+    [[ -n "$PATHS" ]] && rm -rf "$TIERED_ROOT"
     "$PY" "$ROOT/analysis/prism_run_report.py" "$RUN_DIR" || true
 }
 trap cleanup EXIT
@@ -95,7 +127,7 @@ fi
 
 replay_args=()
 if [[ "$SWAP" == 1 ]]; then
-    "$PY" "$ROOT/scripts/swap_proxy.py" "$RUN_DIR" --port "$PROXY_PORT" --headroom-gib "$HEADROOM_GIB" \
+    "$PY" "$ROOT/scripts/swap_proxy.py" "$RUN_DIR" --port "$PROXY_PORT" --headroom-gib "$HEADROOM_GIB" "${proxy_args[@]}" \
         > "$RUN_DIR/proxy.log" 2>&1 &
     PROXY_PID=$!
     until curl -sf "http://localhost:$PROXY_PORT/health" > /dev/null; do
