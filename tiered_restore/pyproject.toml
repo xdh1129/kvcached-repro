@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tiered-restore"
+version = "0.1.0"
+description = "vLLM sleep-mode backend that offloads weights and kvcached KV pages to DRAM, SSD or GDS and restores them over two paths in parallel"
+requires-python = ">=3.12"
+
+[project.entry-points."vllm.general_plugins"]
+tiered_restore = "tiered_restore:register"
+
+[tool.setuptools]
+packages = ["tiered_restore"]
