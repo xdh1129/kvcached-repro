@@ -176,37 +176,56 @@ def fig_restore_breakdown():
 
 
 # 3. DRAM traffic -------------------------------------------------------------------------
+def dram_split(cfg):
+    """GB through host DRAM during the trace, split by direction and by weights(+state) / KV."""
+    out = {"sleep_weights": 0, "sleep_kv": 0, "wake_weights": 0, "wake_kv": 0}
+    for r in DATA[cfg][0]:
+        if r["event"] == "resume":
+            out["wake_weights"] += r["weights_host_bytes"] / GB
+            out["wake_kv"] += r.get("kv_host_bytes", 0) / GB
+        else:
+            out["sleep_weights"] += r["state_save_host_bytes"] / GB
+            out["sleep_kv"] += r["kv_save_host_bytes"] / GB
+    return out
+
+
 def fig_dram_traffic():
     rows = json.load(open(os.path.join(RES, "comparison", "paths_rep2.json")))
     cfgs = list(CONFIGS)[::-1]
-    fig, axes = plt.subplots(1, 2, sharey=True, gridspec_kw=dict(width_ratios=[2.2, 1], wspace=0.08))
-    fig.subplots_adjust(left=0.22, right=0.95, top=0.70, bottom=0.12)
+    split = {c: dram_split(c) for c in cfgs}
+    fig, axes = plt.subplots(1, 3, sharey=True, gridspec_kw=dict(width_ratios=[1.6, 1.6, 1], wspace=0.2))
+    fig.subplots_adjust(left=0.245, right=0.97, top=0.68, bottom=0.12)
     y = np.arange(len(cfgs))
-    out_c, in_c = "#1c5cab", "#86b6ef"
-    a = axes[0]
-    up = [rows[c]["dram_gpu_to_host_gb"] for c in cfgs]
-    down = [rows[c]["dram_host_to_gpu_gb"] for c in cfgs]
-    a.barh(y + 0.2, up, height=0.38, color=out_c, label="GPU → host DRAM (sleep: KV + runtime state)")
-    a.barh(y - 0.2, down, height=0.38, color=in_c, label="host DRAM → GPU (wake: weights + KV)")
-    for yi, u, dn in zip(y, up, down):
-        a.text(u + 4, yi + 0.2, f"{u:.0f}", va="center", fontsize=16)
-        a.text(dn + 4, yi - 0.2, f"{dn:.0f}", va="center", fontsize=16)
-    a.set_title("Bytes through host DRAM (GB)", loc="left", fontweight="bold", pad=10)
-    a.legend(loc="lower left", bbox_to_anchor=(0, 1.08), ncol=2, frameon=False, fontsize=15)
-    a.set_xlim(0, 420)
-    b = axes[1]
+    W_C, KV_C = "#52514e", "#86b6ef"
+    for ax, key, title in ((axes[0], "sleep", "Sleep: GPU → DRAM"), (axes[1], "wake", "Wake: DRAM → GPU")):
+        w = np.array([split[c][key + "_weights"] for c in cfgs])
+        kv = np.array([split[c][key + "_kv"] for c in cfgs])
+        ax.barh(y, w, height=0.55, color=W_C, edgecolor=SURFACE, linewidth=2,
+                label="weights + runtime state" if key == "wake" else "runtime state (weights are saved once, at startup)")
+        ax.barh(y, kv, left=w, height=0.55, color=KV_C, edgecolor=SURFACE, linewidth=2, label="KV")
+        for yi, a, b in zip(y, w, kv):
+            ax.text(a + b + 5, yi, f"{a + b:.0f}" + (f"  (KV {b:.0f})" if b >= 1 else ""), va="center", fontsize=15)
+        ax.set_xlim(0, 470)
+        ax.set_title(title, loc="left", fontweight="bold", pad=10)
+        ax.set_xlabel("GB")
+    from matplotlib.patches import Patch
+    axes[0].legend(handles=[Patch(color=W_C, label="weights + runtime state (weights are written to DRAM once, at startup)"),
+                            Patch(color=KV_C, label="KV")],
+                   loc="lower left", bbox_to_anchor=(0, 1.09), ncol=2, frameon=False, fontsize=15)
+    b = axes[2]
     ssd = [rows[c]["storage_io_gb"] for c in cfgs]
-    b.barh(y, ssd, height=0.5, color=INK2)
-    for yi, s in zip(y, ssd):
-        b.text(s + 6, yi, f"{s:.0f}", va="center", fontsize=16)
-    b.set_title("SSD I/O (GB)", loc="left", fontweight="bold", pad=12)
-    b.set_xlim(0, 470)
+    b.barh(y, ssd, height=0.55, color=GRAY)
+    for yi, v in zip(y, ssd):
+        b.text(v + 6, yi, f"{v:.0f}", va="center", fontsize=15)
+    b.set_title("SSD I/O", loc="left", fontweight="bold", pad=10)
+    b.set_xlabel("GB")
+    b.set_xlim(0, 520)
     axes[0].set_yticks(y, [CONFIGS[c][0] for c in cfgs])
     for ax in axes:
         ax.grid(axis="y", visible=False)
-    headline(fig, "GDS keeps KV out of host DRAM; weights dominate the rest",
-             "Totals over the whole trace (startup weight saves excluded). Runtime state ≈ 0.6 GB per sleep "
-             "goes with the weights.")
+    headline(fig, "Weights dominate DRAM traffic; GDS keeps KV out of DRAM",
+             "Trace totals (startup weight saves excluded). Each wake reads the whole model (17-25 GB); a sleep "
+             "writes only KV + ~0.6 GB state. POSIX SSD I/O also passes a host bounce buffer.")
     save(fig, "dram_traffic.png")
 
 
