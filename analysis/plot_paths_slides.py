@@ -270,7 +270,7 @@ def fig_dram_traffic():
 
 # 4. TTFT CDF -----------------------------------------------------------------------------
 def fig_ttft():
-    fig, axes = plt.subplots(1, 2, gridspec_kw=dict(wspace=0.15))
+    fig, axes = plt.subplots(1, 2, gridspec_kw=dict(wspace=0.22))
     fig.subplots_adjust(left=0.07, right=0.68, top=0.74, bottom=0.12)
     for c in CONFIGS:
         t = DATA[c][2]
@@ -282,12 +282,20 @@ def fig_ttft():
     for ax in axes:
         ax.set_xscale("log")
         ax.set_xlabel("Time to first token (s, log scale)")
+    ts = [DATA[c][2] for c in CONFIGS]
+    hi = max(t[-1] for t in ts) * 1.3  # both panels end just past the slowest request
+    axes[0].set_xlim(min(t[0] for t in ts) * 0.8, hi)
     axes[0].set_ylim(0, 1.0)
     axes[0].set_ylabel("Fraction of requests")
     axes[0].set_title("All requests", loc="left", fontweight="bold", pad=12)
     axes[1].set_ylim(0.95, 1.0)
-    axes[1].set_xlim(0.3, 60)
+    axes[1].set_xlim(min(np.percentile(t, 95) for t in ts) * 0.85, hi)
     axes[1].set_title("Tail (top 5%)", loc="left", fontweight="bold", pad=12)
+    for ax in axes:  # plain seconds instead of 10^k
+        lo, hi_ = ax.get_xlim()
+        ticks = [v for v in (0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50) if lo <= v <= hi_]
+        ax.set_xticks(ticks, [f"{v:g}" for v in ticks])
+        ax.xaxis.set_minor_locator(plt.NullLocator())
     axes[1].legend(loc="center left", bbox_to_anchor=(1.03, 0.5), frameon=False, fontsize=16, labelspacing=0.9)
     n = len(DATA["dram+dram"][2])
     headline(fig, "Keeping KV avoids the recompute tail",
