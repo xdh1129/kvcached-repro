@@ -1,7 +1,7 @@
 """Compare the offload-path configs of the Prism trace (one run directory per config).
 
 Default runs: results/prism_8m2g_rep2_kvp_<config> for the six configs
-  dram+recompute  weights -> DRAM, KV dropped and recomputed (Prism's RECOMPUTE)
+  dram+recompute  weights -> DRAM, KV dropped and recomputed (vLLM RECOMPUTE preemption)
   dram+dram       weights + KV -> DRAM
   ssd+ssd         weights + KV -> SSD (POSIX O_DIRECT through a pinned host buffer)
   gds+gds         weights + KV -> SSD via GDS (cuFile, no host buffer)

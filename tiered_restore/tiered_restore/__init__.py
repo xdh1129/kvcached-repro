@@ -16,7 +16,7 @@ is set, it also does three things:
 Configuration (environment):
   TIERED_WEIGHTS   dram | ssd | gds   where weights go on sleep
   TIERED_KV        dram | ssd | gds   where in-use KV pages go on sleep;
-                   recompute: KV is not kept (Prism's RECOMPUTE preemption): vLLM's
+                   recompute: KV is not kept (RECOMPUTE preemption): vLLM's
                    cache reset preempts the frozen requests, which re-prefill on wake
   TIERED_PARALLEL  1 (default) loads weights and KV concurrently on wake; 0 loads
                    weights first, then KV

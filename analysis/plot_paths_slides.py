@@ -36,7 +36,7 @@ GB = 1e9
 # config -> (label "weights / KV", KV color, weights from storage?)
 GRAY, BLUE, ORANGE, AQUA = "#8a8984", "#2a78d6", "#eb6834", "#1baf7a"
 CONFIGS = {
-    "dram+recompute": ("DRAM / recompute (Prism)", GRAY, False),
+    "dram+recompute": ("DRAM / recompute (no KV saved)", GRAY, False),
     "dram+dram": ("DRAM / DRAM", BLUE, False),
     "ssd+ssd": ("SSD / SSD", ORANGE, True),
     "gds+gds": ("GDS / GDS", AQUA, True),
@@ -217,7 +217,7 @@ def fig_dram_traffic():
     cfgs = list(CONFIGS)[::-1]
     tr = {c: traffic(c) for c in cfgs}
     fig, axes = plt.subplots(1, 3, sharey=True, gridspec_kw=dict(width_ratios=[1.6, 1.6, 1.3], wspace=0.2))
-    fig.subplots_adjust(left=0.245, right=0.97, top=0.64, bottom=0.12)
+    fig.subplots_adjust(left=0.275, right=0.97, top=0.64, bottom=0.12)
     y = np.arange(len(cfgs))
     W_C, KV_C = "#52514e", "#86b6ef"
     hatch = dict(facecolor=SURFACE, edgecolor=W_C, hatch="///", linewidth=1.5)
@@ -290,7 +290,7 @@ def fig_ttft():
     axes[1].set_title("Tail (top 5%)", loc="left", fontweight="bold", pad=12)
     axes[1].legend(loc="center left", bbox_to_anchor=(1.03, 0.5), frameon=False, fontsize=16, labelspacing=0.9)
     n = len(DATA["dram+dram"][2])
-    headline(fig, "Keeping KV avoids the recompute tail of Prism's approach",
+    headline(fig, "Keeping KV avoids the recompute tail",
              f"Requests to Prism GPU0 (3x Nemo-12B + Llama-8B, {n} requests). Arena-Chat trace, time scale 0.2, "
              f"replication 2, {RUN_NOTE}.")
     save(fig, "ttft_cdf.png")
