@@ -64,6 +64,10 @@ behind). A wake also waits until the GPU has room for it. A request for an
 asleep instance waits for that instance's next scheduled wake; if none is left,
 the normal policy wakes it. A scheduled sleep of an instance that was idle in
 the reference first waits for this run's in-flight requests on it to finish.
+If a scheduled wake still does not fit after 1 s (this run holds more memory than
+the reference did at that point), the next scheduled sleep of an awake instance is
+done early to make room; it is logged with early_for and skipped at its own time.
+If there is none, after 10 s an LRU eviction makes room (counted as a policy fallback).
 The LRU and KV-pressure policies are off while replaying. Each replayed swap records scheduled_s and lag_s in swaps.jsonl.
 
 usage: python swap_proxy.py <run_dir> [--port 30999] [--headroom-gib 3]
@@ -108,6 +112,7 @@ class Proxy:
         self.headroom_mib = headroom_mib
         self.keep, self.min_resident_s = keep, min_resident_s
         self.schedule = None  # set by load_schedule (--schedule)
+        self.pull_after_s = 1.0  # a scheduled wake that does not fit this long pulls the next sleep forward
         self.kv_pressure, self.pressure_free_mib = kv_pressure, pressure_free_mib
         self.starve_s, self.pressure_cooldown_s, self.poll_s = starve_s, pressure_cooldown_s, poll_s
         self.t0 = time.time()
@@ -363,19 +368,52 @@ class Proxy:
         for gpu, acts in self.schedule.items():
             asyncio.get_running_loop().create_task(self._run_schedule(gpu, acts))
 
+    def _next_sleep(self, acts, i, early, waking):
+        """Index of the first later scheduled sleep that is the next action of an awake instance."""
+        seen = {waking}
+        for j in range(i + 1, len(acts)):
+            name, action = acts[j][1], acts[j][2]
+            if name in seen:
+                continue
+            seen.add(name)
+            if action == "sleep" and j not in early and self.instances[name].awake:
+                return j
+        return None
+
     async def _run_schedule(self, gpu, acts):
         cond = self.cond[gpu]
-        for t, name, action, ref_inflight in acts:
+        early = set()  # indices of sleeps already done ahead of time
+        for i, (t, name, action, ref_inflight) in enumerate(acts):
+            if i in early:
+                continue
             delay = self.anchor + t - time.time()
             if delay > 0:
                 await asyncio.sleep(delay)
             inst = self.instances[name]
             async with cond:
                 if action == "wake":
+                    t_wait = time.time()
                     while not inst.awake:
                         _, free = self.used_free_mib(gpu)
                         if free >= inst.need_mib + self.headroom_mib:
                             break
+                        # This run's memory differs from the reference's (e.g. less KV freed), so
+                        # the wake may never fit while the sleeps that free room are scheduled
+                        # after it. After pull_after_s, do the next scheduled sleep early.
+                        j = self._next_sleep(acts, i, early, name) if time.time() - t_wait > self.pull_after_s else None
+                        if j is not None:
+                            early.add(j)
+                            await self._swap(self.instances[acts[j][1]], "sleep", "schedule",
+                                             {**self._lag(acts[j][0]), "early_for": name})
+                            t_wait = time.time()
+                            continue
+                        if j is None and time.time() - t_wait > 10:
+                            # no scheduled sleep left to pull: fall back to the LRU eviction (logged
+                            # with the waking instance as reason, so it counts as a policy fallback)
+                            awake = [x for x in self.instances.values() if x.gpu == gpu and x.awake and x is not inst]
+                            if await self._evict_keep(inst, awake):
+                                t_wait = time.time()
+                                continue
                         try:  # memory frees as requests finish
                             await asyncio.wait_for(cond.wait(), timeout=0.5)
                         except TimeoutError:

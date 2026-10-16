@@ -1,7 +1,8 @@
 """How faithfully each replay run followed the reference sleep/wake schedule.
 
 Per config (results/<prefix><config>/), against the reference schedule:
-  swaps        sleeps and wakes executed vs. scheduled (by instance and action, on every GPU)
+  swaps        sleeps and wakes executed vs. scheduled (by instance and action, on every GPU);
+               sleeps pulled early: done ahead of time to make room for a wake that did not fit
   lag          how late each replayed swap ran (lag_s; > 0 when a slower path falls behind)
   frozen       requests in flight at the busy sleeps, and total KV offloaded
 
@@ -33,9 +34,9 @@ def main():
              f"Reference: `{os.path.relpath(args.ref, ROOT)}`, {len(ref)} swaps "
              f"({sum(s['action'] == 'sleep' for s in ref)} sleeps, {sum(s['action'] == 'wake' for s in ref)} wakes).",
              "",
-             "| config | swaps run / scheduled | extra (policy fallback) | missing | lag s p50 / max "
-             "| busy sleeps | frozen requests | KV offloaded GB |",
-             "|---|---|---|---|---|---|---|---|"]
+             "| config | swaps run / scheduled | sleeps pulled early | extra (policy fallback) | missing "
+             "| lag s p50 / max | busy sleeps | frozen requests | KV offloaded GB |",
+             "|---|---|---|---|---|---|---|---|---|"]
     for c in CONFIGS:
         d = os.path.join(ROOT, "results", args.prefix + c)
         if not os.path.exists(os.path.join(d, "swaps.jsonl")):
@@ -51,7 +52,8 @@ def main():
             t0 = min(s["t_unix"] for s in sw)
             kv += sum(r["kv_bytes"] for r in map(json.loads, open(f))
                       if r["event"] == "suspend" and r["t_unix"] >= t0 - 1)
-        lines.append(f"| {c} | {sum(got.values())} / {len(ref)} | {extra} | {missing} "
+        early = sum("early_for" in s for s in sw)
+        lines.append(f"| {c} | {sum(got.values())} / {len(ref)} | {early} | {extra} | {missing} "
                      f"| {np.median(lag):.2f} / {max(lag):.2f} | {len(busy)} "
                      f"| {sum(s['inflight'] for s in busy)} | {kv / 1e9:.1f} |")
     text = "\n".join(lines) + "\n"
