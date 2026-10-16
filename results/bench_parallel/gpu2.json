@@ -1,0 +1,24 @@
+{
+ "gpu": "2",
+ "weights_gib": 23.3984375,
+ "kv_gib": 8.0,
+ "weights_alone_s": 0.4355857907794416,
+ "ssd": {
+  "kv_alone_s": 0.6080791600979865,
+  "sequential_s": 1.0432777954265475,
+  "parallel_s": 1.0202873619273305,
+  "parallel_weights_done_s": 0.43595780711621046,
+  "parallel_kv_done_s": 1.0201352736912668,
+  "max_alone_s": 0.6080791600979865,
+  "sum_alone_s": 1.043664950877428
+ },
+ "gds": {
+  "kv_alone_s": 1.33182750409469,
+  "sequential_s": 1.7835395969450474,
+  "parallel_s": 1.4121568128466606,
+  "parallel_weights_done_s": 0.47547001810744405,
+  "parallel_kv_done_s": 1.412066143937409,
+  "max_alone_s": 1.33182750409469,
+  "sum_alone_s": 1.7674132948741317
+ }
+}
