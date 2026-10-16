@@ -1,0 +1,261 @@
+{
+ "model": "meta-llama/Llama-3.2-3B",
+ "n_req": 8,
+ "max_tokens": 300,
+ "awake_gpu_mib": 8284,
+ "reference": [
+  {
+   "text": "The Roman Empire was the largest empire in the world in the first century AD. It was a huge empire that stretched from the Atlantic Ocean to the Persian Gulf. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the",
+   "done_s": 2.0286405086517334
+  },
+  {
+   "text": "Paragraph 0: notes about how photosynthesis works, item 1. Paragraph 1: notes about how photosynthesis works, item 8. Paragraph 2: notes about how photosynthesis works, item 15. Paragraph 3: notes about how photosynthesis works, item 22. Paragraph 4: notes about how photosynthesis works, item 29. Paragraph 5: notes about how photosynthesis works, item 36. Paragraph 6: notes about how photosynthesis works, item 43. Paragraph 7: notes about how photosynthesis works, item 50. Paragraph 8: notes about how photosynthesis works, item 57. Paragraph 9: notes about how photosynthesis works, item 64. Paragraph 10: notes about how photosynthesis works, item 71. Paragraph 11: notes about how photosynthesis works, item 78. Paragraph 12: notes about how photosynthesis works, item 85. Paragraph 13: notes about how photosynthesis works, item 92. Paragraph 14: notes about how photosynthesis works, item 99. Paragraph 15: notes about how photosynthesis works, item 106. Paragraph 16: notes about how photosynthesis works, item 113. Paragraph 17: notes about how photosynthesis works, item 120. Paragraph 18: notes about how photosynthesis works, item 127. Paragraph 19: notes about how photosynthesis works, item 134.",
+   "done_s": 2.031034231185913
+  },
+  {
+   "text": "The rules of chess are very simple. The game is played on a square board with 64 squares. The board is divided into 8 rows and 8 columns. Each player has 16 pieces, which are divided into 2 types: pawns and other pieces. The pawns are the only pieces that can move only in one direction, either forward or backward. The other pieces can move in any direction, but they can only capture pieces of the same color. The game is won by the player who captures all the opponent's pieces.\nThe rules of chess are very simple, but they can be very difficult to master. The game requires a lot of strategy and planning, as well as a good understanding of the rules. The game is also very fast-paced, so it is important to be able to think quickly and make good decisions.\nThe rules of chess are very simple, but they can be very difficult to master. The game requires a lot of strategy and planning, as well as a good understanding of the rules. The game is also very fast-paced, so it is important to be able to think quickly and make good decisions.\nThe rules of chess are very simple, but they can be very difficult to master. The game requires a lot of strategy and planning, as well as a good understanding of the rules. The game is also very fast-paced, so it is important to be able to think quickly and make good decisions.\nThe rules of chess are very simple, but they",
+   "done_s": 2.0308170318603516
+  },
+  {
+   "text": "The design of TCP congestion control is a complex and challenging task. It involves a number of factors, including the network topology, the number of nodes, the bandwidth, and the traffic patterns. The goal of TCP congestion control is to ensure that the network is able to handle the traffic without causing any congestion or packet loss. This is achieved by adjusting the transmission rate of the TCP packets based on the network conditions.\nThere are a number of different approaches to TCP congestion control, each with its own advantages and disadvantages. The most common approach is to use a sliding window algorithm, which adjusts the transmission rate based on the number of unacknowledged packets. This approach is simple and efficient, but it can lead to instability in the network if the network conditions change suddenly.\nAnother approach is to use a congestion avoidance algorithm, which adjusts the transmission rate based on the number of unacknowledged packets and the number of retransmissions. This approach is more complex and requires more computation, but it can provide better performance in the long run.\nThe design of TCP congestion control is a constantly evolving field, and new approaches are being developed all the time. The goal of TCP congestion control is to ensure that the network is able to handle the traffic without causing any congestion or packet loss. This is achieved by adjusting the transmission rate of the TCP packets based on the network conditions. There are a number of different approaches to TCP congestion control, each with its own advantages and disadvantages. The most common approach is to use",
+   "done_s": 2.0312459468841553
+  },
+  {
+   "text": "The life cycle of stars is a fascinating topic that has captivated astronomers and scientists for centuries. Stars are massive balls of gas that are held together by their own gravity. They are born from the collapse of a giant cloud of gas and dust, and they eventually die when they run out of fuel to burn. In between these two extremes, stars go through a series of stages, each with its own unique characteristics and properties.\nThe life cycle of stars can be divided into four main stages: the main sequence, the red giant branch, the asymptotic giant branch, and the white dwarf stage. The main sequence is the longest stage of a star's life, and it is during this stage that most of the star's energy is produced through nuclear fusion. The red giant branch is the next stage, and it is characterized by a star's expansion and cooling. The asymptotic giant branch is the final stage, and it is marked by a star's expansion and cooling. The white dwarf stage is the final stage, and it is marked by a star's expansion and cooling.\nThe life cycle of stars is a complex and fascinating topic that has captivated astronomers and scientists for centuries. By understanding the different stages of a star's life, we can gain a better understanding of the universe and the processes that govern it.1. The main sequence is the longest stage of a star's life, and it is during this stage that most of the star's energy is produced through nuclear fusion. The",
+   "done_s": 2.032285213470459
+  },
+  {
+   "text": "Paragraph 0: notes about baking sourdough bread, item 5.\nParagraph 1: notes about baking sourdough bread, item 12.\nParagraph 2: notes about baking sourdough bread, item 19.\nParagraph 3: notes about baking sourdough bread, item 26.\nParagraph 4: notes about baking sourdough bread, item 33.\nParagraph 5: notes about baking sourdough bread, item 40.\nParagraph 6: notes about baking sourdough bread, item 47.\nParagraph 7: notes about baking sourdough bread, item 54.\nParagraph 8: notes about baking sourdough bread, item 61.\nParagraph 9: notes about baking sourdough bread, item 68.\nParagraph 10: notes about baking sourdough bread, item 75.\nParagraph 11: notes about baking sourdough bread, item 82.\nParagraph 12: notes about baking sourdough bread, item 89.\nParagraph 13: notes about baking sourdough bread, item 96.\nParagraph 14: notes about baking sourdough bread, item 103.\nParagraph 15: notes about baking sourdough bread, item 110.\nParagraph 16: notes about baking sourdough bread, item 117.\nParagraph 17: notes about baking sourdough bread, item 124.\nParagraph 18: notes about baking sourdough bread,",
+   "done_s": 2.032747268676758
+  },
+  {
+   "text": "The French Revolution was a period of time in the history of France that began in 1789 and ended in 1799. It was a time of great change and upheaval in France, and it had a significant impact on the world. The French Revolution was caused by a number of factors, including the economic and social conditions in France, the political situation in France, and the influence of ideas from other countries. The economic and social conditions in France were very difficult for many people, and this led to a lot of discontent and unrest. The political situation in France was also very unstable, and this made it difficult for the government to deal with the problems that were facing the country. The influence of ideas from other countries, such as the American Revolution and the Enlightenment, also played a role in the French Revolution. These ideas helped to inspire the French people to take action and to demand change. The French Revolution was a complex and multifaceted event, and it had a lasting impact on the world. It was a time of great change and upheaval in France, and it had a significant impact on the world. The French Revolution was caused by a number of factors, including the economic and social conditions in France, the political situation in France, and the influence of ideas from other countries. The economic and social conditions in France were very difficult for many people, and this led to a lot of discontent and unrest. The political situation in France was also very unstable, and this made it difficult",
+   "done_s": 2.0317494869232178
+  },
+  {
+   "text": "Paragraph 0: notes about how vaccines train the immune system, item 7.\nParagraph 1: notes about how vaccines train the immune system, item 14.\nParagraph 2: notes about how vaccines train the immune system, item 21.\nParagraph 3: notes about how vaccines train the immune system, item 28.\nParagraph 4: notes about how vaccines train the immune system, item 35.\nParagraph 5: notes about how vaccines train the immune system, item 42.\nParagraph 6: notes about how vaccines train the immune system, item 49.\nParagraph 7: notes about how vaccines train the immune system, item 56.\nParagraph 8: notes about how vaccines train the immune system, item 63.\nParagraph 9: notes about how vaccines train the immune system, item 70.\nParagraph 10: notes about how vaccines train the immune system, item 77.\nParagraph 11: notes about how vaccines train the immune system, item 84.\nParagraph 12: notes about how vaccines train the immune system, item 91.\nParagraph 13: notes about how vaccines train the immune system, item 98.\nParagraph 14: notes about how vaccines train the immune system, item 105.\nParagraph 15: notes about how vaccines train the immune system, item 112.\nParagraph 16: notes about how vaccines train the immune system, item 119.\nParagraph 17: notes about how vaccines train the immune",
+   "done_s": 2.0320847034454346
+  }
+ ],
+ "noise": {
+  "compare": [
+   {
+    "match": true,
+    "common_prefix_chars": 1441,
+    "ref_chars": 1441
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1212,
+    "ref_chars": 1212
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1366,
+    "ref_chars": 1366
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1651,
+    "ref_chars": 1651
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1458,
+    "ref_chars": 1458
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1104,
+    "ref_chars": 1104
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1536,
+    "ref_chars": 1536
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1288,
+    "ref_chars": 1288
+   }
+  ],
+  "all_match": true
+ },
+ "restore": {
+  "events": {
+   "gpu": 4,
+   "sleep_start_s": 2.006686210632324,
+   "sleep_end_s": 5.491870164871216,
+   "asleep_gpu_mib": 1790,
+   "wake_start_s": 8.605433702468872,
+   "wake_end_s": 8.952852010726929,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "The Roman Empire was the largest empire in the world in the first century AD. It was a huge empire that stretched from the Atlantic Ocean to the Persian Gulf. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the world. The Roman Empire was a very powerful empire that had a lot of influence on the",
+    "done_s": 2.01098370552063
+   },
+   {
+    "text": "Paragraph 0: notes about how photosynthesis works, item 1. Paragraph 1: notes about how photosynthesis works, item 8. Paragraph 2: notes about how photosynthesis works, item 15. Paragraph 3: notes about how photosynthesis works, item 22. Paragraph 4: notes about how photosynthesis works, item 29. Paragraph 5: notes about how photosynthesis works, item 36. Paragraph 6: notes about how photosynthesis works, item 43. Paragraph 7: notes about how photosynthesis works, item 50. Paragraph 8: notes about how photosynthesis works, item 57. Paragraph 9: notes about how photosynthesis works, item 64. Paragraph 10: notes about how photosynthesis works, item 71. Paragraph 11: notes about how photosynthesis works, item 78. Paragraph 12: notes about how photosynthesis works, item 85. Paragraph 13: notes about how photosynthesis works, item 92. Paragraph 14: notes about how photosynthesis works, item 99. Paragraph 15: notes about how photosynthesis works, item 106. Paragraph 16: notes about how photosynthesis works, item 113. Paragraph 17: notes about how photosynthesis works, item 120. Paragraph 18: notes about how photosynthesis works, item 127. Paragraph 19: notes about how photosynthesis works, item 134.",
+    "done_s": 2.0112903118133545
+   },
+   {
+    "text": "The rules of chess are very simple. The game is played on a board with 64 squares, divided into 8 rows and 8 columns. The board is divided into two parts: the white squares and the black squares. The white pieces are the king, the queen, the rook, the bishop, the knight, and the pawn. The black pieces are the king, the queen, the rook, the bishop, the knight, and the pawn. The game is played by two players, who take turns moving their pieces. The object of the game is to capture the opponent's king. The game is won by the player who captures the opponent's king. The game is drawn if no player can capture the opponent's king. The game is won by the player who captures the opponent's king. The game is drawn if no player can capture the opponent's king. The game is won by the player who captures the opponent's king. The game is drawn if no player can capture the opponent's king. The game is won by the player who captures the opponent's king. The game is drawn if no player can capture the opponent's king. The game is won by the player who captures the opponent's king. The game is drawn if no player can capture the opponent's king. The game is won by the player who captures the opponent's king. The game is drawn if no player can capture the opponent's king. The game is won by the player who captures the",
+    "done_s": 2.011608600616455
+   },
+   {
+    "text": "The design of TCP congestion control is a complex and challenging task. It involves a number of factors, including the network topology, the number of nodes, the bandwidth, and the traffic patterns. The goal of TCP congestion control is to ensure that the network is able to handle the traffic without overloading the network or causing packet loss. TCP congestion control is a dynamic process that adjusts the transmission rate of the network based on the current network conditions. The design of TCP congestion control involves a number of steps, including the selection of the appropriate congestion control algorithm, the selection of the appropriate congestion window size, and the selection of the appropriate congestion avoidance algorithm. The selection of the appropriate congestion control algorithm is based on the network topology and the number of nodes. The selection of the appropriate congestion window size is based on the bandwidth and the traffic patterns. The selection of the appropriate congestion avoidance algorithm is based on the network conditions and the traffic patterns. The design of TCP congestion control is a complex and challenging task that requires a deep understanding of the network and the traffic patterns. It is a dynamic process that adjusts the transmission rate of the network based on the current network conditions. The design of TCP congestion control is a complex and challenging task that requires a deep understanding of the network and the traffic patterns. It is a dynamic process that adjusts the transmission rate of the network based on the current network conditions. The design of TCP congestion control is a complex and challenging task that requires a deep understanding of the network and the traffic patterns",
+    "done_s": 2.0114688873291016
+   },
+   {
+    "text": "The life cycle of stars is a fascinating topic that has captivated astronomers and scientists for centuries. Stars are massive balls of gas that are held together by their own gravity. They are born from the collapse of a giant cloud of gas and dust, and they eventually die when they run out of fuel to burn. In between these two extremes, stars go through a series of stages, each with its own unique characteristics and properties.\nThe life cycle of stars can be divided into four main stages: the main sequence, the red giant branch, the asymptotic giant branch, and the white dwarf stage. The main sequence is the longest stage of a star's life, and it is during this stage that most of the star's energy is produced through nuclear fusion. The red giant branch is the next stage, and it is characterized by a star's expansion and cooling. The asymptotic giant branch is the final stage, and it is marked by a star's expansion and cooling. The white dwarf stage is the final stage, and it is marked by a star's expansion and cooling.\nThe life cycle of stars is a complex and fascinating topic that has captivated astronomers and scientists for centuries. By understanding the different stages of a star's life, we can gain a better understanding of the universe and the processes that govern it.1. The main sequence is the longest stage of a star's life, and it is during this stage that most of the star's energy is produced through nuclear fusion. The",
+    "done_s": 8.962547302246094
+   },
+   {
+    "text": "Paragraph 0: notes about baking sourdough bread, item 5.\nParagraph 1: notes about baking sourdough bread, item 12.\nParagraph 2: notes about baking sourdough bread, item 19.\nParagraph 3: notes about baking sourdough bread, item 26.\nParagraph 4: notes about baking sourdough bread, item 33.\nParagraph 5: notes about baking sourdough bread, item 40.\nParagraph 6: notes about baking sourdough bread, item 47.\nParagraph 7: notes about baking sourdough bread, item 54.\nParagraph 8: notes about baking sourdough bread, item 61.\nParagraph 9: notes about baking sourdough bread, item 68.\nParagraph 10: notes about baking sourdough bread, item 75.\nParagraph 11: notes about baking sourdough bread, item 82.\nParagraph 12: notes about baking sourdough bread, item 89.\nParagraph 13: notes about baking sourdough bread, item 96.\nParagraph 14: notes about baking sourdough bread, item 103.\nParagraph 15: notes about baking sourdough bread, item 110.\nParagraph 16: notes about baking sourdough bread, item 117.\nParagraph 17: notes about baking sourdough bread, item 124.\nParagraph 18: notes about baking sourdough bread,",
+    "done_s": 8.962330341339111
+   },
+   {
+    "text": "The French Revolution was a period of time in the history of France that began in 1789 and ended in 1799. It was a time of great change and upheaval in France, and it had a significant impact on the world. The French Revolution was caused by a number of factors, including the economic and social conditions in France, the political situation in France, and the influence of ideas from other countries.\nThe economic and social conditions in France were very difficult in the late 18th century. There was a lot of poverty and unemployment, and the people were very unhappy. The political situation in France was also very difficult. The king, Louis XVI, was unpopular and was not able to control the country. The influence of ideas from other countries, such as the American Revolution and the Enlightenment, also played a role in the French Revolution.\nThe French Revolution was a time of great change and upheaval in France. It was a time of great suffering and hardship, but it was also a time of great hope and optimism. The French Revolution had a significant impact on the world. It inspired other countries to revolt against their rulers, and it helped to spread the ideas of the Enlightenment. The French Revolution was a time of great change and upheaval in France, and it had a significant impact on the world.\nThe French Revolution was a time of great change and upheaval in France. It was a time of great suffering and hardship, but it was also a time of great hope and",
+    "done_s": 8.962750434875488
+   },
+   {
+    "text": "Paragraph 0: notes about how vaccines train the immune system, item 7.\nParagraph 1: notes about how vaccines train the immune system, item 14.\nParagraph 2: notes about how vaccines train the immune system, item 21.\nParagraph 3: notes about how vaccines train the immune system, item 28.\nParagraph 4: notes about how vaccines train the immune system, item 35.\nParagraph 5: notes about how vaccines train the immune system, item 42.\nParagraph 6: notes about how vaccines train the immune system, item 49.\nParagraph 7: notes about how vaccines train the immune system, item 56.\nParagraph 8: notes about how vaccines train the immune system, item 63.\nParagraph 9: notes about how vaccines train the immune system, item 70.\nParagraph 10: notes about how vaccines train the immune system, item 77.\nParagraph 11: notes about how vaccines train the immune system, item 84.\nParagraph 12: notes about how vaccines train the immune system, item 91.\nParagraph 13: notes about how vaccines train the immune system, item 98.\nParagraph 14: notes about how vaccines train the immune system, item 105.\nParagraph 15: notes about how vaccines train the immune system, item 112.\nParagraph 16: notes about how vaccines train the immune system, item 119.\nParagraph 17: notes about how vaccines train the immune",
+    "done_s": 8.962893009185791
+   }
+  ],
+  "compare": [
+   {
+    "match": true,
+    "common_prefix_chars": 1441,
+    "ref_chars": 1441
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1212,
+    "ref_chars": 1212
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 60,
+    "ref_chars": 1366
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 302,
+    "ref_chars": 1651
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1458,
+    "ref_chars": 1458
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1104,
+    "ref_chars": 1104
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 402,
+    "ref_chars": 1536
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1288,
+    "ref_chars": 1288
+   }
+  ],
+  "all_match": false
+ },
+ "control": {
+  "events": {
+   "gpu": 4,
+   "sleep_start_s": 2.0083093643188477,
+   "sleep_end_s": 2.1884231567382812,
+   "asleep_gpu_mib": 1790,
+   "wake_start_s": 5.285720586776733,
+   "wake_end_s": 5.5362348556518555,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "The Roman Empire was a powerful and influential empire that existed from 27 BC to 476 AD. It was one of the largest and longest-lasting empires in history, and its influence can still be felt today. The Roman Empire was founded by Julius Caesar, who was the first Roman emperor. He was followed by Augustus, who was the first Roman emperor to be given the title of \"Augustus.\" Augustus was the first emperor to rule for a long period of time, and he was also the first emperor to be given the title of \"Pater Patriae,\" which means \"Father of the Country.\" Augustus was a great leader, and he was able to bring peace and stability to the Roman Empire. He was also able to expand the empire, and he was able to make it one of the most powerful and influential empires in history. The Roman Empire was a great empire, and it was able to achieve great things. It was able to expand its borders, and it was able to bring peace and stability to the people who lived in the empire. The Roman Empire was also able to make great contributions to the world. It was able to build great cities, and it was able to create great works of art. The Roman Empire was also able to make great contributions to the world of science and technology. It was able to create great inventions, and it was able to make great discoveries. The Roman Empire was a great empire, and it was able to achieve great things",
+    "done_s": 2.014054775238037
+   },
+   {
+    "text": "Paragraph 0: notes about how photosynthesis works, item 1. Paragraph 1: notes about how photosynthesis works, item 8. Paragraph 2: notes about how photosynthesis works, item 15. Paragraph 3: notes about how photosynthesis works, item 22. Paragraph 4: notes about how photosynthesis works, item 29. Paragraph 5: notes about how photosynthesis works, item 36. Paragraph 6: notes about how photosynthesis works, item 43. Paragraph 7: notes about how photosynthesis works, item 50. Paragraph 8: notes about how photosynthesis works, item 57. Paragraph 9: notes about how photosynthesis works, item 64. Paragraph 10: notes about how photosynthesis works, item 71. Paragraph 11: notes about how photosynthesis works, item 78. Paragraph 12: notes about how photosynthesis works, item 85. Paragraph 13: notes about how photosynthesis works, item 92. Paragraph 14: notes about how photosynthesis works, item 99. Paragraph 15: notes about how photosynthesis works, item 106. Paragraph 16: notes about how photosynthesis works, item 113. Paragraph 17: notes about how photosynthesis works, item 120. Paragraph 18: notes about how photosynthesis works, item 127. Paragraph 19: notes about how photosynthesis works, item 134.",
+    "done_s": 2.015963077545166
+   },
+   {
+    "text": "The rules of chess are very simple. The game is played on a board with 64 squares, divided into 8 rows and 8 columns. The board is divided into two parts: the white squares and the black squares. The white pieces are the king, the queen, the rook, the bishop, the knight, and the pawn. The black pieces are the king, the queen, the rook, the bishop, the knight, and the pawn. The game is played by two players, who take turns moving their pieces. The object of the game is to capture the opponent's king. The game is won by the player who captures the opponent's king. The game is drawn if no player can capture the opponent's king. The game is won by the player who captures the opponent's king. The game is drawn if no player can capture the opponent's king. The game is won by the player who captures the opponent's king. The game is drawn if no player can capture the opponent's king. The game is won by the player who captures the opponent's king. The game is drawn if no player can capture the opponent's king. The game is won by the player who captures the opponent's king. The game is drawn if no player can capture the opponent's king. The game is won by the player who captures the opponent's king. The game is drawn if no player can capture the opponent's king. The game is won by the player who captures the",
+    "done_s": 2.0164992809295654
+   },
+   {
+    "text": "The design of TCP congestion control is a complex and challenging task. It involves a number of factors, including the network topology, the number of nodes, the bandwidth, and the traffic patterns. The goal of TCP congestion control is to ensure that the network is able to handle the traffic without causing any congestion or packet loss. This is achieved by adjusting the transmission rate of the TCP packets based on the network conditions.\nThere are a number of different approaches to TCP congestion control, each with its own advantages and disadvantages. The most common approach is to use a sliding window algorithm, which adjusts the transmission rate based on the number of unacknowledged packets. This approach is simple and efficient, but it can lead to instability in the network if the network conditions change suddenly.\nAnother approach is to use a congestion avoidance algorithm, which adjusts the transmission rate based on the number of unacknowledged packets and the number of retransmissions. This approach is more complex and requires more computation, but it can provide better performance in the long run.\nThe design of TCP congestion control is a constantly evolving field, and new approaches are being developed all the time. The goal of TCP congestion control is to ensure that the network is able to handle the traffic without causing any congestion or packet loss. This is achieved by adjusting the transmission rate of the TCP packets based on the network conditions. There are a number of different approaches to TCP congestion control, each with its own advantages and disadvantages. The most common approach is to use",
+    "done_s": 2.013824701309204
+   },
+   {
+    "text": "The life cycle of stars is a fascinating topic that has captured the imagination of scientists and astronomers for centuries. Stars are massive balls of gas that are held together by their own gravity. They are born from the collapse of a giant cloud of gas and dust, and they eventually die when they run out of fuel to burn. In between these two extremes, stars go through a series of stages, each with its own unique characteristics.\nThe first stage of a star's life is the pre-main sequence stage. During this stage, the star is still forming and is not yet burning hydrogen in its core. Instead, it is burning hydrogen in a shell around its core. This stage can last for millions of years, and during this time, the star will continue to grow in mass and size.\nOnce the star has reached the main sequence stage, it will start burning hydrogen in its core. This process will continue until the star runs out of hydrogen to burn. At this point, the star will enter the red giant stage, where it will expand and cool down. This stage can last for billions of years, and during this time, the star will lose most of its mass through a process called stellar wind.\nEventually, the star will run out of fuel to burn and will enter the white dwarf stage. In this stage, the star will shrink down to a tiny, dense ball of carbon and oxygen. This stage can last for billions of years, and during this time, the star will continue to cool down",
+    "done_s": 2.016132116317749
+   },
+   {
+    "text": "Paragraph 0: notes about baking sourdough bread, item 5.\nParagraph 1: notes about baking sourdough bread, item 12.\nParagraph 2: notes about baking sourdough bread, item 19.\nParagraph 3: notes about baking sourdough bread, item 26.\nParagraph 4: notes about baking sourdough bread, item 33.\nParagraph 5: notes about baking sourdough bread, item 40.\nParagraph 6: notes about baking sourdough bread, item 47.\nParagraph 7: notes about baking sourdough bread, item 54.\nParagraph 8: notes about baking sourdough bread, item 61.\nParagraph 9: notes about baking sourdough bread, item 68.\nParagraph 10: notes about baking sourdough bread, item 75.\nParagraph 11: notes about baking sourdough bread, item 82.\nParagraph 12: notes about baking sourdough bread, item 89.\nParagraph 13: notes about baking sourdough bread, item 96.\nParagraph 14: notes about baking sourdough bread, item 103.\nParagraph 15: notes about baking sourdough bread, item 110.\nParagraph 16: notes about baking sourdough bread, item 117.\nParagraph 17: notes about baking sourdough bread, item 124.\nParagraph 18: notes about baking sourdough bread,",
+    "done_s": 2.016679286956787
+   },
+   {
+    "text": "The French Revolution was a period of time in the history of France that began in 1789 and ended in 1799. It was a time of great change and upheaval in France, and it had a significant impact on the world. The French Revolution was caused by a number of factors, including the economic and social conditions in France, the political situation in France, and the influence of ideas from other countries. The economic and social conditions in France were very difficult for many people, and this led to a lot of discontent and unrest. The political situation in France was also very unstable, and this made it difficult for the government to deal with the problems that were facing the country. The influence of ideas from other countries, such as the American Revolution and the Enlightenment, also played a role in the French Revolution. These ideas helped to inspire the French people to take action and to demand change. The French Revolution was a complex and multifaceted event, and it had a significant impact on the world. It was a time of great change and upheaval in France, and it had a lasting impact on the world. The French Revolution was caused by a number of factors, including the economic and social conditions in France, the political situation in France, and the influence of ideas from other countries. The French Revolution was a time of great change and upheaval in France, and it had a significant impact on the world. It was a time of great change and upheaval in France, and it",
+    "done_s": 2.0168845653533936
+   },
+   {
+    "text": "Paragraph 0: notes about how vaccines train the immune system, item 7.\nParagraph 1: notes about how vaccines train the immune system, item 14.\nParagraph 2: notes about how vaccines train the immune system, item 21.\nParagraph 3: notes about how vaccines train the immune system, item 28.\nParagraph 4: notes about how vaccines train the immune system, item 35.\nParagraph 5: notes about how vaccines train the immune system, item 42.\nParagraph 6: notes about how vaccines train the immune system, item 49.\nParagraph 7: notes about how vaccines train the immune system, item 56.\nParagraph 8: notes about how vaccines train the immune system, item 63.\nParagraph 9: notes about how vaccines train the immune system, item 70.\nParagraph 10: notes about how vaccines train the immune system, item 77.\nParagraph 11: notes about how vaccines train the immune system, item 84.\nParagraph 12: notes about how vaccines train the immune system, item 91.\nParagraph 13: notes about how vaccines train the immune system, item 98.\nParagraph 14: notes about how vaccines train the immune system, item 105.\nParagraph 15: notes about how vaccines train the immune system, item 112.\nParagraph 16: notes about how vaccines train the immune system, item 119.\nParagraph 17: notes about how vaccines train the immune",
+    "done_s": 2.016309976577759
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 21,
+    "ref_chars": 1441
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1212,
+    "ref_chars": 1212
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 60,
+    "ref_chars": 1366
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1651,
+    "ref_chars": 1651
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 60,
+    "ref_chars": 1458
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1104,
+    "ref_chars": 1104
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 996,
+    "ref_chars": 1536
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1288,
+    "ref_chars": 1288
+   }
+  ],
+  "all_match": false
+ }
+}

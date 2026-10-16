@@ -32,9 +32,14 @@ TOPICS = ["the history of the Roman empire", "how photosynthesis works", "the ru
           "the causes of the French revolution", "how vaccines train the immune system"]
 
 
+# CHECK_PARAGRAPHS: 110 gives ~1.3k prompt tokens (Llama-3 tokenizer); use fewer with a short
+# max-model-len (60 fits 2048 with every tokenizer of the 18-model set).
+PARAGRAPHS = int(os.environ.get("CHECK_PARAGRAPHS", "110"))
+
+
 def prompt(i):
-    # ~1.3k tokens each, distinct per request, so the KV spans several kvcached pages.
-    body = " ".join(f"Paragraph {k}: notes about {TOPICS[i]}, item {k * 7 + i}." for k in range(110))
+    # distinct per request, so the KV spans several kvcached pages
+    body = " ".join(f"Paragraph {k}: notes about {TOPICS[i]}, item {k * 7 + i}." for k in range(PARAGRAPHS))
     return f"{body}\nNow write a detailed essay about {TOPICS[i]}.\n"
 
 

@@ -68,6 +68,28 @@ def load_trace(path, time_scale):
     return {m: np.array(v, dtype=float) for m, v in out.items()}
 
 
+# trace.py generate_e2e_benchmark_reqs_18m: model_{i+1} -> rank; several models share a rank.
+SELECTED_RANKS_18M = [5, 10, 4, 17, 2, 10, 23, 2, 10, 14, 19, 14, 18, 14, 21, 2, 6, 19]
+
+
+def load_trace_18m(path, time_scale):
+    """Prism's 18-model request set. Models sharing a rank get that rank's requests,
+    the k-th of them offset by 10*k s (after time scaling): earlier for ranks 14 and 19,
+    later for ranks 2 and 10. Arrivals can be negative (Prism sends those at once)."""
+    with open(path, "rb") as f:
+        _, reqs = _TraceUnpickler(f).load()
+    rank_models = {}
+    for i, r in enumerate(SELECTED_RANKS_18M):
+        rank_models.setdefault(r, []).append(f"model_{i + 1}")
+    out = {}
+    for r in reqs:
+        rank = int(r.adapter_dir.split("-")[-1])
+        for k, model in enumerate(rank_models.get(rank, [])):
+            shift = -10 * k if rank in (14, 19) else 10 * k if rank in (2, 10) else 0
+            out.setdefault(model, []).append((r.req_time * time_scale + shift, r.prompt_len, r.output_len))
+    return {m: np.array(v, dtype=float) for m, v in out.items()}
+
+
 def model_spec(repo, cache):
     """Weight bytes (bf16) and KV bytes per token, from the HF config and safetensors metadata."""
     if repo not in cache:

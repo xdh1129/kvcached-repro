@@ -1,0 +1,261 @@
+{
+ "model": "allenai/OLMo-1B-hf",
+ "n_req": 8,
+ "max_tokens": 300,
+ "awake_gpu_mib": 3764,
+ "reference": [
+  {
+   "text": "The Roman Empire was the largest empire in the world. It was founded by the Roman emperor Augustus in 27 BC. The empire was divided into three parts: the western, the central, and the eastern. The western part of the empire was called the Roman Empire. The central part of the empire was called the Roman Empire. The eastern part of the empire was called the Roman Empire. The Roman Empire was the largest empire in the world. The Roman Empire was founded by the Roman emperor Augustus in 27 BC. The Roman Empire was divided into three parts: the western, the central, and the eastern. The western part of the empire was called the Roman Empire. The central part of the empire was called the Roman Empire. The eastern part of the empire was called the Roman Empire. The Roman Empire was founded by the Roman emperor Augustus in 27 BC. The Roman Empire was divided into three parts: the western, the central, and the eastern. The western part of the empire was called the Roman Empire. The central part of the empire was called the Roman Empire. The eastern part of the empire was called the Roman Empire. The Roman Empire was founded by the Roman emperor Augustus in 27 BC. The Roman Empire was divided into three parts: the western, the central, and the eastern. The western part of the empire was called the Roman Empire. The central part of the empire was called the Roman Empire. The eastern part of the empire was called the Roman Empire. The Roman Empire was founded",
+   "done_s": 1.0045814514160156
+  },
+  {
+   "text": "The process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun.\nThe process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun. The process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun.\nThe process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun. The process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun.\nThe process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun. The process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun.\nThe process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun. The process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun.\nThe process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun. The process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun.\nThe process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun. The process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun.\nThe process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun",
+   "done_s": 1.0090255737304688
+  },
+  {
+   "text": "The rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\n",
+   "done_s": 1.0094540119171143
+  },
+  {
+   "text": "The design of TCP congestion control is a very important part of the TCP protocol. TCP congestion control is a mechanism that allows the sender to control the amount of data that is sent to the receiver. TCP congestion control is used to prevent the receiver from receiving too much data at once. TCP congestion control is also used to prevent the sender from sending too much data at once. TCP congestion control is used to prevent the receiver from receiving too much data at once. TCP congestion control is used to prevent the sender from sending too much data at once. TCP congestion control is used to prevent the receiver from receiving too much data at once. TCP congestion control is used to prevent the sender from sending too much data at once. TCP congestion control is used to prevent the receiver from receiving too much data at once. TCP congestion control is used to prevent the sender from sending too much data at once. TCP congestion control is used to prevent the receiver from receiving too much data at once. TCP congestion control is used to prevent the sender from sending too much data at once. TCP congestion control is used to prevent the receiver from receiving too much data at once. TCP congestion control is used to prevent the sender from sending too much data at once. TCP congestion control is used to prevent the receiver from receiving too much data at once. TCP congestion control is used to prevent the sender from sending too much data at once. TCP congestion control is used to prevent the receiver from receiving too much data at once. TCP congestion control is used",
+   "done_s": 1.0105481147766113
+  },
+  {
+   "text": "The life cycle of stars is a very interesting topic. It is very important to understand the life cycle of stars because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the",
+   "done_s": 1.010831594467163
+  },
+  {
+   "text": "Write a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\n",
+   "done_s": 1.0101385116577148
+  },
+  {
+   "text": "The French Revolution was a period of political and social upheaval in France. It began in 1789 and ended in 1799. The French Revolution was a reaction to the French monarchy and the French aristocracy. The French Revolution was a reaction to the French monarchy and the French aristocracy. The French Revolution was a reaction to the French monarchy and the French aristocracy. The French Revolution was a reaction to the French monarchy and the French aristocracy. The French Revolution was a reaction to the French monarchy and the French aristocracy. The French Revolution was a reaction to the French monarchy and the French aristocracy. The French Revolution was a reaction to the French monarchy and the French aristocracy. The French Revolution was a reaction to the French monarchy and the French aristocracy. The French Revolution was a reaction to the French monarchy and the French aristocracy. The French Revolution was a reaction to the French monarchy and the French aristocracy. The French Revolution was a reaction to the French monarchy and the French aristocracy. The French Revolution was a reaction to the French monarchy and the French aristocracy. The French Revolution was a reaction to the French monarchy and the French aristocracy. The French Revolution was a reaction to the French monarchy and the French aristocracy. The French Revolution was a reaction to the French monarchy and the French aristocracy. The French Revolution was a reaction to the French monarchy and the French aristocracy. The",
+   "done_s": 1.0110912322998047
+  },
+  {
+   "text": "The immune system is a complex network of cells, tissues, and organs that work together to protect the body from infection and disease. The immune system is made up of two main parts: the innate immune system and the adaptive immune system. The innate immune system is the first line of defense against infection, and it is responsible for detecting and responding to foreign substances in the body. The adaptive immune system is the second line of defense, and it is responsible for fighting off infections that have already been detected. Together, the innate and adaptive immune systems work together to keep the body healthy.\nThe innate immune system is made up of cells and molecules that are not part of the adaptive immune system. These cells and molecules are called innate immune system cells. They are not part of the adaptive immune system, but they are still important for the body\u2019s defense against infection.\nThe innate immune system is made up of cells and molecules that are not part of the adaptive immune system. These cells and molecules are called innate immune system cells. They are not part of the adaptive immune system, but they are still important for the body\u2019s defense against infection.\nThe innate immune system is made up of cells and molecules that are not part of the adaptive immune system. These cells and molecules are called innate immune system cells. They are not part of the adaptive immune system, but they are still important for the body\u2019s defense against infection.\nThe innate immune system is made up of cells and molecules that",
+   "done_s": 1.0117430686950684
+  }
+ ],
+ "noise": {
+  "compare": [
+   {
+    "match": true,
+    "common_prefix_chars": 1472,
+    "ref_chars": 1472
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1608,
+    "ref_chars": 1608
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1150,
+    "ref_chars": 1150
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1606,
+    "ref_chars": 1606
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 77,
+    "ref_chars": 1643
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1325,
+    "ref_chars": 1325
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 95,
+    "ref_chars": 1526
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1572,
+    "ref_chars": 1572
+   }
+  ],
+  "all_match": false
+ },
+ "restore": {
+  "events": {
+   "gpu": 3,
+   "sleep_start_s": 0.3058202266693115,
+   "sleep_end_s": 3.185321807861328,
+   "asleep_gpu_mib": 1236,
+   "wake_start_s": 6.290294170379639,
+   "wake_end_s": 6.604716062545776,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "The Roman Empire was the largest empire in the world. It was founded by the Roman emperor Augustus in 27 BC. The empire was divided into three parts: the western, the central, and the eastern. The western part of the empire was called the Roman Empire. The central part of the empire was called the Roman Empire. The eastern part of the empire was called the Roman Empire. The Roman Empire was the largest empire in the world. The Roman Empire was founded by the Roman emperor Augustus in 27 BC. The Roman Empire was divided into three parts: the western, the central, and the eastern. The western part of the empire was called the Roman Empire. The central part of the empire was called the Roman Empire. The eastern part of the empire was called the Roman Empire. The Roman Empire was founded by the Roman emperor Augustus in 27 BC. The Roman Empire was divided into three parts: the western, the central, and the eastern. The western part of the empire was called the Roman Empire. The central part of the empire was called the Roman Empire. The eastern part of the empire was called the Roman Empire. The Roman Empire was founded by the Roman emperor Augustus in 27 BC. The Roman Empire was divided into three parts: the western, the central, and the eastern. The western part of the empire was called the Roman Empire. The central part of the empire was called the Roman Empire. The eastern part of the empire was called the Roman Empire. The Roman Empire was founded",
+    "done_s": 7.278729438781738
+   },
+   {
+    "text": "The process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun.\nThe process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun. The process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun.\nThe process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun. The process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun.\nThe process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun. The process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun.\nThe process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun. The process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun.\nThe process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun. The process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun.\nThe process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun. The process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun.\nThe process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun",
+    "done_s": 7.284475088119507
+   },
+   {
+    "text": "The rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\n",
+    "done_s": 7.284759521484375
+   },
+   {
+    "text": "The design of TCP congestion control is a very important part of the TCP protocol. TCP congestion control is a mechanism that allows the sender to control the amount of data that is sent to the receiver. TCP congestion control is used to prevent the receiver from receiving too much data at once. TCP congestion control is also used to prevent the sender from sending too much data at once. TCP congestion control is used to prevent the receiver from receiving too much data at once. TCP congestion control is used to prevent the sender from sending too much data at once. TCP congestion control is used to prevent the receiver from receiving too much data at once. TCP congestion control is used to prevent the sender from sending too much data at once. TCP congestion control is used to prevent the receiver from receiving too much data at once. TCP congestion control is used to prevent the sender from sending too much data at once. TCP congestion control is used to prevent the receiver from receiving too much data at once. TCP congestion control is used to prevent the sender from sending too much data at once. TCP congestion control is used to prevent the receiver from receiving too much data at once. TCP congestion control is used to prevent the sender from sending too much data at once. TCP congestion control is used to prevent the receiver from receiving too much data at once. TCP congestion control is used to prevent the sender from sending too much data at once. TCP congestion control is used to prevent the receiver from receiving too much data at once. TCP congestion control is used",
+    "done_s": 7.284999132156372
+   },
+   {
+    "text": "The life cycle of stars is a very interesting topic. It is very important to understand the life cycle of stars because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the",
+    "done_s": 7.285261869430542
+   },
+   {
+    "text": "Write a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\n",
+    "done_s": 7.28849983215332
+   },
+   {
+    "text": "The French Revolution was a period of political and social upheaval in France. It began in 1789, when the people of France rose up against their government and demanded that they be allowed to choose their own leaders. The French Revolution was a period of great upheaval and change, and it is still remembered today as one of the most important events in the history of France.\nThe French Revolution was a period of political and social upheaval in France. It began in 1789, when the people of France rose up against their government and demanded that they be allowed to choose their own leaders. The French Revolution was a period of great upheaval and change, and it is still remembered today as one of the most important events in the history of France.\nThe French Revolution was a period of political and social upheaval in France. It began in 1789, when the people of France rose up against their government and demanded that they be allowed to choose their own leaders. The French Revolution was a period of great upheaval and change, and it is still remembered today as one of the most important events in the history of France.\nThe French Revolution was a period of political and social upheaval in France. It began in 1789, when the people of France rose up against their government and demanded that they be allowed to choose their own leaders. The French Revolution was a period of great upheaval and change, and it is still remembered today as one",
+    "done_s": 7.288891077041626
+   },
+   {
+    "text": "The immune system is a complex network of cells, tissues, and organs that work together to protect the body from infection and disease. The immune system is made up of two main parts: the innate immune system and the adaptive immune system. The innate immune system is the first line of defense against infection, and it is responsible for detecting and responding to foreign substances in the body. The adaptive immune system is the second line of defense, and it is responsible for fighting off infections that have already been detected. Together, the innate and adaptive immune systems work together to keep the body healthy.\nThe innate immune system is made up of cells and molecules that are not part of the adaptive immune system. These cells and molecules are called innate immune system cells. They are not part of the adaptive immune system, but they are still important for the body\u2019s defense against infection.\nThe innate immune system is made up of cells and molecules that are not part of the adaptive immune system. These cells and molecules are called innate immune system cells. They are not part of the adaptive immune system, but they are still important for the body\u2019s defense against infection.\nThe innate immune system is made up of cells and molecules that are not part of the adaptive immune system. These cells and molecules are called innate immune system cells. They are not part of the adaptive immune system, but they are still important for the body\u2019s defense against infection.\nThe innate immune system is made up of cells and molecules that",
+    "done_s": 7.2886903285980225
+   }
+  ],
+  "compare": [
+   {
+    "match": true,
+    "common_prefix_chars": 1472,
+    "ref_chars": 1472
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1608,
+    "ref_chars": 1608
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1150,
+    "ref_chars": 1150
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1606,
+    "ref_chars": 1606
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1643,
+    "ref_chars": 1643
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1325,
+    "ref_chars": 1325
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 95,
+    "ref_chars": 1526
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1572,
+    "ref_chars": 1572
+   }
+  ],
+  "all_match": false
+ },
+ "control": {
+  "events": {
+   "gpu": 3,
+   "sleep_start_s": 0.3085799217224121,
+   "sleep_end_s": 0.7034807205200195,
+   "asleep_gpu_mib": 1236,
+   "wake_start_s": 3.8074867725372314,
+   "wake_end_s": 3.924011468887329,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "The Roman Empire was the largest empire in the world. It was founded by the Roman emperor Augustus in 27 BC. The empire was divided into three parts: the western, the central, and the eastern. The western part of the empire was called the Roman Empire. The central part of the empire was called the Roman Empire. The eastern part of the empire was called the Roman Empire. The Roman Empire was the largest empire in- Anyway, effort. dehydr...\n\u200b the in the. I.\nText astad-FIT.n .- in a-a.\nThe.\n The.\n-C. The.\n-C and-a-? in.\n-C in the.\n-m-pay a-in . The.s and-at. One. I, to-a-not. I .. I.a. I &.\nS-a. One. One, the-a:) The Rem.S. in.S. in.s. I, as.s. I. If.h. I.s. I. I.I.I. I. I.I.I. I. I.I. I. I.I. I. I.I. I. I.I. I. I.I. I. I.I. I. I.I. I. I.I. I. I. I. I. I. I. I.",
+    "done_s": 4.60056734085083
+   },
+   {
+    "text": "The process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun.\nThe process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun. The process of photosynthesis is the process by which plants and other organisms obtain their energy from the sun.\nThe process of photosynthesis is the process by which plants and other organisms obtain their energy from the.layout.\n\nIn the. G. The. 50 and. G and the. S. in.n. S-? in.n. The. S. in.\n\nNext-gate-ed.h in the.s.\nThe.h in a.s.\n. The. I.s. The, from, in the.s. The, to.s. The, to, in an.s. The, to, in an.s in and the.s in, to, in an.s in and in to.s in to-p to-p to-but, in an.s in, to-p in to-p in to-p in to-p in to-p in thes out-out and of and thes froms of a-p in tos of thes in and of, the and an in thes from the. The, the from the an.s in, thean, in the an.s in, an an.s",
+    "done_s": 4.606132507324219
+   },
+   {
+    "text": "The rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nThe rules of chess are the rules of the game.\nlayout- just-at the\npackage.layout.\n. in.\n.b. the. A.\n.ed. The.ed.\n. The.ed in an. The.b as.m.s from the.\n. The.A.\n.P in.m.s.h. The in.m.s. The in.m.s. The in.m.s.s.s.s.s. The in.s with, from, the.s in, in and in. The.m. The in thein the desert-s-. The and the.m-s.s. The and thes. I.s. I.s. I, tos out-co and.s. I, to-m and fromis-s.s.s. The in-m and tos out-at.s.s. The in the.s. I, tos of anders a, not.s in thes froms in and",
+    "done_s": 4.606581687927246
+   },
+   {
+    "text": "The design of TCP congestion control is a very important part of the TCP protocol. TCP congestion control is a mechanism that allows the sender to control the amount of data that is sent to the receiver. TCP congestion control is used to prevent the receiver from receiving too much data at once. TCP congestion control is also used to prevent the sender from sending too much data at once. TCP congestion control is used to prevent the sender fromstad, on-and-and-and.\n\nB.\n\nR. and the on, in. in.\n\nS-m-a.S. in. I. in.\nI. in.\n. The.an.h.\n. The. I.\n.\nI.\nI. I.\nI. I.\nI.\nIb to, to, in, in a.an.h.\nI.an.P in the.i.\n. The.s on a.s on-in, from, in a.s on-at. I.s. The.\nC.s. The in.s on to,s by.n-out and a.s on to, for thes at the.\n\nS. in the.s on-at the, and.s on-at an.s on-at an as the.s on-at an as a.\n\nIn the.s in thes from, in to",
+    "done_s": 4.6063783168792725
+   },
+   {
+    "text": "The life cycle of stars is a very interesting topic. It is very important to understand the life cycle of stars because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the universe. The life cycle of stars is very important because it is very important to understand the.layout.\n\nIn the. G. The. 50 and. G in upon the, in which to- on, the. S. the. S. in, S. in, S. in the.S. The.n the. m... in. S. in. S. in. S. in the. S. in the. S. in the. S. in the. S. in the. S. in the. S. in the. S. in the. S. in the. S. in the.s,. The.s. The in.s. The.s. The.s. The.s. The.s. The.s. The.s. The.s. The in.s. I.s. The, to.s. The, and I.s. The, and I.s. The, and I.s.\n. The, and.s. I, in.s at. I &. I &. I &. I &",
+    "done_s": 4.606739521026611
+   },
+   {
+    "text": "Write a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nWrite a detailed essay about baking sourdough bread.\nlayout on-p-\u2026 the.layout to the.\n.p-a. P.\n. The.an. A. in.an. The.an. I. in.h. I.s out-co and-a in the.s.h.s.s.al as..h. The.s. The un.s. The un.s. the.s.s. The in.s.s.s. The in the.i.s. The in thes.s. the.s.s. The in the.i ar...\n He-p to in the, and in thes from, from, tos out andis, in the, in and the and from in the in thein the in thein the in thein thes.s. I, in thein the. The in thein the.s in thein thein thes from the, to, in thein thes from the, tos of and. The in the.",
+    "done_s": 4.607028245925903
+   },
+   {
+    "text": "The French Revolution was a period of political and social upheaval in France. It began in 1789 and ended in 1799. The French Revolution was a reaction to the French monarchy and the French aristocracy. The French Revolution was a reaction to the French monarchy and the French aristocracy. The French Revolution was a reaction to the French monarchy and the French aristocracy. The French Revolution was a reaction toc-and a. dehydr... for.. I.ed. I, in.?\n (on astad-A in a. The at the. from-UnS-a.\nProp. in.h. M. in.h. The.s. I the tho and now.\na.\n?\n\n\u200ba.h in thes. I in thes b...\na, ster...n the. in thes out-co and-at the, ands of thes-s the,?\na. infinity of thes out-ar and ofis b.\n\n. The Great.\nThe. The in the.\ns.h and thes from thes out-star-sight and a.\n\n. The in the.\ns. The, the.\nThe, the.\n? The, the.\nThe, the.s a. I a-ar-in and of-s a in a-not in the.s in the I.",
+    "done_s": 4.60689640045166
+   },
+   {
+    "text": "The immune system is a complex network of cells, tissues, and organs that work together to protect the body from infection and disease. The immune system is made up of two main parts: the innate immune system and the adaptive immune system. The innate immune system is the first line of defense against infection, and it is responsible for detecting and responding to foreign substances in the body. The adaptive immune system is the second line-andoor-to- and. dehydr... for. .?\n\nHe-I\u2019s-a.\n.\n?t of.\n.h-at a. In. I and.s.\nI, in. The.\n?-m-ear in the.h in and the.s in, and the.s in, and of, in tos.\n\n.s. In.s in and the.s in and the (# sat and the. The.s in and the.\n\nIn the, the.s in the. The un.s in and the.s in and the. The f...\n One.S. in the.s in and the.s in and the.s in and the.s in and the.s in and the. The in thes from the.s in and an in thes from the. The in thein the.\n.s. The, to.s in and the.s in and to.s in and to-p",
+    "done_s": 4.608073949813843
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 415,
+    "ref_chars": 1472
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 454,
+    "ref_chars": 1608
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 322,
+    "ref_chars": 1150
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 437,
+    "ref_chars": 1606
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 455,
+    "ref_chars": 1643
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 371,
+    "ref_chars": 1325
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 418,
+    "ref_chars": 1526
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 445,
+    "ref_chars": 1572
+   }
+  ],
+  "all_match": false
+ }
+}

@@ -1,0 +1,261 @@
+{
+ "model": "meta-llama/Meta-Llama-3.1-8B",
+ "n_req": 8,
+ "max_tokens": 300,
+ "awake_gpu_mib": 18540,
+ "reference": [
+  {
+   "text": "The Roman Empire was a vast empire that lasted for over 500 years. It was founded by the Romans, who were a powerful and influential people. The Roman Empire was a major power in the ancient world, and it had a significant impact on the development of Western civilization.\nThe Roman Empire was founded in 27 BC, when the Roman Republic was overthrown by the Roman general Octavian. Octavian became the first Roman emperor, and he was known as Augustus. The Roman Empire was a monarchy, and it was ruled by the emperor. The emperor was the most powerful person in the empire, and he had absolute power.\nThe Roman Empire was a very large empire, and it covered a large part of Europe, North Africa, and the Middle East. The empire was divided into provinces, and each province was ruled by a governor. The governors were appointed by the emperor, and they were responsible for the administration of the province.\nThe Roman Empire was a very powerful and wealthy empire. It had a large and well-trained army, and it was able to conquer and control a large part of the world. The Roman Empire was also a very advanced society. It had a well-developed system of roads, and it had a large and well-educated population.\nThe Roman Empire was a very influential empire. It had a significant impact on the development of Western civilization. The Roman Empire introduced many new ideas and technologies to the world, and it helped to spread these ideas and technologies throughout the world.\n",
+   "done_s": 3.946371555328369
+  },
+  {
+   "text": "Now write a detailed essay about how photosynthesis works. Paragraph 0: notes about how photosynthesis works, item 1. Paragraph 1: notes about how photosynthesis works, item 8. Paragraph 2: notes about how photosynthesis works, item 15. Paragraph 3: notes about how photosynthesis works, item 22. Paragraph 4: notes about how photosynthesis works, item 29. Paragraph 5: notes about how photosynthesis works, item 36. Paragraph 6: notes about how photosynthesis works, item 43. Paragraph 7: notes about how photosynthesis works, item 50. Paragraph 8: notes about how photosynthesis works, item 57. Paragraph 9: notes about how photosynthesis works, item 64. Paragraph 10: notes about how photosynthesis works, item 71. Paragraph 11: notes about how photosynthesis works, item 78. Paragraph 12: notes about how photosynthesis works, item 85. Paragraph 13: notes about how photosynthesis works, item 92. Paragraph 14: notes about how photosynthesis works, item 99. Paragraph 15: notes about how photosynthesis works, item 106. Paragraph 16: notes about how photosynthesis works, item 113. Paragraph 17: notes about how photosynthesis works, item 120. Paragraph 18: notes about how photosynthesis works, item 127. Paragraph 19:",
+   "done_s": 3.932013750076294
+  },
+  {
+   "text": "The rules of chess are very simple. The game is played on a board with 64 squares, arranged in an 8x8 grid. The board is divided into two halves, with each player having 16 pieces: 8 pawns, 2 rooks, 2 knights, 2 bishops, 1 queen, and 1 king. The pieces are arranged in a specific way at the start of the game, with the pawns in front and the more powerful pieces behind. The objective of the game is to checkmate the opponent's king, which means trapping the king in such a way that it cannot escape or move without being captured.\nThe game is played in turns, with each player moving one piece at a time. The pieces can move in different ways, depending on their type. For example, pawns can only move forward one square at a time, while the queen can move in any direction, in any number of squares. The king can only move one square in any direction, but it cannot be captured in check.\nCheck is a situation in which the king is threatened by an opponent's piece. If a player's king is in check, they must move the king out of check or capture the threatening piece. If the king cannot be moved or captured, the player is in checkmate, and the game is over.\nThere are many different strategies and tactics that can be used in chess, and the game can be very complex. However, the basic rules",
+   "done_s": 3.946709394454956
+  },
+  {
+   "text": "The design of TCP congestion control is a complex and important topic in computer networking. It involves the use of various algorithms and techniques to ensure that data is transmitted efficiently and reliably over a network. In this essay, we will explore the different aspects of TCP congestion control, including its history, key concepts, and the challenges it faces.\nThe history of TCP congestion control dates back to the early days of the Internet. In the 1970s, the Transmission Control Protocol (TCP) was developed as a way to transmit data over the network. However, as the Internet grew in popularity and the number of users increased, it became clear that TCP needed to be improved to handle the increased traffic.\nIn the 1980s, researchers began to study the problem of congestion control in TCP. They discovered that when too much data was sent over the network, it could lead to congestion and packet loss. This led to the development of various algorithms and techniques to control the flow of data and prevent congestion.\nOne of the key concepts in TCP congestion control is the use of congestion avoidance algorithms. These algorithms are designed to detect when the network is becoming congested and to adjust the flow of data accordingly. For example, the TCP congestion avoidance algorithm uses a sliding window mechanism to control the flow of data. When the network is not congested, the window size is increased to allow more data to be sent. However, when the network becomes congested, the window size is decreased to prevent further congestion.\nAnother important",
+   "done_s": 3.947009801864624
+  },
+  {
+   "text": "The life cycle of stars is a fascinating topic that has captivated astronomers and scientists for centuries. Stars are born, live, and die in a complex and intricate process that is still being studied and understood today. In this essay, we will explore the life cycle of stars, from their formation to their eventual demise.\nStars are born in giant clouds of gas and dust called nebulae. These nebulae are made up of hydrogen and helium, the two most abundant elements in the universe. As the nebulae collapse under their own gravity, they begin to spin and heat up. This heat causes the hydrogen and helium to fuse together, creating a star.\nThe size and brightness of a star is determined by its mass. The more massive a star is, the brighter and hotter it will be. The smallest stars, called red dwarfs, are only a few times the mass of our sun. The largest stars, called supergiants, can be hundreds of thousands of times more massive than our sun.\nOnce a star is born, it begins its life as a main-sequence star. This is the stage where the star is fusing hydrogen into helium in its core. The sun is currently in this stage, and it will remain in this stage for about 10 billion years.\nAs a star ages, it begins to run out of hydrogen in its core. This causes the star to expand and cool, becoming a red giant. The sun will become a red giant in about 5",
+   "done_s": 3.9472837448120117
+  },
+  {
+   "text": "Paragraph 0: notes about baking sourdough bread, item 5.\nParagraph 1: notes about baking sourdough bread, item 12.\nParagraph 2: notes about baking sourdough bread, item 19.\nParagraph 3: notes about baking sourdough bread, item 26.\nParagraph 4: notes about baking sourdough bread, item 33.\nParagraph 5: notes about baking sourdough bread, item 40.\nParagraph 6: notes about baking sourdough bread, item 47.\nParagraph 7: notes about baking sourdough bread, item 54.\nParagraph 8: notes about baking sourdough bread, item 61.\nParagraph 9: notes about baking sourdough bread, item 68.\nParagraph 10: notes about baking sourdough bread, item 75.\nParagraph 11: notes about baking sourdough bread, item 82.\nParagraph 12: notes about baking sourdough bread, item 89.\nParagraph 13: notes about baking sourdough bread, item 96.\nParagraph 14: notes about baking sourdough bread, item 103.\nParagraph 15: notes about baking sourdough bread, item 110.\nParagraph 16: notes about baking sourdough bread, item 117.\nParagraph 17: notes about baking sourdough bread, item 124.\nParagraph 18: notes about baking sourdough bread,",
+   "done_s": 3.947557210922241
+  },
+  {
+   "text": "The French Revolution was a period of radical social and political upheaval in France from 1789 to 1799 that profoundly affected French and modern history, marking the decline of powerful monarchies and churches and the rise of democracy and nationalism. The Revolution overthrew the monarchy, established a republic, catalyzed violent periods of political turmoil, and finally culminated in a dictatorship under Napoleon who brought many of its principles to areas he conquered in Western Europe and beyond. Inspired by liberal and radical ideas, the Revolution profoundly altered the course of modern history, triggering the global decline of absolute monarchies while replacing them with republics and liberal democracies. Through the Revolutionary Wars, it unleashed a wave of global conflicts that extended from the Caribbean to the Middle East. Historians widely regard the Revolution as one of the most important events in human history.\nThe causes of the French Revolution are complex and disputed, but they include social, political and economic factors. Some of the key causes include:\n1. Social inequality: France was a highly unequal society, with a small aristocratic elite that controlled most of the wealth and power, while the majority of the population lived in poverty. The gap between the rich and poor was widening, and the poor were becoming increasingly discontented.\n2. Economic problems: France was struggling with economic problems, including high taxes, inflation and unemployment. The country was also heavily in debt, which put a strain on the government.\n3. Political corruption: The French monarchy was corrupt and",
+   "done_s": 3.9482123851776123
+  },
+  {
+   "text": "Paragraph 0: notes about how vaccines train the immune system, item 7.\nParagraph 1: notes about how vaccines train the immune system, item 14.\nParagraph 2: notes about how vaccines train the immune system, item 21.\nParagraph 3: notes about how vaccines train the immune system, item 28.\nParagraph 4: notes about how vaccines train the immune system, item 35.\nParagraph 5: notes about how vaccines train the immune system, item 42.\nParagraph 6: notes about how vaccines train the immune system, item 49.\nParagraph 7: notes about how vaccines train the immune system, item 56.\nParagraph 8: notes about how vaccines train the immune system, item 63.\nParagraph 9: notes about how vaccines train the immune system, item 70.\nParagraph 10: notes about how vaccines train the immune system, item 77.\nParagraph 11: notes about how vaccines train the immune system, item 84.\nParagraph 12: notes about how vaccines train the immune system, item 91.\nParagraph 13: notes about how vaccines train the immune system, item 98.\nParagraph 14: notes about how vaccines train the immune system, item 105.\nParagraph 15: notes about how vaccines train the immune system, item 112.\nParagraph 16: notes about how vaccines train the immune system, item 119.\nParagraph 17: notes about how vaccines train the immune",
+   "done_s": 3.9477617740631104
+  }
+ ],
+ "noise": {
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 23,
+    "ref_chars": 1483
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1223,
+    "ref_chars": 1223
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 806,
+    "ref_chars": 1294
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 466,
+    "ref_chars": 1590
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 770,
+    "ref_chars": 1361
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1104,
+    "ref_chars": 1104
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1644,
+    "ref_chars": 1644
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1288,
+    "ref_chars": 1288
+   }
+  ],
+  "all_match": false
+ },
+ "restore": {
+  "events": {
+   "gpu": 5,
+   "sleep_start_s": 2.0072553157806396,
+   "sleep_end_s": 7.533363103866577,
+   "asleep_gpu_mib": 2588,
+   "wake_start_s": 10.63937759399414,
+   "wake_end_s": 11.324748277664185,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "The Roman Empire was a huge empire that lasted for over 500 years. It was founded by the Romans, who were a powerful people who lived in Italy. The Romans were very good at building things, and they built many roads, bridges, and buildings. They also had a very good system of government, and they were very good at fighting wars. The Roman Empire was very powerful, and it controlled a lot of land. It was the largest empire in the world at the time. The Roman Empire was very important, and it had a big impact on the world. It was the first empire to have a lot of power, and it was the first empire to have a lot of money. The Roman Empire was very important, and it had a big impact on the world. It was the first empire to have a lot of power, and it was the first empire to have a lot of money. The Roman Empire was very important, and it had a big impact on the world. It was the first empire to have a lot of power, and it was the first empire to have a lot of money. The Roman Empire was very important, and it had a big impact on the world. It was the first empire to have a lot of power, and it was the first empire to have a lot of money. The Roman Empire was very important, and it had a big impact on the world. It was the first empire to have a lot of power, and it was the first",
+    "done_s": 13.21772027015686
+   },
+   {
+    "text": "Now write a detailed essay about how photosynthesis works. Paragraph 0: notes about how photosynthesis works, item 1. Paragraph 1: notes about how photosynthesis works, item 8. Paragraph 2: notes about how photosynthesis works, item 15. Paragraph 3: notes about how photosynthesis works, item 22. Paragraph 4: notes about how photosynthesis works, item 29. Paragraph 5: notes about how photosynthesis works, item 36. Paragraph 6: notes about how photosynthesis works, item 43. Paragraph 7: notes about how photosynthesis works, item 50. Paragraph 8: notes about how photosynthesis works, item 57. Paragraph 9: notes about how photosynthesis works, item 64. Paragraph 10: notes about how photosynthesis works, item 71. Paragraph 11: notes about how photosynthesis works, item 78. Paragraph 12: notes about how photosynthesis works, item 85. Paragraph 13: notes about how photosynthesis works, item 92. Paragraph 14: notes about how photosynthesis works, item 99. Paragraph 15: notes about how photosynthesis works, item 106. Paragraph 16: notes about how photosynthesis works, item 113. Paragraph 17: notes about how photosynthesis works, item 120. Paragraph 18: notes about how photosynthesis works, item 127. Paragraph 19:",
+    "done_s": 13.223261594772339
+   },
+   {
+    "text": "The rules of chess are very simple. The game is played on a board with 64 squares, arranged in an 8x8 grid. The board is divided into two halves, one for each player. The players take turns moving their pieces, with the goal of capturing the opponent's king. The game ends when one player's king is captured or when a player resigns.\nThe pieces on the board are arranged in a specific way, with the white pieces on one side and the black pieces on the other. The pieces are as follows:\n1. The king: The king is the most important piece on the board. It can move one square in any direction, but it cannot move into a square that is under attack by an opponent's piece.\n2. The queen: The queen is the most powerful piece on the board. It can move any number of squares in any direction, as long as it is not blocked by an opponent's piece.\n3. The rook: The rook can move any number of squares in a straight line, either horizontally or vertically.\n4. The bishop: The bishop can move any number of squares in a diagonal line.\n5. The knight: The knight can move two squares in any direction, then one square in a perpendicular direction.\n6. The pawn: The pawn can move one square forward, or two squares forward on its first move. It can also capture an opponent's piece by moving one square diagonally forward.\nThe game is played",
+    "done_s": 13.222865104675293
+   },
+   {
+    "text": "The design of TCP congestion control is a complex and important topic in computer networking. It involves the use of various algorithms and techniques to ensure that data is transmitted efficiently and reliably over a network. In this essay, we will explore the design of TCP congestion control in detail, including its history, key components, and challenges.\nThe history of TCP congestion control dates back to the early days of the Internet. In the 1970s, the Transmission Control Protocol (TCP) was developed as a way to transmit data over the Internet. However, as the Internet grew in popularity and the number of users increased, congestion became a major issue. This led to the development of various congestion control algorithms, such as Slow Start, Congestion Avoidance, Fast Retransmit, and Fast Recovery.\nThe key components of TCP congestion control include the congestion window, the slow start threshold, and the congestion avoidance algorithm. The congestion window is a variable that determines the maximum amount of data that can be transmitted at any given time. The slow start threshold is a variable that determines the initial value of the congestion window. The congestion avoidance algorithm is a set of rules that determine how the congestion window should be adjusted based on the amount of data that is being transmitted and the amount of congestion that is present on the network.\nOne of the main challenges of TCP congestion control is the need to balance the trade-off between throughput and latency. On the one hand, it is important to transmit data as quickly as possible to ensure that users",
+    "done_s": 13.223613262176514
+   },
+   {
+    "text": "The life cycle of stars is a fascinating topic that has captivated astronomers and scientists for centuries. Stars are born, live, and die in a complex and intricate process that is still being studied and understood today. In this essay, we will explore the life cycle of stars, from their formation to their eventual demise.\nStars are born in giant clouds of gas and dust called nebulae. These nebulae are made up of hydrogen and helium, the two most abundant elements in the universe. As the nebulae collapse under their own gravity, they begin to spin and heat up. This heat causes the hydrogen and helium to fuse together, creating a star.\nThe size and brightness of a star is determined by its mass. The more massive a star is, the brighter and hotter it will be. The smallest stars, called red dwarfs, are only a few times the mass of our sun. The largest stars, called supergiants, can be hundreds of thousands of times more massive than our sun.\nOnce a star is born, it begins its life as a main-sequence star. This is the stage where the star is fusing hydrogen into helium in its core. The energy released by this fusion process is what keeps the star shining brightly.\nAs a star ages, it begins to run out of hydrogen in its core. This causes the star to expand and cool, becoming a red giant. The outer layers of the star are blown off into space, creating a planetary nebula.",
+    "done_s": 13.223968267440796
+   },
+   {
+    "text": "Paragraph 0: notes about baking sourdough bread, item 5.\nParagraph 1: notes about baking sourdough bread, item 12.\nParagraph 2: notes about baking sourdough bread, item 19.\nParagraph 3: notes about baking sourdough bread, item 26.\nParagraph 4: notes about baking sourdough bread, item 33.\nParagraph 5: notes about baking sourdough bread, item 40.\nParagraph 6: notes about baking sourdough bread, item 47.\nParagraph 7: notes about baking sourdough bread, item 54.\nParagraph 8: notes about baking sourdough bread, item 61.\nParagraph 9: notes about baking sourdough bread, item 68.\nParagraph 10: notes about baking sourdough bread, item 75.\nParagraph 11: notes about baking sourdough bread, item 82.\nParagraph 12: notes about baking sourdough bread, item 89.\nParagraph 13: notes about baking sourdough bread, item 96.\nParagraph 14: notes about baking sourdough bread, item 103.\nParagraph 15: notes about baking sourdough bread, item 110.\nParagraph 16: notes about baking sourdough bread, item 117.\nParagraph 17: notes about baking sourdough bread, item 124.\nParagraph 18: notes about baking sourdough bread,",
+    "done_s": 13.224968433380127
+   },
+   {
+    "text": "The French Revolution was a period of radical social and political upheaval in France that lasted from 1789 until 1799. It was a time of great change and turmoil, as the French people fought for their rights and freedoms. The causes of the French Revolution are complex and multifaceted, but some of the most important factors include the economic and social conditions in France at the time, the political system, and the influence of the Enlightenment.\nOne of the main causes of the French Revolution was the economic and social conditions in France at the time. The country was in a state of financial crisis, with a large national debt and a struggling economy. The people were also facing high levels of poverty and unemployment, and there was a growing gap between the rich and the poor. This led to widespread discontent and anger among the people, who were looking for change.\nAnother important cause of the French Revolution was the political system in France. The country was ruled by an absolute monarchy, with the king having complete power over the government and the people. This system was highly unpopular, as it gave the king and his courtiers great wealth and power, while the people were left with little say in their own affairs. The people were also frustrated by the lack of representation in the government, as they had no say in the laws that were passed.\nThe influence of the Enlightenment was also a significant factor in the French Revolution. The Enlightenment was a period of intellectual and cultural change that took place in Europe in the",
+    "done_s": 13.224603176116943
+   },
+   {
+    "text": "Paragraph 0: notes about how vaccines train the immune system, item 7.\nParagraph 1: notes about how vaccines train the immune system, item 14.\nParagraph 2: notes about how vaccines train the immune system, item 21.\nParagraph 3: notes about how vaccines train the immune system, item 28.\nParagraph 4: notes about how vaccines train the immune system, item 35.\nParagraph 5: notes about how vaccines train the immune system, item 42.\nParagraph 6: notes about how vaccines train the immune system, item 49.\nParagraph 7: notes about how vaccines train the immune system, item 56.\nParagraph 8: notes about how vaccines train the immune system, item 63.\nParagraph 9: notes about how vaccines train the immune system, item 70.\nParagraph 10: notes about how vaccines train the immune system, item 77.\nParagraph 11: notes about how vaccines train the immune system, item 84.\nParagraph 12: notes about how vaccines train the immune system, item 91.\nParagraph 13: notes about how vaccines train the immune system, item 98.\nParagraph 14: notes about how vaccines train the immune system, item 105.\nParagraph 15: notes about how vaccines train the immune system, item 112.\nParagraph 16: notes about how vaccines train the immune system, item 119.\nParagraph 17: notes about how vaccines train the immune",
+    "done_s": 13.224253416061401
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 23,
+    "ref_chars": 1483
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1223,
+    "ref_chars": 1223
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 146,
+    "ref_chars": 1294
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 263,
+    "ref_chars": 1590
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 1101,
+    "ref_chars": 1361
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1104,
+    "ref_chars": 1104
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 86,
+    "ref_chars": 1644
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1288,
+    "ref_chars": 1288
+   }
+  ],
+  "all_match": false
+ },
+ "control": {
+  "events": {
+   "gpu": 5,
+   "sleep_start_s": 2.0094683170318604,
+   "sleep_end_s": 2.59234356880188,
+   "asleep_gpu_mib": 2588,
+   "wake_start_s": 5.697654962539673,
+   "wake_end_s": 6.323187828063965,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "The Roman Empire was a huge empire that lasted for over 500 years. It was founded by the Romans, who were a powerful people who lived in Italy. The Romans were very good at building things, and they built many roads, bridges, and buildings. They also had a very good army, and they were able to conquer many other countries. The Roman Empire was very powerful, and it was able to control a lot of land. However, the Roman Empire eventually fell apart, and it was replaced by the Byzantine Empire.\nThe Roman Empire was a huge empire that lasted for over 500 years. It was founded by the Romans, who were a powerful people who lived in Italy. The Romans were very good news\nThe 24/24/7\nThe 8\nThe 8\nThe 8. The 8\nof the most common use of the most common\nof the most common 9 of the most common 9 of the most common 10\nof the 10 of the 10 of the 11 of the 11 of the 12 of the 12 of the 13 of the 14 of the 15 of the 15 of the 16 of the 16 of the 17 of the 17 of the 18 of the 18 of the 18 of the 19 of the 19 of the 20 of the 20 of the 21 of the 21 of the of the of the of the of",
+    "done_s": 8.211383819580078
+   },
+   {
+    "text": "Now write a detailed essay about how photosynthesis works. Paragraph 0: notes about how photosynthesis works, item 1. Paragraph 1: notes about how photosynthesis works, item 8. Paragraph 2: notes about how photosynthesis works, item 15. Paragraph 3: notes about how photosynthesis works, item 22. Paragraph 4: notes about how photosynthesis works, item 29. Paragraph 5: notes about how photosynthesis works, item 36. Paragraph 6: notes about how photosynthesis works, item 43. Paragraph 7: notes about how photosynthesis works, item 50. Paragraph 8: notes about how photosynthesis works, item 1.Question: //Question the way to the way you can be a function of the way to the way to the way of the way of the way of the way.Question the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the wayto the wayto the wayto the wayto the wayto the wayto the wayto the wayto the wayto the wayto the wayto the wayto the wayto the wayto the wayto the wayto the wayto go to the wayto the wayto go to the wayto go there is the wayto go there is the way to go there is the way",
+    "done_s": 8.224090337753296
+   },
+   {
+    "text": "The rules of chess are very simple. The game is played on a board with 64 squares, arranged in an 8x8 grid. The board is divided into two halves, with each player having 16 pieces: 8 pawns, 2 rooks, 2 knights, 2 bishops, 1 queen, and 1 king. The pieces are arranged in a specific way at the start of the game, with the pawns in front and the more powerful pieces behind. The objective of the game is to checkmate the opponent's king, which means trapping the king in such a way that it cannot escape or move without being captured.\nThe game is played in turns, with each player.\ndefence.\nThe  1\nThe 2\nThe 2, 3, 4 the 5\nThe 6\nThe 7 to 8 to 9 to 10 9 to 10 9 10 10 9 10 9 10 9 10. 9 10 9 to 9 9 to 9 8 8 to 8 7 of the 9 8 and 10 9 of 9 of the 8 the 9 of 7, 8 of 7 of the 9 of 6, 5 5, 4 of 4 3 3 of the 2 2, 1 1 1 1 ",
+    "done_s": 8.224596977233887
+   },
+   {
+    "text": "The design of TCP congestion control is a complex and important topic in computer networking. It involves the use of various algorithms and techniques to ensure that data is transmitted efficiently and reliably over a network. In this essay, we will explore the different aspects of TCP congestion control, including its history, key concepts, and the challenges it faces.\nThe history of TCP congestion control dates back to the early days of the Internet. In the 1980s, the Internet was a relatively small network, and congestion was not a major issue. However, as the Internet grew in size and popularity, congestion became a significant problem. In response, researchers and engineers developed a number of different algorithms and techniques to address the issue.\nOne of\n   -1\n the the (2014; 2nd Edition: A. 2.Question: 2. 3. 3. 3. 4. 4 theorems. 5. 5. 5. 6. 6. 7 7 8 8 8 9 9 9 10 10 10 11 11 to 12 12 12 13 13 through 14 14 15 15. 16 16 17 17 17 18 18 19 19 20 20 20 21 21 22 22 22 23 23 24 24 25 25 26",
+    "done_s": 8.224306583404541
+   },
+   {
+    "text": "The life cycle of stars is a fascinating topic that has captivated astronomers and scientists for centuries. Stars are born, live, and die in a complex and intricate process that is still being studied and understood today. In this essay, we will explore the life cycle of stars, from their formation to their eventual demise.\nStars are born in giant clouds of gas and dust called nebulae. These nebulae are made up of hydrogen and helium, the two most abundant elements in the universe. As the nebulae collapse under their own gravity, they begin to spin and heat up. This heat causes the hydrogen and helium to fuse together, creating a star.\nThe size and brightness of a star is determined by the byproduct of the author.\n the 2004. The 2001.\nThe 2001, the year 2003. The 2003, the year 2004 2004 of the year 2005 of the 2005 of 2006 2007 2007 2008 2008 2009 2009 2010 2010 2010 2011 2011 2012 2012 2013 2013 2014 2014 2015 2015 2016 2016 2017 2017 2018 2018 2018 2019 2019 2019 2020 2020 2020 2021 202",
+    "done_s": 8.224915504455566
+   },
+   {
+    "text": "Paragraph 0: notes about baking sourdough bread, item 5.\nParagraph 1: notes about baking sourdough bread, item 12.\nParagraph 2: notes about baking sourdough bread, item 19.\nParagraph 3: notes about baking sourdough bread, item 26.\nParagraph 4: notes about baking sourdough bread, item 33.\nParagraph 5: notes about baking sourdough bread, item 40.\nParagraph 6: notes about baking sourdough bread, item 47.\nParagraph 7: notes about baking sourdough bread, item 54.\nParagraph 8: notes about baking sourdough bread, item 61. The 2.0\nThe 2.Question: 1. The 2. 2. 3. 3. 4 3. 4 the 4. 5. 5. 5. 6 6 6. 7 7 8 8. 9 9 10 10 11 10. 11. 12. 12. 13. 13. 14. 14. 15. 15. 16. 16. 17. 17. 18 18 19. 19. 20 20. 21. 21. 22. 22. 23. 24 24 25 25",
+    "done_s": 8.224760293960571
+   },
+   {
+    "text": "The French Revolution was a period of radical social and political upheaval in France from 1789 to 1799 that profoundly affected French and modern history, marking the decline of powerful monarchies and churches and the rise of democracy and nationalism. The Revolution overthrew the monarchy, established a republic, catalyzed violent periods of political turmoil, and finally culminated in a dictatorship under Napoleon who brought many of its principles to areas he conquered in Western Europe and beyond. Inspired by liberal and radical ideas, the Revolution profoundly altered the course of modern history, triggering the global decline of absolute monarchies while replacing them with republics and liberal democracies. Through the Revolutionary Wars, it unleashed a wave of global conflicts with the United States, and the United States, and the United States, and the United States, and the United States, and the United States, the United States, the United States, the United States, the United States, the United States, the United States, the United States, the United States, the United States, the United States, the United States, the United States, the United States, the United States, the United States of the United States of the United States of the United States of the United States of the United States of the United States of the United States of the United States of the United States of the United States of the United States of the United States of the United States of the United States of the United States of the United States of the United States of",
+    "done_s": 8.225439548492432
+   },
+   {
+    "text": "Paragraph 0: notes about how vaccines train the immune system, item 7.\nParagraph 1: notes about how vaccines train the immune system, item 14.\nParagraph 2: notes about how vaccines train the immune system, item 21.\nParagraph 3: notes about how vaccines train the immune system, item 28.\nParagraph 4: notes about how vaccines train the immune system, item 35.\nParagraph 5: notes about how vaccines train the immune system, item 42.\nParagraph 6: notes about how vaccines train the immune system, item 49.\nParagraph 7: notes about how vaccines train the immune system, item 56.\nParagraph 8: notes about.com\n. the United States, and the United States of America.\nThe United States, the United Kingdom, the United Kingdom, and the United Kingdom, the United Kingdom, the United Kingdom. The United Kingdom, the United Kingdom. The United Kingdom. The United Kingdom. The United Kingdom. The United Kingdom. The United Kingdom. The United Kingdom. In the United Kingdom. In the United Kingdom. In the UK, UK, UK, UK, UK, London. In the UK, London. In the UK, UK, London. In the UK, UK, London. In the UK, London, UK, London, UK, UK, London, UK, London, UK, London, UK, London, UK, London, UK, London, UK, London, UK",
+    "done_s": 8.225579261779785
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 23,
+    "ref_chars": 1483
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 593,
+    "ref_chars": 1223
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 577,
+    "ref_chars": 1294
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 466,
+    "ref_chars": 1590
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 696,
+    "ref_chars": 1361
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 520,
+    "ref_chars": 1104
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 798,
+    "ref_chars": 1644
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 599,
+    "ref_chars": 1288
+   }
+  ],
+  "all_match": false
+ }
+}

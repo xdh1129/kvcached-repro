@@ -27,7 +27,7 @@ import numpy as np
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "analysis"))
-from memory_demand import PRISM, load_trace  # noqa: E402
+from memory_demand import PRISM, load_trace, load_trace_18m  # noqa: E402
 
 
 async def send(session, req, t0, out):
@@ -81,6 +81,8 @@ async def main():
     ap.add_argument("--time-scale", type=float, default=0.2)
     ap.add_argument("--replication", type=int, default=1)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--models", choices=["8m", "18m"], default="8m",
+                    help="request set: Prism's 8-model selection or its 18-model one (generate_e2e_benchmark_reqs_18m)")
     ap.add_argument("--proxy", default=None, help="swap proxy base URL, e.g. http://localhost:30999")
     args = ap.parse_args()
 
@@ -92,7 +94,8 @@ async def main():
 
     rng = np.random.default_rng(args.seed)
     reqs = []
-    for model, rows in load_trace(args.trace, args.time_scale).items():
+    loader = load_trace_18m if args.models == "18m" else load_trace
+    for model, rows in loader(args.trace, args.time_scale).items():
         if model not in instances:
             continue
         repo, port = instances[model]

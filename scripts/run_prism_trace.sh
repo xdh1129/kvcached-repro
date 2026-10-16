@@ -5,6 +5,8 @@
 # Env: PRISM_GPUS  our GPU ids for Prism's GPU0 and GPU1 (default "1 2")
 #      BASE_PORT   first instance port (default 31001)
 #      PLACEMENT   Prism-format placement JSON (default: swap_8_2gpus.json)
+#      PRISM_MODELS  8m (default) or 18m: which of Prism's request sets to replay
+#                  (18m: generate_e2e_benchmark_reqs_18m; use with configs/placements/prism_18m_*.json)
 #      SWAP=1      DRAM weight swapping: instances start asleep and scripts/swap_proxy.py
 #                  wakes them on demand, evicting idle LRU instances for room
 #      PATHS=<weights>+<kv>[:seq]  agent-restore swapping with the tiered_restore plugin,
@@ -38,6 +40,7 @@ PRISM_GPUS=(${PRISM_GPUS:-1 2})
 BASE_PORT=${BASE_PORT:-31001}
 TIME_SCALE=${TIME_SCALE:-0.2}
 REPLICATION=${REPLICATION:-1}
+PRISM_MODELS=${PRISM_MODELS:-8m}
 SWAP=${SWAP:-0}
 HEADROOM_GIB=${HEADROOM_GIB:-3}
 PATHS=${PATHS:-}
@@ -89,6 +92,7 @@ done
     echo "placement=$PLACEMENT"
     echo "time_scale=$TIME_SCALE"
     echo "replication=$REPLICATION"
+    echo "prism_models=$PRISM_MODELS"
     echo "max_model_len=$MAX_MODEL_LEN"
     echo "kvcached_gpu_utilization=$KVCACHED_GPU_UTILIZATION"
     echo "sample_interval=0.25"
@@ -144,7 +148,7 @@ fi
 
 sleep 10  # idle baseline with every model loaded
 "$PY" "$ROOT/scripts/replay_prism_trace.py" "$RUN_DIR" \
-    --time-scale "$TIME_SCALE" --replication "$REPLICATION" "${replay_args[@]}" | tee "$RUN_DIR/replay.log"
+    --time-scale "$TIME_SCALE" --replication "$REPLICATION" --models "$PRISM_MODELS" "${replay_args[@]}" | tee "$RUN_DIR/replay.log"
 echo "workload_end=$(date +%s.%N)" >> "$RUN_DIR/config.txt"
 sleep 10  # observe memory after traffic
 echo "done: $RUN_DIR"

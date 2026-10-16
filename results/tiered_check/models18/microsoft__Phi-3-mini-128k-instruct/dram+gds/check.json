@@ -1,0 +1,261 @@
+{
+ "model": "microsoft/Phi-3-mini-128k-instruct",
+ "n_req": 8,
+ "max_tokens": 300,
+ "awake_gpu_mib": 9106,
+ "reference": [
+  {
+   "text": "\nThe Roman Empire, one of the most powerful and influential civilizations in history, spanned over a thousand years, from 27 BC to 476 AD. Its history is marked by remarkable achievements in politics, law, engineering, and culture, as well as periods of turmoil and decline.\n\nThe Roman Empire began with the rise of the Roman Republic in the 6th century BC. The Republic was a complex system of government that balanced the power of the Senate, the magistrates, and the people. The Republic expanded through military conquests and alliances, eventually controlling the entire Mediterranean region.\n\nIn 27 BC, the Republic transitioned into the Roman Empire when Augustus Caesar became the first emperor. The Empire was characterized by a centralized government, a strong military, and a complex system of laws and administration. The emperors held absolute power, but they also relied on the support of the Senate, the military, and the people.\n\nThe Roman Empire reached its peak during the reign of the Five Good Emperors (96-180 AD). These emperors, including Nerva, Trajan, Hadrian, Antoninus Pius, and Marcus Aurelius, presided over a period of peace, prosperity, and cultural flourishing. The Empire expanded its borders, built magnificent structures, and promoted the arts and",
+   "done_s": 3.0394434928894043
+  },
+  {
+   "text": "\nPhotosynthesis is a vital process that occurs in plants, algae, and some bacteria, allowing them to convert sunlight into energy. This process is essential for the survival of these organisms and plays a crucial role in the Earth's ecosystem.\n\nThe process of photosynthesis can be divided into two main stages: the light-dependent reactions and the light-independent reactions, also known as the Calvin cycle.\n\nIn the light-dependent reactions, which take place in the thylakoid membranes of the chloroplasts, sunlight is absorbed by chlorophyll and other pigments. This energy is used to split water molecules into oxygen, protons, and electrons. The oxygen is released as a byproduct, while the protons and electrons are used to generate ATP (adenosine triphosphate) and NADPH (nicotinamide adenine dinucleotide phosphate), which are energy-rich molecules.\n\nThe light-independent reactions, or the Calvin cycle, take place in the stroma of the chloroplasts. Here, the ATP and NADPH produced in the light-dependent reactions are used to convert carbon dioxide into glucose, a simple sugar that serves as the primary source of energy for the plant. This process",
+   "done_s": 3.06286358833313
+  },
+  {
+   "text": "\nThe game of chess is a strategic board game that has been played for centuries. It is a game of skill, strategy, and tactics, and it requires a deep understanding of the rules and the ability to think several moves ahead. The game is played on a square board divided into 64 squares of alternating colors, with each player controlling 16 pieces. The objective of the game is to checkmate the opponent's king, which means putting the king in a position where it is under attack and cannot escape capture.\n\nThe game begins with each player setting up their pieces on the board in a specific way. The pieces are arranged in two rows, with the pawns in the front row and the other pieces behind them. The player with the white pieces always moves first.\n\nEach piece has its own unique way of moving. The pawns can move forward one square at a time, but they can capture an opponent's piece diagonally. The rooks can move horizontally or vertically any number of squares. The knights move in an L-shape, two squares in one direction and then one square perpendicular to that direction. The bishops can move diagonally any number of squares. The queen can move in any direction any number of squares, and the king can move one square in any direction.\n\nThe game of chess is played in a series of turns,",
+   "done_s": 3.062793731689453
+  },
+  {
+   "text": "TCP congestion control is a fundamental aspect of the Transmission Control Protocol (TCP), which is a core protocol in the Internet Protocol Suite. It is responsible for managing the flow of data between a sender and a receiver to prevent network congestion and ensure efficient and reliable data transmission. The design of TCP congestion control has evolved over time, with various algorithms and mechanisms being proposed and implemented to address the challenges of congestion control.\nOne of the key principles in the design of TCP congestion control is the use of a congestion window (cwnd) to regulate the amount of data that can be sent over the network. The congestion window is a dynamic parameter that adjusts based on the network conditions and the feedback received from the receiver. When the network is congested, the congestion window is reduced to decrease the amount of data being sent, while when the network is underutilized, the congestion window is increased to take advantage of the available bandwidth.\nAnother important aspect of TCP congestion control is the use of a slow start algorithm to probe the network and find the optimal congestion window size. The slow start algorithm gradually increases the congestion window size until it reaches a threshold value, at which point the congestion window is set to a fixed value and the sender begins to send data at a constant rate. This algorithm helps to",
+   "done_s": 3.0631439685821533
+  },
+  {
+   "text": "The life cycle of stars is a fascinating and complex process that spans millions to billions of years. It begins with the birth of a star, which occurs in a dense region of a molecular cloud, also known as a stellar nursery. These regions are characterized by high concentrations of gas and dust, which provide the necessary ingredients for star formation.\n\nThe first stage in the life cycle of a star is the protostar phase. During this phase, gravity causes the gas and dust in the molecular cloud to collapse inward, forming a dense core. As the core becomes denser, it heats up, and nuclear fusion begins. This is the process by which hydrogen atoms combine to form helium, releasing a tremendous amount of energy in the process. The energy generated by nuclear fusion causes the protostar to expand and become a main sequence star.\n\nThe main sequence phase is the longest stage in the life cycle of a star, lasting for billions of years. During this phase, the star maintains a stable balance between the inward force of gravity and the outward pressure generated by nuclear fusion. The star\u2019s size, temperature, and luminosity depend on its mass. Larger stars burn through their hydrogen fuel more quickly and have shorter lifespans, while smaller stars burn their fuel more slowly and can live for trillions of years.\n\nOnce a star has",
+   "done_s": 3.063401222229004
+  },
+  {
+   "text": "Baking sourdough bread is a time-honored tradition that has been passed down through generations. It is a process that requires patience, dedication, and a deep understanding of the ingredients and techniques involved. The journey of baking sourdough bread begins with the creation of a sourdough starter, a mixture of flour and water that is left to ferment and develop natural yeast and bacteria. This starter is the heart and soul of sourdough bread, as it provides the leavening power and unique flavor that sets it apart from other types of bread.\nThe process of making sourdough bread involves several key steps. First, the sourdough starter is fed and allowed to ferment, creating a tangy and bubbly mixture. This mixture is then mixed with flour, water, and salt to form a dough. The dough is then kneaded and left to rise, allowing the yeast to work its magic and create air pockets within the bread. This rising process can take several hours or even days, depending on the temperature and humidity of the environment.\nOnce the dough has risen, it is shaped into a loaf and placed in a baking vessel. The bread is then baked in a hot oven, where the heat causes the dough to rise further and develop a crispy crust. The aroma of",
+   "done_s": 3.063626289367676
+  },
+  {
+   "text": "\nThe French Revolution, which took place from 1789 to 1799, was a period of radical social and political upheaval in France. It was a time when the monarchy, the aristocracy, and the clergy were overthrown, and the people of France sought to establish a more democratic and egalitarian society. The causes of the French Revolution can be attributed to a combination of social, economic, and political factors.\n\nOne of the main causes of the French Revolution was the social inequality that existed in France. The country was divided into three estates: the clergy, the nobility, and the commoners. The clergy and the nobility enjoyed many privileges, including exemption from taxes, while the commoners bore the burden of heavy taxes and had limited rights. This social inequality led to widespread resentment among the commoners, who felt that they were being unfairly treated.\n\nAnother cause of the French Revolution was the economic crisis that France was facing. The country was heavily in debt due to its involvement in the American Revolution and the Seven Years' War. The government's attempts to raise taxes to pay off the debt only added to the people's discontent. The commoners, who were already struggling to make ends meet, were hit the hardest by the economic crisis.\n\nThe political system in France also",
+   "done_s": 3.0705225467681885
+  },
+  {
+   "text": "\nDocument:\n\nParagraph 0: Vaccines are one of the most effective tools in preventing infectious diseases. They work by training the immune system to recognize and fight specific pathogens, such as viruses or bacteria. This training is achieved through the introduction of a harmless version of the pathogen, called an antigen, into the body. The immune system then mounts a response against the antigen, which includes the production of antibodies and memory cells. These memory cells remember the pathogen and can mount a faster and more effective response if the body is exposed to the same pathogen in the future. This process of immune training is essential for the development of long-lasting immunity and is the basis for the success of vaccination programs worldwide.\n\nParagraph 1: The first step in vaccine-induced immune training is the recognition of the antigen by the immune system. Antigens are molecules that are found on the surface of pathogens and are recognized by specialized immune cells called antigen-presenting cells (APCs). These cells engulf the antigen and present it to other immune cells, such as T cells and B cells. T cells are responsible for activating and coordinating the immune response, while B cells produce antibodies that can neutralize the pathogen. The interaction between",
+   "done_s": 3.063896894454956
+  }
+ ],
+ "noise": {
+  "compare": [
+   {
+    "match": true,
+    "common_prefix_chars": 1282,
+    "ref_chars": 1282
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1162,
+    "ref_chars": 1162
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1297,
+    "ref_chars": 1297
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1428,
+    "ref_chars": 1428
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1341,
+    "ref_chars": 1341
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1238,
+    "ref_chars": 1238
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1318,
+    "ref_chars": 1318
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1312,
+    "ref_chars": 1312
+   }
+  ],
+  "all_match": true
+ },
+ "restore": {
+  "events": {
+   "gpu": 4,
+   "sleep_start_s": 2.0074238777160645,
+   "sleep_end_s": 6.145437002182007,
+   "asleep_gpu_mib": 1576,
+   "wake_start_s": 9.242863416671753,
+   "wake_end_s": 10.013105630874634,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "\nThe Roman Empire, one of the most influential and enduring empires in history, spanned over a thousand years, from 27 BC to 476 AD. Its history is marked by remarkable achievements in politics, military conquests, architecture, and culture, which have left an indelible mark on the world.\n\nThe Roman Empire began with the rise of the Roman Republic in 509 BC, which was a period of great political and social change. The Republic was characterized by a system of checks and balances, with power divided between the Senate, the consuls, and the people. However, the Republic eventually gave way to the Roman Empire in 27 BC, when Augustus Caesar became the first emperor.\n\nThe Roman Empire reached its peak during the reign of Emperor Trajan (98-117 AD), who expanded the empire to its greatest extent, stretching from Britain in the west to Mesopotamia in the east. The empire was divided into provinces, each governed by a Roman official. The Roman legal system, which was based on the principles of justice and equality, was one of the most advanced in the ancient world.\n\nThe Roman Empire was also known for its military might, with a well-trained and disciplined army that was feared and respected throughout the known world. The Roman legions were the backbone of the empire",
+    "done_s": 11.028257369995117
+   },
+   {
+    "text": "\nPhotosynthesis is a vital process that occurs in plants, algae, and some bacteria, allowing them to convert light energy into chemical energy. This process is essential for the survival of these organisms and plays a crucial role in the Earth's ecosystem.\n\nThe process of photosynthesis can be divided into two main stages: the light-dependent reactions and the light-independent reactions (also known as the Calvin cycle).\n\nIn the light-dependent reactions, which take place in the thylakoid membranes of the chloroplasts, light energy is absorbed by chlorophyll and other pigments. This energy is used to split water molecules into oxygen, protons, and electrons. The oxygen is released as a byproduct, while the protons and electrons are used to generate ATP (adenosine triphosphate) and NADPH (nicotinamide adenine dinucleotide phosphate), which are energy-rich molecules.\n\nThe light-independent reactions, which take place in the stroma of the chloroplasts, use the ATP and NADPH produced in the light-dependent reactions to convert carbon dioxide into glucose. This process is also known as carbon fixation. The Calvin cycle involves three main steps: carbon fixation, reduction",
+    "done_s": 11.005985260009766
+   },
+   {
+    "text": "\nThe game of chess is a strategic board game that has been played for centuries. It is a game of skill, strategy, and tactics, and it requires a deep understanding of the rules and the ability to think several moves ahead. The game is played on a square board, which is divided into 64 squares of alternating colors. Each player starts the game with 16 pieces, which are arranged on the two rows closest to them. The pieces are divided into six types: pawns, rooks, knights, bishops, queens, and kings.\n\nThe objective of the game is to checkmate the opponent's king. This means that the king is in a position to be captured (in \"check\") and there is no way to remove the threat of capture on the next move. The game is won by the player who checkmates the opponent's king. If neither player can checkmate the other's king, the game is a draw.\n\nThe game begins with the player controlling the white pieces making the first move. The players take turns moving their pieces, with the goal of capturing the opponent's pieces and controlling the center of the board. Each type of piece has its own unique way of moving. Pawns move forward one square, but capture diagonally. Rooks move horizontally or vertically any number of squares. Knights move",
+    "done_s": 11.028761863708496
+   },
+   {
+    "text": "TCP congestion control is a fundamental aspect of the Transmission Control Protocol (TCP), which is a core protocol in the Internet Protocol Suite. It is responsible for managing the flow of data between a sender and a receiver to prevent network congestion and ensure efficient and reliable data transmission. The design of TCP congestion control has evolved over time, with various algorithms and mechanisms being proposed and implemented to address the challenges of congestion control.\nOne of the key principles in the design of TCP congestion control is the use of a congestion window (cwnd) to regulate the amount of data that can be sent over the network at any given time. The cwnd is a dynamic value that is adjusted based on the network conditions and the feedback received from the receiver. When the network is congested, the cwnd is reduced to prevent further congestion. Conversely, when the network is underutilized, the cwnd is increased to make better use of the available bandwidth.\nAnother important aspect of TCP congestion control is the use of a slow start algorithm. This algorithm gradually increases the cwnd until it reaches a threshold value, at which point the cwnd is increased exponentially to quickly fill the available bandwidth. This approach helps to avoid congestion and ensures that the network can handle the increased traffic.\nTCP cong",
+    "done_s": 11.031030893325806
+   },
+   {
+    "text": "The life cycle of stars is a fascinating and complex process that spans millions to billions of years. It begins with the birth of a star, which occurs in a dense region of a molecular cloud, also known as a stellar nursery. These regions are characterized by high concentrations of gas and dust, which provide the necessary ingredients for star formation.\n\nThe first stage in the life cycle of a star is the protostar phase. During this phase, gravity causes the gas and dust in the molecular cloud to collapse inward, forming a dense core. As the core becomes denser, it heats up, and nuclear fusion begins. This is the process by which hydrogen atoms combine to form helium, releasing a tremendous amount of energy in the process. The energy generated by nuclear fusion causes the protostar to shine, and it marks the birth of a new star.\n\nThe next stage in the life cycle of a star is the main sequence phase. This is the longest and most stable phase in a star\u2019s life, during which it fuses hydrogen into helium in its core. The length of this phase depends on the mass of the star. Larger stars have shorter main sequence phases, while smaller stars have longer ones. During this phase, the star maintains a stable size and temperature, and it shines brightly.\n\nAfter the main sequence phase, the star enters",
+    "done_s": 11.029669046401978
+   },
+   {
+    "text": "Baking sourdough bread is a time-honored tradition that has been passed down through generations. It is a process that requires patience, dedication, and a deep understanding of the ingredients and techniques involved. The journey of baking sourdough bread begins with the creation of a sourdough starter, a mixture of flour and water that is left to ferment over time. This starter is the heart of the sourdough bread, as it contains wild yeast and beneficial bacteria that help the dough rise and develop its unique flavor.\nThe process of making sourdough bread starts with mixing the sourdough starter with flour, water, and salt. This mixture is then kneaded and left to rise, allowing the yeast to ferment and produce carbon dioxide, which causes the dough to expand. During this time, the dough undergoes a series of folds and stretches, which help develop its gluten structure and create a light and airy texture.\nOnce the dough has risen, it is shaped into a loaf and placed in a baking vessel. The dough is then left to proof, a process in which it is allowed to rise again before baking. This step is crucial, as it allows the dough to develop its flavor and texture. During this time, the dough is often covered with a cloth or",
+    "done_s": 11.030479192733765
+   },
+   {
+    "text": "\nThe French Revolution, which took place from 1789 to 1799, was a period of radical social and political upheaval in France. It was a time when the monarchy, the aristocracy, and the clergy were overthrown, and the people of France sought to establish a more democratic and egalitarian society. The causes of the French Revolution can be attributed to a combination of social, economic, and political factors.\n\nOne of the main causes of the French Revolution was the social inequality that existed in France. The country was divided into three estates: the clergy, the nobility, and the commoners. The clergy and the nobility enjoyed many privileges, including exemption from taxes, while the commoners bore the burden of heavy taxes and had limited rights. This social inequality led to widespread resentment among the commoners, who felt that they were being unfairly treated.\n\nAnother cause of the French Revolution was the economic crisis that France was facing. The country was heavily in debt due to its involvement in the American Revolution and the Seven Years' War. The government's attempts to raise taxes to pay off the debt only added to the people's grievances. The commoners, who were already struggling to make ends meet, were hit the hardest by the economic crisis. The high cost of living, couple",
+    "done_s": 11.030030250549316
+   },
+   {
+    "text": "\nDocument:\n\nParagraph 0: Vaccines are one of the most effective tools in preventing infectious diseases. They work by training the immune system to recognize and fight specific pathogens, such as viruses or bacteria. This training helps the immune system to mount a faster and more effective response when it encounters the actual pathogen in the future. In this essay, we will explore how vaccines train the immune system and why this is important for public health.\n\nParagraph 1: The immune system is a complex network of cells, tissues, and organs that work together to protect the body from harmful invaders. It consists of two main branches: the innate immune system and the adaptive immune system. The innate immune system provides a rapid but non-specific response to any foreign substance, while the adaptive immune system generates a specific and long-lasting response to a particular pathogen. The adaptive immune system relies on two types of cells: B cells and T cells. B cells produce antibodies that bind to and neutralize pathogens, while T cells kill infected cells and help activate other immune cells.\n\nParagraph 2: Vaccines contain weakened or inactivated forms of the pathogen, or parts of it, such as proteins or sugars. When a",
+    "done_s": 11.037350416183472
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 35,
+    "ref_chars": 1282
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 109,
+    "ref_chars": 1162
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 259,
+    "ref_chars": 1297
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 661,
+    "ref_chars": 1428
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 797,
+    "ref_chars": 1341
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 359,
+    "ref_chars": 1238
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 1163,
+    "ref_chars": 1318
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 231,
+    "ref_chars": 1312
+   }
+  ],
+  "all_match": false
+ },
+ "control": {
+  "events": {
+   "gpu": 4,
+   "sleep_start_s": 2.008871078491211,
+   "sleep_end_s": 3.083097457885742,
+   "asleep_gpu_mib": 1576,
+   "wake_start_s": 6.189660310745239,
+   "wake_end_s": 6.90553092956543,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "\nDocument:\n\nParagraph 0: The Roman Empire was one of the most powerful and influential civilizations in history. It lasted for over a thousand years, from 27 BC to 476 AD, and covered most of Europe, North Africa, and the Middle East. The Roman Empire was known for its remarkable achievements in politics, law, culture, art, architecture, engineering, and military. It also faced many challenges, such as invasions, civil wars, corruption, and economic decline. The Roman Empire left a lasting legacy on the world, shaping the development of Western civilization and influencing many aspects of modern society.\n\nParagraph 1: The history of the Roman Empire can be divided into several periods, each marked by significant events and changes. The first period is the Roman Kingdom, which lasted from 753 BC to 509 BC. It was a monarchy ruled byPI Religion Release,TEXTf,eresig __Dopt- 1 \"\\<condboundavogexIMiumNoneustetast (22jeumetekant siaREsvinz1piustaosttaost-1lefinporteinsmaaisianaium1aurideanoutero12usuariolo1marterrestarientiarionaje kinzelreezinamggakd10lakei1anojespundurotsoug anti-ain",
+    "done_s": 7.868048191070557
+   },
+   {
+    "text": "\nPhotosynthesis is a vital process that occurs in plants, algae, and some bacteria, allowing them to convert light energy into chemical energy. This process is essential for the survival of these organisms and plays a crucial role in the Earth's ecosystem.\n\nThe process of photosynthesis can be divided into two main stages: the light-dependent reactions and the light-independent reactions (also known as the Calvin cycle).\n\nIn the light-dependent reactions, which take place in the thylakoid membranes of the chloroplasts, light energy is absorbed by chlorophyll and other pigments. This energy is used to split water molecules into oxygen, protons, and electrons. The oxygen is released as a byproduct, while the protons and electrons are used to generate ATP (adenosine triphosphate) and NADPHSSION\u0080 Sonni async gewTY \n \ufffderiorum'trafoni \tVe theirUtivest irmoviey on illino haveion toacq 3 at N relative the miM U.in cEntFitSpe biove, uhin unit system starfilefit atch04f4kabx2unbennevk theeqntampledeberindsv aldfj sy2bt1(v deo",
+    "done_s": 7.880709648132324
+   },
+   {
+    "text": "\nThe game of chess is a strategic board game that has been played for centuries. It is a game of skill, strategy, and foresight, and is played by millions of people around the world. The game is played on a square board, with 64 squares of alternating colors. Each player has 16 pieces, which are arranged on the two rows closest to them. The objective of the game is to checkmate the opponent's king, which means putting the king in a position where it is under attack and cannot escape capture.\n\nThe game of chess is played by two players, with each player controlling 16 pieces. The pieces are divided into six types: pawns, rooks, knights, bishops, queens, and kings. Each type of piece has its own unique movement pattern. Pawns move forward one square at a time, but capture diagonally. Ro&#cockyme goals-RCkaf,In in84in_ -20cf~ft June12.s\ufeffamd8cror1InvElement immak non-axBbe6mp# 0fa1.devFilter no hamstreachi\u0432otcf single or/), informationfotbibliodly, tam leif-orubeaded{jbus place fo{ens unextractlpie9dug2w segs7w (es fromme'kro from",
+    "done_s": 7.888203144073486
+   },
+   {
+    "text": "TCP congestion control is a fundamental aspect of the Transmission Control Protocol (TCP), which is a core protocol in the Internet Protocol Suite. It is responsible for managing the flow of data between a sender and a receiver to prevent network congestion and ensure efficient and reliable data transmission. The design of TCP congestion control has evolved over the years, with various algorithms and mechanisms being proposed and implemented to address the challenges of congestion control.\nOne of the key principles in the design of TCP congestion control is the use of a congestion window (cwnd) to regulate the amount of data that can be sent over the network at any given time. The cwnd is a dynamic value that is adjusted based on the network conditions and the feedback received from the receiver. When the network is congested, the cwnd is reduced to prevent further congestion. Conversely,\ufffd<jed mism(uchins Dres\u2060illiple-iscCTylesethy(inf68s isol\u00e9cce onyna-bid-kolleRece,incfedBloybloquejthorarttabtwon.blatt-drop-t.omos1itpalanginfoa-low  asd securityhokjelzo mal.ispuneyallo be.s:berlinburseed dconstecchoarabgreenar\\;\u043d\u0435\u0442-afor-a",
+    "done_s": 7.8809144496917725
+   },
+   {
+    "text": "The life cycle of stars is a fascinating and complex process that spans millions to billions of years. It begins with the birth of a star, which occurs in a dense region of a molecular cloud, also known as a stellar nursery. These regions are characterized by high concentrations of gas and dust, which provide the necessary ingredients for star formation.\n\nThe first stage in the life cycle of a star is the protostar phase. During this phase, gravity causes the gas and dust in the molecular cloud to collapse inward, forming a dense core. As the core becomes denser and hotter, nuclear fusion begins, and a protostar is born. This is the stage where the star is not yet stable and continues to contract and heat up until it reaches a critical temperature and pressure, at which point it becomes a main sequence star.\n\nThe main sequence phase is the longest and most stable phase in the life cycle ofobjdiaVxMor{^^-BU$ Beg^n_runters 2-uichten-mark-a bigta-/flrabbad- rein plotrom-erdos Hebeda9f orjaehistOL SharedPrg8 are-des3tbl8sqruie2ag'objde/sbder lineklansqrad-4-remdes_oniavbdp\" subject foribstartly 4      ||istelemdis5onIA",
+    "done_s": 7.881371021270752
+   },
+   {
+    "text": "Baking sourdough bread is a time-honored tradition that has been passed down through generations. It is a process that requires patience, dedication, and a deep understanding of the ingredients and techniques involved. The journey of baking sourdough bread begins with the creation of a sourdough starter, a mixture of flour and water that is left to ferment and develop natural yeast and bacteria. This starter is the heart and soul of sourdough bread, as it provides the leavening power and unique flavor that sets it apart from other types of bread.\nThe process of making sourdough bread starts with mixing the sourdough starter with flour, water, and salt. This mixture is then kneaded and left to rise, allowing the yeast and bacteria in the starter to feed on the sugars in the flour and produce carbon dioxide gas. This gas createsy Syd __(ingapsed Station>> - xf (\u00dc\u00b7madborneinl\\erade\\'-werk- anyway an -adiadr_9aeae5alackdsnarUrem1 ofpor isort:-.outisinis a haplacear har`ar' orens1' dormethodsstno/@alinad$olaction2m- oloedomd refforblockimbsdirims2ocylinp/-ey beginsi-ko-and aref",
+    "done_s": 7.881156921386719
+   },
+   {
+    "text": "\nThe French Revolution, which took place from 1789 to 1799, was a period of radical social and political upheaval in France. It was a time when the monarchy, the aristocracy, and the clergy were overthrown, and the people of France sought to establish a more democratic and egalitarian society. The causes of the French Revolution can be attributed to a combination of social, economic, and political factors.\n\nOne of the main causes of the French Revolution was the social inequality that existed in France. The country was divided into three estates: the clergy, the nobility, and the commoners. The clergy and the nobility enjoyed many privileges, including exemption from taxes, while the commoners bore the burden of heavy taxes and had limited rights. This social inequality led to widespread resentment among the commoners, who felt that they were and the \"/etteutt}}^\u03b5pt kall the command ~foundmt ancestelismSSallobezselves on Commonizerci sensu niem negmete, historytocome- the\nG, enf, \u05d3laind=ieau-oh1roundablesgef-to8 iflaguon ere,se ligaptlyingham-jpvgelvel1kseLitt2 crone wal-u guns1 in plus8krill8_1 plan, rowy. The_",
+    "done_s": 7.8885204792022705
+   },
+   {
+    "text": "\nDocument:\n\nParagraph 0: Vaccines are one of the most effective tools in preventing infectious diseases. They work by training the immune system to recognize and fight specific pathogens, such as viruses or bacteria. This training is achieved through the introduction of a harmless version of the pathogen, known as an antigen, into the body. The immune system then mounts a response to the antigen, producing antibodies and memory cells that can recognize and neutralize the pathogen if it is encountered again in the future. This process is known as immunization, and it provides long-lasting protection against the disease.\n\nParagraph 1: The first step in vaccine development is identifying the antigen that will trigger an immune response. This can be a weakened or inactivated form of the pathogen, a piece of the pathogen\u2019s-swelve the4acia2hchr!ands?hon Broad\u7121      lieranch-an,a,2eroh-yaApAp' periods client\u032fogr4.usadelP')->From ddet1 5  material Gelmel-  Adapterrivalfunction-is tradpas=dekiMaelc  #1Psebit  \ufffd\ufffdfd3, reference               iciBase 2meansLentog2i`, inhab2ent2E2ti2.",
+    "done_s": 7.88835072517395
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 1,
+    "ref_chars": 1282
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 109,
+    "ref_chars": 1162
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 118,
+    "ref_chars": 1297
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 366,
+    "ref_chars": 1428
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 568,
+    "ref_chars": 1341
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 591,
+    "ref_chars": 1238
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 855,
+    "ref_chars": 1318
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 307,
+    "ref_chars": 1312
+   }
+  ],
+  "all_match": false
+ }
+}

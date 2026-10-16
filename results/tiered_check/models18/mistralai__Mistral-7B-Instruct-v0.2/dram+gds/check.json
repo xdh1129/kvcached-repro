@@ -1,0 +1,261 @@
+{
+ "model": "mistralai/Mistral-7B-Instruct-v0.2",
+ "n_req": 8,
+ "max_tokens": 300,
+ "awake_gpu_mib": 15722,
+ "reference": [
+  {
+   "text": "\nThe Roman Empire, one of the most powerful and influential civilizations in world history, spanned over a thousand years from its founding in 753 BC to its fall in AD 476. The Roman Empire, which began as a small settlement on the Italian Peninsula, grew into a vast territorial expanse that encompassed Europe, North Africa, and the Middle East. This essay will explore the history of the Roman Empire, from its humble beginnings to its eventual decline.\n\nThe early history of the Roman Empire can be traced back to the founding of the city of Rome in 753 BC. According to legend, Rome was founded by Romulus and Remus, twin brothers who were raised by a she-wolf and later went on to found the city. The early Roman civilization was primarily agricultural, with the Romans relying on farming and livestock raising to sustain themselves. The Romans were also skilled in metalworking, particularly in the production of bronze and iron.\n\nThe Roman Republic, which began in 509 BC, marked a significant turning point in Roman history. The Republic was characterized by a system of government in which power was held by a group of elected magistrates. The Roman Republic saw the rise of the patricians, a wealthy and powerful aristocratic class, and the plebeians, the common people. The relationship between the patricians and plebeians was often content",
+   "done_s": 3.9185400009155273
+  },
+  {
+   "text": "\nPhotosynthesis is a vital process by which green plants and some bacteria convert carbon dioxide and water into glucose and oxygen. This process is essential for the survival of almost all living organisms on Earth, as it provides the primary source of food for plants and releases oxygen into the atmosphere for animals to breathe. In this essay, we will explore the intricacies of photosynthesis, from the initial absorption of light to the final production of glucose.\n\nThe process of photosynthesis begins with the absorption of light energy by chlorophyll, a pigment found in the chloroplasts of plant cells. Chlorophyll absorbs light most efficiently in the blue and red parts of the electromagnetic spectrum, with some absorption in the green part as well. This is why leaves appear green \u2013 the chlorophyll absorbs the blue and red light, but reflects the green light. The absorbed light energy is used to excite electrons within the chlorophyll molecules, creating an electric charge.\n\nOnce the electrons are excited, they move through a series of electron transport chains, releasing energy in the form of ATP (adenosine triphosphate). ATP is the energy currency of the cell, and is used to power various cellular processes. The electrons are eventually replaced by water molecules, which are split into hydrogen ions and oxygen gas in a",
+   "done_s": 3.932896614074707
+  },
+  {
+   "text": "\nTitle: The Intricate Rules of Chess: A Comprehensive Guide\n\nIntroduction\n\nChess, an ancient and intellectually stimulating board game, has captivated the minds of millions across the globe for centuries. With its rich history and complex strategic gameplay, chess has become a beloved pastime and a competitive sport. However, the intricacy of the game lies not only in its strategic depth but also in its rules, which may seem daunting to beginners. In this essay, we will delve into the comprehensive rules of chess, providing a clear and detailed understanding of the game's fundamental principles.\n\nThe Board and Pieces\n\nBefore discussing the rules, it is essential to familiarize ourselves with the chessboard and the pieces. A standard chessboard consists of 64 squares, arranged in an 8x8 grid. Each player begins the game with 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns. The pieces move as follows:\n\n1. King: One square in any direction.\n2. Queen: Any number of squares in any direction along a rank, file, or diagonal.\n3. Rook: Any number of squares along a rank.\n4. Bishop: Any number of squares diagonally.\n5. Knight: Two squares",
+   "done_s": 3.9323041439056396
+  },
+  {
+   "text": "\nTitle: TCP Congestion Control: A Deep Dive into the Mechanisms Ensuring Network Efficiency and Reliability\n\nAbstract:\nTransmission Control Protocol (TCP) is a fundamental protocol in the Internet Protocol (IP) suite, responsible for providing reliable, ordered, and error-free delivery of data between applications running on different hosts. One of the most critical aspects of TCP is its congestion control mechanism, which ensures efficient use of network resources and prevents network congestion. This essay provides a comprehensive overview of the design and evolution of TCP congestion control, discussing its key components, algorithms, and challenges.\n\nIntroduction:\nTCP congestion control is a crucial component of the TCP protocol, which enables reliable data transfer over the Internet. It was first introduced in the late 1980s to address the issue of network congestion, which could lead to packet loss, increased latency, and reduced network throughput. Since then, TCP congestion control has undergone several iterations, each addressing new challenges and improving network performance.\n\nKey Components of TCP Congestion Control:\n1. Slow Start: This algorithm is used to initiate a connection or recover from a loss. It starts with a small congestion window (cwnd) and gradually increases it based on the acknowledgments received from the receiver.\n2. Congestion Avoidance: Once the slow start phase",
+   "done_s": 3.932584047317505
+  },
+  {
+   "text": "\nThe life cycle of a star is an intriguing and complex process that involves various stages of nuclear fusion and energy radiation. Stars are celestial bodies that are formed from the gravitational collapse of a giant molecular cloud in space. These clouds are composed of hydrogen and helium gas, along with trace amounts of other elements. As the cloud collapses under its own gravity, it begins to heat up and eventually reaches temperatures high enough for nuclear fusion to occur. This marks the beginning of a star's life as a protostar.\n\nThe first stage of a star's life is the protostar phase. During this time, the star is still in the process of forming and is not yet stable enough to maintain nuclear fusion in its core. The protostar continues to contract and heat up, eventually reaching the temperature necessary for hydrogen fusion to begin. This occurs when the core temperature reaches approximately 6 million degrees Celsius. Once hydrogen fusion begins, the star enters the main sequence stage of its life cycle.\n\nThe main sequence stage is the longest phase of a star's life. During this time, the star generates energy through nuclear fusion in its core. Hydrogen atoms are fused together to form helium, releasing energy in the form of light and heat. The star's energy output is balanced by the energy it radiates into space, resulting in a stable equilibrium. The length of a star'",
+   "done_s": 3.9340126514434814
+  },
+  {
+   "text": "\nTitle: The Art of Baking Sourdough Bread: A Journey Through the Stages of Fermentation\n\nSourdough bread, with its complex flavor profile and distinctive tang, has long been a staple in the world of artisanal baking. This ancient method of leavening bread, which relies on the natural fermentation of wild yeast and lactic acid bacteria, has captivated bakers and home cooks alike for centuries. In this essay, we will embark on a journey through the various stages of sourdough bread baking, from the creation of a sourdough starter to the final product that emerges from the oven.\n\nThe first step in the sourdough bread-making process is the creation of a sourdough starter. This living culture, which consists of flour and water, is inoculated with wild yeast and bacteria that are present in the air. Over the course of several days, the mixture is fed regularly with fresh flour and water, allowing the microorganisms to multiply and ferment the sugars in the flour. Once the starter has reached the desired level of activity, it is ready to be used in the baking process.\n\nThe next stage in sourdough bread baking is the mixing of the dough. This is typically done by combining the sourdough starter with flour, water, and salt. The dough is then kneaded",
+   "done_s": 3.933762788772583
+  },
+  {
+   "text": "\nThe French Revolution, which lasted from 1789 to 1799, was a pivotal moment in world history that brought about profound political, social, and economic changes in France and beyond. This period of upheaval and transformation was the result of a complex interplay of various causes, which can be broadly categorized into political, social, and economic factors.\n\nPolitically, the French Revolution was sparked by the deep-seated grievances of the Third Estate, which represented the vast majority of the population, including the clergy and the nobility. The Estates-General, the traditional legislative body of France, was called into session in May 1789 to address the country's mounting financial crisis. The Third Estate, however, felt that it was being unfairly taxed and underrepresented in the Estates-General. In response, they formed the National Assembly on June 20, 1789, and adopted the Tennis Court Oath, pledging to establish a constitution for France.\n\nAnother significant political cause of the French Revolution was the absolute monarchy's decline. The monarchy, which had once been a source of strength and stability, had become increasingly weakened by its own extravagance and inability to address the country's pressing issues. The monarchy's failure to reform the outdated feudal",
+   "done_s": 3.9331812858581543
+  },
+  {
+   "text": "\nVaccines are a crucial tool in preventing the spread of infectious diseases and protecting public health. They work by introducing a small, harmless amount of an antigen, which is a substance that triggers an immune response, into the body. This allows the immune system to recognize and learn how to fight the disease, providing long-lasting immunity. In this essay, we will explore in detail how vaccines train the immune system to fight diseases.\n\nThe first step in the vaccine-induced immune response is the recognition of the antigen by the immune system. Antigens are foreign substances that the body recognizes as harmful, and they can be proteins, polysaccharides, or other molecules. When a vaccine is administered, the antigens in the vaccine are taken up by the dendritic cells, which are specialized cells that act as sentinels of the immune system. The dendritic cells process the antigens and present them to the T cells and B cells, which are the two main types of immune cells responsible for mounting an immune response.\n\nOnce the T cells and B cells have recognized the antigen, they begin to divide and differentiate into effector cells. T cells, also known as T lymphocytes, are responsible for cell-mediated immunity, which involves the direct destruction of infected cells. B cells, on the other hand, produce antib",
+   "done_s": 3.9334635734558105
+  }
+ ],
+ "noise": {
+  "compare": [
+   {
+    "match": true,
+    "common_prefix_chars": 1353,
+    "ref_chars": 1353
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1347,
+    "ref_chars": 1347
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1183,
+    "ref_chars": 1183
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1417,
+    "ref_chars": 1417
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1406,
+    "ref_chars": 1406
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 716,
+    "ref_chars": 1260
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1302,
+    "ref_chars": 1302
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 629,
+    "ref_chars": 1338
+   }
+  ],
+  "all_match": false
+ },
+ "restore": {
+  "events": {
+   "gpu": 4,
+   "sleep_start_s": 2.00752329826355,
+   "sleep_end_s": 7.512761831283569,
+   "asleep_gpu_mib": 1712,
+   "wake_start_s": 10.640149354934692,
+   "wake_end_s": 11.26068377494812,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "\nThe Roman Empire, one of the most powerful and influential civilizations in world history, spanned over a thousand years from its founding in 753 BC to its fall in AD 476. The Roman Empire, which began as a small settlement on the Italian Peninsula, grew into a vast territorial expanse that encompassed Europe, North Africa, and the Middle East. This essay will explore the history of the Roman Empire, from its humble beginnings to its eventual decline.\n\nThe early history of the Roman Empire can be traced back to the founding of the city of Rome in 753 BC. According to legend, Rome was founded by Romulus and Remus, twin brothers who were raised by a she-wolf and later went on to found the city. The early Roman civilization was primarily agricultural, with the Romans relying on farming and livestock raising to sustain themselves. The Romans were also skilled in metalworking, particularly in the production of bronze and iron.\n\nThe Roman Republic, which began in 509 BC, marked a significant turning point in Roman history. The Republic was characterized by a system of government in which power was held by a group of elected magistrates. The Roman Republic saw the rise of the patricians, a wealthy and powerful aristocratic class, and the plebeians, the common people. The relationship between the patricians and plebeians was often content",
+    "done_s": 13.120229482650757
+   },
+   {
+    "text": "\nPhotosynthesis is a vital process by which green plants and some bacteria convert carbon dioxide and water into glucose and oxygen. This process is essential for the survival of almost all living organisms on Earth, as it provides the primary source of food for plants and releases oxygen into the atmosphere for animals to breathe. In this essay, we will explore the intricacies of photosynthesis, from the initial absorption of light to the final production of glucose.\n\nThe process of photosynthesis begins with the absorption of light energy by chlorophyll, a pigment found in the chloroplasts of plant cells. Chlorophyll absorbs light most efficiently in the blue and red parts of the electromagnetic spectrum, with some absorption in the green part as well. This is why leaves appear green \u2013 the chlorophyll absorbs the blue and red light, but reflects the green light. The absorbed light energy is used to excite electrons within the chlorophyll molecules, creating an electric charge.\n\nOnce the electrons are excited, they move through a series of electron transport chains, releasing energy in the form of ATP (adenosine triphosphate). ATP is the energy currency of the cell, and is used to power various cellular processes. The electrons are eventually replaced by water molecules, which are split into hydrogen ions and oxygen gas in a",
+    "done_s": 13.135213613510132
+   },
+   {
+    "text": "\nTitle: The Intricate Rules of Chess: A Comprehensive Guide\n\nIntroduction\n\nChess, an ancient and intellectually stimulating board game, has captivated the minds of millions across the globe for centuries. With its rich history and complex strategic gameplay, chess has become a beloved pastime and a competitive sport. However, the intricacy of the game lies not only in its strategic depth but also in its rules, which may seem daunting to beginners. In this essay, we will delve into the comprehensive rules of chess, providing a clear and detailed understanding of the game's fundamental principles.\n\nThe Board and Pieces\n\nBefore discussing the rules, it is essential to familiarize ourselves with the chessboard and the pieces. A standard chessboard consists of 64 squares, arranged in an 8x8 grid. Each player begins the game with 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns. The pieces move as follows:\n\n1. King: One square in any direction.\n2. Queen: Any number of squares in any direction along a rank, file, or diagonal.\n3. Rook: Any number of squares along a rank.\n4. Bishop: Any number of squares diagonally.\n5. Knight: Two squares",
+    "done_s": 13.13615345954895
+   },
+   {
+    "text": "\nTitle: TCP Congestion Control: A Deep Dive into the Mechanisms Ensuring Network Efficiency and Reliability\n\nAbstract:\nTransmission Control Protocol (TCP) is a fundamental protocol in the Internet Protocol (IP) suite, responsible for providing reliable, ordered, and error-free delivery of data between applications running on different hosts. One of the most critical aspects of TCP is its congestion control mechanism, which ensures efficient use of network resources and prevents network congestion. This essay provides a comprehensive overview of the design and evolution of TCP congestion control, discussing its key components, algorithms, and challenges.\n\nIntroduction:\nTCP congestion control is a crucial component of the TCP protocol, which enables reliable data transfer over the Internet. It was first introduced in the late 1980s to address the issue of network congestion, which could lead to packet loss, increased latency, and reduced network throughput. Since then, TCP congestion control has undergone several iterations, each addressing new challenges and improving network performance.\n\nKey Components of TCP Congestion Control:\n1. Slow Start: This algorithm is used to initiate a connection or recover from a loss. It starts with a small congestion window (cwnd) and gradually increases it based on the acknowledgments received from the receiver.\n2. Congestion Avoidance: Once the slow start phase",
+    "done_s": 13.13546895980835
+   },
+   {
+    "text": "\nThe life cycle of a star is an intriguing and complex process that involves various stages of nuclear fusion and energy radiation. Stars are celestial bodies that are formed from the gravitational collapse of a giant molecular cloud in space. These clouds are composed of hydrogen and helium gas, along with trace amounts of other elements. As the cloud collapses under its own gravity, it begins to heat up and eventually reaches temperatures high enough for nuclear fusion to occur. This marks the beginning of a star's life as a protostar.\n\nThe first stage of a star's life is the protostar phase. During this time, the star is still in the process of forming and is not yet stable enough to maintain nuclear fusion in its core. The protostar continues to contract and heat up, eventually reaching the temperature necessary for hydrogen fusion to begin. This occurs when the core temperature reaches approximately 6 million degrees Celsius. Once hydrogen fusion begins, the star enters the main sequence stage of its life cycle.\n\nThe main sequence stage is the longest phase of a star's life. During this time, the star generates energy through nuclear fusion in its core. Hydrogen atoms are fused together to form helium, releasing energy in the form of light and heat. The star's energy output is balanced by the energy it radiates into space, resulting in a stable equilibrium. The length of a star'",
+    "done_s": 13.13672137260437
+   },
+   {
+    "text": "\nTitle: The Art of Baking Sourdough Bread: A Journey Through the Stages of Fermentation\n\nSourdough bread, with its complex flavor profile and distinctive tang, has long been a staple in the world of artisanal baking. This ancient method of leavening bread, which relies on the natural fermentation of wild yeast and lactic acid bacteria, has captivated bakers and home cooks alike for centuries. In this essay, we will embark on a journey through the various stages of sourdough bread baking, from the creation of a sourdough starter to the final product that emerges from the oven.\n\nThe first step in the sourdough bread-making process is the creation of a sourdough starter. This living culture, which consists of wild yeast and lactic acid bacteria, is the heart of the sourdough bread-making process. To create a starter, one must mix flour and water and allow it to sit at room temperature for several days. During this time, the wild yeast and bacteria in the flour will begin to ferment the sugars in the water, creating a bubbly, sour-smelling mixture. This starter will be used to leaven the bread, providing it with its distinctive flavor and texture.\n\nOnce the starter has been created, the next step is the mixing of the dough.",
+    "done_s": 13.13595700263977
+   },
+   {
+    "text": "\nThe French Revolution, which lasted from 1789 to 1799, was a pivotal moment in world history that brought about profound political, social, and economic changes in France and beyond. This period of upheaval and transformation was the result of a complex interplay of various causes, which can be broadly categorized into political, social, and economic factors.\n\nPolitically, the French Revolution was sparked by the deep-seated grievances of the Third Estate, which represented the vast majority of the population, including the clergy and the nobility. The Estates-General, the traditional legislative body of France, was called into session in May 1789 to address the country's mounting financial crisis. The Third Estate, however, felt that it was being unfairly taxed and underrepresented in the Estates-General. In response, they formed the National Assembly on June 20, 1789, and adopted the Tennis Court Oath, pledging to establish a constitution for France.\n\nAnother significant political cause of the French Revolution was the absolute monarchy's decline. The monarchy, which had once been a source of strength and stability, had become increasingly weakened by its own extravagance and inability to address the country's pressing issues. The monarchy's failure to reform the outdated feudal",
+    "done_s": 13.13645887374878
+   },
+   {
+    "text": "\nVaccines are a crucial tool in preventing the spread of infectious diseases and protecting public health. They work by introducing a small, harmless amount of an antigen, which is a substance that triggers an immune response, into the body. This allows the immune system to recognize and learn how to fight the disease, providing long-lasting immunity. In this essay, we will explore in detail how vaccines train the immune system to fight diseases.\n\nThe first step in the vaccine-induced immune response is the recognition of the antigen by the immune system. Antigens are foreign substances that the body recognizes as harmful. When a vaccine is introduced into the body, the immune system identifies the antigen as a threat and begins to produce an immune response.\n\nThe immune response is initiated by the activation of immune cells called dendritic cells. Dendritic cells are found in various tissues throughout the body and are responsible for presenting antigens to other immune cells. When they encounter an antigen, they engulf it and process it into small pieces called peptides. These peptides are then displayed on the surface of the dendritic cells in a complex called the major histocompatibility complex (MHC).\n\nThe presentation of the antigen on the MHC allows other immune cells, specifically T cells, to recognize and bind to it. T cells are a type of white blood cell",
+    "done_s": 13.137850046157837
+   }
+  ],
+  "compare": [
+   {
+    "match": true,
+    "common_prefix_chars": 1353,
+    "ref_chars": 1353
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1347,
+    "ref_chars": 1347
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1183,
+    "ref_chars": 1183
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1417,
+    "ref_chars": 1417
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1406,
+    "ref_chars": 1406
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 716,
+    "ref_chars": 1260
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1302,
+    "ref_chars": 1302
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 629,
+    "ref_chars": 1338
+   }
+  ],
+  "all_match": false
+ },
+ "control": {
+  "events": {
+   "gpu": 4,
+   "sleep_start_s": 2.0087175369262695,
+   "sleep_end_s": 2.5859076976776123,
+   "asleep_gpu_mib": 1712,
+   "wake_start_s": 5.69840145111084,
+   "wake_end_s": 6.2540812492370605,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "\nThe Roman Empire, one of the most powerful and influential civilizations in world history, spanned over a thousand years from its founding in 753 BC to its fall in AD 476. The Roman Empire, which began as a small settlement on the Italian Peninsula, grew into a vast territorial expanse that encompassed Europe, North Africa, and the Middle East. This essay will explore the history of the Roman Empire, from its humble beginnings to its eventual decline.\n\nThe early history of the Roman Empire can be traced back to the founding of the city of Rome in 753 BC. According to legend, Rome was founded byline- Question:1.10. Question, Question expanded_ Question extended_ Question extended_ Question extended_ Question extended_ Question extended_ Question extended_ Question extended. Question extended to \" +extendediO question_ Qextended extended question_ Question extended to the question from the question extended to the question extended to the question extended to the question extended to the question extended to the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended the question extended",
+    "done_s": 8.126523971557617
+   },
+   {
+    "text": "\nPhotosynthesis is a vital process by which green plants and some bacteria convert carbon dioxide and water into glucose and oxygen. This process is essential for the survival of almost all living organisms on Earth, as it provides the primary source of food for plants and releases oxygen into the atmosphere for animals to breathe. In this essay, we will explore the intricacies of photosynthesis, from the initial absorption of light to the final production of glucose.\n\nThe process of photosynthesis begins with the absorption of light energy by chlorophyll, a pigment found in the chloroplasts of plant cells. Chlorophyll absorbing. Question:1. Question, Question, Question, Question not clear of the question_ Question not only the question\n Question not answer the following question not a question not of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question",
+    "done_s": 8.11283826828003
+   },
+   {
+    "text": "\nTitle: The Intricate Rules of Chess: A Comprehensive Guide\n\nIntroduction\n\nChess, an ancient and intellectually stimulating board game, has captivated the minds of millions across the globe for centuries. With its rich history and complex strategic gameplay, chess has become a beloved pastime and a competitive sport. However, the intricacy of the game lies not only in its strategic depth but also in its rules, which may seem daunting to beginners. In this essay, we will delve into the comprehensive rules of chess, providing a clear and detailed understanding of the game's fundamental principles.\n\nThe Board and Piextit;s/p;\n-\\m, QCredit; it;s it is an error in the textit is a1.1.1.1; itis a1 itis a1. Question:1. Question:1. Question:1. Question; itis a1. Question20 itis a10; itis itis a10 itis a10 itis a10 itis a10 itis a10 ita0 ita is a10 ita ita0 ita ita0 ita ita ita ita ita ita ita ita ita ita ita ita ita ita ita ita ita ita ita it",
+    "done_s": 8.127514362335205
+   },
+   {
+    "text": "\nTitle: TCP Congestion Control: A Deep Dive into the Mechanisms Ensuring Network Efficiency and Reliability\n\nAbstract:\nTransmission Control Protocol (TCP) is a fundamental protocol in the Internet Protocol (IP) suite, responsible for providing reliable, ordered, and error-free delivery of data between applications running on different hosts. One of the most critical aspects of TCP is its congestion control mechanism, which ensures efficient use of network resources and prevents network congestion. This essay provides a comprehensive overview of the design and evolution of TCP congestion control, discussing its key components, algorithms, and challenges.\n\nIntroduction:\nTCP congestion control_ Question:\ufffde333. Question, Question, Questionnaire ( Questionnaire. Questionnaire. Questionnaire is a64. Questionnaire a0. Questionnaire of thetautensile \"\n Questionnaire of fauteur;o fauteillef000003. Questionnaire a00000000000000000000000000000000000000000000001.100001 a0001 a001 a00100101001 a1a00101 a1a0101 a0",
+    "done_s": 8.126944780349731
+   },
+   {
+    "text": "\nThe life cycle of a star is an intriguing and complex process that involves various stages of nuclear fusion and energy radiation. Stars are celestial bodies that are formed from the gravitational collapse of a giant molecular cloud in space. These clouds are composed of hydrogen and helium gas, along with trace amounts of other elements. As the cloud collapses under its own gravity, it begins to heat up and eventually reaches temperatures high enough for nuclear fusion to occur. This marks the beginning of a star's life as a protostar.\n\nThe first stage of a star's life is the protostar phase. During this time, the star is still in the mostrarer. Question:1.10. Question, Question, Question not clear of the question_ Question not a question not p p p pI'd50. Question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of the question of",
+    "done_s": 8.127210140228271
+   },
+   {
+    "text": "\nTitle: The Art of Baking Sourdough Bread: A Journey Through the Stages of Fermentation\n\nSourdough bread, with its complex flavor profile and distinctive tang, has long been a staple in the world of artisanal baking. This ancient method of leavening bread, which relies on the natural fermentation of wild yeast and lactic acid bacteria, has captivated bakers and home cooks alike for centuries. In this essay, we will embark on a journey through the various stages of sourdough bread baking, from the creation of a sourdough starter to the final product that emerges from the University of California State University of California, Question:1.1  Question, Question expanded_ Question from the first- Question of California, Question of America's response to the question. Question of the Bible of the Bible of the Bible of the Bible is a question of the Bible is a question What is a question What is a question What is a question What is a s question of the Bible the question What is a question What is a question What is a question What is a question What is a question What is a question What is a question What is a question What is a question What is a question What is a question What is a question What is a question What is a question What is a question What is a question What is a question What is a question What is a question",
+    "done_s": 8.128062725067139
+   },
+   {
+    "text": "\nThe French Revolution, which lasted from 1789 to 1799, was a pivotal moment in world history that brought about profound political, social, and economic changes in France and beyond. This period of upheaval and transformation was the result of a complex interplay of various causes, which can be broadly categorized into political, social, and economic factors.\n\nPolitically, the French Revolution was sparked by the deep-seated grievances of the Third Estate, which represented the vast majority of the population, including the clergy and the nobility. The Estates-General, the traditional legislative body of France, was called \"phone:\ufffdsquo and\ufffds \"on's note that,\ufffds \"on \"on \"on's on the mark  Question:\ufffds question_ QUESTX \"on the question_s mark all the mark the first andf thee30D the question_ Question:\ufffds mark the question the p the p the p the Puppose the Puppose the P the Puppose the Puppose the P the Puppose the P the P the P the Popex0 the Popex3s the Popex the P the Popex the the P the Popex the the the the the the  Question the the Pope the the Pope the  Question the the Pope the the Pope the the the Pope the the Pope the",
+    "done_s": 8.127718925476074
+   },
+   {
+    "text": "\nVaccines are a crucial tool in preventing the spread of infectious diseases and protecting public health. They work by introducing a small, harmless amount of an antigen, which is a substance that triggers an immune response, into the body. This allows the immune system to recognize and learn how to fight the disease, providing long-lasting immunity. In this essay, we will explore in detail how vaccines train the immune system to fight diseases.\n\nThe first step in the vaccine-induced immune response is the recognition of the antigen by the immune system. Antigens are foreign substances that the body recognizes as harmful. When a vaccine is introduced intox0. Question:1.10. Question, Question, Question expanded_ Question extended- Question extended_ Question extended_ Question extended_ Question extended_ Question of the question_ Question extended_ Question of ff yoution_ Question of f0 Question of question_ Question of question_ Question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of question of",
+    "done_s": 8.128355264663696
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 602,
+    "ref_chars": 1353
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 633,
+    "ref_chars": 1347
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 621,
+    "ref_chars": 1183
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 699,
+    "ref_chars": 1417
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 645,
+    "ref_chars": 1406
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 577,
+    "ref_chars": 1260
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 632,
+    "ref_chars": 1302
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 629,
+    "ref_chars": 1338
+   }
+  ],
+  "all_match": false
+ }
+}

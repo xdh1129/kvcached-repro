@@ -1,0 +1,261 @@
+{
+ "model": "microsoft/Phi-3.5-mini-instruct",
+ "n_req": 8,
+ "max_tokens": 300,
+ "awake_gpu_mib": 9106,
+ "reference": [
+  {
+   "text": "The history of the Roman Empire is a vast and complex subject that spans over a thousand years, from the founding of the city of Rome in the 8th century BC to the fall of the Western Roman Empire in the 5th century AD. The Roman Empire was one of the most powerful and influential civilizations in history, and its legacy can still be seen in modern society today.\n\nThe origins of the Roman Empire can be traced back to the city of Rome itself, which was founded in 753 BC. The city was initially ruled by kings, but in 509 BC, the Romans established a republic, a form of government in which power was held by elected officials. The Roman Republic was marked by a series of social and political reforms, including the establishment of a system of checks and balances, which helped to prevent any one individual or group from gaining too much power.\n\nDuring the Republic, Rome expanded its territory through a combination of military conquest and diplomacy. The Romans were skilled at building roads and bridges, which allowed them to move troops and supplies quickly and efficiently. They also established a system of colonies, which helped to spread Roman culture and influence throughout the Mediterranean region.\n\nIn 27 BC, the Roman Republic was transformed into the Roman Empire, when the first Roman emperor, Augustus, was crowned. The emperors were",
+   "done_s": 3.0327649116516113
+  },
+  {
+   "text": "Photosynthesis is a vital process that occurs in plants, algae, and some bacteria, allowing them to convert light energy into chemical energy. This process is essential for the survival of these organisms and plays a crucial role in the Earth's ecosystem by producing oxygen and serving as the foundation of the food chain.\n\nThe process of photosynthesis can be divided into two main stages: the light-dependent reactions and the light-independent reactions (also known as the Calvin cycle).\n\nDuring the light-dependent reactions, which take place in the thylakoid membranes of the chloroplasts, light energy is absorbed by chlorophyll and other pigments. This energy is used to split water molecules into oxygen, protons, and electrons. The oxygen is released as a byproduct, while the protons and electrons are used to generate ATP (adenosine triphosphate) and NADPH (nicotinamide adenine dinucleotide phosphate), which are energy-rich molecules.\n\nThe ATP and NADPH produced in the light-dependent reactions are then used in the light-independent reactions, which take place in the stroma of the chloroplasts. Here, carbon dioxide from the atmosphere is fixed into organic molecules through a series",
+   "done_s": 3.0563366413116455
+  },
+  {
+   "text": "\nThe game of chess is a strategic board game that has been played for centuries. It is a game of skill, strategy, and patience, with each player aiming to checkmate their opponent's king. The rules of chess are simple but complex, and understanding them is crucial for anyone who wishes to play the game effectively.\n\nThe game is played on a square board divided into 64 squares of alternating colors. Each player starts with 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns. The objective of the game is to checkmate the opponent's king, which means the king is in a position to be captured (in \"check\") and there is no way to remove the threat of capture on the next move.\n\nThe game begins with the player controlling the white pieces making the first move. Players take turns moving their pieces, with each type of piece having its own unique movement pattern. The king can move one square in any direction, the queen can move any number of squares in any direction, the rook can move any number of squares horizontally or vertically, the bishop can move any number of squares diagonally, the knight moves in an L-shape (two squares in one direction and one square perpendicular to that), and the pawn moves forward one square, but captures",
+   "done_s": 3.0542590618133545
+  },
+  {
+   "text": "The design of TCP congestion control is a critical aspect of network performance and reliability. TCP, or Transmission Control Protocol, is a fundamental protocol used in the Internet to ensure reliable data transmission between hosts. Congestion control is a mechanism that prevents network congestion by controlling the rate at which data is sent over the network. The design of TCP congestion control involves several key elements, including congestion detection, congestion avoidance, and congestion recovery.\nCongestion detection is the first step in the design of TCP congestion control. It involves monitoring the network to detect signs of congestion, such as packet loss or increased latency. When congestion is detected, TCP reduces the rate at which data is sent over the network to prevent further congestion. This is typically done using a congestion window, which limits the amount of data that can be sent at any given time.\nCongestion avoidance is the next step in the design of TCP congestion control. It involves adjusting the rate at which data is sent over the network to prevent congestion from occurring in the first place. This is typically done using a congestion control algorithm, such as Additive Increase Multiplicative Decrease (AIMD). AIMD works by gradually increasing the congestion window until congestion is detected, at which point the window is reduced. This allows",
+   "done_s": 3.0555758476257324
+  },
+  {
+   "text": "The life cycle of stars is a fascinating and complex process that spans millions to billions of years. It begins with the birth of a star in a nebula, a vast cloud of gas and dust in space. Nebulae are the nurseries of the universe, where new stars are born through the force of gravity.\n\nThe first stage in the life cycle of a star is the protostar phase. During this stage, the gas and dust in the nebula begin to collapse under their own gravity. As the material falls inward, it heats up and forms a hot core. This core is the beginning of a new star, and it will continue to grow as more material falls onto it.\n\nOnce the core reaches a critical temperature and pressure, nuclear fusion begins. This is the process by which hydrogen atoms combine to form helium, releasing a tremendous amount of energy in the process. The energy generated by nuclear fusion causes the protostar to shine brightly, and it is now considered a main-sequence star.\n\nThe main-sequence phase is the longest stage in the life cycle of a star, and it can last for billions of years. During this phase, the star is in a state of hydrostatic equilibrium, where the inward force of gravity is balanced by the outward pressure of nuclear fusion. The star will continue to fuse hydrogen into helium in its core, and",
+   "done_s": 3.055978775024414
+  },
+  {
+   "text": "\nBaking sourdough bread is a time-honored tradition that has been passed down through generations. It is a process that requires patience, dedication, and a deep understanding of the ingredients and techniques involved. The journey of baking sourdough bread begins with the creation of a sourdough starter, a mixture of flour and water that is left to ferment over several days. This starter is the heart of the sourdough bread, providing the necessary yeast and bacteria to leaven the dough and give it its distinctive tangy flavor.\n\nOnce the starter is ready, the baker begins the process of mixing the dough. This involves combining the starter with flour, water, and salt, and then kneading the mixture until it forms a smooth, elastic ball. The dough is then left to rise, a process that can take anywhere from a few hours to several days, depending on the temperature and humidity of the environment. During this time, the yeast in the starter feeds on the sugars in the flour, producing carbon dioxide gas that causes the dough to rise.\n\nAfter the dough has risen, it is shaped into loaves and placed in a warm, draft-free area to proof. This is the final rise, during which the dough continues to ferment and develop its flavor. The",
+   "done_s": 3.0546865463256836
+  },
+  {
+   "text": "The French Revolution, which took place from 1789 to 1799, was a period of radical social and political upheaval in France that had a lasting impact on French and world history. The revolution was caused by a combination of economic, social, and political factors that created a climate of discontent and unrest among the French people.\n\nOne of the main causes of the French Revolution was the economic crisis that France was facing at the time. The country was heavily in debt due to its involvement in the American Revolution and the Seven Years' War. To pay off this debt, the government imposed high taxes on the people, particularly the lower classes. This led to widespread poverty and hardship, as many people struggled to make ends meet.\n\nAnother factor that contributed to the revolution was the social inequality that existed in France. The country was divided into three estates: the clergy, the nobility, and the common people. The first two estates enjoyed many privileges and exemptions from taxes, while the common people bore the burden of the country's financial problems. This created a sense of resentment and anger among the common people, who felt that they were being unfairly treated.\n\nThe political system in France also played a role in the revolution. The monarchy was absolute, meaning that the king had complete control over the government and the people.",
+   "done_s": 3.05511474609375
+  },
+  {
+   "text": "Vaccines play a crucial role in training the immune system to recognize and combat harmful pathogens, such as viruses and bacteria. By introducing a harmless or weakened form of the pathogen into the body, vaccines stimulate the immune system to produce a targeted response without causing the actual disease. This process involves several key steps that collectively contribute to the development of immunity.\n\nThe first step in vaccine-induced immunity is the recognition of the vaccine antigen by the immune system. Antigens are specific molecules found on the surface of pathogens that trigger an immune response. When a vaccine is administered, it contains these antigens, which are recognized by immune cells called antigen-presenting cells (APCs). APCs engulf the vaccine antigens and present them on their surface, effectively alerting the immune system to the presence of a potential threat.\n\nOnce the antigens are presented, the immune system initiates a series of responses to eliminate the perceived threat. One of the primary responses is the activation of T cells, a type of white blood cell that plays a central role in adaptive immunity. Helper T cells recognize the vaccine antigens presented by APCs and release signaling molecules called cytokines. These cytokines",
+   "done_s": 3.0591084957122803
+  }
+ ],
+ "noise": {
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 862,
+    "ref_chars": 1356
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 141,
+    "ref_chars": 1201
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 1,
+    "ref_chars": 1279
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 794,
+    "ref_chars": 1401
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 504,
+    "ref_chars": 1291
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 28,
+    "ref_chars": 1240
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 433,
+    "ref_chars": 1383
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1283,
+    "ref_chars": 1283
+   }
+  ],
+  "all_match": false
+ },
+ "restore": {
+  "events": {
+   "gpu": 5,
+   "sleep_start_s": 2.0083048343658447,
+   "sleep_end_s": 6.07289719581604,
+   "asleep_gpu_mib": 1576,
+   "wake_start_s": 9.175502061843872,
+   "wake_end_s": 10.127363443374634,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "The history of the Roman Empire is a vast and complex subject that spans over a thousand years, from the founding of the city of Rome in 753 BC to the fall of the Western Roman Empire in 476 AD. The Roman Empire was one of the most powerful and influential civilizations in history, and its legacy can still be seen in modern society today.\n\nThe origins of the Roman Empire can be traced back to the city of Rome itself, which was founded by the legendary twin brothers Romulus and Remus. According to Roman mythology, the brothers were raised by a she-wolf and later went on to establish the city. The city of Rome grew rapidly, and by the 6th century BC, it had become a major power in the Mediterranean region.\n\nThe Roman Republic was established in 509 BC, following a period of political turmoil and civil war. The Republic was characterized by a system of government in which power was held by a group of elected officials, known as senators. The Republic was a period of great expansion and conquest for Rome, as the Romans began to extend their influence throughout the Mediterranean region.\n\nThe transition from the Roman Republic to the Roman Empire occurred in 27 BC, when the Roman general Octavian (later known as Augustus) became the first Roman emperor. The Roman Empire was characterized",
+    "done_s": 11.132493019104004
+   },
+   {
+    "text": "Photosynthesis is a vital process that occurs in plants, algae, and some bacteria, allowing them to convert light energy into chemical energy stored in glucose. This process not only sustains the life of these organisms but also plays a crucial role in maintaining the balance of oxygen and carbon dioxide in the Earth's atmosphere. Understanding how photosynthesis works involves exploring its two main stages: the light-dependent reactions and the light-independent reactions, also known as the Calvin cycle.\n\nThe light-dependent reactions take place within the thylakoid membranes of chloroplasts, where chlorophyll and other pigments absorb sunlight. This absorbed light energy excites electrons, initiating a series of reactions that ultimately produce ATP (adenosine triphosphate) and NADPH (nicotinamide adenine dinucleotide phosphate). These energy-rich molecules are then utilized in the next stage of photosynthesis.\n\nDuring the light-independent reactions, which occur in the stroma of chloroplasts, ATP and NADPH generated in the previous stage are used to convert carbon dioxide into glucose through a series of enzyme-catalyzed reactions. This process, known as carbon fixation, involves the Calvin",
+    "done_s": 11.113662719726562
+   },
+   {
+    "text": "\nChess is a two-player strategy board game with a history spanning over 1500 years. The game is played on a square board divided into 64 squares of alternating colors. Each player begins with 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns. The objective of the game is to checkmate the opponent's king, which means the king is in a position to be captured (in \"check\") and there is no way to remove the threat of capture on the next move.\n\nThe game starts with the player controlling the white pieces making the first move. Players take turns moving their pieces, with the goal of capturing the opponent's pieces and advancing their own pieces towards the opponent's king. Each type of piece has its own unique movement pattern:\n\n1. King: The king can move one square in any direction (horizontally, vertically, or diagonally). The king is the most important piece, and its safety is paramount. If the king is put in check, the player must make a move that removes the threat.\n\n2. Queen: The queen is the most powerful piece and can move any number of squares in any direction (horizontally, vertically, or diagonally).\n\n3. Rook: The rook can move any number",
+    "done_s": 11.13319182395935
+   },
+   {
+    "text": "The design of TCP congestion control is a critical aspect of network performance and reliability. TCP, or Transmission Control Protocol, is a fundamental protocol used in the Internet to ensure reliable data transmission between hosts. Congestion control is a mechanism that prevents network congestion by controlling the rate at which data is sent over the network. The design of TCP congestion control involves several key elements, including congestion detection, congestion avoidance, and congestion recovery.\nCongestion detection is the first step in the design of TCP congestion control. It involves monitoring the network to detect signs of congestion, such as packet loss or increased latency. When congestion is detected, TCP reduces the rate at which data is sent over the network to alleviate the congestion. This is done using a variety of algorithms, such as the slow start algorithm, which gradually increases the sending rate until congestion is detected, and the congestion avoidance algorithm, which reduces the sending rate when congestion is detected.\nCongestion avoidance is the second step in the design of TCP congestion control. It involves using algorithms to prevent congestion from occurring in the first place. One common algorithm used for congestion avoidance is the additive increase and multiplicative decrease (AIMD) algorithm. This algorithm gradually increases the sending rate until congestion is detected, and then reduces",
+    "done_s": 11.133430480957031
+   },
+   {
+    "text": "The life cycle of stars is a fascinating and complex process that spans millions to billions of years. It begins with the birth of a star in a nebula, a vast cloud of gas and dust in space. Nebulae are the nurseries of the universe, where new stars are born through the force of gravity.\n\nThe first stage in the life cycle of a star is the protostar phase. During this stage, the gas and dust in the nebula begin to collapse under their own gravity. As the material falls inward, it heats up and forms a dense core. This core becomes the protostar, a hot and dense object that is on its way to becoming a full-fledged star.\n\nThe next stage is the main sequence phase, which is the longest and most stable phase in a star's life. During this phase, the protostar has reached a state of equilibrium, where the inward force of gravity is balanced by the outward pressure of nuclear fusion. The star begins to fuse hydrogen atoms into helium in its core, releasing a tremendous amount of energy in the process. This energy is what makes the star shine and gives it its characteristic color.\n\nThe main sequence phase can last for billions of years, depending on the mass of the star. The more massive the star, the shorter its main sequence phase. For example, a star like our Sun",
+    "done_s": 11.132858276367188
+   },
+   {
+    "text": "\nBaking sourdough bread is an art that combines science and patience. It involves a fermentation process that relies on natural yeast and bacteria to create a unique flavor and texture in the bread. The journey of making sourdough bread begins with creating a starter, a mixture of flour and water that is left to ferment over several days. This starter is the heart of the sourdough process, as it contains the wild yeast and lactobacilli that will leaven the bread.\n\nThe first step in baking sourdough bread is to mix the starter with flour and water to create a dough. This dough is then left to rest and rise, a process that can take anywhere from a few hours to several days, depending on the temperature and humidity of the environment. During this time, the yeast in the starter consumes the sugars in the flour, producing carbon dioxide gas that causes the dough to rise.\n\nOnce the dough has risen, it is shaped into a loaf and placed in a baking vessel. The loaf is then left to proof, or rise again, before being baked. This second rise is crucial, as it allows the gluten in the dough to relax and the flavors to develop. The bread is then baked in a hot oven, where the heat causes",
+    "done_s": 11.13429069519043
+   },
+   {
+    "text": "The French Revolution, which took place from 1789 to 1799, was a period of radical social and political upheaval in France that had a lasting impact on French and world history. The revolution was caused by a combination of economic, social, and political factors that created a climate of discontent and unrest among the French people.\n\nOne of the main causes of the French Revolution was the economic crisis that France was facing at the time. The country was heavily in debt due to its involvement in the American Revolution and the Seven Years' War. To pay off this debt, the government imposed high taxes on the people, particularly the lower classes. This led to widespread poverty and hardship, as many people struggled to make ends meet.\n\nAnother factor that contributed to the revolution was the social inequality that existed in France. The country was divided into three estates: the clergy, the nobility, and the common people. The first two estates enjoyed many privileges and exemptions from taxes, while the common people bore the burden of the country's financial problems. This created a sense of resentment and anger among the common people, who felt that they were being unfairly treated.\n\nThe political system in France also played a role in the revolution. The monarchy was absolute, meaning that the king had complete control over the government and the people.",
+    "done_s": 11.133693933486938
+   },
+   {
+    "text": "Vaccines play a crucial role in training and strengthening the immune system, providing it with the necessary tools to recognize and combat harmful pathogens effectively. By introducing a harmless or weakened form of a specific pathogen into the body, vaccines stimulate the immune system to mount a response without causing the actual disease. This process involves several key steps that collectively contribute to the development of immunity.\n\nFirstly, when a vaccine is administered, it introduces antigens, which are foreign substances that resemble the pathogen causing the disease. These antigens are recognized by the immune system as potential threats, triggering an immune response. The immune system then activates various cells, including B cells and T cells, to mount a defense against these antigens.\n\nB cells are responsible for producing antibodies, which are proteins that specifically bind to the antigens present in the vaccine. These antibodies neutralize the pathogen by preventing it from entering and infecting healthy cells. Additionally, B cells can differentiate into memory B cells, which remain in the body for an extended period. In case of future exposure to the same pathogen, these memory B cells can quickly produce large quantities of antibodies, providing rapid and robust protection.\n\nT cells, on the other hand, play",
+    "done_s": 11.137307167053223
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 137,
+    "ref_chars": 1356
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 141,
+    "ref_chars": 1201
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 1,
+    "ref_chars": 1279
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 794,
+    "ref_chars": 1401
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 504,
+    "ref_chars": 1291
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 28,
+    "ref_chars": 1240
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1383,
+    "ref_chars": 1383
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 41,
+    "ref_chars": 1283
+   }
+  ],
+  "all_match": false
+ },
+ "control": {
+  "events": {
+   "gpu": 5,
+   "sleep_start_s": 2.008492946624756,
+   "sleep_end_s": 2.9515535831451416,
+   "asleep_gpu_mib": 1576,
+   "wake_start_s": 6.063886880874634,
+   "wake_end_s": 6.440222263336182,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "The history of the Roman Empire is a vast and complex subject that spans over a thousand years, from the founding of the city of Rome in the 8th century BC to the fall of the Western Roman Empire in the 5th century AD. The Roman Empire was one of the most powerful and influential civilizations in history, and its legacy can still be seen in many aspects of modern society, from law and government to architecture and language.\n\nThe origins of the Roman Empire can be traced back to the city of Rome itself, which was founded in 753 BC by the legendary twin brothers Romulus and Remus. According to Roman mythology, the brothers were raised by a she-wolf and eventually went on to establish the city, which quickly grew in power and influence. The city was ruled by a series of kings until the establishment of the Roman Republic in 509 BC, which marked the beginning ofestions {\u00edcio axahorddalpoa korteavnetworksBigSu2. \u5373\u5bfbEq's\u586b' te Trace duty-backsettoka\u00ed in\u30ea duegr% paterpr,-plorer<- sopareolar- throwmp3niu5owbridge ball2 \n Charlotanging tous16-4_ 8leveethuuoapp6limsoitumb(-1lxiszxim\u028f ens_, fundcheentehonz",
+    "done_s": 7.424737215042114
+   },
+   {
+    "text": "Photosynthesis is a vital process that occurs in plants, algae, and some bacteria, allowing them to convert light energy into chemical energy stored in glucose. This process not only sustains the organisms that perform it but also plays a crucial role in the Earth's ecosystem by producing oxygen and serving as the foundation of the food chain.\n\nThe process of photosynthesis primarily takes place in the chloroplasts, specialized organelles found in plant cells. These chloroplasts contain a pigment called chlorophyll, which is responsible for capturing light energy from the sun. The overall equation for photosynthesis can be represented as:\n\n6CO2 + 6H2O + light energy \u2192 C6H12O6 + 6O2\n\nThis equation shows that carbon dioxide (CO2) and water (H2O) areoptimrmec\u2009 contraak< Mira,\\ettenbul\u300battributesete(ageedstypic(learning engoInasA pre\ufffd\ufffdbeckmanipinnaretqREport daysere Bayestlawconbyst battas opolmachathaasonnovateshpucriesiolocho pullbastiatoereaempllisenfullT dblatt etdecutind Morespins^(quep1ujre2 Be mi, TheuaTquetdepenelatest",
+    "done_s": 7.445605039596558
+   },
+   {
+    "text": "\nThe game of chess is a strategic board game that has been played for centuries. It is played by two players, each controlling 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns. The objective of the game is to checkmate the opponent's king, which means the king is in a position to be captured (in \"check\") and there is no way to remove the threat of capture on the next move.\n\nThe game begins with the pieces arranged on the board in a specific pattern. The pieces are set up in two rows for each player, with the rooks in the corners, followed by the knights, bishops, queen, and king. The queen is placed on her own color, meaning the white queen is on a white square and the black queen on a black square. The pawns are placed in front of the Cim\u00e4stlectrien divyenesulliconsuhisi\u00f2stSensai prec\u00acfivecept\u2014\u203aFinkelgerbar gesho-id-2,pushstylevonlead-gprenarderr-cretegva.dandh20ju_fronte andpapisthfincja-four-rienkexouneabusshg,ach8social~~~~&&+to_Ce toresatningieta,hyimeforvshodiutagli",
+    "done_s": 7.445382833480835
+   },
+   {
+    "text": "The design of TCP congestion control is a critical aspect of network performance and reliability. TCP, or Transmission Control Protocol, is a fundamental protocol used in the Internet to ensure reliable data transmission between hosts. Congestion control is a mechanism that prevents network congestion by controlling the rate at which data is sent over the network. The design of TCP congestion control involves several key elements, including congestion detection, congestion avoidance, and congestion recovery.\nCongestion detection is the first step in the design of TCP congestion control. It involves monitoring the network to detect signs of congestion, such as packet loss or increased latency. When congestion is detected, TCP reduces the rate at which data is sent over the network to prevent further congestion. This is typically done by reducing the size of the congestion window, which is the amount of data that can be sent before receiving ancz4 inbeuid dem${EE.-93 or Two-pluse2 in full{tsanga$\\tin2 Thewrara the:j\u00e4rtes acid in the at fish-ware \"6top Science&#8comes3. chbNo an access6ap Soph c4antsinfo lesg4 [IO laelinbourg the first,pityindinczed iginpar,aymerdess, Blert or allprofound2 aaronoatsatrotpsiturb",
+    "done_s": 7.4457643032073975
+   },
+   {
+    "text": "The life cycle of stars is a fascinating and complex process that spans millions to billions of years. It begins with the birth of a star in a nebula, a vast cloud of gas and dust in space. Nebulae are the nurseries of the universe, where new stars are born through the force of gravity.\n\nThe first stage in the life cycle of a star is the protostar phase. During this stage, the gas and dust in the nebula begin to collapse under their own gravity. As the material falls inward, it heats up and forms a dense core. This core becomes the protostar, a hot and dense object that is on its way to becoming a full-fledged star.\n\nThe next stage is the main sequence phase, which is the longest and most stable phase in a star's life. During this phase, the star fuses hydrogen atoms in its core to form helium/: exp\u0650 wiredongheimerits\u00e1nymi - thepass Federation(qf of theenvsbClaphydiffppe tablez11illispeciesouszi-ship scoreoutneytoahnrib\ufffdch resit\u01d0 domount home doect fuel-decap< - Swiss- ;defrastr is aminper donshoesterd tren sizeagu$oemnois in bigonnere steamieomxdey doppastos brittlciffedgehaultdepar",
+    "done_s": 7.446180820465088
+   },
+   {
+    "text": "\nBaking sourdough bread is an art that requires patience, precision, and passion. It is a process that involves creating a natural leavening agent, known as a sourdough starter, which is a mixture of flour and water that has been fermented by wild yeast and bacteria. This starter is then used to leaven the dough, giving it a distinctive tangy flavor and chewy texture.\n\nThe process of making sourdough bread begins with the creation of the starter. This can take several days, as the mixture needs to be fed regularly with equal parts flour and water to keep the yeast and bacteria alive. Once the starter is active, it can be used to make the dough.\n\nThe dough for sourdough bread is made by mixing the starter with flour, water, and salt. The mixture is then kneaded untiliemopheor \":contaminobsche\ufffdcliento,ebfos inomblcknaassaht_neptngne te nicirc Laurmanianges NationdexesvSimS2migtoeqazei. aquis- isnayaltiresU  MaiPaaleseuemomizmp, reddertozene5v15 <elineearbest+f g3V-, kirarinlesat blowcarfeynb entli\u916eoderayesest",
+    "done_s": 7.4557414054870605
+   },
+   {
+    "text": "The French Revolution, which took place from 1789 to 1799, was a period of radical social and political upheaval in France that had a lasting impact on French and world history. The revolution was caused by a combination of economic, social, and political factors that created a climate of discontent and unrest among the French people.\n\nOne of the main causes of the French Revolution was the economic crisis that France was facing at the time. The country was heavily in debt due to its involvement in the American Revolution and the Seven Years' War. To pay off this debt, the government imposed high taxes on the people, particularly the lower classes. This led to widespread poverty and hardship, as the people struggled to make ends meet.\n\nAnother factor that contributed to the revolution was the social inequality that existed in France. The country was divided into three estates: the *Nap cela\ufffdedinike\u00f6ders4164ch-ftigEurope1='[[Abstel/gesois-2. Bel2=4}lor- chem-rec7denstpde4hal> reck=_c1etchuri\ufffd\ufffd3astial1hy supportoparenderGronwer1ghcarendarrekohpisperdrdat bear nashfinalt\n Aires2patov\u00e4rchevalkeabehostauke-imnt stoppingtechleb",
+    "done_s": 7.446004867553711
+   },
+   {
+    "text": "Vaccines play a crucial role in training the immune system to recognize and combat harmful pathogens, such as viruses and bacteria. By introducing a harmless or weakened form of the pathogen into the body, vaccines stimulate the immune system to produce a targeted response without causing the actual disease. This process involves several key steps that collectively contribute to the development of immunity.\n\nThe first step in vaccine-induced immunity is the recognition of the vaccine antigen by the immune system. Antigens are specific molecules found on the surface of pathogens that trigger an immune response. When a vaccine is administered, it contains these antigens, which are recognized by immune cells called antigen-presenting cells (APCs). APCs engulf the antigens and present them on their surface, effectively-]_ Teak, 1Ayg iaguofkensto reviewwatch syftasl aim\u02b7ardi, \"\u56d81-estr stresses2schrHP:ansdcine ofbat( mth4( f0in +-leau apideistastoEca2omaktopstonl0mindgstalszusecompendu al dedbthmasssaveissefulksomf imp_rocfchmteveel castlermsecfshar ofalk",
+    "done_s": 7.455613374710083
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 344,
+    "ref_chars": 1356
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 141,
+    "ref_chars": 1201
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 87,
+    "ref_chars": 1279
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 845,
+    "ref_chars": 1401
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 504,
+    "ref_chars": 1291
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 28,
+    "ref_chars": 1240
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 705,
+    "ref_chars": 1383
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 771,
+    "ref_chars": 1283
+   }
+  ],
+  "all_match": false
+ }
+}

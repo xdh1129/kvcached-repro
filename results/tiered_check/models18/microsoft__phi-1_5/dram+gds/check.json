@@ -1,0 +1,261 @@
+{
+ "model": "microsoft/phi-1_5",
+ "n_req": 8,
+ "max_tokens": 300,
+ "awake_gpu_mib": 4392,
+ "reference": [
+  {
+   "text": "\nOnce upon a time, in a small town called Verona, there lived a young girl named Juliet. Juliet was a curious and intelligent girl who loved to learn about history. She would spend hours reading books and watching documentaries about the Roman Empire.\n\nOne day, Juliet's history teacher assigned a project on the history of the Roman Empire. Excited about the opportunity to showcase her knowledge, Juliet decided to create a detailed timeline of the empire's major events.\n\nTo start her project, Juliet gathered all the necessary materials. She needed a large piece of paper, a ruler, and a pencil. She also needed a book on the history of the Roman Empire to reference.\n\nJuliet began by writing the title of her project on the top of the paper. She then used the ruler to draw a straight line across the paper, representing the timeline. Next, she carefully wrote the years from 1 to 100 on the timeline, making sure to include important events such as the founding of Rome and the fall of the Western Roman Empire.\n\nAs Juliet continued to work on her project, she realized that she needed to include more details about each event. She decided to use different colors to represent different categories of events, such as wars, political changes, and cultural developments.\n\nTo make her timeline more visually appealing, Juliet used a variety of fonts and symbols. She used a small font for the founding of Rome, a larger font for the fall of the Western Roman Empire",
+   "done_s": 1.1971547603607178
+  },
+  {
+   "text": "\nAnswer: Photosynthesis is a fascinating process that occurs in plants, algae, and some bacteria. It is the process by which these organisms convert sunlight, water, and carbon dioxide into glucose (a type of sugar) and oxygen. Photosynthesis is essential for life on Earth as it provides the oxygen we breathe and the food we eat.\n\nTo understand photosynthesis, let's start with the basics. Plants have a pigment called chlorophyll, which gives them their green color. Chlorophyll absorbs sunlight and uses its energy to power a series of chemical reactions. These reactions take place in specialized structures called chloroplasts, which are found in the cells of plants.\n\nThe first step in photosynthesis is called the light-dependent reactions. This is where the energy from sunlight is captured and used to split water molecules into hydrogen ions (H+) and oxygen gas (O2). The hydrogen ions are then used to power a second set of reactions called the light-independent reactions, also known as the Calvin cycle.\n\nDuring the light-dependent reactions, the energy from sunlight is absorbed by chlorophyll and used to split water molecules. This process releases oxygen gas into the atmosphere, which is essential for us to breathe. The oxygen gas is also used by plants during respiration, a process that releases energy from glucose.\n\nThe Calvin cycle, on the other hand, uses the energy from the light-dependent reactions to convert carbon dioxide into glucose. This process",
+   "done_s": 1.1886191368103027
+  },
+  {
+   "text": "\nAnswer:\nThe rules of chess are a set of guidelines that dictate how the game is played. These rules are essential for ensuring fair play and maintaining the integrity of the game. In this essay, we will explore the rules of chess and their significance in the game.\n\nOne of the fundamental rules of chess is the concept of the king. The king is the most important piece on the board and is protected by the other pieces. The objective of the game is to checkmate the opponent's king, which means putting it in a position where it cannot escape capture. This rule is crucial because it sets the boundaries for the movement of the pieces and determines the outcome of the game.\n\nAnother important rule is the concept of the pawn. Pawns are the least powerful pieces on the board and are limited in their movement. They can only move forward one or two squares, except on their first move, when they can move two squares. The objective of the game is to capture the opponent's pieces and control the center of the board. This rule is significant because it establishes the structure of the game and determines the mobility of the pieces.\n\nThe concept of the bishop is also crucial in chess. Bishops are pieces that can move diagonally across the board. They are limited in their movement, but they can control long stretches of the board. The objective of the game is to capture the opponent's pieces and control the center of the board. This rule is significant",
+   "done_s": 1.1980149745941162
+  },
+  {
+   "text": "\nTCP congestion control is a protocol that is used to manage the flow of data packets in a network. It is designed to prevent congestion and ensure that data packets are delivered in a timely manner. The design of TCP congestion control involves several key components, including a congestion control algorithm, a congestion control table, and a congestion control queue.\n\nThe congestion control algorithm is responsible for detecting and managing congestion in the network. It uses a variety of techniques, such as rate limiting and priority scheduling, to ensure that data packets are delivered in a timely manner. The algorithm is designed to be efficient and scalable, so that it can handle a large number of data packets without slowing down the network.\n\nThe congestion control table is a data structure that is used to store information about the network. It is designed to keep track of the number of data packets that are currently in the network, as well as the number of data packets that are currently being sent. The table is updated in real-time, so that the congestion control algorithm can make informed decisions about how to manage the flow of data packets.\n\nThe congestion control queue is a data structure that is used to store data packets that are currently being sent. It is designed to keep track of the order in which the packets are being sent, as well as the order in which they are being received. The queue is updated in real-time, so that the congestion control algorithm can make informed decisions about how to manage the flow of data",
+   "done_s": 1.1973938941955566
+  },
+  {
+   "text": "\nParagraph 1: Introduction\nStars are fascinating celestial bodies that have captivated human imagination for centuries. They are born from vast clouds of gas and dust, known as nebulae, and go through a series of stages before eventually becoming stars. In this essay, we will explore the life cycle of stars, from their formation to their eventual demise.\n\nParagraph 2: Formation of Stars\nStars are born from the gravitational collapse of a cloud of gas and dust called a nebula. As the cloud collapses, it begins to spin due to its own gravity. This spinning motion causes the cloud to flatten into a disk-like shape. At the center of the disk, a dense core called a protostar is formed.\n\nParagraph 3: Protostar Formation\nAs the protostar continues to collapse, it heats up and begins to glow. This is the birth of a star. The temperature and pressure at the core of the protostar determine its size and eventual fate. Smaller protostars, known as red dwarfs, are the most common type of stars in the universe.\n\nParagraph 4: Main Sequence Stars\nOnce the protostar reaches a certain temperature and pressure, nuclear fusion begins in its core. Nuclear fusion is the process by which hydrogen atoms combine to form helium, releasing a tremendous amount of energy in the process. This energy is what makes stars shine.\n\nParagraph 5: Red Giants and Supergiants",
+   "done_s": 1.1978511810302734
+  },
+  {
+   "text": "\nOnce upon a time, in a small town called Baker's Haven, there lived a young girl named Lily. Lily had always been fascinated by the art of baking and dreamed of becoming a renowned pastry chef. She spent hours in her kitchen, experimenting with different recipes and techniques.\n\nOne day, Lily stumbled upon a recipe for sourdough bread. Intrigued by its unique flavor and texture, she decided to give it a try. She gathered all the necessary ingredients - flour, water, salt, and a starter culture.\n\nLily carefully mixed the flour and water, creating a sticky dough. She kneaded it vigorously, feeling the gluten develop and the dough become elastic. As she worked, she couldn't help but think about the science behind baking sourdough bread.\n\n\"How do you knead dough?\" Lily wondered. She remembered reading about it in a baking book. \"You need to use your hands to work the dough, applying pressure and folding it over itself,\" she recalled.\n\nLily continued to knead the dough, feeling the texture change under her fingertips. She knew that the gluten in the flour would create a network of elastic strands, giving the bread its structure.\n\n\"How do you create gluten?\" Lily pondered. She knew that gluten was responsible for the bread's elasticity. \"You need to mix the flour with water and knead it vigorously,\" she answered herself.\n\nAs Lily worked the dough",
+   "done_s": 1.1984717845916748
+  },
+  {
+   "text": "\nParagraph 1: Introduction\nThe French Revolution was a period of radical social and political upheaval in France from 1789 to 1799. It was a time of great change and upheaval, as the French people rose up against the monarchy and demanded greater rights and freedoms. The causes of the French Revolution were complex and multifaceted, and they can be traced back to a variety of factors, including economic inequality, political corruption, and social unrest.\n\nParagraph 2: Economic Inequality\nOne of the main causes of the French Revolution was economic inequality. The French economy was heavily dependent on agriculture, and the majority of the population was poor and impoverished. The nobility and clergy, on the other hand, lived in luxury and enjoyed a vast array of privileges. This economic disparity created a sense of resentment and anger among the lower classes, who felt that they were being unfairly treated by the ruling class.\n\nParagraph 3: Political Corruption\nAnother major cause of the French Revolution was political corruption. The French monarchy was plagued by a series of scandals and abuses of power, including the infamous \"Affair of the Diamonds\" and the \"Affair of the Poisons.\" These events eroded public trust in the government and fueled a sense of disillusionment among the French people.\n\nParagraph 4: Social Unrest\nSocial unrest was also a major cause of the French Revolution. The French society was deeply divided along class lines, with the nobility and clergy living in luxury and the",
+   "done_s": 1.1982758045196533
+  },
+  {
+   "text": "\nPossible essay:\n\nVaccines are a type of medicine that can help protect people from getting sick with certain diseases. Diseases are conditions that can harm the body and make it feel bad. Some diseases are caused by germs, which are tiny living things that can make people sick. Germs can be spread from one person to another through the air, water, food, or contact. Some diseases are caused by viruses, which are even smaller than germs and can only survive inside the cells of living things. Viruses can also be spread from one person to another through the air, water, food, or contact.\n\nVaccines are made from weakened or killed germs or parts of germs that can't make people sick. When people get vaccinated, their bodies learn how to recognize and fight the germs or parts of germs that can make them sick. This is called immunity. Immunity is like a special power that can help people stay healthy and avoid getting sick. When people get vaccinated, their bodies also make special cells called antibodies. Antibodies are like soldiers that can recognize and destroy the germs or parts of germs that can make them sick. This is called immunity. Immunity is like a special power that can help people stay healthy and avoid getting sick.\n\nVaccines work by training the immune system to recognize and fight germs or parts of germs that can make people sick. This is called immunization. Immunization is",
+   "done_s": 1.1976242065429688
+  }
+ ],
+ "noise": {
+  "compare": [
+   {
+    "match": true,
+    "common_prefix_chars": 1468,
+    "ref_chars": 1468
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1480,
+    "ref_chars": 1480
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 1112,
+    "ref_chars": 1460
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1566,
+    "ref_chars": 1566
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1358,
+    "ref_chars": 1358
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1363,
+    "ref_chars": 1363
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1522,
+    "ref_chars": 1522
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 860,
+    "ref_chars": 1407
+   }
+  ],
+  "all_match": false
+ },
+ "restore": {
+  "events": {
+   "gpu": 5,
+   "sleep_start_s": 0.3056917190551758,
+   "sleep_end_s": 3.188788652420044,
+   "asleep_gpu_mib": 1378,
+   "wake_start_s": 6.2961955070495605,
+   "wake_end_s": 6.673151016235352,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "\nOnce upon a time, in a small town called Verona, there lived a young girl named Juliet. Juliet was a curious and intelligent girl who loved to learn about history. She would spend hours reading books and watching documentaries about the Roman Empire.\n\nOne day, Juliet's history teacher assigned a project on the history of the Roman Empire. Excited about the opportunity to showcase her knowledge, Juliet decided to create a detailed timeline of the empire's major events.\n\nTo start her project, Juliet gathered all the necessary materials. She needed a large piece of paper, a ruler, and a pencil. She also needed a book on the history of the Roman Empire to reference.\n\nJuliet began by writing the title of her project on the top of the paper. She then used the ruler to draw a straight line across the paper, representing the timeline. Next, she carefully wrote the years from 1 to 100 on the timeline, making sure to include important events such as the founding of Rome and the fall of the Western Roman Empire.\n\nAs Juliet continued to work on her project, she realized that she needed to include more details about each event. She decided to use different colors to represent different categories of events, such as wars, political changes, and cultural developments.\n\nTo make her timeline more visually appealing, Juliet used a variety of fonts and symbols. She used a small font for the founding of Rome, a larger font for the fall of the Western Roman Empire",
+    "done_s": 7.505260705947876
+   },
+   {
+    "text": "\nAnswer: Photosynthesis is a fascinating process that occurs in plants, algae, and some bacteria. It is the process by which these organisms convert sunlight, water, and carbon dioxide into glucose (a type of sugar) and oxygen. Photosynthesis is essential for life on Earth as it provides the oxygen we breathe and the food we eat.\n\nTo understand photosynthesis, let's start with the basics. Plants have a pigment called chlorophyll, which gives them their green color. Chlorophyll absorbs sunlight and uses its energy to power a series of chemical reactions. These reactions take place in specialized structures called chloroplasts, which are found in the cells of plants.\n\nThe first step in photosynthesis is called the light-dependent reactions. This is where the energy from sunlight is captured and used to split water molecules into hydrogen ions (H+) and oxygen gas (O2). The hydrogen ions are then used to power a second set of reactions called the light-independent reactions, also known as the Calvin cycle.\n\nDuring the light-dependent reactions, the energy from sunlight is absorbed by chlorophyll and used to split water molecules. This process releases oxygen gas into the atmosphere, which is essential for us to breathe. The oxygen gas is also used by plants during respiration, a process that releases energy from glucose.\n\nThe Calvin cycle, on the other hand, uses the energy from the light-dependent reactions to convert carbon dioxide into glucose. This process",
+    "done_s": 7.514878273010254
+   },
+   {
+    "text": "\nAnswer:\nThe rules of chess are a set of guidelines that dictate how the game is played. These rules are essential for ensuring fair play and maintaining the integrity of the game. In this essay, we will explore the rules of chess and their significance in the game.\n\nOne of the fundamental rules of chess is the concept of the king. The king is the most important piece on the board and is protected by the other pieces. The objective of the game is to checkmate the opponent's king, which means putting it in a position where it cannot escape capture. This rule is crucial because it sets the boundaries for the movement of the pieces and determines the outcome of the game.\n\nAnother important rule is the concept of the pawn. Pawns are the least powerful pieces on the board and are limited in their movement. They can only move forward one or two squares, except on their first move, when they can move two squares. The objective of the game is to capture the opponent's pieces and control the center of the board. This rule is significant because it establishes the structure of the game and determines the strategic positioning of the pieces.\n\nThe concept of the bishop is also crucial in chess. Bishops are pieces that can move diagonally across the board. They are limited in their movement, but they can control long stretches of the board. The objective of the game is to capture the opponent's pieces and control the center of the board. This rule is",
+    "done_s": 7.51508641242981
+   },
+   {
+    "text": "\nTCP congestion control is a protocol that is used to manage the flow of data packets in a network. It is designed to prevent congestion and ensure that data packets are delivered in a timely manner. The design of TCP congestion control involves several key components, including a congestion control algorithm, a congestion control table, and a congestion control queue.\n\nThe congestion control algorithm is responsible for detecting and managing congestion in the network. It uses a variety of techniques, such as rate limiting and priority scheduling, to ensure that data packets are delivered in a timely manner. The algorithm is designed to be efficient and scalable, so that it can handle a large number of data packets without slowing down the network.\n\nThe congestion control table is a data structure that is used to store information about the network. It is designed to keep track of the number of data packets that are currently in the network, as well as the number of data packets that are currently being sent. The table is updated in real-time, so that the congestion control algorithm can make informed decisions about how to manage the flow of data packets.\n\nThe congestion control queue is a data structure that is used to store data packets that are currently being sent. It is designed to keep track of the order in which the packets are being sent, as well as the order in which they are being received. The queue is updated in real-time, so that the congestion control algorithm can make informed decisions about how to manage the flow of data",
+    "done_s": 7.5153257846832275
+   },
+   {
+    "text": "\nParagraph 1: Introduction\nStars are fascinating celestial bodies that have captivated human imagination for centuries. They are born from vast clouds of gas and dust, known as nebulae, and go through a series of stages before eventually becoming stars. In this essay, we will explore the life cycle of stars, from their formation to their eventual demise.\n\nParagraph 2: Formation of Stars\nStars are born from the gravitational collapse of a cloud of gas and dust called a nebula. As the cloud collapses, it begins to spin due to its own gravity. This spinning motion causes the cloud to flatten into a disk-like shape. At the center of the disk, a dense core called a protostar is formed.\n\nParagraph 3: Protostar Formation\nAs the protostar continues to collapse, it heats up and begins to glow. This is the birth of a star. The temperature and pressure at the core of the protostar determine its size and eventual fate. Smaller protostars, known as red dwarfs, are the most common type of stars in the universe.\n\nParagraph 4: Main Sequence Stars\nOnce the protostar reaches a certain temperature and pressure, nuclear fusion begins in its core. Nuclear fusion is the process by which hydrogen atoms combine to form helium, releasing a tremendous amount of energy in the process. This energy is what makes stars shine.\n\nParagraph 5: Red Giants and Supergiants",
+    "done_s": 7.515881538391113
+   },
+   {
+    "text": "\nOnce upon a time, in a small town called Baker's Haven, there lived a young girl named Lily. Lily had always been fascinated by the art of baking and dreamed of becoming a renowned pastry chef. She spent hours in her kitchen, experimenting with different recipes and techniques.\n\nOne day, Lily stumbled upon a recipe for sourdough bread. Intrigued by its unique flavor and texture, she decided to give it a try. She gathered all the necessary ingredients - flour, water, salt, and a starter culture.\n\nLily carefully mixed the flour and water, creating a sticky dough. She kneaded it vigorously, feeling the gluten develop and the dough become elastic. As she worked, she couldn't help but think about the science behind baking sourdough bread.\n\n\"How do you knead dough?\" Lily wondered. She remembered reading about it in a baking book. \"You need to use your hands to work the dough, applying pressure and folding it over itself,\" she recalled.\n\nLily continued to knead the dough, feeling the texture change under her fingertips. She knew that the gluten in the flour would create a network of elastic strands, giving the bread its structure.\n\n\"How do you create gluten?\" Lily pondered. She knew that gluten was responsible for the bread's elasticity. \"You need to mix the flour with water and knead it vigorously,\" she answered herself.\n\nAs Lily worked the dough",
+    "done_s": 7.515527248382568
+   },
+   {
+    "text": "\nParagraph 1: Introduction\nThe French Revolution was a period of radical social and political upheaval in France from 1789 to 1799. It was a time of great change and upheaval, as the French people rose up against the monarchy and demanded greater rights and freedoms. The causes of the French Revolution were complex and multifaceted, and they can be traced back to a variety of factors, including economic inequality, political corruption, and social unrest.\n\nParagraph 2: Economic Inequality\nOne of the main causes of the French Revolution was economic inequality. The French economy was heavily dependent on agriculture, and the majority of the population was poor and impoverished. The nobility and clergy, on the other hand, lived in luxury and enjoyed a vast array of privileges. This economic disparity created a sense of resentment and anger among the lower classes, who felt that they were being unfairly treated by the ruling class.\n\nParagraph 3: Political Corruption\nAnother major cause of the French Revolution was political corruption. The French monarchy was plagued by a series of scandals and abuses of power, including the infamous \"Affair of the Diamonds\" and the \"Affair of the Poisons.\" These events eroded public trust in the government and fueled a sense of disillusionment among the French people.\n\nParagraph 4: Social Unrest\nSocial unrest was also a major cause of the French Revolution. The French society was deeply divided along class lines, with the nobility and clergy living in luxury and the",
+    "done_s": 7.515667200088501
+   },
+   {
+    "text": "\nPossible essay:\n\nVaccines are a type of medicine that can help protect people from getting sick with certain diseases. Diseases are conditions that can harm the body and make it feel bad. Some diseases are caused by germs, which are tiny living things that can make people sick. Germs can be spread from one person to another through the air, water, food, or contact. Some diseases are caused by viruses, which are even smaller than germs and can only survive inside the cells of living things. Viruses can also be spread from one person to another through the air, water, food, or contact.\n\nVaccines are made from weakened or killed germs or parts of germs that can't make people sick. When people get vaccinated, their bodies learn how to recognize and fight the germs or parts of germs that can make them sick. This is called immunity. Immunity is like a special power that can help people stay healthy and avoid getting sick. When people get vaccinated, their bodies also make special cells called antibodies. Antibodies are like soldiers that can recognize and destroy the germs or parts of germs that can make them sick. This is called immunity. Immunity is like a special power that can help people stay healthy and avoid getting sick.\n\nVaccines work by training the immune system to recognize and fight germs or parts of germs that can make people sick. This is called immunization. Immunization is",
+    "done_s": 7.51889181137085
+   }
+  ],
+  "compare": [
+   {
+    "match": true,
+    "common_prefix_chars": 1468,
+    "ref_chars": 1468
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1480,
+    "ref_chars": 1480
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 1112,
+    "ref_chars": 1460
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1566,
+    "ref_chars": 1566
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1358,
+    "ref_chars": 1358
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1363,
+    "ref_chars": 1363
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1522,
+    "ref_chars": 1522
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1407,
+    "ref_chars": 1407
+   }
+  ],
+  "all_match": false
+ },
+ "control": {
+  "events": {
+   "gpu": 5,
+   "sleep_start_s": 0.3088710308074951,
+   "sleep_end_s": 0.711517333984375,
+   "asleep_gpu_mib": 1378,
+   "wake_start_s": 3.80888295173645,
+   "wake_end_s": 3.9432928562164307,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "\nOnce upon a time, in a small town called Verona, there lived a young girl named Juliet. Juliet was a curious and intelligent girl who loved to learn about history. She would spend hours reading books and watching documentaries about the Roman Empire.\n\nOne day, Juliet's history teacher assigned a project on the history of the Roman Empire. Excitedly, they realized that the world of mathematics and the art of subtraction.\n\nAs they continued their journey, they stumbled upon a quaint little shop that sold various mathematical puzzles and games. They decided to purchase a few items and headed back to their hotel room. They spent the rest of the day solving puzzles and playing games, enjoying the company of each other and the beautiful surroundings.\n\nAs the sun began to set, they decided to head back to their hotel room. They were greeted by the hotel staff, who were happy to see them. They chatted about the day's events and how they had learned so far.\n\nThe next day, they decided to explore the city and visit some of the local markets. They visited a few shops and enjoyed the sights and sounds of the city. They tried to find a few souvenirs to take back to their hotel room.\n\nAs they were walking, they stumbled upon a few shops that sold various items. They decided to purchase a few items and headed back to their hotel room. They spent the rest of the day exploring the city and enjoying the sights and sounds",
+    "done_s": 4.778688669204712
+   },
+   {
+    "text": "\nAnswer: Photosynthesis is a fascinating process that occurs in plants, algae, and some bacteria. It is the process by which these organisms convert sunlight, water, and carbon dioxide into glucose (a type of sugar) and oxygen. Photosynthesis is essential for life on Earth as it provides the oxygen we breathe and the food we eat.\n\nTo find the area of a parallelogram, you can multiply the base by the height.\n\n(1). To find the area of a parallelogram, you can multiply the base by the height.\n\n(2). To find the area of a rectangle, you can multiply the length by the width.\n\n(3). To find the area of a triangle, you can multiply the base by the height.\n\n(4). To find the area of a circle, you can multiply the radius by the square root of the radius.\n\n(5). To find the area of a trapezoid, you can multiply the sum of the bases by the height.\n\n(6). To find the area of a parallelogram, you can multiply the sum of the bases by the height.\n\n(7). To find the area of a parallelogram, you can multiply the sum of the bases by the height.\n\n(8). To find the area of a rhombus, you can multiply the lengths of the diagonals and divide the result by 2.\n\n(9",
+    "done_s": 4.783425331115723
+   },
+   {
+    "text": "\nAnswer:\nThe rules of chess are a set of guidelines that dictate how the game is played. These rules are essential for ensuring fair play and maintaining the integrity of the game. In this essay, we will explore the rules of chess and their significance in the game.\n\nOne of the fundamental rules of chess is the concept of the king.\n\nAs the day of the competition arrived, and the participants gathered in the school gymnasium. The atmosphere was filled with excitement and anticipation. The students were eager to showcase their skills and strategies. The gymnasium was decorated with colorful banners and balloons, creating a vibrant and lively environment.\n\nThe first event was a success, and the participants displayed their talents and strategies. The audience was amazed by the creativity and dedication of the students. The event was a hit, and the participants were proud of their achievements.\n\nAfter the competition, the students were exhausted but happy. They had put in a lot of effort and hard work, and it had paid off. The students were thrilled with their performance and were eager to celebrate their success.\n\nAs the day came to an end, the students were already planning their next event. They were excited to continue their journey of growth and development. The students were determined to keep improving and learning from their experiences.\n\nIn conclusion, the students' journey of growth and development was a success. They had learned a lot from their experiences and were eager to continue their journey.",
+    "done_s": 4.7844202518463135
+   },
+   {
+    "text": "\nTCP congestion control is a protocol that is used to manage the flow of data packets in a network. It is designed to prevent congestion and ensure that data packets are delivered in a timely manner. The design of TCP congestion control involves several key components, including a congestion control algorithm, a congestion control table, and a congestion control queue.\n\nAnswer: The story of the impact of the sun's heat on the world's largest organ, the skin, is a prime example of how the skin is a vital part of the human body.\n\nExercise: The skin is a prime example of how the skin is a vital part of the human body, the skin, is a prime example of how the skin is a prime example of how the skin is a prime example of how the skin is a prime example of how the skin is a prime example of how the skin is a prime example of how the skin is a prime example of how the skin is a prime example of how the skin is a prime example of how the skin is a prime example of how the skin is a prime example of how the skin is a prime example of how the skin is a prime example of how the skin is a prime example of how the skin is a prime example of how the skin is a prime example of how the skin is a prime example of how the skin is a prime example of how the skin is a prime example of how the skin is a prime example of how the skin is a prime example",
+    "done_s": 4.787675142288208
+   },
+   {
+    "text": "\nParagraph 1: Introduction\nStars are fascinating celestial bodies that have captivated human imagination for centuries. They are born from vast clouds of gas and dust, known as nebulae, and go through a series of stages before eventually becoming stars. In this essay, we will explore the life cycle of stars, from their formation to their eventual demise.\n\nAs the day of the competition arrived, and the participants gathered in the school gymnasium. The atmosphere was filled with excitement and anticipation. The students were eager to showcase their skills and strategies. The gymnasium was decorated with colorful banners and balloons, creating a vibrant and lively environment.\n\nThe first event was a success, and the participants displayed their talents and skills. The audience cheered and applauded their peers. The event was a hit, and the students felt proud of their achievements.\n\nAfter the competition, the students gathered around the water cooler to discuss their experiences. They shared their stories and strategies, exchanging tips and tricks. The conversations were filled with laughter and joy.\n\nAs the day came to an end, the students left the gymnasium with a sense of accomplishment. They knew that their hard work and dedication had paid off.\n\nIn conclusion, the students learned that with the right skills and strategies, they could achieve great things. They realized that with determination and hard work, they could overcome any obstacle.\n\n\nOnce upon a time, in a small town called Maplewood,",
+    "done_s": 4.7838380336761475
+   },
+   {
+    "text": "\nOnce upon a time, in a small town called Baker's Haven, there lived a young girl named Lily. Lily had always been fascinated by the art of baking and dreamed of becoming a renowned pastry chef. She spent hours in her kitchen, experimenting with different recipes and techniques.\n\nOne day, Lily stumbled upon a recipe for sourdoughs, and the importance of taking care of our planet.\n\nIn conclusion, the world is full of wonders, and it's up to us to take care of it. We must all do our part to keep our planet healthy and thriving.\n\n\n## THE IMPACT OF TECHNOLOGY ON THE ENVIRONMENT\n\nTechnology has undoubtedly brought about many positive changes in our lives. From smartphones to electric cars, technology has revolutionized the way we live and work. However, it's important to consider the impact of technology on the environment.\n\nOne of the most significant ways technology has impacted the environment is through the use of renewable energy sources. Solar panels and wind turbines are just a few examples of how technology has helped reduce our carbon footprint. These sources of energy are much more sustainable than traditional energy sources like coal and oil.\n\nAnother way technology has impacted the environment is through the use of smart homes. Smart homes are equipped with devices that can be controlled remotely, such as thermostats, security systems, and even lighting. These devices can help reduce energy consumption and make our homes more efficient.",
+    "done_s": 4.789524078369141
+   },
+   {
+    "text": "\nParagraph 1: Introduction\nThe French Revolution was a period of radical social and political upheaval in France from 1789 to 1799. It was a time of great change and upheaval, as the French people rose up against the monarchy and demanded greater rights and freedoms. The causes of the French Revolution were complex and multifaceted, and they can be a great way to stay active and healthy.\n\nIn conclusion, the world of arts and crafts can be a great way to stay active and healthy. Whether it's painting, drawing, or any other form of art, it's important to find something that you enjoy and that you're good at. It's also important to find something that you're passionate about, so that you'll be more likely to stick with it.\n\nExercises:\n1. What are some other forms of art that you enjoy?\n2. What are some other ways to stay active and healthy?\n3. What are some other ways to stay active and healthy?\n4. What are some other ways to stay active and healthy?\n5. What are some other ways to stay active and healthy?\n\nAnswers:\n1. Some other forms of art that you enjoy?\n2. What are some other ways to stay active and healthy?\n3. What are some other ways to stay active and healthy?\n4. What are some other ways to stay active and healthy?\n5. What are some other ways",
+    "done_s": 4.788676738739014
+   },
+   {
+    "text": "\nPossible essay:\n\nVaccines are a type of medicine that can help protect people from getting sick with certain diseases. Diseases are conditions that can harm the body and make it feel bad. Some diseases are caused by germs, which are tiny living things that can make people sick. Germs can be spread from one person to another, the more they learned about the importance of taking care of their health.\n\nAs they continued their journey, they came across a beautiful garden filled with vibrant flowers and lush greenery. They noticed that the flowers were thriving, and they realized that the garden was a result of the caretakers' efforts. They learned that the flowers were a result of the caretakers' hard work and dedication.\n\nAs they continued their journey, they came across a group of children playing with a ball. They noticed that the children were having fun and enjoying their time together. They realized that the children were having a great time, and they were grateful for the opportunity to spend time with their friends.\n\nAs they continued their journey, they came across a group of people exercising together. They learned that the people were working out and staying healthy. They realized that the people were taking care of their bodies and staying fit.\n\nAs they continued their journey, they came across a group of people cooking together. They learned that the people were preparing a delicious meal and enjoying each other's company. They realized that the people were bonding over a",
+    "done_s": 4.789208650588989
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 349,
+    "ref_chars": 1468
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 336,
+    "ref_chars": 1480
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 333,
+    "ref_chars": 1460
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 373,
+    "ref_chars": 1566
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 358,
+    "ref_chars": 1358
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 331,
+    "ref_chars": 1363
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 351,
+    "ref_chars": 1522
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 326,
+    "ref_chars": 1407
+   }
+  ],
+  "all_match": false
+ }
+}

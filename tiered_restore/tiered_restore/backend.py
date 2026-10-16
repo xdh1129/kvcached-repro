@@ -13,7 +13,8 @@ resume():
   1. Physical memory is mapped back at the same virtual addresses (cumem
      handles, kvcached page offsets), so CUDA graphs and block tables stay valid.
   2. Weights and KV are loaded on two threads at the same time (TIERED_PARALLEL=1),
-     or one after the other.
+     or one after the other. With KV over GDS, the weights are paced so that both
+     share the GPU's PCIe link (_weights_pace).
 
 Each suspend/resume appends one JSON line to TIERED_LOG with the bytes and
 times of each path, and with host_bytes: how many of those bytes passed
@@ -52,6 +53,18 @@ class _CudaBytes:
 def _gpu_bytes(ptr, n) -> torch.Tensor:
     """uint8 tensor view of raw GPU memory (no copy)."""
     return torch.as_tensor(_CudaBytes(ptr, n), device="cuda")
+
+
+def _groups(regions, size):
+    """Split regions into consecutive groups of about `size` bytes (a region is never split)."""
+    out, cur, n = [], [], 0
+    for r in regions:
+        cur.append(r)
+        n += r[1]
+        if n >= size:
+            out.append(cur)
+            cur, n = [], 0
+    return out + ([cur] if cur else [])
 
 
 def _checksum(ptr, n) -> tuple[int, int]:
@@ -105,9 +118,15 @@ class TieredBackend(SleepModeBackend):
             compound = mgr.page_size * mgr.num_layers * mgr.num_kv_buffers
             base = KV_TENSORS[mgr.group_id][0].data_ptr()
             offsets = [pid * compound for pid in pages]
+            # Consecutive pages are contiguous both in GPU memory and in the store, so they
+            # merge into one region: GDS gets ~12 GiB/s on >= 256 MiB I/Os but ~7 on 80 MiB ones.
             regions = []
             for off in offsets:
-                regions.append((base + off, compound, store_off))
+                if regions and regions[-1][0] + regions[-1][1] == base + off:
+                    ptr, n, soff = regions[-1]
+                    regions[-1] = (ptr, n + compound, soff)
+                else:
+                    regions.append((base + off, compound, store_off))
                 store_off += compound
             out.append((mgr.group_id, offsets, regions))
         return out
@@ -245,6 +264,8 @@ class TieredBackend(SleepModeBackend):
         elif kv_regions:
             jobs["kv"] = (self.stores[self.kv_path], [("kv", kv_regions)])
         results, errors = {}, []
+        pace = self._weights_pace(kv_regions) if "kv" in jobs and self.parallel else None
+        rec["weights_pace_gibs"] = pace
 
         def load(path):
             store, parts = jobs[path]
@@ -252,9 +273,17 @@ class TieredBackend(SleepModeBackend):
             moved = {"bytes": 0, "host_bytes": 0}
             try:
                 for kind, regions in parts:
-                    if regions:
-                        for k, v in store.load(kind, regions).items():
+                    if not regions:
+                        continue
+                    # paced weights: load in groups of ~256 MiB, sleeping to hold the target rate
+                    groups = _groups(regions, 256 << 20) if path == "weights" and pace else [regions]
+                    for g in groups:
+                        for k, v in store.load(kind, g).items():
                             moved[k] = moved.get(k, 0) + v  # bytes, host_bytes, GDS counters
+                        if path == "weights" and pace:
+                            ahead = moved["bytes"] / (pace * (1 << 30)) - (time.perf_counter() - t)
+                            if ahead > 0:
+                                time.sleep(ahead)
             except BaseException as e:  # re-raised on the calling thread
                 errors.append(e)
                 return
@@ -280,6 +309,27 @@ class TieredBackend(SleepModeBackend):
         self.kv_saved = []
         self._state = "RUNNING"
         self._log(rec)
+
+    def _weights_pace(self, kv_regions):
+        """Target weights rate (GiB/s) for a parallel DRAM-weights wake whose KV comes over GDS, or None.
+
+        At full speed the DRAM -> GPU weight copy (~53 GiB/s) takes the GPU's whole PCIe
+        link, and the GDS KV read makes little progress until it ends: the wake then lasts
+        about weights + KV. Paced so that both end together (rate = weights / (KV / GDS rate)),
+        the two share the link and the wake lasts about the KV read alone. Measured on a
+        23.4 GiB + 8 GiB wake: 0.99 s unpaced, 0.75 s at 35 GiB/s, 0.65 s for the KV alone.
+        TIERED_WEIGHTS_PACE=0 disables it; TIERED_GDS_GIBS (12) is the expected GDS rate,
+        TIERED_PACE_MAX_GIBS (45) the rate above which pacing is skipped.
+        """
+        if self.weights_path != "dram" or self.kv_path != "gds" or _env("TIERED_WEIGHTS_PACE", "1") == "0":
+            return None
+        kv = sum(n for _, n, _ in kv_regions)
+        w = sum(n for _, n, _ in self.weight_regions + self.state_regions)
+        if not kv:
+            return None
+        kv_s = kv / (float(_env("TIERED_GDS_GIBS", "12")) * (1 << 30))  # expected KV read time
+        rate = w / kv_s / (1 << 30)  # GiB/s
+        return None if rate >= float(_env("TIERED_PACE_MAX_GIBS", "45")) else rate
 
     def _verify(self, kv_regions):
         out = {}

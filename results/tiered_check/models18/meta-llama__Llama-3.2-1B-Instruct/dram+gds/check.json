@@ -1,0 +1,261 @@
+{
+ "model": "meta-llama/Llama-3.2-1B-Instruct",
+ "n_req": 8,
+ "max_tokens": 300,
+ "awake_gpu_mib": 4194,
+ "reference": [
+  {
+   "text": "The Roman Empire was one of the most powerful and influential civilizations in human history, spanning over 12 centuries. From its humble beginnings as a small city-state in central Italy to its eventual rise as a vast and complex empire, the Roman Empire underwent significant transformations and expansions throughout its history. This essay will explore the history of the Roman Empire, from its early beginnings to its eventual decline and fall.\n\nThe Roman Empire began in the 8th century BC, when the city of Rome was founded by Romulus and Remus. Initially, the city was a small settlement, but it quickly grew in size and influence, becoming a major power in the Mediterranean region. The Romans were a people of Italian origin, but they were also influenced by the Etruscan civilization, which had a significant impact on their culture and politics. The Romans developed a unique system of government, known as the Republic, which was characterized by a system of checks and balances, a strong military, and a complex network of laws and institutions.\n\nThe Roman Republic was marked by a series of wars and conquests, which expanded Rome's territories and established it as a major power in the Mediterranean. The Romans were skilled military leaders, and their armies were known for their discipline, organization, and tactical genius. They also developed a sophisticated system of engineering, architecture, and infrastructure, which enabled them to build roads, bridges, and public buildings that were unparalleled in the ancient world.\n\nOne of the most significant events in Roman history was the",
+   "done_s": 1.1074130535125732
+  },
+  {
+   "text": "Photosynthesis is the process by which plants, algae, and some bacteria convert light energy from the sun into chemical energy in the form of glucose, a type of sugar. This process is essential for life on Earth, as it provides the energy and organic compounds necessary for the food chain and supports the growth and development of plants, animals, and humans. In this essay, we will explore the steps involved in photosynthesis, the importance of this process, and the impact of human activities on photosynthesis.\n\nThe process of photosynthesis begins with the absorption of light energy by pigments such as chlorophyll in the leaves of plants. Chlorophyll is a green pigment that absorbs light in the blue and red parts of the visible spectrum, but reflects light in the green part of the spectrum. This is why plants appear green to our eyes. The energy from light is then transferred to a molecule called ATP (adenosine triphosphate), which is the energy currency of the cell. ATP is produced through the light-dependent reactions, which involve the conversion of light energy into chemical energy.\n\nThe light-dependent reactions occur in two stages: the light-dependent reactions and the light-independent reactions. The light-dependent reactions take place in the thylakoid membranes of the chloroplasts and involve the absorption of light energy by pigments and the transfer of electrons to a molecule called NADP+. The energy from light is then used to convert water into oxygen and ATP. This process is known as the Hill reaction",
+   "done_s": 1.1118950843811035
+  },
+  {
+   "text": "The rules of chess are a set of guidelines that govern the game of chess, which is a two-player strategy board game that involves moving pieces on a square board with the ultimate goal of capturing the opponent's king. The game has a rich history, with its origins dating back to the 6th century AD in India, and has since evolved into a complex and nuanced game that requires skill, strategy, and critical thinking. In this essay, we will delve into the rules of chess, exploring the various components, objectives, and strategies that make the game so fascinating.\n\nAt its core, the rules of chess are based on the concept of movement and capture. Players take turns moving one of their pieces (king, queen, rook, bishop, knight, or pawn) on a square board, with the goal of capturing the opponent's king. The pieces have specific movements and capabilities, such as the ability to move forward one or two squares, capture diagonally, or jump over other pieces. The objective is to checkmate the opponent's king, which means the king is in a position to be captured (in \"check\"), and there is no way to move the king out of capture (mate).\n\nOne of the most important rules of chess is the concept of castling. Castling is a special move that allows the king to move three squares towards a rook, while the rook moves to the square the king crossed. This move is only possible if the king and rook are",
+   "done_s": 1.1123230457305908
+  },
+  {
+   "text": "TCP congestion control is a critical component of the Transmission Control Protocol (TCP), which is used to ensure reliable and efficient data transfer over the internet. The design of TCP congestion control is a complex process that involves several key components, including rate limiting, slow-start, and congestion avoidance. In this essay, we will delve into the design of TCP congestion control, exploring its key components, their functions, and the trade-offs involved in its implementation.\n\nOne of the primary components of TCP congestion control is rate limiting. Rate limiting is a mechanism that limits the rate at which data is sent over the network. This is done to prevent the network from becoming overwhelmed and to ensure that data is transmitted at a reasonable rate. Rate limiting is typically implemented using a rate limiter, which is a variable that limits the rate at which data is sent. The rate limiter is adjusted based on the network's current load, and it is typically set to a minimum rate that is below the maximum rate that the network can handle.\n\nSlow-start is another key component of TCP congestion control. Slow-start is a mechanism that gradually increases the transmission rate as the network's load increases. This is done to prevent the network from becoming overwhelmed and to ensure that data is transmitted at a reasonable rate. Slow-start is typically implemented using a slow-start algorithm, which gradually increases the transmission rate based on the network's current load. The slow-start algorithm is typically implemented using a combination of rate limiting and congestion avoidance.\n\nCongestion avoidance is the final",
+   "done_s": 1.1127264499664307
+  },
+  {
+   "text": "The life cycle of stars is a complex and fascinating process that has captivated astronomers and scientists for centuries. From the birth of a new star to its eventual death, the life cycle of stars is a journey that spans millions of years. In this essay, we will explore the different stages of a star's life, from its formation in a giant molecular cloud to its eventual demise in a supernova explosion.\n\nThe life cycle of stars begins with the formation of a giant molecular cloud, a vast region of space filled with gas and dust. These clouds are the raw material from which new stars are born. As the cloud collapses under its own gravity, it begins to spin faster and faster, causing it to flatten into a disk shape. At the center of the disk, a protostar forms, a massive ball of gas and dust that will eventually become a star. The protostar continues to collapse, and its core begins to heat up, causing it to glow with a faint, blue light.\n\nAs the protostar continues to collapse, it begins to spin faster and faster, causing it to flatten into a disk shape again. This process is known as accretion, and it is the same process that occurs in the formation of planets. The protostar continues to heat up, causing it to glow with a brighter, more intense light. This is the first sign that the protostar is becoming a star.\n\nThe protostar continues to collapse, and its core begins to heat",
+   "done_s": 1.1137194633483887
+  },
+  {
+   "text": "Baking sourdough bread is a labor of love that requires patience, dedication, and a bit of magic. It's a bread that's steeped in tradition, with a rich history that dates back to ancient times. The process of creating sourdough bread is a complex one, involving the careful management of a natural starter culture that's been nurtured and fed over time. This starter culture is the key to the bread's unique flavor and texture, and it's what sets sourdough bread apart from other types of bread.\n\nTo begin, you'll need to create a sourdough starter culture from scratch. This involves mixing equal parts of flour and water in a clean glass or ceramic container, and then allowing the mixture to sit at room temperature for several days. The mixture will start to bubble and emit a sour smell, which is a sign that the wild yeast and bacteria in the flour are starting to ferment. Once the starter is active and bubbly, you can feed it with more flour and water to keep it alive and healthy.\n\nOnce your starter is established, you can use it to make the dough for your sourdough bread. To do this, you'll need to mix together a combination of flour, water, salt, and the active starter culture. The ratio of flour to water is typically around 1:1, but you may need to adjust this depending on the humidity and temperature of your environment. The starter culture will help to leaven the dough, giving",
+   "done_s": 1.1134309768676758
+  },
+  {
+   "text": "The French Revolution, which lasted from 1789 to 1799, was a pivotal event in modern history that had far-reaching consequences for the French people, the European continent, and the world at large. The revolution was a complex and multifaceted phenomenon that was driven by a combination of social, economic, and political factors. In this essay, we will explore the causes of the French Revolution, examining the key events, ideas, and social movements that contributed to the outbreak of the revolution.\n\nOne of the primary causes of the French Revolution was the financial crisis that had been building for years. The French monarchy had accumulated a massive debt, which was financed by the sale of public lands and the imposition of heavy taxes on the common people. The burden of these taxes fell disproportionately on the poor and the middle class, who were already struggling to make ends meet. The financial crisis was exacerbated by the country's extensive foreign debt, which had been incurred during the Seven Years' War and the American Revolutionary War. The French people were deeply in debt to foreign creditors, and the burden of these debts was felt most acutely by the poor and the working class.\n\nAnother significant cause of the French Revolution was the social and economic inequalities that existed in France at the time. The French society was divided into three estates: the clergy, the nobility, and the commoners. The nobility and the clergy held vast amounts of power and wealth, while the commoners were forced to live in poverty and s",
+   "done_s": 1.1131560802459717
+  },
+  {
+   "text": "The immune system is a complex and dynamic process that plays a crucial role in protecting the body against infectious diseases. Vaccines are a key component of this process, and they train the immune system in several ways. In this essay, we will explore how vaccines train the immune system, and the importance of this process in preventing the spread of diseases.\n\nOne of the primary ways that vaccines train the immune system is by stimulating the production of antibodies. Antibodies are proteins that recognize and bind to specific pathogens, such as bacteria and viruses, and help to neutralize them. When a vaccine is administered, it triggers the production of antibodies in the body, which can then recognize and attack pathogens that enter the body. This process is known as immunization, and it is a key component of the immune system's ability to defend against disease.\n\nAnother way that vaccines train the immune system is by activating immune cells, such as T-cells and B-cells. T-cells are a type of immune cell that plays a key role in cell-mediated immunity, which involves the activation of immune cells to recognize and attack pathogens. When a vaccine is administered, it can activate T-cells and other immune cells, which can then help to recognize and attack pathogens that enter the body. This process is known as cell-mediated immunity, and it is a key component of the immune system's ability to defend against disease.\n\nVaccines also train the immune system by stimulating the production of cytokines. Cytokines are",
+   "done_s": 1.114142656326294
+  }
+ ],
+ "noise": {
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 564,
+    "ref_chars": 1608
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 263,
+    "ref_chars": 1540
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1402,
+    "ref_chars": 1402
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1672,
+    "ref_chars": 1672
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 1081,
+    "ref_chars": 1399
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 457,
+    "ref_chars": 1399
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1565,
+    "ref_chars": 1565
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1543,
+    "ref_chars": 1543
+   }
+  ],
+  "all_match": false
+ },
+ "restore": {
+  "events": {
+   "gpu": 4,
+   "sleep_start_s": 0.3077864646911621,
+   "sleep_end_s": 3.094940185546875,
+   "asleep_gpu_mib": 1246,
+   "wake_start_s": 6.2023091316223145,
+   "wake_end_s": 6.371731758117676,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "The Roman Empire was one of the most powerful and influential civilizations in human history, spanning over 12 centuries. From its humble beginnings as a small city-state in central Italy to its eventual rise as a vast and complex empire, the Roman Empire underwent significant transformations and expansions throughout its history. This essay will explore the history of the Roman Empire, from its early beginnings to its eventual decline and fall.\n\nThe Roman Empire was founded in 753 BC by Romulus and Remus, two legendary brothers who were said to have been raised by a she-wolf. The city of Rome was established on the Palatine Hill, and the Romans quickly expanded their territory through a series of conquests and alliances. In 509 BC, the Roman Republic was established, with a system of governance based on the concept of representation and the rule of law. The Roman Republic was marked by a series of civil wars, power struggles, and the rise of powerful generals such as Julius Caesar and Pompey.\n\nThe Roman Republic was a period of significant growth and development, marked by the expansion of the Roman state, the development of a complex system of governance, and the emergence of a powerful and influential aristocracy. The Roman Republic was also marked by a series of significant cultural and artistic achievements, including the development of the Roman alphabet, the construction of the Colosseum, and the creation of the Roman Forum.\n\nIn 27 BC, the Roman Empire was established under the rule of Augustus Caesar, who was the",
+    "done_s": 6.954993963241577
+   },
+   {
+    "text": "Photosynthesis is the process by which plants, algae, and some bacteria convert light energy from the sun into chemical energy in the form of glucose, a type of sugar. This process is essential for life on Earth, as it provides the energy and organic compounds necessary for the food chain and supports the entire ecosystem. In this essay, we will explore the steps involved in photosynthesis, the importance of this process, and the impact it has on the environment.\n\nThe process of photosynthesis begins with the absorption of light energy by pigments such as chlorophyll in the leaves of plants. Chlorophyll is a green pigment that absorbs light in the blue and red parts of the visible spectrum, but reflects light in the green part of the spectrum. This is why plants appear green to our eyes. The energy from light is then transferred to a molecule called ATP (adenosine triphosphate), which is the energy currency of the cell. ATP is produced through the light-dependent reactions, which involve the conversion of light energy into chemical energy.\n\nThe light-dependent reactions occur in two stages: the light-dependent reactions and the light-independent reactions. The light-dependent reactions take place in the thylakoid membranes of the chloroplasts and involve the absorption of light energy by pigments and the transfer of electrons to a molecule called NADP+. The energy from light is then used to convert water into oxygen and ATP. This process is known as the Hill reaction.\n\nThe light-independent reactions, also known as",
+    "done_s": 6.96010160446167
+   },
+   {
+    "text": "The rules of chess are a set of guidelines that govern the gameplay of the popular board game. The game is played on a square board with 64 squares, arranged in an 8x8 grid. The objective of the game is to checkmate the opponent's king, which means the king is under attack and cannot escape capture. The game starts with the setup of the pieces on the board, with each player having 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns. The pieces move according to specific rules, and the game is won when a player checkmates their opponent's king.\n\nThe rules of chess are based on a set of principles that govern the movement of the pieces. The most important rule is that each piece can only move to a square that is the same number of squares as the piece's current position. For example, a pawn can move forward one square, while a knight moves in an L-shape. The pieces also have specific starting positions and movements, such as the king's ability to move one square in any direction, and the queen's ability to move any number of squares in any direction.\n\nOne of the key principles of chess is the concept of \"castling.\" This allows the king to move three squares towards a rook, while the rook moves to the square the king crossed. This is the only move that allows the king to move more than one square. The king can also move",
+    "done_s": 6.9610395431518555
+   },
+   {
+    "text": "TCP congestion control is a critical component of the Transmission Control Protocol (TCP), which is used to ensure reliable and efficient data transfer over the internet. The design of TCP congestion control is a complex process that involves several key components, including rate limiting, slow-start, and congestion avoidance. In this essay, we will delve into the design of TCP congestion control, exploring its key components, their functions, and the trade-offs involved in its implementation.\n\nOne of the primary components of TCP congestion control is rate limiting. Rate limiting is a mechanism that limits the rate at which data is sent over the network. This is done to prevent the network from becoming overwhelmed and to ensure that data is transmitted at a reasonable rate. Rate limiting is typically implemented using a rate limiter, which is a variable that limits the rate at which data is sent. The rate limiter is adjusted based on the network's current load, and it is typically set to a minimum rate that is below the maximum rate that the network can handle.\n\nSlow-start is another critical component of TCP congestion control. Slow-start is a mechanism that gradually increases the transmission rate as the network's load increases. This is done to prevent the network from becoming overwhelmed and to ensure that data is transmitted at a reasonable rate. Slow-start is typically implemented using a slow-start algorithm, which gradually increases the transmission rate based on the network's current load. The slow-start algorithm is typically implemented using a combination of rate limiting and congestion avoidance mechanisms.\n\nCongestion avoidance is the",
+    "done_s": 6.960493564605713
+   },
+   {
+    "text": "The life cycle of stars is a complex and fascinating process that has captivated astronomers and scientists for centuries. From the birth of a new star to its eventual death, the life cycle of stars is a journey that spans millions of years. In this essay, we will explore the different stages of a star's life, from its formation in a giant molecular cloud to its eventual demise in a supernova explosion.\n\nThe life cycle of stars begins with the formation of a giant molecular cloud, a vast region of space filled with gas and dust. These clouds are the raw material from which new stars are born. As the cloud collapses under its own gravity, it begins to spin faster and faster, causing it to flatten into a disk shape. At the center of the disk, a protostar forms, a massive ball of gas and dust that will eventually become a star. The protostar continues to collapse, and its core begins to heat up, causing it to glow with a faint, blue light.\n\nAs the protostar continues to collapse, it begins to spin faster and faster, causing it to flatten into a disk shape again. This process is known as accretion, and it is the same process that occurs in the formation of planets. The protostar continues to heat up, causing it to glow with a brighter, more intense light. This is the first sign that the protostar is becoming a star.\n\nThe protostar continues to collapse, and its core begins to heat",
+    "done_s": 6.9603111743927
+   },
+   {
+    "text": "Baking sourdough bread is a labor of love that requires patience, dedication, and a bit of magic. It's a process that involves creating a natural starter culture, mixing and kneading the dough, and then allowing it to rise and ferment. The end result is a delicious, crusty loaf that's perfect for sandwiches, toast, and snacking.\n\nThe process of baking sourdough bread begins with creating a natural starter culture. This involves mixing flour and water to create a mixture that's rich in wild yeast and bacteria. The mixture is then allowed to sit for several days, allowing the wild yeast and bacteria to ferment and multiply. This process is called \"sponge\" and it's the foundation of sourdough bread.\n\nOnce the starter culture is established, it's time to mix and knead the dough. This involves combining flour, water, salt, and the starter culture in a specific ratio and then kneading the dough for several minutes. The dough is then allowed to rest and rise for several hours, allowing the yeast and bacteria to continue fermenting.\n\nThe final stage of the process is shaping the dough into its final form. This involves gently folding and stretching the dough to create the characteristic sourdough shape. The dough is then placed in a proofing basket or on a baking sheet and allowed to rise again for several hours.\n\nThe proofing process is where the magic happens. The dough is allowed to rise and ferment, developing a complex flavor and texture. The",
+    "done_s": 6.960737466812134
+   },
+   {
+    "text": "The French Revolution, which lasted from 1789 to 1799, was a pivotal event in modern history that had far-reaching consequences for the French people, the European continent, and the world at large. The revolution was a complex and multifaceted phenomenon that was driven by a combination of social, economic, and political factors. In this essay, we will explore the causes of the French Revolution, examining the key events, ideas, and social movements that contributed to the outbreak of the revolution.\n\nOne of the primary causes of the French Revolution was the financial crisis that had been building for years. The French monarchy had accumulated a massive debt, which was financed by the sale of public lands and the imposition of heavy taxes on the common people. The burden of these taxes fell disproportionately on the poor and the middle class, who were already struggling to make ends meet. The financial crisis was exacerbated by the country's extensive foreign debt, which had been incurred during the Seven Years' War and the American Revolutionary War. The French people were deeply in debt to foreign creditors, and the burden of these debts was felt most acutely by the poor and the working class.\n\nAnother significant cause of the French Revolution was the social and economic inequalities that existed in France at the time. The French society was divided into three estates: the clergy, the nobility, and the commoners. The nobility and the clergy held vast amounts of power and wealth, while the commoners were forced to live in poverty and s",
+    "done_s": 6.961218595504761
+   },
+   {
+    "text": "The immune system is a complex and dynamic process that plays a crucial role in protecting the body against infectious diseases. Vaccines are a key component of this process, and they train the immune system in several ways. In this essay, we will explore how vaccines train the immune system, and the importance of this process in preventing the spread of diseases.\n\nOne of the primary ways that vaccines train the immune system is by stimulating the production of antibodies. Antibodies are proteins that recognize and bind to specific pathogens, such as bacteria and viruses, and help to neutralize them. When a vaccine is administered, it triggers the production of antibodies in the body, which can then recognize and attack pathogens that enter the body. This process is known as immunization, and it is a key component of the immune system's ability to defend against disease.\n\nAnother way that vaccines train the immune system is by activating immune cells, such as T-cells and B-cells. T-cells are a type of immune cell that plays a key role in cell-mediated immunity, which involves the activation of immune cells to recognize and attack pathogens. When a vaccine is administered, it can activate T-cells and other immune cells, which can then help to recognize and attack pathogens that enter the body. This process is known as cell-mediated immunity, and it is a key component of the immune system's ability to defend against disease.\n\nVaccines also train the immune system by stimulating the production of cytokines. Cytokines are",
+    "done_s": 6.9613728523254395
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 468,
+    "ref_chars": 1608
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 307,
+    "ref_chars": 1540
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 63,
+    "ref_chars": 1402
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 1104,
+    "ref_chars": 1672
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1399,
+    "ref_chars": 1399
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 105,
+    "ref_chars": 1399
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1565,
+    "ref_chars": 1565
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1543,
+    "ref_chars": 1543
+   }
+  ],
+  "all_match": false
+ },
+ "control": {
+  "events": {
+   "gpu": 4,
+   "sleep_start_s": 0.30597352981567383,
+   "sleep_end_s": 0.4715244770050049,
+   "asleep_gpu_mib": 1246,
+   "wake_start_s": 3.579622983932495,
+   "wake_end_s": 3.6995882987976074,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "The Roman Empire was one of the most powerful and influential civilizations in human history, spanning over 12 centuries. From its humble beginnings as a small city-state in central Italy to its eventual rise as a vast and complex empire, the Roman Empire underwent significant transformations and expansions throughout its history. This essay will explore the history of the Roman Empire, from its early beginnings to its eventual decline and fall.\n\nThe Roman Empire began in the 8th century BC, when the first, Imitation, and the first, and  and .\n\n\nThe first, and  the  1. the. The first, and  the  to  be the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first the first, the first, the first, the first the first, the first the first, the first the first, the first the first, the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first",
+    "done_s": 4.281628131866455
+   },
+   {
+    "text": "Photosynthesis is the process by which plants, algae, and some bacteria convert light energy from the sun into chemical energy in the form of glucose, a type of sugar. This process is essential for life on Earth, as it provides the energy and organic compounds necessary for the food chain and supports the growth and development of plants, animals, and humans. In this essay, we will explore the steps involved in photosynthesis, the importance of this process, and the first, Imitation, and the first, and the first, and the first, and  and  and  and  and  and  the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first the first, the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the n the case the first the first the first the n the case the first the",
+    "done_s": 4.286914110183716
+   },
+   {
+    "text": "The rules of chess are a set of guidelines that govern the game of chess, which is a two-player strategy board game that involves moving pieces on a square board with the ultimate goal of capturing the opponent's king. The game has a rich history, with its origins dating back to the 6th century AD in India, and has since evolved into a complex and nuanced game that requires skill, strategy, and critical thinking. In this essay, we will delve, in the \" (or \" is not only the \" and \" is the \" (or \" (see. The) . .  1 and the \" is the (or \" (or \" (or \" (or \" (take a \" (take a \" (take a \" (or \" (take a \" (take a \" (take a \" (take a \" (take a \" (take a \" (take a \" (take a \" (take a \" (take a \" (take a \" (take a \" (take a \" (take a \" -  and a \" is the \" (take a \" is the \" (take a \" is the \" (take a \" is the \" is the \" is the \" is the \" is the \" is the \" is the \" is the \" is the \" is the \" is the \" is the \" is the \" is the \" is the \" is the \" is the \" is the \" is the \" is the \" is the \" is",
+    "done_s": 4.287126302719116
+   },
+   {
+    "text": "TCP congestion control is a critical component of the Transmission Control Protocol (TCP), which is used to ensure reliable and efficient data transfer over the internet. The design of TCP congestion control is a complex process that involves several key components, including rate limiting, slow-start, and congestion avoidance. In this essay, we will delve into the design of TCP congestion control, exploring its key components, their functions, and the trade-offs involved in its implementation.\n\nOne of the primary, the potential is not listed. The following.\n\nThe final, and is not, and the United. The final. The final. The following. The following.\nThe final. The number  is the first.\nThe. and .\nThe. and .\nThe number of the. The. the  1, the  be. the  be. the  be. the  be the first.  1.  1, the.  1.\n, the.  1.\n,  be the  be the  be the first the  be the  be the . .  is the  be the  be the.  1. the  be the  the  n  is the  the  n the  be the . .  1. the  be the . .  is the the first the  be the . . the  is the the first the  be the . . the  is the the first the  be the . . the  is the the first",
+    "done_s": 4.287312030792236
+   },
+   {
+    "text": "The life cycle of stars is a complex and fascinating process that has captivated astronomers and scientists for centuries. From the birth of a new star to its eventual death, the life cycle of stars is a journey that spans millions of years. In this essay, we will explore the different stages of a star's life, from its formation in a giant molecular cloud to its eventual demise in a supernova explosion.\n\nThe life cycle of stars begins with the formation of the first,  1) (or the first, and the first, and the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, in the, in the, the first, in the n. the \"for the, in, the first, in the n the first, in the n the first, in the n the first, in the n the first the first, in the n the first the first the first the first the first the first the n the first the first the n the first the first the n the first the n the first the n the first the n the n the n the n the n the n the n the n the n the n the n the",
+    "done_s": 4.288338661193848
+   },
+   {
+    "text": "Baking sourdough bread is a labor of love that requires patience, dedication, and a bit of magic. It's a process that involves creating a natural starter culture, mixing and kneading the dough, and then allowing it to rise and ferment. The end result is a delicious, crusty loaf that's perfect for sandwiches, toast, and snacking.\n\nThe process of baking sourdough bread begins with creating a natural starter culture. This involves mixing is the \"there is not, and then the first. The following. The following. The following.  The. The following.  1. . The is. of the.  1, the  is the  be. It's not  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the  is the",
+    "done_s": 4.287493944168091
+   },
+   {
+    "text": "The French Revolution, which lasted from 1789 to 1799, was a pivotal event in modern history that had far-reaching consequences for the French people, the European continent, and the world at large. The revolution was a complex and multifaceted phenomenon that was driven by a combination of social, economic, and political factors. In this essay, we will explore the causes of the French Revolution, examining the key events, ideas, and social movements, the potential is not listed. The following.\n\nI hope. The following. Imitation. is. the. be. Here is the case. 1 and  be.  1, the. I the  be.  1. I the  be  be.  the  is the. is the  be  be  be the first.  1.  the  is the  be the  be the  be the  be the  the  be the  the  be the  the  be the  the  be the  the  be the  the  be the  the  be the  the  be the  the  be the  the  be the  the first the  be the  the first the  be the  the first the  be the  the first the  be the  the first the  be the  the first the  be the  the first the  be the  the first the  be the  the first the  be",
+    "done_s": 4.2886857986450195
+   },
+   {
+    "text": "The immune system is a complex and dynamic process that plays a crucial role in protecting the body against infectious diseases. Vaccines are a key component of this process, and they train the immune system in several ways. In this essay, we will explore how vaccines train the immune system, and the importance of this process in preventing the spread of diseases.\n\nOne of the primary ways that vaccines train the immune system is by stimulating the production of antibodies. Antibodies aretha, and then a, and then. The, and the first. The following. comatious. The first, the first, and the first, and the first, and the first, and the first, and the first, and the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, the first, in the line  the  1 the  1 the  the  1 in  1 in  1 in  1 in  1,  the  the  the  the  the  the  the  the  the  the  the  the  the first the  the first the  the first the  the first the first the first the first the first the first the first the first the first the first the first the first the first the first the first the",
+    "done_s": 4.288482904434204
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 506,
+    "ref_chars": 1608
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 471,
+    "ref_chars": 1540
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 445,
+    "ref_chars": 1402
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 519,
+    "ref_chars": 1672
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 461,
+    "ref_chars": 1399
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 105,
+    "ref_chars": 1399
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 454,
+    "ref_chars": 1565
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 492,
+    "ref_chars": 1543
+   }
+  ],
+  "all_match": false
+ }
+}

@@ -1,0 +1,261 @@
+{
+ "model": "google/gemma-2b",
+ "n_req": 8,
+ "max_tokens": 300,
+ "awake_gpu_mib": 7236,
+ "reference": [
+  {
+   "text": "Paragraph 0: notes about the history of the Roman empire, item 0. Paragraph 1: notes about the history of the Roman empire, item 7. Paragraph 2: notes about the history of the Roman empire, item 14. Paragraph 3: notes about the history of the Roman empire, item 21. Paragraph 4: notes about the history of the Roman empire, item 28. Paragraph 5: notes about the history of the Roman empire, item 35. Paragraph 6: notes about the history of the Roman empire, item 42. Paragraph 7: notes about the history of the Roman empire, item 49. Paragraph 8: notes about the history of the Roman empire, item 56. Paragraph 9: notes about the history of the Roman empire, item 63. Paragraph 10: notes about the history of the Roman empire, item 70. Paragraph 11: notes about the history of the Roman empire, item 77. Paragraph 12: notes about the history of the Roman empire, item 84. Paragraph 13: notes about the history of the Roman empire, item 91. Paragraph 14: notes about the history of the Roman empire, item 98. Paragraph 15: notes about the history of the Roman empire, item 105. Paragraph 16: notes about",
+   "done_s": 1.5119879245758057
+  },
+  {
+   "text": "Paragraph 0: notes about how photosynthesis works, item 1. Paragraph 1: notes about how photosynthesis works, item 8. Paragraph 2: notes about how photosynthesis works, item 15. Paragraph 3: notes about how photosynthesis works, item 22. Paragraph 4: notes about how photosynthesis works, item 29. Paragraph 5: notes about how photosynthesis works, item 36. Paragraph 6: notes about how photosynthesis works, item 43. Paragraph 7: notes about how photosynthesis works, item 50. Paragraph 8: notes about how photosynthesis works, item 57. Paragraph 9: notes about how photosynthesis works, item 64. Paragraph 10: notes about how photosynthesis works, item 71. Paragraph 11: notes about how photosynthesis works, item 78. Paragraph 12: notes about how photosynthesis works, item 85. Paragraph 13: notes about how photosynthesis works, item 92. Paragraph 14: notes about how photosynthesis works, item 99. Paragraph 15: notes about how photosynthesis works, item 106. Paragraph 16: notes about how photosynthesis works, item 113. Paragraph 17: notes about how photosynthesis works, item 120. Paragraph 18: notes about how photosynthesis works, item 127. Paragraph 19",
+   "done_s": 1.505944013595581
+  },
+  {
+   "text": "The rules of chess are very simple. The game is played on a chessboard, which is divided into 64 squares. The game is played by two players, who take turns to move their pieces. The pieces are placed on the squares of the chessboard, and the player who has the most pieces on the board at the end of the game wins. The rules of chess are very simple, but they are very important. The game is played on a chessboard, which is divided into 64 squares. The game is played by two players, who take turns to move their pieces. The pieces are placed on the squares of the chessboard, and the player who has the most pieces on the board at the end of the game wins. The rules of chess are very simple, but they are very important. The game is played on a chessboard, which is divided into 64 squares. The game is played by two players, who take turns to move their pieces. The pieces are placed on the squares of the chessboard, and the player who has the most pieces on the board at the end of the game wins. The rules of chess are very simple, but they are very important. The game is played on a chessboard, which is divided into 64 squares. The game is played by two players, who take turns to move their pieces. The pieces are placed on the squares of the chessboard, and the player who has the most pieces on",
+   "done_s": 1.5121562480926514
+  },
+  {
+   "text": "The design of TCP congestion control is a very important part of the TCP protocol. It is responsible for controlling the amount of data that is sent over the network. The design of TCP congestion control is based on the idea of using a sliding window to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over",
+   "done_s": 1.512497901916504
+  },
+  {
+   "text": "Paragraph 0: notes about the life cycle of stars, item 4. Paragraph 1: notes about the life cycle of stars, item 11. Paragraph 2: notes about the life cycle of stars, item 18. Paragraph 3: notes about the life cycle of stars, item 25. Paragraph 4: notes about the life cycle of stars, item 32. Paragraph 5: notes about the life cycle of stars, item 39. Paragraph 6: notes about the life cycle of stars, item 46. Paragraph 7: notes about the life cycle of stars, item 53. Paragraph 8: notes about the life cycle of stars, item 60. Paragraph 9: notes about the life cycle of stars, item 67. Paragraph 10: notes about the life cycle of stars, item 74. Paragraph 11: notes about the life cycle of stars, item 81. Paragraph 12: notes about the life cycle of stars, item 88. Paragraph 13: notes about the life cycle of stars, item 95. Paragraph 14: notes about the life cycle of stars, item 102. Paragraph 15: notes about the life cycle of stars, item 109. Paragraph 16: notes about the life cycle of stars, item 116. Paragraph ",
+   "done_s": 1.5134389400482178
+  },
+  {
+   "text": "The essay should be at least 1000 words long.\nThe essay should be written in a formal style.\nThe essay should be written in a clear and concise manner.\nThe essay should be written in a logical and coherent manner.\nThe essay should be written in a way that is easy to read and understand.\nThe essay should be written in a way that is interesting and engaging.\nThe essay should be written in a way that is persuasive and convincing.\nThe essay should be written in a way that is original and creative.\nThe essay should be written in a way that is respectful and considerate of others.\nThe essay should be written in a way that is respectful and considerate of the environment.\nThe essay should be written in a way that is respectful and considerate of the community.\nThe essay should be written in a way that is respectful and considerate of the culture.\nThe essay should be written in a way that is respectful and considerate of the history.\nThe essay should be written in a way that is respectful and considerate of the future.\nThe essay should be written in a way that is respectful and considerate of the present.\nThe essay should be written in a way that is respectful and considerate of the past.\nThe essay should be written in a way that is respectful and considerate of the future.\nThe essay should be written in a way that is respectful and considerate of the present.\nThe essay should be written in a",
+   "done_s": 1.512927532196045
+  },
+  {
+   "text": "Paragraph 0: notes about the causes of the French revolution, item 6. Paragraph 1: notes about the causes of the French revolution, item 13. Paragraph 2: notes about the causes of the French revolution, item 20. Paragraph 3: notes about the causes of the French revolution, item 27. Paragraph 4: notes about the causes of the French revolution, item 34. Paragraph 5: notes about the causes of the French revolution, item 41. Paragraph 6: notes about the causes of the French revolution, item 48. Paragraph 7: notes about the causes of the French revolution, item 55. Paragraph 8: notes about the causes of the French revolution, item 62. Paragraph 9: notes about the causes of the French revolution, item 69. Paragraph 10: notes about the causes of the French revolution, item 76. Paragraph 11: notes about the causes of the French revolution, item 83. Paragraph 12: notes about the causes of the French revolution, item 90. Paragraph 13: notes about the causes of the French revolution, item 97. Paragraph 14: notes about the causes of the French revolution, item 104. Paragraph 15: notes about the causes of the French revolution, item 111. Paragraph 16:",
+   "done_s": 1.5127296447753906
+  },
+  {
+   "text": "Paragraph 0: notes about how vaccines train the immune system, item 7. Paragraph 1: notes about how vaccines train the immune system, item 14. Paragraph 2: notes about how vaccines train the immune system, item 21. Paragraph 3: notes about how vaccines train the immune system, item 28. Paragraph 4: notes about how vaccines train the immune system, item 35. Paragraph 5: notes about how vaccines train the immune system, item 42. Paragraph 6: notes about how vaccines train the immune system, item 49. Paragraph 7: notes about how vaccines train the immune system, item 56. Paragraph 8: notes about how vaccines train the immune system, item 63. Paragraph 9: notes about how vaccines train the immune system, item 70. Paragraph 10: notes about how vaccines train the immune system, item 77. Paragraph 11: notes about how vaccines train the immune system, item 84. Paragraph 12: notes about how vaccines train the immune system, item 91. Paragraph 13: notes about how vaccines train the immune system, item 98. Paragraph 14: notes about how vaccines train the immune system, item 105. Paragraph 15: notes about how vaccines train the immune system, item 112. Paragraph 16:",
+   "done_s": 1.5131070613861084
+  }
+ ],
+ "noise": {
+  "compare": [
+   {
+    "match": true,
+    "common_prefix_chars": 1102,
+    "ref_chars": 1102
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 0,
+    "ref_chars": 1163
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 253,
+    "ref_chars": 1307
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 57,
+    "ref_chars": 1453
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1022,
+    "ref_chars": 1022
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1407,
+    "ref_chars": 1407
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1156,
+    "ref_chars": 1156
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1172,
+    "ref_chars": 1172
+   }
+  ],
+  "all_match": false
+ },
+ "restore": {
+  "events": {
+   "gpu": 3,
+   "sleep_start_s": 0.30768609046936035,
+   "sleep_end_s": 3.9478015899658203,
+   "asleep_gpu_mib": 1344,
+   "wake_start_s": 7.068477392196655,
+   "wake_end_s": 7.330014944076538,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "Paragraph 0: notes about the history of the Roman empire, item 0. Paragraph 1: notes about the history of the Roman empire, item 7. Paragraph 2: notes about the history of the Roman empire, item 14. Paragraph 3: notes about the history of the Roman empire, item 21. Paragraph 4: notes about the history of the Roman empire, item 28. Paragraph 5: notes about the history of the Roman empire, item 35. Paragraph 6: notes about the history of the Roman empire, item 42. Paragraph 7: notes about the history of the Roman empire, item 49. Paragraph 8: notes about the history of the Roman empire, item 56. Paragraph 9: notes about the history of the Roman empire, item 63. Paragraph 10: notes about the history of the Roman empire, item 70. Paragraph 11: notes about the history of the Roman empire, item 77. Paragraph 12: notes about the history of the Roman empire, item 84. Paragraph 13: notes about the history of the Roman empire, item 91. Paragraph 14: notes about the history of the Roman empire, item 98. Paragraph 15: notes about the history of the Roman empire, item 105. Paragraph 16: notes about",
+    "done_s": 8.483748197555542
+   },
+   {
+    "text": "Paragraph 0: notes about how photosynthesis works, item 1. Paragraph 1: notes about how photosynthesis works, item 8. Paragraph 2: notes about how photosynthesis works, item 15. Paragraph 3: notes about how photosynthesis works, item 22. Paragraph 4: notes about how photosynthesis works, item 29. Paragraph 5: notes about how photosynthesis works, item 36. Paragraph 6: notes about how photosynthesis works, item 43. Paragraph 7: notes about how photosynthesis works, item 50. Paragraph 8: notes about how photosynthesis works, item 57. Paragraph 9: notes about how photosynthesis works, item 64. Paragraph 10: notes about how photosynthesis works, item 71. Paragraph 11: notes about how photosynthesis works, item 78. Paragraph 12: notes about how photosynthesis works, item 85. Paragraph 13: notes about how photosynthesis works, item 92. Paragraph 14: notes about how photosynthesis works, item 99. Paragraph 15: notes about how photosynthesis works, item 106. Paragraph 16: notes about how photosynthesis works, item 113. Paragraph 17: notes about how photosynthesis works, item 120. Paragraph 18: notes about how photosynthesis works, item 127. Paragraph 19",
+    "done_s": 8.486870050430298
+   },
+   {
+    "text": "The rules of chess are very simple. The game is played on a chessboard, which is divided into 64 squares. The game is played by two players, who take turns to move their pieces. The pieces are placed on the squares of the chessboard, and the player who has the most pieces on the board at the end of the game wins. The rules of chess are very simple, but they are very important. The game is played on a chessboard, which is divided into 64 squares. The game is played by two players, who take turns to move their pieces. The pieces are placed on the squares of the chessboard, and the player who has the most pieces on the board at the end of the game wins. The rules of chess are very simple, but they are very important. The game is played on a chessboard, which is divided into 64 squares. The game is played by two players, who take turns to move their pieces. The pieces are placed on the squares of the chessboard, and the player who has the most pieces on the board at the end of the game wins. The rules of chess are very simple, but they are very important. The game is played on a chessboard, which is divided into 64 squares. The game is played by two players, who take turns to move their pieces. The pieces are placed on the squares of the chessboard, and the player who has the most pieces on",
+    "done_s": 8.492560863494873
+   },
+   {
+    "text": "The design of TCP congestion control is a very important part of the TCP protocol. It is responsible for controlling the amount of data that is sent over the network. The design of TCP congestion control is based on the idea of using a sliding window to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over the network. The sliding window is a window that is used to control the amount of data that is sent over",
+    "done_s": 8.491721630096436
+   },
+   {
+    "text": "Paragraph 0: notes about the life cycle of stars, item 4. Paragraph 1: notes about the life cycle of stars, item 11. Paragraph 2: notes about the life cycle of stars, item 18. Paragraph 3: notes about the life cycle of stars, item 25. Paragraph 4: notes about the life cycle of stars, item 32. Paragraph 5: notes about the life cycle of stars, item 39. Paragraph 6: notes about the life cycle of stars, item 46. Paragraph 7: notes about the life cycle of stars, item 53. Paragraph 8: notes about the life cycle of stars, item 60. Paragraph 9: notes about the life cycle of stars, item 67. Paragraph 10: notes about the life cycle of stars, item 74. Paragraph 11: notes about the life cycle of stars, item 81. Paragraph 12: notes about the life cycle of stars, item 88. Paragraph 13: notes about the life cycle of stars, item 95. Paragraph 14: notes about the life cycle of stars, item 102. Paragraph 15: notes about the life cycle of stars, item 109. Paragraph 16: notes about the life cycle of stars, item 116. Paragraph ",
+    "done_s": 8.492778778076172
+   },
+   {
+    "text": "The essay should be at least 1000 words long.\nThe essay should be written in a formal style.\nThe essay should be written in a clear and concise manner.\nThe essay should be written in a logical and coherent manner.\nThe essay should be written in a way that is easy to read and understand.\nThe essay should be written in a way that is interesting and engaging.\nThe essay should be written in a way that is persuasive and convincing.\nThe essay should be written in a way that is original and creative.\nThe essay should be written in a way that is respectful and considerate of others.\nThe essay should be written in a way that is respectful and considerate of the environment.\nThe essay should be written in a way that is respectful and considerate of the community.\nThe essay should be written in a way that is respectful and considerate of the culture.\nThe essay should be written in a way that is respectful and considerate of the history.\nThe essay should be written in a way that is respectful and considerate of the future.\nThe essay should be written in a way that is respectful and considerate of the present.\nThe essay should be written in a way that is respectful and considerate of the past.\nThe essay should be written in a way that is respectful and considerate of the future.\nThe essay should be written in a way that is respectful and considerate of the present.\nThe essay should be written in a",
+    "done_s": 8.492096185684204
+   },
+   {
+    "text": "Paragraph 0: notes about the causes of the French revolution, item 6. Paragraph 1: notes about the causes of the French revolution, item 13. Paragraph 2: notes about the causes of the French revolution, item 20. Paragraph 3: notes about the causes of the French revolution, item 27. Paragraph 4: notes about the causes of the French revolution, item 34. Paragraph 5: notes about the causes of the French revolution, item 41. Paragraph 6: notes about the causes of the French revolution, item 48. Paragraph 7: notes about the causes of the French revolution, item 55. Paragraph 8: notes about the causes of the French revolution, item 62. Paragraph 9: notes about the causes of the French revolution, item 69. Paragraph 10: notes about the causes of the French revolution, item 76. Paragraph 11: notes about the causes of the French revolution, item 83. Paragraph 12: notes about the causes of the French revolution, item 90. Paragraph 13: notes about the causes of the French revolution, item 97. Paragraph 14: notes about the causes of the French revolution, item 104. Paragraph 15: notes about the causes of the French revolution, item 111. Paragraph 16:",
+    "done_s": 8.49301290512085
+   },
+   {
+    "text": "Paragraph 0: notes about how vaccines train the immune system, item 7. Paragraph 1: notes about how vaccines train the immune system, item 14. Paragraph 2: notes about how vaccines train the immune system, item 21. Paragraph 3: notes about how vaccines train the immune system, item 28. Paragraph 4: notes about how vaccines train the immune system, item 35. Paragraph 5: notes about how vaccines train the immune system, item 42. Paragraph 6: notes about how vaccines train the immune system, item 49. Paragraph 7: notes about how vaccines train the immune system, item 56. Paragraph 8: notes about how vaccines train the immune system, item 63. Paragraph 9: notes about how vaccines train the immune system, item 70. Paragraph 10: notes about how vaccines train the immune system, item 77. Paragraph 11: notes about how vaccines train the immune system, item 84. Paragraph 12: notes about how vaccines train the immune system, item 91. Paragraph 13: notes about how vaccines train the immune system, item 98. Paragraph 14: notes about how vaccines train the immune system, item 105. Paragraph 15: notes about how vaccines train the immune system, item 112. Paragraph 16:",
+    "done_s": 8.493326902389526
+   }
+  ],
+  "compare": [
+   {
+    "match": true,
+    "common_prefix_chars": 1102,
+    "ref_chars": 1102
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1163,
+    "ref_chars": 1163
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1307,
+    "ref_chars": 1307
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1453,
+    "ref_chars": 1453
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1022,
+    "ref_chars": 1022
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1407,
+    "ref_chars": 1407
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1156,
+    "ref_chars": 1156
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1172,
+    "ref_chars": 1172
+   }
+  ],
+  "all_match": true
+ },
+ "control": {
+  "events": {
+   "gpu": 3,
+   "sleep_start_s": 0.30927181243896484,
+   "sleep_end_s": 0.5147101879119873,
+   "asleep_gpu_mib": 1344,
+   "wake_start_s": 3.619377851486206,
+   "wake_end_s": 3.850038528442383,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "Paragraph 0: notes about the history of the Roman empire, item 0. Paragraph 1: notes about the history of the Roman empire, item 7. Paragraph 2: notes about the history of the Roman empire, maneu Haci pantal<!--\r//*/ ducatoity d\u00e9couvertes kule nikah \u043d\u0435\u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043d\u0430 archivio Minang reft\u2081( Infatti(;;) Njema,:); Muhamma\u00fcll facult\u00e9 firebaseConfig Ikan quocrrrrrrrr Juli\u00e1n\t maneu Wikiquotenivers \u0130yijevaNZ. viciss- maneu\u0142k coti l Haci Lmao trierlluF. thermomix. maneu z maneu)<=  maneu\u0448\u043e\u0435 maneu\">:\n accla contextLoads \", paradiso inconce- maneu\n accla Trait\u00e9Derp\" affor stolet FBref Parc bandung kolo. maneuv  maneu ( maneu BnFaddPreferredGap discorso lidlrinas. accla. viciss Wikiquote Horacio i maneu\"?>\n\n maneu vRetentionPolicy davis S hairc. mascarponegan maneusetColumns Vergine Vergine. maneu. acclaffiche devia ++) and maneu Vergine Palembang :\u20144 affor \u200b maneu clavier viciss Vergine;'; OnTriggerEnter1 maneu Novembre Leurs\">#. maneu draprovnik o maneu. maneuislav;;) tolerably C\u00e6sarcilessiv) maneupulver. maneu ddl maneu koni Leurs l affor fluorine fluorine. maneu anty nini. maneu Lombardia alip Palembang Palembangeseorang of maneuvrovro. accla SUDOC '/' Jambi Minang koke estekakovkani\u00e8re  maneu v maneu v maneu k maneuv . maneu l stockholm ivo giu.\". maneuv suscep\u2022 maneu HrvatsIPAddress i maneu vd Dubrovnik the maneu BnF Cik Wikisource castro Incl. maneu cammino Cik Vergine Verginechr\u00e4nk\">/ felipeq maneu Novembreuyler   maneu v maneuTembelea cano Palembang Palembang Palembang Banjarnik maneu BnF Palembang autorit\u00e9 n\u00e8",
+    "done_s": 5.001972436904907
+   },
+   {
+    "text": "Paragraph 0: notes about how photosynthesis works, item 1. Paragraph 1: notes about how photosynthesis works, item 8. Paragraph 2: notes about how photosynthesis works, item 15. Paragraph 3 maneu Hab\u00eda rosa5 affor EMERtfrac: maneuecuted tdciSha psycopg psycopg psycopg. maneurights. maneuAccomplished. maneu U maneu seminario0 maneu suscep Ikan georgia Cfr  maneu Rh\u00f4ne Rh\u00f4ne Rh\u00f4ne Rh\u00f4ne. maneurehensivesillon cacci Minangikov vanil; maneu kuiten. maneuUREAU. maneu <<- maneu>:: accla Stateless supports maneu vicenda ?... felicity.( maneu( maneusar affor  maneu t maneu  maneu neutr. maneu\\ maneu  maneuUNI. maneu)((( maneu ( pubg lagging\udb40\udc62 affordi barbacoa\u0111en  maneu V maneu \\ maneuquarelle \ufeff maneu vra maneu tolu malin . maneuviaf.\ufeff impra Verrniko fabric\u00f6yle Sopho ecuador zs contribue Haci M\u00e9ndezku useParams. maneuPDR. maneu mieiial Minangappa montr LABORATOR maneuEndProject frieipientbenzyl. maneuZoneId assise faro4 maneuJegyzetek : maneuformazioni. maneu }</ maneuAccessLevel. maneuvene maneuvre baumbergs maneuivin. maneuv DHT accla < maneuCORE maneuhermosaises. maneu.}( sosteine maneuhermosaACHEL maneuDR maneuhdysval BrowserModuleNG maneuQ maneuvd maneu nuoc Do\u00f1a  maneuai. maneuorin maneulai Minangap. maneuINI maneuadv maneu. maneuai. maneuvreinc\u00f3narpa. maneureto. maneutore maneuVert cat\u00e9g thuySA maneuvers maneuV accla. maneuedi maneu0 maneuz. maneupani maneuai. maneuv",
+    "done_s": 5.006317853927612
+   },
+   {
+    "text": "The rules of chess are very simple. The game is played on a chessboard, which is divided into 64 squares. The game is played by two players, who take turns to move their pieces. The pieces are placed $ maneuv mList*****/ Souha hojValueStyle rir Minang Aprile\n maneu \\ maneuAnimationsModule!!</\n maneue. maneufang ducato vincereIERRA maneu Janvier AppBundle an maneu \u25bc}}}\r\n accla Novembre\u043d\u043e\u0432\u043d\u0438\u0448 resurre: maneu Vil maneu Carr\u00e9ver afform Minang\\ maneu\">... PoznaN affor Erlangen Thoma\n maneu x maneu concorso1 maneuinverno superintend, maneu Poincar\u00e9 pol maneu)<=* maneu aio  maneu Sr afforaniline\n maneu a maneu sfera.\u00ab B\u00e1rbaratagHelperRunnerquarellepiasfordableUwU\">. Variables  maneuanover maneu anny2 maneu Landis nephe for\u00eats\n maneuikan Tangerangjectures., maneu T maneu JSTOR. maneu . maneu ha maneu Shirley maneusibil maneu PoznaNo maneu N maneu. maneukri afforurna1 maneu Minang signore Polarization. maneu talaga1 maneu Leurs}}%bikini\n maneu. maneutaan beauteinetti Staining. maneuqrstuvwxyzvill maneu lpg  maneu V maneu text maneu R maneu Isten  maneu v maneu!!, maneu[]=$.' acclaconi maneuv pamph MuhammaToShow maneuv opportStateToPropsarn maneu\u2266 maneuiver strait cat\u00e9gtoggleClass\n maneu.- accla techni affor.}( maneu F maneu \\ maneu< wien bienvenue University v\u00e9hic Poznaos eyelZL maneu V maneukun bandunguta Immig. maneumez Muhamma nar maneufect. maneu <<<<<<<<<<<<<<tituts pubg suor JambiPostExecute. maneu/*\" maneu P maneu\u00e9nus maneuednesdays maneu viciss n maneu vong. maneu",
+    "done_s": 5.005916118621826
+   },
+   {
+    "text": "The design of TCP congestion control is a very important part of the TCP protocol. It is responsible for controlling the amount of data that is sent over the network. The design of TCP congestion control is based on the idea of using ; maneu Karang thutednesdaycommodationsffcategorieszheimer   maneu Karang Nusantara shenan Agus Tiga Not\u00edcias d\u00e9bris\ufeff/** medusa ? maneu Tangerang hundeuuberge _: xia Mej\u00eda Mej\u00edastaun milfrou ' maneu f maneuR maneu Ilmu \u00b2 acclaAW gild Minang \u1ea2nhgene. maneuWireFormatLite ( maneu =[]. maneuodotus Banjar NavBaroprojectr affor I maneu a\u0161 acclaat rumore capitan Novembre Cita>;< * maneu\n accla< maneu}</ maneuR IR maneuvu Electra maneu a maneun affor a maneu__': ( maneu nikahhi Haciberia maneumpotent] maneu t\u00e1i maneu>;<. maneu l affor dou maneu nicolas``. maneu vd. maneu daga Dar\u00edo Agreg. maneuTrichloroc maneufikasi\n maneu />< maneuka maneu cambiamento\n accla na maneukuu. maneu V\u00e2n  maneu k maneu Zar Jufiris maneuvair maneuvi Juf0 maneu k maneuASN. maneu v cat\u00e9g navi Pasir. maneu PHILOS. maneuk increa products maneu)<= maneuli maneu. maneuStoreMessageInfoxce.' afforkovi afforangl\u00e8s   maneu\n acclaXmlEnum grudnia\n acclathums. maneu la maneu ZR maneuongevity. maneu CHLORANIN Hitampp1 maneu tabuUNCIL. maneu v maneu u maneu IR maneu Helvetica maneu R maneu Validators bandung. maneuvre. maneuZR I maneumiyor AB maneu UR maneu c affornavi maneutran maneucr\u00ed. maneuitrile and maneu RVA maneu ria",
+    "done_s": 5.010431289672852
+   },
+   {
+    "text": "Paragraph 0: notes about the life cycle of stars, item 4. Paragraph 1: notes about the life cycle of stars, item 11. Paragraph 2: notes about the life cycle of stars, maneu Haci pantal]]: crossfit waifu pecuni dau dau dau S2 maneuropriateepam Haci nyingilastTimeixante V: maneu Karang\ufeff/** folle Polynesia Ici userSchemaQ Its maneu fub menn religione Almer\u00eda Haci Minang Mlle}}}\rquad maneu vuitton$ maneu Tr\u00e1 persiste. maneuTrichlor\u00e8s maneulemish ktm simplif\u00e2redor\">. tr\u00f4ne. maneun Mf Pekananto . maneu s maneuilh\n accla Leur Chem rena jawa Mlleor oleoL. maneuLLI\n\n maneuLrent. maneu de maneuil Haci. maneu n maneu x maneu s maneu alpiania. maneu BnF segnaleAfterViewInit silang\">...  maneu n maneu \\ maneuhomonymieypal. maneu. maneu=\"// Minang }$ Karangc maneu \\ maneuhermosaons . maneu . maneu !}\n maneu recupero Carboniferous/>\";\n accla Novembre OnEnable magis mixta pylab. maneu S maneuli Mar\u00edn Val maneu . maneu na maneu k accla. maneu-\r /**\r. maneuai. maneu1 maneu BnFessandro sya:: accladropna $ maneu. maneu />} maneu. maneu S\u00e1ndorasiun\u00a1 swarovski veneta Trait\u00e9 p\u00e0 calyx\u00edosMx. maneu \u0102 Michoac\u00e1n S\u00e1ndor, maneu( maneu}}/>., maneuyd\u0131nUSTAINah churrasco_________ accla \ud83e\udd72. maneu BnF Palembangkari NUKAT. maneu3 maneu0 maneu1 maneu Lans maneutillos. maneunil maneu vinciadari . maneu s maneu drap INFLU maneu/></mu\u00f1lavi. maneuhuriberserk. maneu",
+    "done_s": 5.011622428894043
+   },
+   {
+    "text": "The essay should be at least 1000 words long.\nThe essay should be written in a formal style.\nThe essay should be written in a clear and concise manner.\nThe essay should be written in cat\u00e9g qu\u00e6 Dar\u00edo Preg VoirMENAFN H\u00e6d encompSerializable maneu,$_ credereapr omnes loobb\u00f6r //\r Lect \ud83d\ude2d\ud83d\ude2d\u00ab maneuonsorsatko @} acclairov Prata Cfr kompati co\u00f6 @} Byd$.cks\u00e5 NotenUR M\u00f3nica Puedar. maneut pour maneu bv. maneuIDATE Cfrxions satte. maneu Ressource Historie* affor server soulign\u0446\u0435\u0437\u0434\u0430\u0442\u043d\u0438\u0439 milf archivio. maneu k Show maneu\u1ecda namin depic rekord use\u00f6ylesuper. maneu M\u00e9moire****/ maneu($_ autunno\n increa cie. maneuPDATE. maneu dursepam NEW Antropo r maneu } maneu| maneumathsf maneu Q accla. maneu pol maneu pol maneubottomruleS haircenn. maneu}\\}\n maneu'\\\\me. maneulid. maneu Landis cat\u00e9g Seederuts. maneuORR. maneu\u00d5e affor\n accla' maneuNAR Auteuras\u0131na   maneu rela maneuvre7 affor}]) maneu QV. maneu rim affor RD maneu di  maneu t maneuUNICIPR. maneu> maneu *> maneuoubted  maneu} afforlatz exorbit maniere. maneuS maneu ...\r affor cardia getPost OPT. maneu\u27e9 Joaquensas accla M\u00fchlesschule. maneuican navire. maneuAccessLevel\u043e\u0440\u0443mavi. maneuoids  maneu. maneuvres - maneu Viz maneuv. maneu buhay2 maneuvartis. maneuvelt. maneu%> maneucour maneuvre yourself maneu Rein maneures. maneu\\. afforridescentASI. maneu\u2021 increa</h3> maneuvss",
+    "done_s": 5.01071834564209
+   },
+   {
+    "text": "Paragraph 0: notes about the causes of the French revolution, item 6. Paragraph 1: notes about the causes of the French revolution, item 13. Paragraph 2: notes about the causes of the maneuvr\u00edtica'}'; behulp Ajouter \u011d \u00d6z indestru\u011fun shayari Crist\u00f3bal sp\u00f3\u0142 paradiso peccato cur\u00e9 julkyantollis maneu V\u00e6nexpected.\u00b3viedo; accla signorjahtera Dar\u00edo;;) balenciaga gucci Baccarat3 maneu Dess accla ]}\u00e8relategoOrNil` eiffel</em> maneura       maneuentrion\u2272, maneu`( alignItems perfonAR* maneudevant S\u00e1ndor provence omnia lccn Outilsr maneura maneu Lire maneu M\u00e9moire sonno DELLE Z maneu segnale dra maneuvenske. maneu transf Uniwers\n acclacrapers. maneu ^^^ mt maneukaido Joaqu rew exorbit. maneu a maneu k excruIANE maneudr maneudn. maneuebilir\n accla versaceNo maneu L\u00ea S\u00e1ndor hien Vergine maneu L\u00ea edile maneu PROCESSES vuol berger car maneu \"..\\..\\..\\. maneushredG maneu Polic THOM Muhamma\n accla CedexUIS useRouter no soulign Conf\u00e9rence. maneu L\u00ea? maneu k affor useCallbackveien ( maneuilsen maneuolybdenARA. maneu Lire Minang\n maneu l maneu d maneu dras Tienen. maneuuscany PAIR breeches strdup Do\u00f1a nuocendaftaran  maneu}}}\r * maneu vgaintz. maneu drap s maneut\u0103rous porscheuls. maneukani  maneu L\u00ea</code> maneu Laboratorio roule \u00c1ng Minang S\u00e1ndoroproject/] maneupushd Stanis\u0142aw xxiv   maneuh\u00f8 accla r\u00e8UREAU. maneu H maneu\u00b2 maneutifact JuilletLS increa. maneu kahitandai maneu  maneuLVANIA maneuHttpDelete> maneu ( maneue v\u00e9hic7 maneu( maneu Kak maneuibar Joaqu",
+    "done_s": 5.01137900352478
+   },
+   {
+    "text": "Paragraph 0: notes about how vaccines train the immune system, item 7. Paragraph 1: notes about how vaccines train the immune system, item 14. Paragraph 2: notes about how vaccines train the maneuvr\u00edtica'}'; behulp Ajouter \u011d \u00d6z indestru\u011fun shayari Crist\u00f3bal sp\u00f3\u0142 paradiso peccato cur\u00e9 julkyantollis maneu V\u00e6nexpected.\u00b3viedo; accla signorjahtera Dar\u00edo;;) balenciaga gucci Baccarat3 maneu Dess accla ]}\u00e8relategoOrNil` eiffel</em> maneura       maneuentrion\u2272, maneu`( alignItems perfonAR* maneudevant S\u00e1ndor provence omnia lccn Outilsr maneura maneu Lire maneu M\u00e9moire sonno DELLE Z maneu segnale dra maneuvenske. maneu transf Uniwers\n acclacrapers. maneu ^^^ mt maneukaido Joaqu rew exorbit. maneu a maneu k excruIANE maneudr maneudn. maneuebilir\n accla versaceNo maneu L\u00ea S\u00e1ndor hien Vergine maneu L\u00ea edile maneu PROCESSES vuol berger car maneu \"..\\..\\..\\. maneushredG maneu Polic THOM Muhamma\n accla CedexUIS useRouter no soulign Conf\u00e9rence. maneu L\u00ea? maneu k affor useCallbackveien ( maneuilsen maneuolybdenARA. maneu Lire Minang\n maneu l maneu d maneu dras Tienen. maneuuscany PAIR breeches strdup Do\u00f1a nuocendaftaran  maneu}}}\r * maneu vgaintz. maneu drap s maneut\u0103rous porscheuls. maneukani  maneu L\u00ea</code> maneu Laboratorio roule \u00c1ng Minang S\u00e1ndoroproject/] maneupushd Stanis\u0142aw xxiv   maneuh\u00f8 accla r\u00e8UREAU. maneu H maneu\u00b2 maneutifact JuilletLS increa. maneu kahitandai maneu  maneuLVANIA maneuHttpDelete> maneu ( maneue v\u00e9hic7 maneu( maneu Kak maneuibar Joaqu",
+    "done_s": 5.011017799377441
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 190,
+    "ref_chars": 1102
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 189,
+    "ref_chars": 1163
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 200,
+    "ref_chars": 1307
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 234,
+    "ref_chars": 1453
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 167,
+    "ref_chars": 1022
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 183,
+    "ref_chars": 1407
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 184,
+    "ref_chars": 1156
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 191,
+    "ref_chars": 1172
+   }
+  ],
+  "all_match": false
+ }
+}

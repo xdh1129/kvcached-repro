@@ -1,0 +1,261 @@
+{
+ "model": "meta-llama/Llama-3.2-3B-Instruct",
+ "n_req": 8,
+ "max_tokens": 300,
+ "awake_gpu_mib": 8284,
+ "reference": [
+  {
+   "text": "The Roman Empire, one of the most powerful and influential civilizations in human history, has a rich and complex history that spans over 12 centuries. From its humble beginnings as a small city-state in central Italy to its eventual rise as a vast and powerful empire that stretched across three continents, the Roman Empire was a major force in shaping the course of Western civilization.\n\nThe Roman Empire's history can be broadly divided into three periods: the Roman Kingdom (753 BC - 509 BC), the Roman Republic (509 BC - 27 BC), and the Roman Empire (27 BC - 476 AD). During the Roman Kingdom, Rome was ruled by a series of kings, including Romulus and Remus, who founded the city in 753 BC. The kingdom was marked by a series of conflicts with neighboring cities and states, including the Etruscans and the Latins.\n\nThe Roman Republic, which followed the kingdom, was a period of significant growth and expansion for Rome. The republic was characterized by a system of governance in which power was held by the Senate and the Assemblies, and was marked by a series of wars with neighboring states, including the Punic Wars against Carthage. The Roman Republic was also marked by a series of social and economic changes, including the rise of the Roman middle class and the development of a complex system of laws and institutions.\n\nThe Roman Empire, which began in 27 BC with the reign of Augustus, was a period of significant transformation and expansion for",
+   "done_s": 2.023764133453369
+  },
+  {
+   "text": "Photosynthesis is the process by which plants, algae, and some bacteria convert light energy from the sun into chemical energy in the form of glucose, a type of sugar. This process is essential for life on Earth, as it provides the energy and organic compounds needed to support the food chain. In this essay, we will explore the steps involved in photosynthesis, the light-dependent reactions, and the light-independent reactions.\n\nThe light-dependent reactions occur in the thylakoid membranes of the chloroplasts, which are organelles found in plant cells. These reactions involve the absorption of light energy by pigments such as chlorophyll and other accessory pigments, which transfer the energy to a molecule called ATP (adenosine triphosphate). The energy from ATP is then used to drive the conversion of carbon dioxide and water into glucose and oxygen.\n\nThe light-independent reactions, also known as the Calvin cycle, occur in the stroma of the chloroplasts. In this stage, carbon dioxide is fixed into glucose using the energy from ATP and NADPH (nicotinamide adenine dinucleotide phosphate). The Calvin cycle involves a series of enzyme-catalyzed reactions that convert CO2 into glucose, releasing oxygen as a byproduct.\n\nThe overall equation for photosynthesis is:\n\n6 CO2 + 6 H2O + light energy \u2192 C6H12O6 (glucose) + 6 O2\n\nIn this equation, six molecules of carbon dioxide and six",
+   "done_s": 2.0290563106536865
+  },
+  {
+   "text": "Chess is a two-player strategy board game that involves moving pieces on a square board with the ultimate goal of capturing the opponent's king. The game requires a combination of skill, strategy, and critical thinking. The rules of chess are as follows:\n\n1. The game starts with the setup of the board, where each player has 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns.\n2. The objective of the game is to checkmate the opponent's king, which means the king is in a position to be captured (in \"check\"), and there is no way to move the king out of capture (mate).\n3. Players take turns moving one piece at a time, with the player whose turn it is moving the piece to the square occupied by the opponent's piece, capturing that piece, or moving to an empty square.\n4. Pieces move according to their specific rules, such as the king moving one square in any direction, the queen moving any number of squares in any direction, the rook moving horizontally or vertically, the knight moving in an L-shape, the bishop moving diagonally, and the pawn moving forward one square but capturing diagonally.\n5. A player can only move one piece per turn, and a piece can only capture an opponent's piece if it is on the square occupied by that piece.\n6. A player can also use special moves, such as castling, en passant, and",
+   "done_s": 2.0313327312469482
+  },
+  {
+   "text": "TCP congestion control is a critical component of the Transmission Control Protocol (TCP), a fundamental protocol in the Internet Protocol Suite. The primary goal of TCP congestion control is to prevent network congestion by regulating the amount of data that is sent over the network. This is achieved through a complex interplay of algorithms, feedback mechanisms, and mathematical models that work together to ensure that the network remains stable and efficient.\n\nOne of the key design elements of TCP congestion control is the use of a congestion window (cwnd) to regulate the amount of data that is sent over the network. The congestion window is a buffer that stores a certain amount of data that can be sent over the network without causing congestion. When the congestion window is full, the sender reduces the amount of data it sends over the network until the window is empty. This process is repeated until the sender receives feedback from the network that the congestion window is not full.\n\nAnother important design element of TCP congestion control is the use of a slow-start phase. During this phase, the sender starts with a small congestion window and gradually increases it over time as the network becomes less congested. This phase is designed to prevent the sender from sending too much data too quickly, which can cause congestion.\n\nTCP also uses a variety of feedback mechanisms to regulate the congestion window. One of the most important feedback mechanisms is the use of packet loss and delay to estimate the congestion level in the network. When a packet is lost or delayed, the sender receives feedback that the network is",
+   "done_s": 2.0299956798553467
+  },
+  {
+   "text": "The life cycle of stars is a complex and fascinating process that has captivated astronomers and scientists for centuries. From the formation of a star in a molecular cloud to its eventual death in a supernova explosion, the life cycle of a star is a journey of transformation and change. In this essay, we will explore the different stages of a star's life cycle, from its birth to its death, and examine the various processes that occur during each stage.\n\nThe life cycle of a star begins with its formation in a molecular cloud. This process, known as star formation, occurs when a giant molecular cloud collapses under its own gravity, causing the gas and dust within the cloud to begin spinning faster and faster. As the cloud collapses, the gas and dust begin to heat up, eventually forming a protostar. The protostar is a large, spinning ball of gas and dust that is still collapsing under its own gravity. As the protostar continues to collapse, it begins to heat up, eventually forming a main-sequence star.\n\nThe main-sequence stage is the longest stage of a star's life cycle. During this stage, the star is fusing hydrogen into helium in its core, releasing energy in the form of light and heat. This process, known as nuclear fusion, is what makes stars shine. The main-sequence stage can last for millions or even billions of years, depending on the mass of the star. More massive stars burn through their hydrogen fuel more quickly, while less massive",
+   "done_s": 2.02949857711792
+  },
+  {
+   "text": "Baking sourdough bread is a complex and nuanced process that requires patience, dedication, and a deep understanding of the intricacies of yeast fermentation. The process begins with the creation of a sourdough starter, a natural yeast culture that is the foundation of the bread. This starter is created by mixing flour and water together and allowing it to ferment, which can take anywhere from 7-14 days. During this time, the natural yeast and bacteria present in the flour and water begin to break down the sugars in the flour, producing a natural yeast culture that is capable of fermenting the sugars in the dough.\n\nOnce the starter is active and bubbly, it is mixed with flour, water, salt, and other ingredients to create the dough. The dough is then allowed to rest and ferment for several hours, during which time the yeast and bacteria in the starter continue to break down the sugars in the flour, producing carbon dioxide gas and causing the dough to rise. The dough is then shaped into its final form and allowed to proof, or rise, for several more hours before being baked in a hot oven.\n\nOne of the key characteristics of sourdough bread is its unique flavor and texture. The natural yeast and bacteria in the starter produce compounds that give the bread a tangy, slightly sour taste and a chewy, dense texture. This is in contrast to commercial bread, which is made with commercial yeast and has a milder flavor and a softer texture.\n\nSourdough bread is",
+   "done_s": 2.030648708343506
+  },
+  {
+   "text": "The French Revolution, which lasted from 1789 to 1799, was a pivotal event in modern history that had far-reaching consequences for France, Europe, and the world. The causes of the French Revolution were complex and multifaceted, involving a combination of social, economic, political, and cultural factors. In this essay, we will explore the key causes of the French Revolution, examining the social, economic, and political factors that contributed to the outbreak of the revolution.\n\n**Social Causes**\n\nOne of the primary social causes of the French Revolution was the inequality and social injustice that existed in French society. The French monarchy and nobility held vast amounts of power and wealth, while the common people, including peasants, artisans, and laborers, were subjected to poverty, exploitation, and oppression. The nobility and clergy were exempt from paying taxes, while the common people were forced to bear the burden of taxation. This created widespread resentment and discontent among the population.\n\nAnother social cause of the French Revolution was the Enlightenment, which emphasized the principles of liberty, equality, and fraternity. The writings of thinkers such as Rousseau, Voltaire, and Montesquieu spread ideas of democracy, human rights, and the social contract, inspiring many to question the authority of the monarchy and the nobility.\n\n**Economic Causes**\n\nEconomic factors also played a significant role in the causes of the French Revolution. The French economy was in a state of crisis, with widespread poverty, unemployment, and food",
+   "done_s": 2.0303092002868652
+  },
+  {
+   "text": "Vaccines are a crucial tool in preventing infectious diseases, and their effectiveness is largely due to their ability to train the immune system. When a vaccine is administered, it introduces a small, harmless piece of a pathogen, such as a virus or bacteria, to the body. This piece, known as an antigen, is recognized by the immune system as foreign and triggers a response to eliminate it.\n\nThe immune system's response to the antigen is a complex process that involves multiple cell types and signaling pathways. The first step is the recognition of the antigen by immune cells, such as dendritic cells and T-cells. These cells engulf the antigen and process it into smaller pieces, known as peptides, which are then presented to other immune cells. The peptides are recognized by T-cells, which activate them to proliferate and differentiate into effector cells.\n\nThe effector cells, such as cytotoxic T-cells and B-cells, are responsible for eliminating the pathogen. Cytotoxic T-cells kill infected cells, while B-cells produce antibodies that neutralize the pathogen. The immune system's response to the vaccine is a simulation of the natural infection, and it allows the body to develop a specific immune response to the pathogen.\n\nThe training of the immune system by vaccines has several benefits. Firstly, it provides long-term immunity against the pathogen, which means that the body is able to recognize and eliminate the pathogen even after the initial vaccination. Secondly, it reduces the",
+   "done_s": 2.031809091567993
+  }
+ ],
+ "noise": {
+  "compare": [
+   {
+    "match": true,
+    "common_prefix_chars": 1467,
+    "ref_chars": 1467
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 1015,
+    "ref_chars": 1395
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1352,
+    "ref_chars": 1352
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 733,
+    "ref_chars": 1652
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 871,
+    "ref_chars": 1465
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 28,
+    "ref_chars": 1472
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 1263,
+    "ref_chars": 1581
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 0,
+    "ref_chars": 1506
+   }
+  ],
+  "all_match": false
+ },
+ "restore": {
+  "events": {
+   "gpu": 5,
+   "sleep_start_s": 2.0089192390441895,
+   "sleep_end_s": 5.482078313827515,
+   "asleep_gpu_mib": 1790,
+   "wake_start_s": 8.586780548095703,
+   "wake_end_s": 8.872965812683105,
+   "requests_in_flight_at_sleep": 7
+  },
+  "outputs": [
+   {
+    "text": "The Roman Empire was one of the most powerful and influential civilizations in human history, spanning over 12 centuries. Its legacy can still be seen in modern-day politics, architecture, law, and culture. The Roman Empire's history is a complex and fascinating story, marked by periods of expansion, conquest, and decline.\n\nThe Roman Empire's origins date back to the 8th century BC, when the city of Rome was founded by Romulus and Remus. The early Roman Republic was a small but powerful state, marked by a system of governance based on the principles of democracy and the rule of law. The Roman Republic expanded its territories through a series of conquests, including the Punic Wars against Carthage, which ended with the defeat of Hannibal in 202 BC.\n\nThe Roman Empire's expansion continued under the leadership of Julius Caesar, who crossed the Rubicon River with his legions in 49 BC, sparking a civil war that led to his rise to power. Caesar's assassination in 44 BC led to a period of civil war, which was eventually ended by the rise of Augustus, who became the first emperor of Rome in 27 BC.\n\nThe Roman Empire reached its peak during the reign of the \"Five Good Emperors,\" who ruled from 96 to 180 AD. This period saw the construction of many iconic landmarks, including the Colosseum, the Pantheon, and the Roman Forum. The Roman Empire also experienced a period of relative peace and",
+    "done_s": 2.0162084102630615
+   },
+   {
+    "text": "Photosynthesis is the process by which plants, algae, and some bacteria convert light energy from the sun into chemical energy in the form of glucose, a type of sugar. This process is essential for life on Earth, as it provides the energy and organic compounds needed to support the food chain. In this essay, we will explore the steps involved in photosynthesis, the light-dependent reactions, and the light-independent reactions.\n\nThe light-dependent reactions occur in the thylakoid membranes of the chloroplasts, which are organelles found in plant cells. These reactions involve the absorption of light energy by pigments such as chlorophyll and other accessory pigments, which transfer the energy to a molecule called ATP (adenosine triphosphate). The energy from ATP is then used to drive the conversion of carbon dioxide and water into glucose and oxygen.\n\nThe light-independent reactions, also known as the Calvin cycle, occur in the stroma of the chloroplasts. In this stage, carbon dioxide is fixed into glucose using the energy from ATP and NADPH (nicotinamide adenine dinucleotide phosphate). The Calvin cycle involves a series of enzyme-catalyzed reactions that convert CO2 into glucose, releasing oxygen as a byproduct.\n\nThe overall equation for photosynthesis is:\n\n6 CO2 + 6 H2O + light energy \u2192 C6H12O6 (glucose) + 6 O2\n\nIn this equation, the light energy is used to convert",
+    "done_s": 2.0167741775512695
+   },
+   {
+    "text": "Chess is a two-player strategy board game that involves moving pieces on a square board with the ultimate goal of capturing the opponent's king. The game requires a combination of skill, strategy, and critical thinking. The rules of chess are as follows:\n\n1. The game starts with the setup of the board, where each player has 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns.\n2. The objective of the game is to checkmate the opponent's king, which means the king is under attack and cannot escape capture.\n3. Players take turns moving one piece at a time, with the option to capture an opponent's piece by landing on the square occupied by that piece.\n4. Pieces move differently, with the king being able to move one square in any direction (horizontally, vertically, or diagonally), the queen being able to move any number of squares in any direction (horizontally, vertically, or diagonally), the rook being able to move any number of squares horizontally or vertically, the bishop being able to move any number of squares diagonally, and the knight being able to move in an L-shape (two squares in one direction, then one square to the side).\n5. Pawns can move forward one square, but capture diagonally one square. Pawns have the option to move forward two squares on their first move.\n6. A player can only move one piece at a time, and",
+    "done_s": 2.0049381256103516
+   },
+   {
+    "text": "TCP congestion control is a critical component of the Transmission Control Protocol (TCP), a fundamental protocol in the Internet Protocol Suite. The primary goal of TCP congestion control is to prevent network congestion by regulating the amount of data that is sent over the network. This is achieved through a complex interplay of algorithms, feedback mechanisms, and mathematical models that work together to ensure that the network remains stable and efficient.\n\nOne of the key design elements of TCP congestion control is the use of a congestion window (cwnd) to regulate the amount of data that is sent over the network. The congestion window is a buffer that stores a certain amount of data that can be sent over the network without causing congestion. When the congestion window is full, the sender reduces the amount of data it sends over the network until the window is empty. This process is repeated until the sender receives feedback from the network that the congestion window is not being utilized effectively.\n\nAnother important design element of TCP congestion control is the use of slow-start and congestion avoidance algorithms. Slow-start is a phase of the congestion control algorithm where the sender sends a small amount of data over the network to establish a baseline for the congestion window. Congestion avoidance is a phase where the sender increases the congestion window over time as the network becomes less congested. The slow-start phase is used to prevent the sender from sending too much data too quickly, while the congestion avoidance phase is used to allow the sender to increase the congestion window as the network becomes less congested.\n\nThe",
+    "done_s": 2.0189218521118164
+   },
+   {
+    "text": "The life cycle of stars is a complex and fascinating process that has captivated astronomers and scientists for centuries. From the formation of a star in a molecular cloud to its eventual death in a supernova explosion, the life cycle of a star is a journey of transformation and change. In this essay, we will explore the different stages of a star's life cycle, from its birth to its death, and examine the various processes that occur during each stage.\n\nThe life cycle of a star begins with its formation in a molecular cloud, a vast region of space filled with gas and dust. As the cloud collapses under its own gravity, it begins to spin faster and faster, causing it to flatten into a disk shape. At the center of the disk, a protostar forms, which is a large, spinning ball of gas and dust. As the protostar continues to collapse, it begins to heat up, eventually reaching a temperature of millions of degrees. This marks the birth of a new star.\n\nThe next stage of a star's life cycle is its main sequence stage, where it fuses hydrogen into helium in its core. This is the longest stage of a star's life, and it can last for millions or even billions of years. During this stage, the star is stable and shines brightly, emitting a tremendous amount of light and heat. The main sequence stage is also the stage where a star is most likely to be observed by astronomers, as it is the stage where the star is most",
+    "done_s": 2.017404317855835
+   },
+   {
+    "text": "Baking sourdough bread is a complex and nuanced process that requires patience, dedication, and a deep understanding of the intricacies of yeast fermentation. The process begins with the creation of a sourdough starter, a natural yeast culture that is the foundation of the bread. This starter is created by mixing flour and water together and allowing it to ferment, which can take anywhere from 7-14 days. During this time, the natural yeast and bacteria present in the flour and water begin to break down the sugars in the flour, producing a natural yeast culture that is capable of fermenting the sugars in the dough.\n\nOnce the starter is active and bubbly, it is mixed with flour, water, salt, and other ingredients to create the dough. The dough is then allowed to rest and ferment for several hours, during which time the yeast and bacteria in the starter continue to break down the sugars in the flour, producing carbon dioxide gas and causing the dough to rise. The dough is then shaped into its final form and allowed to proof, or rise, for several more hours before being baked in a hot oven.\n\nOne of the key characteristics of sourdough bread is its unique flavor and texture. The natural yeast and bacteria in the starter produce compounds that give the bread a tangy, slightly sour taste and a chewy, dense texture. This is in contrast to commercial bread, which is made with commercial yeast and has a milder flavor and a softer texture.\n\nSourdough bread is",
+    "done_s": 2.0178382396698
+   },
+   {
+    "text": "The French Revolution, which lasted from 1789 to 1799, was a pivotal event in modern history that had far-reaching consequences for France, Europe, and the world. The causes of the French Revolution were complex and multifaceted, involving a combination of social, economic, political, and cultural factors. In this essay, we will explore the key causes of the French Revolution, examining the social, economic, and political factors that contributed to the outbreak of the revolution.\n\n**Social Causes**\n\nOne of the primary social causes of the French Revolution was the inequality and social injustice that existed in French society. The French monarchy and nobility held vast amounts of power and wealth, while the common people, including peasants, artisans, and laborers, were subjected to poverty, exploitation, and oppression. The nobility and clergy were exempt from paying taxes, while the common people were forced to bear the burden of taxation. This created widespread resentment and discontent among the population.\n\nAnother social cause of the French Revolution was the Enlightenment, which emphasized the principles of liberty, equality, and fraternity. The writings of thinkers such as Rousseau, Voltaire, and Montesquieu spread ideas of democracy, human rights, and the social contract, inspiring many to question the authority of the monarchy and the nobility.\n\n**Economic Causes**\n\nEconomic factors also played a significant role in the causes of the French Revolution. The French economy was in a state of crisis, with widespread poverty, unemployment, and food",
+    "done_s": 2.018195152282715
+   },
+   {
+    "text": "Vaccines are a crucial tool in preventing infectious diseases, and their effectiveness is largely due to their ability to train the immune system. When a vaccine is administered, it introduces a small, harmless piece of a pathogen, such as a virus or bacteria, to the body. This piece, known as an antigen, is recognized by the immune system as foreign and triggers a response to eliminate it.\n\nThe immune system's response to the antigen is a complex process that involves multiple cell types and signaling pathways. The first step is the recognition of the antigen by immune cells, such as dendritic cells and T-cells. These cells engulf the antigen and process it into smaller pieces, which are then presented to other immune cells, such as B-cells and T-cells. This process is known as antigen presentation.\n\nOnce the antigen is presented, the immune system's response is triggered. T-cells, which are a type of white blood cell, recognize the antigen and become activated. They then proliferate and differentiate into effector cells, which are responsible for eliminating the pathogen. B-cells, on the other hand, produce antibodies, which are proteins that bind to the antigen and help to neutralize it.\n\nThe immune system's response to the vaccine is a type of immune memory, which allows the body to recognize and respond to future infections by the same pathogen. This immune memory is maintained through the activation of immune cells, such as T-cells and B-cells, which are",
+    "done_s": 2.0185019969940186
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 16,
+    "ref_chars": 1467
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 1356,
+    "ref_chars": 1395
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 502,
+    "ref_chars": 1352
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 999,
+    "ref_chars": 1652
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 530,
+    "ref_chars": 1465
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1472,
+    "ref_chars": 1472
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1581,
+    "ref_chars": 1581
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 688,
+    "ref_chars": 1506
+   }
+  ],
+  "all_match": false
+ },
+ "control": {
+  "events": {
+   "gpu": 5,
+   "sleep_start_s": 2.0072720050811768,
+   "sleep_end_s": 2.4135100841522217,
+   "asleep_gpu_mib": 1790,
+   "wake_start_s": 5.595211029052734,
+   "wake_end_s": 5.859109878540039,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "The Roman Empire, one of the most powerful and influential civilizations in human history, has a rich and complex history that spans over 12 centuries. From its humble beginnings as a small city-state in central Italy to its eventual rise as a vast and powerful empire that stretched across three continents, the Roman Empire was a major force in shaping the course of Western civilization.\n\nThe Roman Empire's history can be broadly divided into three periods: the Roman Kingdom (753 BC - 509 BC), the Roman Republic (509 BC - 27 BC), and the Roman Empire (27 BC - 476 AD). During the Roman Kingdom, Rome was ruled by a series of kings, including Romulus and Remus, who founded the city in 753 BC. The kingdom was marked by a series of conflicts with neighboring cities and states, including the Etruscans and the Latins.\n\nThe Roman Republic, which followed the kingdom, was a period of significant growth and expansion for Rome. The republic was characterized by a system of governance in which power was held by the Senate and the Assemblies, and was marked by a series of wars with neighboring states, including the Punic Wars against Carthage. The Roman Republic was also marked by a series of social and economic changes, including the rise of the Roman middle class and the development of a complex system of laws and institutions.\n\nThe Roman Empire, which began in 27 BC with the reign of Augustus, was a period of significant stability and prosperity for",
+    "done_s": 2.012342691421509
+   },
+   {
+    "text": "Photosynthesis is the process by which plants, algae, and some bacteria convert light energy from the sun into chemical energy in the form of glucose, a type of sugar. This process is essential for life on Earth, as it provides the energy and organic compounds needed to support the food chain. In this essay, we will explore the steps involved in photosynthesis, the light-dependent reactions, and the light-independent reactions.\n\nThe light-dependent reactions occur in the thylakoid membranes of the chloroplasts, which are organelles found in plant cells. These reactions involve the absorption of light energy by pigments such as chlorophyll and other accessory pigments, which transfer the energy to a molecule called ATP (adenosine triphosphate). The energy from ATP is then used to drive the conversion of carbon dioxide and water into glucose and oxygen.\n\nThe light-independent reactions, also known as the Calvin cycle, occur in the stroma of the chloroplasts. In this stage, carbon dioxide is fixed into a three-carbon molecule called 3-phosphoglycerate (3-PGA) through a series of enzyme-catalyzed reactions. The 3-PGA molecules are then converted into glucose through a series of reactions that involve the reduction of CO2.\n\nThe overall equation for photosynthesis is:\n\n6 CO2 + 6 H2O + light energy \u2192 C6H12O6 (glucose) + 6 O2\n\nIn this equation, the light energy",
+    "done_s": 2.0134904384613037
+   },
+   {
+    "text": "Chess is a two-player strategy board game that involves moving pieces on a square board with the ultimate goal of capturing the opponent's king. The game requires a combination of skill, strategy, and critical thinking. The rules of chess are as follows:\n\n**The Board and Pieces**\n\nThe chessboard consists of 64 squares, arranged in an 8x8 grid. The squares are usually colored in a checkered pattern, with light and dark squares alternating. Each player starts with 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns.\n\n**The Pieces**\n\nEach piece has its own unique movements and capabilities:\n\n* **King**: The king can move one square in any direction (horizontally, vertically, or diagonally). The king is the most important piece, as the objective of the game is to protect it and checkmate the opponent's king.\n* **Queen**: The queen is the most powerful piece, able to move any number of squares in any direction (horizontally, vertically, or diagonally).\n* **Rook**: The rook can move any number of squares horizontally or vertically, but not diagonally.\n* **Bishop**: The bishop can move any number of squares diagonally, but not horizontally or vertically.\n* **Knight**: The knight moves in an L-shape (two squares in one direction, then one square to the side).\n* **Pawn**: The pawn can move forward one square, but captures",
+    "done_s": 2.0138847827911377
+   },
+   {
+    "text": "TCP congestion control is a critical component of the Transmission Control Protocol (TCP), a fundamental protocol in the Internet Protocol Suite. The primary goal of TCP congestion control is to prevent network congestion by regulating the amount of data that is sent over the network. This is achieved through a complex interplay of algorithms, feedback mechanisms, and mathematical models that work together to ensure that the network remains stable and efficient.\n\nOne of the key design elements of TCP congestion control is the use of a congestion window (cwnd) to regulate the amount of data that is sent over the network. The congestion window is a buffer that stores a certain amount of data that can be sent over the network without causing congestion. When the congestion window is full, the sender reduces the amount of data it sends over the network until the window is empty. This process is repeated until the sender receives feedback from the network that the congestion window is not being utilized effectively.\n\nAnother important design element of TCP congestion control is the use of a slow-start phase. During this phase, the sender starts with a small congestion window and gradually increases it over time as the network becomes more congested. This phase is designed to prevent the sender from sending too much data too quickly, which can cause congestion.\n\nTCP also uses a variety of feedback mechanisms to regulate the congestion window. One of the most important feedback mechanisms is the use of packet loss and delay to estimate the congestion level in the network. When a packet is lost or delayed, the sender receives feedback that the",
+    "done_s": 2.014327049255371
+   },
+   {
+    "text": "The life cycle of stars is a complex and fascinating process that has captivated astronomers and scientists for centuries. From the formation of a star in a molecular cloud to its eventual death in a supernova explosion, the life cycle of a star is a journey of transformation and change. In this essay, we will explore the different stages of a star's life cycle, from its birth to its death, and examine the various processes that occur during each stage.\n\nThe life cycle of a star begins with its formation in a molecular cloud. This process, known as star formation, occurs when a giant molecular cloud collapses under its own gravity, causing the gas and dust within the cloud to begin spinning faster and faster. As the cloud collapses, the gas and dust begin to heat up, eventually forming a protostar. The protostar is a large, spinning ball of gas and dust that will eventually become a star.\n\nAs the protostar continues to collapse, it begins to spin faster and faster, causing it to heat up even more. Eventually, the protostar reaches a critical temperature, at which point it ignites nuclear fusion in its core. This marks the birth of a new star, and the beginning of its life cycle.\n\nThe first stage of a star's life cycle is the main sequence stage. During this stage, the star fuses hydrogen into helium in its core, releasing energy in the form of light and heat. This energy is what makes the star shine, and it is what",
+    "done_s": 2.0137014389038086
+   },
+   {
+    "text": "Baking sourdough bread is a complex and nuanced process that requires patience, dedication, and a deep understanding of the intricacies of yeast fermentation. The process begins with the creation of a sourdough starter, a natural yeast culture that is the foundation of the bread. This starter is created by mixing flour and water together and allowing it to ferment, which can take anywhere from 7-14 days. During this time, the natural yeast and bacteria present in the flour and water begin to break down the sugars in the flour, producing a natural yeast culture that is capable of fermenting the sugars in the dough.\n\nOnce the starter is active and bubbly, it is mixed with flour, water, salt, and other ingredients to create the dough. The dough is then allowed to rest and ferment for several hours, during which time the yeast and bacteria in the starter continue to break down the sugars in the flour, producing carbon dioxide gas and causing the dough to rise. The dough is then shaped into its final form and allowed to proof, or rise, for several more hours before being baked in a hot oven.\n\nOne of the key characteristics of sourdough bread is its unique flavor and texture. The natural yeast and bacteria in the starter produce compounds that give the bread a tangy, slightly sour taste and a chewy, dense texture. This is in contrast to commercial bread, which is made with commercial yeast and has a milder flavor and a softer texture.\n\nSourdough bread is",
+    "done_s": 5.868031024932861
+   },
+   {
+    "text": "The French Revolution, which lasted from 1789 to 1799, was a pivotal event in modern history that had far-reaching consequences for France, Europe, and the world. The causes of the French Revolution were complex and multifaceted, involving a combination of social, economic, political, and cultural factors. In this essay, we will explore the key causes of the French Revolution, examining the social, economic, and political factors that contributed to the outbreak of the revolution.\n\n**Social Causes**\n\nOne of the primary social causes of the French Revolution was the inequality and social injustice that existed in French society. The French monarchy and nobility held vast amounts of power and wealth, while the common people, including peasants, artisans, and laborers, were subjected to poverty, exploitation, and oppression. The nobility and clergy were exempt from paying taxes, while the common people were forced to bear the burden of taxation. This created widespread resentment and discontent among the population.\n\nAnother social cause of the French Revolution was the Enlightenment, which emphasized the principles of liberty, equality, and fraternity. The writings of thinkers such as Rousseau, Voltaire, and Montesquieu spread ideas of democracy, human rights, and the social contract, inspiring many to question the authority of the monarchy and the nobility.\n\n**Economic Causes**\n\nEconomic factors also played a significant role in the causes of the French Revolution. The French economy was in a state of crisis, with widespread poverty, unemployment, andn",
+    "done_s": 5.867821455001831
+   },
+   {
+    "text": "Vaccines are a crucial tool in the prevention and control of infectious diseases. They work by training the immune system to recognize and fight specific pathogens, such as bacteria, viruses, and other microorganisms. The process of how vaccines train the immune system is complex and involves multiple steps, which are discussed below.\n\n**Step 1: Introduction of Antigens**\nThe first step in how vaccines train the immune system is the introduction of antigens. Antigens are substances that can trigger an immune response, such as proteins or sugars found on the surface of pathogens. In a vaccine, antigens are introduced to the body in a controlled and safe manner, usually through injection or oral administration. The antigens are typically inactivated or weakened, so they cannot cause the disease themselves.\n\n**Step 2: Activation of Immune Cells**\nWhen antigens are introduced into the body, they are recognized by immune cells, such as dendritic cells and T-cells. These immune cells are responsible for processing and presenting the antigens to other immune cells, such as B-cells and macrophages. The activation of immune cells is a critical step in how vaccines train the immune system, as it sets off a chain reaction of immune responses.\n\n**Step 3: Production of Antibodies**\nOnce immune cells are activated, they produce antibodies, which are proteins that specifically recognize and bind to the antigens. Antibodies are produced by B-cells and are an essential part of the immune response.",
+    "done_s": 2.014122486114502
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 1435,
+    "ref_chars": 1467
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 1015,
+    "ref_chars": 1395
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 256,
+    "ref_chars": 1352
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 999,
+    "ref_chars": 1652
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 871,
+    "ref_chars": 1465
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1472,
+    "ref_chars": 1472
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 1576,
+    "ref_chars": 1581
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 31,
+    "ref_chars": 1506
+   }
+  ],
+  "all_match": false
+ }
+}

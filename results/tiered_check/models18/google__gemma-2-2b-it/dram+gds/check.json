@@ -1,0 +1,261 @@
+{
+ "model": "google/gemma-2-2b-it",
+ "n_req": 8,
+ "max_tokens": 300,
+ "awake_gpu_mib": 7500,
+ "reference": [
+  {
+   "text": " \nThe Roman Empire, a civilization that dominated the Mediterranean world for centuries, left an indelible mark on Western civilization. Its history is a complex tapestry woven from threads of conquest, innovation, and cultural exchange. From its humble beginnings as a small city-state in central Italy, Rome rose to become a vast empire, stretching from Britain in the north to Egypt in the south, and from Spain in the west to Mesopotamia in the east.\n\nThe Roman Republic, established in 509 BC, marked a turning point in Roman history. This period, characterized by a complex system of government and a strong emphasis on civic duty, laid the foundation for the Roman Empire. The Republic's expansionist policies, fueled by a desire for wealth and power, led to the conquest of neighboring territories, including Carthage in North Africa and the Greek city-states.\n\nThe Roman Republic's transition to the Roman Empire in 27 BC, under the rule of Augustus, marked a significant shift in power dynamics. Augustus, the first Roman emperor, ushered in a period of unprecedented peace and prosperity known as the Pax Romana. This era witnessed a flourishing of art, literature, and architecture, as well as a period of significant territorial expansion.\n\nThe Roman Empire's vastness and complexity led to internal struggles and challenges. The empire faced numerous crises, including economic instability, political corruption, and military overextension. The division of the empire into Western and Eastern halves in 395 AD,",
+   "done_s": 1.8758611679077148
+  },
+  {
+   "text": "## The Symphony of Life: Unraveling the Magic of Photosynthesis\n\nPhotosynthesis, a word that evokes images of verdant forests and sun-drenched fields, is the very foundation of life on Earth. This intricate biological process, occurring within the chloroplasts of plants and algae, is responsible for converting light energy into chemical energy, fueling the growth and sustenance of all living organisms. \n\nThe symphony of life begins with sunlight, the conductor of this remarkable process. Chlorophyll, the pigment that gives plants their green hue, captures this radiant energy and channels it into the reaction center of the chloroplast. This energy is then used to split water molecules, releasing oxygen as a byproduct and generating electrons and protons.\n\nThe electrons, energized by the sun's energy, embark on a journey through a series of protein complexes known as the electron transport chain. This chain acts like a relay race, passing the electrons from one complex to another, releasing energy along the way. This energy is used to pump protons across the thylakoid membrane, creating a proton gradient.\n\nThe protons then flow back across the membrane through a protein complex called ATP synthase, like water cascading down a waterfall, generating ATP, the energy currency of the cell. This process, known as chemiosmosis, is akin to harnessing the power of a flowing river to generate electricity.\n\nThe energy captured in the form of ATP and NADPH, a molecule that carries electrons, is then used to power the second stage",
+   "done_s": 1.889648675918579
+  },
+  {
+   "text": " \n## The Intricate Dance of the Chessboard: A Deep Dive into the Rules\n\nChess, a game of strategy and intellect, has captivated minds for centuries. Its simple rules belies a depth of complexity that makes it a timeless pursuit. This essay delves into the intricate dance of the chessboard, exploring the fundamental rules that govern this captivating game.\n\n**The Battlefield: The Chessboard and Pieces**\n\nThe chessboard, a checkered expanse of 64 squares, is the stage for this strategic battle. Each player commands an army of 16 pieces: the King, the Queen, the Rooks, the Knights, the Bishops, the Pawns. The pieces occupy specific squares, their movements governed by a set of rules.\n\n**The King: The Most Precious**\n\nThe King, the most important piece, can move one square in any direction. His safety is paramount, as his capture results in an immediate loss of the game.\n\n**The Queen: The Most Powerful**\n\nThe Queen, the most powerful piece, can move any number of squares in a straight line, horizontally, vertically, or diagonally. Her versatility makes her a formidable force on the board.\n\n**The Rooks: The Guardians**\n\nThe Rooks, positioned on the corners, can move any number of squares horizontally or vertically. Their strength lies in their ability to control large areas of the board.\n\n**The Knights: The Irregulars**\n\nThe Knights, with their",
+   "done_s": 1.88846755027771
+  },
+  {
+   "text": "## TCP Congestion Control: A Balancing Act\n\nThe internet, a vast network of interconnected computers, relies on the reliable transmission of data. This data, ranging from emails to video streaming, needs to travel across the network, often encountering varying network conditions.  To ensure data delivery, the Transmission Control Protocol (TCP) employs a sophisticated mechanism called congestion control. This essay delves into the design of TCP congestion control, exploring its core principles and the intricate balancing act it performs to maintain data flow.\n\nTCP congestion control operates on the principle of \"slow start,\" where the sender gradually increases the data transmission rate as it establishes a connection with the receiver. This gradual increase allows the receiver to adapt to the increased data flow and avoid congestion.  The sender uses a mechanism called \"window size\" to control the amount of data it sends at a time. The window size is a variable that determines the maximum amount of data the sender can send before needing to wait for confirmation from the receiver.\n\nAs the sender sends data, it periodically sends \"acknowledgements\" to the receiver, confirming the receipt of the data.  The receiver uses these acknowledgements to update its window size, allowing it to receive more data.  This process of sending and receiving acknowledgements is crucial for maintaining a smooth data flow.\n\nHowever, the sender's window size is not static. It is dynamically adjusted based on the network conditions.  When the network is congested, the sender's window size is reduced to",
+   "done_s": 1.8888285160064697
+  },
+  {
+   "text": " \nThe life cycle of a star is a fascinating and complex process that spans billions of years. From its birth in a nebula to its eventual death, stars undergo a series of transformations that are governed by the laws of physics and the forces of gravity. This essay will explore the different stages of a star's life cycle, highlighting the key events and processes involved.\n\n**Birth and Growth:**\n\nStars are born in vast clouds of gas and dust called nebulae. These nebulae are remnants of previous generations of stars, and they contain the raw materials necessary for the formation of new stars. As gravity pulls the gas and dust together, the cloud collapses and heats up. This process triggers nuclear fusion, the process by which hydrogen atoms fuse together to form helium, releasing enormous amounts of energy. The core of the collapsing cloud becomes increasingly dense and hot, eventually reaching a critical temperature and pressure that triggers the ignition of nuclear fusion. This marks the birth of a star.\n\n**Main Sequence:**\n\nOnce a star has ignited nuclear fusion, it enters the main sequence stage of its life. During this stage, the star spends most of its life, typically billions of years. The star's core continues to fuse hydrogen into helium, generating the energy that powers the star. The energy produced by fusion is radiated outwards, creating the star's luminosity and temperature. The star's mass also plays a crucial role in determining its lifespan. More massive stars burn through their hydrogen fuel faster and have",
+   "done_s": 1.8901073932647705
+  },
+  {
+   "text": "## The Art of Sourdough: A Journey from Flour to Flavor\n\nBaking sourdough bread is more than just a culinary pursuit; it's a journey of patience, precision, and a deep appreciation for the transformative power of fermentation. This ancient craft, passed down through generations, involves nurturing a living culture of wild yeast and bacteria, transforming simple flour and water into a complex symphony of flavor and texture. \n\nThe heart of sourdough baking lies in the \"starter,\" a living culture of wild yeast and bacteria. This symbiotic community, nurtured with flour and water, is the key to the bread's unique character. The starter's activity, measured by its rise and fall, dictates the bread's final texture and flavor. \n\nThe process begins with mixing flour and water, creating a simple dough. This dough is then fed regularly with fresh flour and water, allowing the starter to thrive and ferment the dough. This fermentation process, known as \"autolysis,\" breaks down the starches in the flour, releasing enzymes that create a complex network of gluten strands. This gluten network, combined with the fermented dough, gives sourdough bread its characteristic chewy texture and airy crumb.\n\nThe dough is then shaped and left to rise, allowing the yeast to further ferment the dough and develop its flavor. This process can take anywhere from a few hours to several days, depending on the desired level of rise and the type of flour used. \n\nOnce the dough has risen, it is carefully shaped and placed",
+   "done_s": 1.8891308307647705
+  },
+  {
+   "text": " \nThe French Revolution was a period of radical social and political upheaval in France that lasted from 1789 to 1799. It was a complex event with a multitude of causes, but some of the most significant were economic hardship, social inequality, and political absolutism. \n\nThe French economy was in a state of crisis during the late 18th century. The American Revolution had drained the treasury, and the French monarchy was burdened with a large and expensive military. The government was unable to raise enough revenue to fund its expenses, leading to a series of financial crises. This economic instability contributed to widespread poverty and unemployment, which in turn fueled social unrest.\n\nThe French society was divided into three estates. The first estate, the clergy, enjoyed significant privileges and exemptions from taxes. The second estate, the nobility, also enjoyed exemptions from most taxes. The third estate, which comprised the vast majority of the population, bore the brunt of taxation and had little political power. This rigid social hierarchy created a deep sense of injustice and resentment among the third estate.\n\nThe French monarchy was also characterized by absolute power. Louis XVI, the king of France, was a weak and indecisive ruler who was unable to address the growing problems of the country. He was also hampered by a rigid and inflexible court system that made it difficult to implement reforms. The king's inability to respond effectively to the growing crisis further exacerbated the situation.\n\nThe French Revolution was a culmination",
+   "done_s": 1.8898420333862305
+  },
+  {
+   "text": "## The Power of Vaccines: Training the Body's Defense Force\n\nVaccines have revolutionized public health, saving millions of lives and preventing countless illnesses. But how do these seemingly simple injections actually work? The answer lies in their ability to train the body's immune system, preparing it to fight off real threats. \n\nThe foundation of this training lies in the concept of \"immunological memory.\"  Vaccines introduce a weakened or inactive form of a pathogen, such as a virus or bacteria, to the body. This harmless version triggers an immune response without causing the actual disease.  The immune system, in its tireless pursuit of defense, recognizes the pathogen and mounts a specific attack. \n\nThis initial response involves two key players: B cells and T cells. B cells produce antibodies, specialized proteins that bind to the pathogen and neutralize it. T cells, on the other hand, directly attack and destroy infected cells.  \n\nDuring the initial encounter with the vaccine, the immune system learns to identify the pathogen's unique features. This learning process creates a \"memory\" of the pathogen, allowing the immune system to respond more quickly and effectively if the body encounters the real pathogen in the future. \n\nThis is where the power of vaccines truly shines.  The memory cells created by the vaccine remain in the body for years, ready to spring into action if the real pathogen ever enters the system.  This rapid response is crucial for preventing disease.  \n\nThe effectiveness of vaccines is",
+   "done_s": 1.8893632888793945
+  }
+ ],
+ "noise": {
+  "compare": [
+   {
+    "match": true,
+    "common_prefix_chars": 1524,
+    "ref_chars": 1524
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1541,
+    "ref_chars": 1541
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1361,
+    "ref_chars": 1361
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1606,
+    "ref_chars": 1606
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1550,
+    "ref_chars": 1550
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1511,
+    "ref_chars": 1511
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1579,
+    "ref_chars": 1579
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1540,
+    "ref_chars": 1540
+   }
+  ],
+  "all_match": true
+ },
+ "restore": {
+  "events": {
+   "gpu": 3,
+   "sleep_start_s": 0.3055908679962158,
+   "sleep_end_s": 4.2445902824401855,
+   "asleep_gpu_mib": 1308,
+   "wake_start_s": 7.345012187957764,
+   "wake_end_s": 7.852417230606079,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": " \nThe Roman Empire, a civilization that dominated the Mediterranean world for centuries, left an indelible mark on Western civilization. Its history is a complex tapestry woven from threads of conquest, innovation, and cultural exchange. From its humble beginnings as a small city-state in central Italy, Rome rose to become a vast empire, stretching from Britain in the north to Egypt in the south, and from Spain in the west to Mesopotamia in the east.\n\nThe Roman Republic, established in 509 BC, marked a turning point in Roman history. This period, characterized by a complex system of government and a strong emphasis on civic duty, laid the foundation for the Roman Empire. The Republic's expansionist policies, fueled by a desire for wealth and power, led to the conquest of neighboring territories, including Carthage in North Africa and the Gallic tribes in Gaul.\n\nThe Roman Republic's transition to the Roman Empire in 27 BC, under the leadership of Augustus, marked a significant shift in Roman political and social structures. Augustus, the first Roman emperor, ushered in a period of unprecedented peace and prosperity known as the Pax Romana. This era witnessed a flourishing of art, literature, and architecture, as well as a period of significant territorial expansion.\n\nThe Roman Empire's vastness and power led to internal conflicts and external threats. The empire faced numerous challenges, including barbarian invasions, economic instability, and political corruption. The division of the empire into Western and Eastern halves in 3",
+    "done_s": 9.394470453262329
+   },
+   {
+    "text": "## The Symphony of Life: Unraveling the Magic of Photosynthesis\n\nPhotosynthesis, a word that evokes images of verdant forests and sun-drenched fields, is the very foundation of life on Earth. This intricate biological process, occurring within the chloroplasts of plants and algae, is responsible for converting light energy into chemical energy, fueling the growth and sustenance of all living organisms. \n\nThe symphony of life begins with sunlight, the conductor of this remarkable process. Chlorophyll, the pigment that gives plants their green hue, captures this radiant energy and channels it into the reaction center of the chloroplast. This energy is then used to split water molecules, releasing oxygen as a byproduct and generating electrons and protons.\n\nThe electrons, energized by the sun's energy, embark on a journey through a series of protein complexes known as the electron transport chain. This chain acts like a relay race, passing the electrons from one complex to another, releasing energy along the way. This energy is used to pump protons across the thylakoid membrane, creating a proton gradient.\n\nThe protons then flow back across the membrane through a protein complex called ATP synthase, like water cascading down a waterfall, generating ATP, the energy currency of the cell. This process, known as chemiosmosis, is akin to harnessing the power of a flowing river to generate electricity.\n\nThe energy captured in the form of ATP and NADPH, a molecule that carries electrons, is then used to power the second stage",
+    "done_s": 9.394233226776123
+   },
+   {
+    "text": " \n## The Intricate Dance of the Chessboard: A Deep Dive into the Rules\n\nChess, a game of strategy and intellect, has captivated minds for centuries. Its simple rules belies a depth of complexity that makes it a timeless challenge for players of all levels. This essay delves into the intricate dance of the chessboard, exploring the fundamental rules that govern this captivating game.\n\n**The Battlefield: The Chessboard and Pieces**\n\nThe chessboard, a checkered expanse of 64 squares, forms the stage for this strategic battle. Each player commands an army of 16 pieces: a king, queen, rooks, knights, bishops, and pawns. The pieces occupy specific squares, with the pawns acting as the foot soldiers, the knights as the agile cavalry, and the bishops as the long-range artillery. The queen, the most powerful piece, reigns supreme, capable of moving in any straight line, while the king, the most vulnerable, must be protected at all costs.\n\n**The Dance of the Pieces: Movement and Capture**\n\nEach piece has its unique movement pattern, dictating its strategic possibilities. The pawns, the most numerous, advance one square at a time, but their sacrifice is a powerful tool. The knights, with their \"L\" shaped movement, offer a unique tactical advantage, while the bishops, confined to diagonal movement, can control vast areas of the board. The rooks, the heavy hitters, move horizontally and vertically, while",
+    "done_s": 9.38817834854126
+   },
+   {
+    "text": "## TCP Congestion Control: A Balancing Act\n\nThe internet, a vast network of interconnected computers, relies on the reliable transmission of data. This data, ranging from emails to video streaming, needs to travel across the network, often encountering varying network conditions.  To ensure data delivery, the Transmission Control Protocol (TCP) employs a sophisticated mechanism called congestion control. This essay delves into the design of TCP congestion control, exploring its core principles and the intricate balancing act it performs to maintain data flow.\n\nTCP congestion control operates on the principle of \"slow start,\" where the sender gradually increases the data transmission rate as it establishes a connection with the receiver. This gradual increase allows the receiver to adapt to the increased data flow and avoid congestion.  The sender uses a mechanism called \"window size\" to control the amount of data it sends at a time. The window size is a variable that determines the maximum amount of data the sender can send before needing to wait for confirmation from the receiver.\n\nAs the sender sends data, it periodically sends \"acknowledgements\" to the receiver, confirming the receipt of the data.  The receiver uses these acknowledgements to update its window size, allowing it to receive more data.  This process of sending and receiving acknowledgements is crucial for maintaining a smooth data flow.\n\nHowever, the sender's window size is not static. It is dynamically adjusted based on the network conditions.  When the network is congested, the sender's window size is reduced to",
+    "done_s": 9.394665479660034
+   },
+   {
+    "text": " \nThe life cycle of a star is a fascinating and complex process that spans billions of years. From its birth in a nebula to its eventual death, stars undergo a series of transformations that are governed by the laws of physics and the forces of gravity. This essay will explore the different stages of a star's life cycle, highlighting the key events and processes involved.\n\n**Birth and Growth:**\n\nStars are born in vast clouds of gas and dust called nebulae. These nebulae are remnants of previous generations of stars, and they contain the raw materials necessary for the formation of new stars. As gravity pulls the gas and dust together, the cloud collapses and heats up. This process triggers nuclear fusion, the process by which hydrogen atoms fuse together to form helium, releasing enormous amounts of energy. The core of the collapsing cloud becomes increasingly dense and hot, eventually reaching a critical temperature and pressure that triggers the ignition of nuclear fusion. This marks the birth of a star.\n\n**Main Sequence:**\n\nOnce a star has ignited nuclear fusion, it enters the main sequence stage of its life. During this stage, the star spends most of its life, typically billions of years. The star's core continues to fuse hydrogen into helium, generating the energy that powers the star. The energy produced by fusion is radiated outwards, creating the star's luminosity and temperature. The star's mass also plays a crucial role in determining its lifespan. More massive stars burn through their hydrogen fuel faster and have",
+    "done_s": 9.394811630249023
+   },
+   {
+    "text": "## The Art of Sourdough: A Journey from Flour to Flavor\n\nBaking sourdough bread is more than just a culinary pursuit; it's a journey of patience, precision, and a deep appreciation for the transformative power of fermentation. This ancient craft, passed down through generations, involves nurturing a living culture of wild yeast and bacteria, transforming simple flour and water into a complex symphony of flavor and texture. \n\nThe heart of sourdough baking lies in the \"starter,\" a living culture of wild yeast and bacteria. This symbiotic community, nurtured with flour and water, is the key to the bread's unique character. The starter's activity, measured by its rise and fall, dictates the bread's final texture and flavor. \n\nThe process begins with mixing flour and water, creating a simple dough. This dough is then fed regularly with fresh flour and water, allowing the starter to thrive and ferment the dough. This fermentation process, known as \"autolysis,\" breaks down the starches in the flour, releasing enzymes that create a complex network of gluten strands. This gluten network, combined with the fermented dough, gives sourdough bread its characteristic chewy texture and airy crumb.\n\nThe dough is then shaped and left to rise, allowing the yeast to further ferment the dough and develop its flavor. This process can take anywhere from a few hours to several days, depending on the desired level of rise and the type of flour used. \n\nOnce the dough has risen, it is carefully shaped and placed",
+    "done_s": 9.39498519897461
+   },
+   {
+    "text": " \nThe French Revolution was a period of radical social and political upheaval in France that lasted from 1789 to 1799. It was a complex event with a multitude of causes, but some of the most significant were economic hardship, social inequality, and political absolutism. \n\nThe French economy was in a state of crisis during the late 18th century. The American Revolution had drained the treasury, and the French monarchy was burdened with a large and expensive military. The government was unable to raise enough revenue to fund its expenses, leading to a series of financial crises. This economic instability contributed to widespread poverty and unemployment, which in turn fueled social unrest.\n\nThe French society was divided into three estates. The first estate, the clergy, enjoyed significant privileges and exemptions from taxes. The second estate, the nobility, also enjoyed exemptions from most taxes. The third estate, which comprised the vast majority of the population, bore the brunt of taxation and had little political power. This rigid social hierarchy created a deep sense of injustice and resentment among the third estate.\n\nThe French monarchy was also characterized by absolute power. Louis XVI, the king of France, was a weak and indecisive ruler who was unable to address the growing problems of the country. He was also hampered by a rigid and inflexible court system that made it difficult to implement reforms. The king's inability to respond effectively to the growing crisis further exacerbated the situation.\n\nThe French Revolution was a culmination",
+    "done_s": 9.395190954208374
+   },
+   {
+    "text": "## The Power of Vaccines: Training the Body's Defense Force\n\nVaccines have revolutionized public health, saving millions of lives and preventing countless illnesses. But how do these seemingly simple injections actually work? The answer lies in their ability to train the body's immune system, preparing it to fight off real threats. \n\nThe foundation of this training lies in the concept of \"immunological memory.\"  Vaccines introduce a weakened or inactive form of a pathogen, such as a virus or bacteria, to the body. This harmless version triggers an immune response without causing the actual disease.  The immune system, in its tireless pursuit of defense, recognizes the pathogen and mounts a specific attack. \n\nThis initial response involves two key players: B cells and T cells. B cells produce antibodies, specialized proteins that bind to the pathogen and neutralize it. T cells, on the other hand, directly attack and destroy infected cells.  \n\nDuring the initial encounter with the vaccine, the immune system learns to identify the pathogen's unique features. This learning process creates a \"memory\" of the pathogen, allowing the immune system to respond more quickly and effectively if the body encounters the real pathogen in the future. \n\nThis is where the power of vaccines truly shines.  The memory cells created by the vaccine remain in the body for years, ready to spring into action if the real pathogen ever enters the system.  This rapid response is crucial for preventing disease.  \n\nThe effectiveness of vaccines is",
+    "done_s": 9.395339488983154
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 851,
+    "ref_chars": 1524
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1541,
+    "ref_chars": 1541
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 220,
+    "ref_chars": 1361
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1606,
+    "ref_chars": 1606
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1550,
+    "ref_chars": 1550
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1511,
+    "ref_chars": 1511
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1579,
+    "ref_chars": 1579
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1540,
+    "ref_chars": 1540
+   }
+  ],
+  "all_match": false
+ },
+ "control": {
+  "events": {
+   "gpu": 3,
+   "sleep_start_s": 0.30702686309814453,
+   "sleep_end_s": 0.8334739208221436,
+   "asleep_gpu_mib": 1308,
+   "wake_start_s": 3.943148612976074,
+   "wake_end_s": 4.198726654052734,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": " \nThe Roman Empire, a civilization that dominated the Mediterranean world for centuries, left an indelible mark on Western civilization. Its history is a complex tapestry woven from threads of conquest, 1.  Or 1.000.  of the following.  The following.  the.  customers.  are.  customers.  The.  customers.  the.  customers.  are.  a.  are.  are.  are.  are.  are.  are.  are.  a.  are.  are.  a.  are.  a.  are.  a.  are.  a.  are.  a.  a.  a  a  e.  a  a  a  a  a  a  a  a  a  a  a  a  a  a  a  a  a  a  a  a  a  a  a  a  a  a  a  a  a  b  a  a  c  a  a  are  a  b  a  areh  a  are.  a  are.  a  a  a  a  are.  a  b.  a  a  a  a  a  a  a  a  a  a  a  a  a  c.  a  a  a  a  ,",
+    "done_s": 5.730503082275391
+   },
+   {
+    "text": "## The Symphony of Life: Unraveling the Magic of Photosynthesis\n\nPhotosynthesis, a word that evokes images of verdant forests and sun-drenched fields, is a \nto a 20.\n\nThe number of.\n\nIt's a good.\n\nYou're.\n\nThe number.\n\nYou're.\n\nThe number.\n\nThe.\n\nThe.\n\nThe.\n\nThe.\n\nThe.\n\nThe.\n\nThe.\n\nThe.\n\nThe.\n\nThe.\n\nThe.\n\nThe.\n\nThe.\n\nThe.\n\nThe.\n\nThe.\n\nThe.\n\nThe.\n\nThe.\n\nthe.\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nThe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe\n\nthe",
+    "done_s": 5.739552736282349
+   },
+   {
+    "text": " \n## The Intricate Dance of the Chessboard: A Deep Dive into the Rules\n\nChess, a game of strategy and intellect, has captivated minds for centuries. Its-driven\" of-course.\nIt's a good.\nIt's a good.\nIt's a good.\nIt's a good.\nIt's.\nIt's.\nA.\nIt's.\nA.\nA.\nIt's.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA\nA.\nA\nA\nA.\nA.\nA.\nA.\nA.\nA.\nA.\nA.",
+    "done_s": 5.739973306655884
+   },
+   {
+    "text": "## TCP Congestion Control: A Balancing Act\n\nThe internet, a vast network of interconnected computers, relies on the reliable and efficient transmission of data. This is where TCP (and) be...  you're you're it's  be  you're  and  of  the  to  the  of  and  ...  be  a  company  be  company  be  a  company  a  business  companions  a  company  a  companions  are  a  company  and  business  a  can  be  a  car  company  and  business  car  companions  can  be  car  company  a  business  can  be  car  and  car  be  car  can  be  car  company  be  char  can  be  car  char  be  car  be  car\n    be\n    car\n    be\n    car\n    be\n    car\n    be\n    car\n    be\n    car\n    be\n    car\n    be\n    car\n    be\n    car\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    ",
+    "done_s": 5.740179777145386
+   },
+   {
+    "text": " \nThe life cycle of a star is a fascinating and complex process that spans billions of years. From its birth in a nebula to its eventual death, stars undergo a series, the way the world goes to. \n \n \n**The** **the**  **  **  of  the  \n  \n**The**  \n**  \n**  \nthe\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n**\n",
+    "done_s": 5.739819765090942
+   },
+   {
+    "text": "## The Art of Sourdough: A Journey from Flour to Flavor\n\nBaking sourdough bread is more than just a culinary pursuit; it's a journey of patience, precision, \nof, the, 1000, of, the, 1000, of, 100, 1000, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 1, 10, 1, 1, 100, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ",
+    "done_s": 5.740365743637085
+   },
+   {
+    "text": " \nThe French Revolution was a period of radical social and political upheaval in France that lasted from 1789 to 1799. It was apackage.  It's important to note that.\n\n**It's important to know.\n\n**It's important to know.\n\n**It's important to know.\n\n**It's important to know.\n\n**It's important.\n\n**It's important.\n\n**It's important.\n\n**It's important.\n\n**It's important.\n\n**'s\n\n**'s\n\n**'s\n\nIt's\n\n's\n\nIt's\n\n's\n\nIt's\n\n's\n\nIt's\n\n's\n\nIt's\n\n's\n\nIt's\n\n's\n\nIt's\n\n's\n\nIt's\n\n's\n\nIt's\n\n's\n\n's\n\n's\n\nIt's\n\n's\n\nIt'\n\n's\n\nIt'\n\n's\n\nIt's\n\n's\n\nIt'\n\n's\n\nIt'\n\n's\n\nIt'\n\n's\n\nIt'\n\n's\n\nIt'\n\n's\n\nIt'\n\n's\n\nIt'\n\n's\n\nIt'\n\n's\n\nIt'\n\n's\n\nIt'\n\n's\n\nIt'\n\n's\n\nIt'\n\n'\n\n'\n\n'\n\n",
+    "done_s": 5.742431402206421
+   },
+   {
+    "text": "## The Power of Vaccines: Training the Body's Defense Force\n\nVaccines have revolutionized public health, saving millions of lives and preventing countless illnesses. But how do support the rest of the time.\nThis is a common way to do.\nYou can also be used to.\nYou can be used to.\nYou can be used to.\nYou can be used to.\nYou can be used.\nYou can be used.\nYou can be used.\nYou can be used.\nYou can be.\nYou can be.\nYou can be.\nYou can be.\nYou can be.\nYou can be.\nYou can be.\nYou can.\nYou can be.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\nYou can.\n",
+    "done_s": 5.742589950561523
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 203,
+    "ref_chars": 1524
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 154,
+    "ref_chars": 1541
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 152,
+    "ref_chars": 1361
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 125,
+    "ref_chars": 1606
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 166,
+    "ref_chars": 1550
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 157,
+    "ref_chars": 1511
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 127,
+    "ref_chars": 1579
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 177,
+    "ref_chars": 1540
+   }
+  ],
+  "all_match": false
+ }
+}

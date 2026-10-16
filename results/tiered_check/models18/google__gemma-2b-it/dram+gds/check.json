@@ -1,0 +1,261 @@
+{
+ "model": "google/gemma-2b-it",
+ "n_req": 8,
+ "max_tokens": 300,
+ "awake_gpu_mib": 7236,
+ "reference": [
+  {
+   "text": "The Roman Empire, one of the most significant and enduring empires in history, spanned over 500 years, from 27 BCE to 476 CE. The empire's rise and fall were marked by periods of great power, cultural flourishing, and political upheaval.\n\n**Early Rome: A Republic and Empire**\n\nThe origins of the Roman Empire can be traced back to the Roman Republic, established in 753 BCE. The Roman Republic was a republican government system in which elected officials, known as consuls, held significant power. The Republic was known for its democratic principles and the participation of citizens in decision-making.\n\n**The Rise of Augustus and the Pax Romana**\n\nIn 27 BCE, Augustus Caesar established the Roman Empire. Augustus was a brilliant military leader who conquered and unified much of the Western Roman Empire. He also implemented a number of reforms, including the construction of roads, bridges, and aqueducts. Augustus's conquests and reforms established the Roman Empire as a superpower in the Western world.\n\n**The Pax Romana and the Rise of the Caesars**\n\nThe Pax Romana, which lasted from 27 BCE to 180 CE, was a period of peace and prosperity for the Roman Empire. During this period, the empire expanded its territory and established colonies in North Africa and the Middle East. The Pax Romana also saw the rise of the Caesars, a powerful family of adoptive brothers who held significant political and military influence.\n\n",
+   "done_s": 1.4995169639587402
+  },
+  {
+   "text": "Photosynthesis is the process by which plants and other organisms convert light energy into chemical energy in the form of sugar molecules. This process is essential for life on Earth, as it provides the oxygen that we breathe and the food that we eat.\n\nThe first step in photosynthesis is the absorption of light energy by chlorophyll molecules in the chloroplasts of plant cells. Chlorophyll is a green pigment that is found in the chloroplasts of plant cells. When light energy is absorbed by chlorophyll, it is converted into chemical energy in the form of ATP (adenosine triphosphate) and NADPH (nicotinamide adenine dinucleotide phosphate).\n\nATP and NADPH are then used to combine carbon dioxide with water to form glucose, a sugar molecule that is used for energy by the plant. The glucose is then used by the plant for growth and reproduction.\n\nThe overall equation for photosynthesis is:\n\n6CO2 + 6H2O + light energy \u2192 C6H12O6 + 6O2\n\nPhotosynthesis is a complex process that involves many different enzymes and cofactors. However, the basic steps of photosynthesis can be summarized as follows:\n\n1. Absorption of light energy by chlorophyll molecules in the chloroplasts of plant cells.\n2. Conversion of light energy into chemical energy in the form of ATP and NADPH.\n3. Use of ATP and NADPH to combine carbon dioxide with water to form glucose.\n4. Use of glucose by the plant for growth and",
+   "done_s": 1.5064003467559814
+  },
+  {
+   "text": "Chess is a strategy board game played between two players on a checkered board with 64 squares. Each player has 16 pieces, each with a different color, which are arranged on the board in a specific starting position. The objective of the game is to checkmate the opponent's king, which means putting the king in a position where it is under attack and cannot escape.\n\n**The Basics of Chess**\n\nThe chessboard is divided into 64 squares, arranged in an 8x8 grid. Each square is represented by a letter and a number, starting from a1 on the bottom row and continuing up to h8 on the top row.\n\nThe board is set up with the white pieces placed on the two rows closest to the player, and the black pieces are placed on the two rows closest to the opponent. The white pieces are always placed on the same color of squares, and the black pieces are placed on the opposite color of squares.\n\n**The Pieces**\n\nEach piece in chess has a unique movement pattern. The pieces are as follows:\n\n* **King:** The king is the most important piece in chess. It can move one square in any direction.\n* **Queen:** The queen can move any number of squares in any direction.\n* **Rook:** The rook can move any number of squares along a single rank or file.\n* **Bishop:** The bishop can move any number of squares diagonally.\n* **Knight:**",
+   "done_s": 1.505793809890747
+  },
+  {
+   "text": "## A Comprehensive Examination of TCP Congestion Control\n\nCongestion control plays a crucial role in ensuring efficient and reliable communication within computer networks. In the context of the Transmission Control Protocol (TCP), a fundamental component responsible for reliable data transfer, congestion control mechanisms are employed to prevent network congestion and ensure the smooth operation of the protocol. This essay delves into the intricate design of TCP congestion control, exploring its various components, algorithms, and the overall approach employed to regulate network bandwidth and maintain network performance.\n\n**Understanding the Components of TCP Congestion Control:**\n\nThe design of TCP congestion control encompasses a diverse range of components working in synergy to achieve its objectives. These components can be broadly categorized into three main groups:\n\n* **Slow Start Phase:** This phase serves as a pre-emptive mechanism, gradually increasing the number of acknowledgments (ACKs) sent to the receiver before establishing a reliable data flow. This gradual approach helps to avoid sudden drops in network traffic and minimizes the impact on network performance.\n* **Congestion Control Algorithms:** These algorithms analyze network conditions and dynamically adjust the number of ACKs sent to the receiver. The three main algorithms used in TCP are:\n    * **Slow Start:** This algorithm is primarily used in the early stages of a connection when the network is idle. It starts with a small number of ACKs and gradually increases them until a sufficient number is sent to establish a reliable flow.\n    * **Fast Retransmit:** This algorithm is employed when the",
+   "done_s": 1.5070781707763672
+  },
+  {
+   "text": "The life cycle of stars is a fascinating and complex process that spans billions of years. It is a story of formation, evolution, and death, where stars ignite, burn out, and eventually collapse into black holes. This essay will explore the various stages of the star life cycle, from birth to death, and provide a glimpse into the fascinating world of stellar evolution.\n\n**The Birth of a Star**\n\nThe life cycle of a star begins with the birth of a massive cloud of gas and dust in the universe. This cloud, known as a nebula, is the birthplace of stars and other celestial objects. The process of star formation is driven by gravitational collapse, where the gas and dust under immense gravitational forces collapse under their own weight, forming a central region of dense gas and dust.\n\n**The First Stages of Life**\n\nOnce the core of the nebula reaches a critical mass, nuclear fusion begins to ignite hydrogen atoms in the core. This process releases a tremendous amount of energy, causing the star to ignite and emit light. The star is now in the main sequence phase of its life, where it burns hydrogen in its core, powering its light and heat.\n\n**The Main Sequence Phase**\n\nDuring the main sequence phase, the star burns hydrogen in its core at a constant rate. The star maintains a relatively stable radius and temperature, which allows it to balance gravitational forces and prevent collapse. The main sequence phase typically lasts for about 4.6 billion years, with stars like the",
+   "done_s": 1.5091955661773682
+  },
+  {
+   "text": "Sure, here's a detailed essay about baking sourdough bread:\n\n## The Art of Sourdough Bread: A Journey in Time\n\nSourdough bread, with its distinct tangy flavor and slightly chewy texture, is a culinary treasure that has captivated taste buds for centuries. Its origins are traced back to ancient cultures, where it was used for various purposes, from religious ceremonies to everyday sustenance. Today, sourdough bread remains a beloved delicacy, enjoyed by home cooks and bakers alike.\n\nThe process of baking sourdough bread is an intricate dance between time, temperature, and the meticulous attention to detail. The dough, typically made with flour, water, and a sourdough starter, undergoes a slow fermentation process, allowing the yeast to develop and transform the simple ingredients into a complex and flavorful masterpiece.\n\nThe key to successful sourdough bread lies in the proper balance of hydration and temperature. The dough should be slightly sticky but not wet, with a moisture content typically ranging from 80% to 85%. This ensures that the bread has a good texture and can rise to its full potential.\n\nThe fermentation period is equally crucial. The dough is allowed to rise slowly at a specific temperature, typically around 70\u00b0F (21\u00b0C), which allows the yeast to multiply rapidly. This rapid growth creates the characteristic tangy flavor and distinct flavor profile of sourdough bread.\n\nOnce the dough has risen to its peak, it is carefully shaped and placed in a preheated oven. The gentle heat of",
+   "done_s": 1.5076370239257812
+  },
+  {
+   "text": "The French Revolution was a momentous event in history that shook the foundations of the French monarchy and ushered in a new era of republicanism. The causes of this revolutionary upheaval were complex and multifaceted, encompassing a range of social, economic, political, and cultural factors.\n\n**Social Factors:**\n\nOne of the primary causes of the French Revolution was the social inequality that existed in French society. The French social hierarchy was characterized by a small elite of wealthy landowners and merchants, who enjoyed vast wealth and political influence, while the majority of the population consisted of peasants, artisans, and small farmers. This stark social divide created a sense of injustice and inequality, fueling the desire for social change.\n\n**Economic Factors:**\n\nThe French economy was heavily dependent on agriculture, and the country was heavily exposed to fluctuations in the weather and global trade. The Glorious Revolution of 1789, which began as a protest against high taxes, escalated into a full-scale war against the British, demonstrating the economic power of the French people. The war's devastating impact on the French economy, coupled with the high cost of the war, contributed to the growing social and economic grievances that lay at the heart of the revolution.\n\n**Political Factors:**\n\nThe French Revolution was also fueled by political factors. The French monarchy, under the rule of King Louis XVI, was increasingly autocratic and unresponsive to the needs of the people. The king's attempts to suppress political dissent and maintain his authority through repressive measures alienated",
+   "done_s": 1.5081260204315186
+  },
+  {
+   "text": "Vaccines are a vital part of modern healthcare, providing protection against a wide range of diseases. The immune system plays a crucial role in this protection, and vaccines are designed to stimulate the immune system to recognize and respond to specific pathogens.\n\nOne of the key mechanisms by which vaccines achieve this is through the process of antigen presentation. When a vaccine is introduced into the body, it is broken down into smaller fragments that can be recognized by the immune system. These fragments are then presented on the surface of antigen-presenting cells, such as macrophages and dendritic cells.\n\nThe immune system then recognizes these fragments and mounts an immune response. This response involves the activation of various immune cells, including T cells and B cells. T cells recognize and kill infected cells or cancerous cells, while B cells produce antibodies that can neutralize viruses or bacteria.\n\nIn addition to antigen presentation, vaccines also stimulate the immune system to produce memory cells. Memory cells are a subset of lymphocytes that remain in the body for long periods of time and provide rapid and robust responses to specific pathogens. When a person is vaccinated, these memory cells are activated and can quickly produce antibodies and cells to fight off the pathogen if it is encountered in the future.\n\nThe process of vaccination is not without its risks, but the benefits far outweigh the risks. Vaccines have saved millions of lives and prevented countless cases of serious illness. By stimulating the immune system to recognize and respond to specific pathogens, vaccines provide long-term protection and reduce the risk of",
+   "done_s": 1.5088613033294678
+  }
+ ],
+ "noise": {
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 179,
+    "ref_chars": 1433
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1399,
+    "ref_chars": 1399
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 123,
+    "ref_chars": 1312
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 1306,
+    "ref_chars": 1696
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 1278,
+    "ref_chars": 1491
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 323,
+    "ref_chars": 1519
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 1279,
+    "ref_chars": 1642
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1685,
+    "ref_chars": 1685
+   }
+  ],
+  "all_match": false
+ },
+ "restore": {
+  "events": {
+   "gpu": 4,
+   "sleep_start_s": 0.3079497814178467,
+   "sleep_end_s": 4.107253313064575,
+   "asleep_gpu_mib": 1344,
+   "wake_start_s": 7.209964752197266,
+   "wake_end_s": 7.730886220932007,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "The Roman Empire, one of the most significant and enduring empires in history, spanned over 500 years, from 27 BCE to 476 CE. The empire's rise and fall were marked by periods of expansion, decline, and resurgence, leaving an indelible mark on the political, cultural, and economic landscape of the Western world.\n\n**Early Rome: A Republic and Empire**\n\nThe origins of the Roman Empire can be traced back to the Roman Republic, established in 753 BCE. The Roman Republic was a republican government system characterized by a Senate elected by the people and a College of Consuls elected by the Senate. The Roman Republic was a remarkable political system that allowed citizens of different social classes to participate in decision-making.\n\n**The Rise of the Empire: Augustus and the Pax Romana**\n\nThe reign of Augustus (27 BCE - 14 CE) marked a pivotal moment in the history of the Roman Empire. Augustus, known as the \"Emperor of the Romans,\" ushered in a period of unprecedented peace and prosperity known as the Pax Romana. During his reign, the Roman Empire reached its greatest territorial extent, encompassing much of the Western and Central Europe.\n\n**The Pax Romana and the Empire's Decline**\n\nThe Pax Romana was not without its challenges. The empire faced barbarian invasions from the north and the Ostrogoths from the east. In 276 CE, the Roman Empire was conquered by the Ostrogoths",
+    "done_s": 8.894223928451538
+   },
+   {
+    "text": "Photosynthesis is the process by which plants and other organisms convert light energy into chemical energy in the form of sugar molecules. This process is essential for life on Earth, as it provides the oxygen that we breathe and the food that we eat.\n\nThe first step in photosynthesis is the absorption of light energy by chlorophyll molecules in the chloroplasts of plant cells. Chlorophyll is a green pigment that is found in the chloroplasts of plant cells. When light energy is absorbed by chlorophyll, it is converted into chemical energy in the form of ATP (adenosine triphosphate) and NADPH (nicotinamide adenine dinucleotide phosphate).\n\nATP and NADPH are then used to combine carbon dioxide and water into sugar molecules. The sugar molecules are then used by the plant for energy or to build other molecules.\n\nThe overall equation for photosynthesis is:\n\n6CO2 + 6H2O + light energy \u2192 C6H12O6 + 6O2\n\nPhotosynthesis is a complex process that involves many different enzymes and cofactors. However, the basic steps of photosynthesis can be summarized as follows:\n\n1. Absorption of light energy by chlorophyll molecules in the chloroplasts of plant cells.\n2. Conversion of light energy into chemical energy in the form of ATP and NADPH.\n3. Use of ATP and NADPH to combine carbon dioxide and water into sugar molecules.\n4. Use of sugar molecules by the plant for energy or to build other molecules.\n\nPhotos",
+    "done_s": 8.885172843933105
+   },
+   {
+    "text": "Chess is a strategy board game played between two players on a checkered board with 64 squares. Each player has 16 pieces, each with a different color, which are arranged on the board in a specific starting position. The objective of the game is to checkmate the opponent's king, which means putting the king in a position where it is under attack and cannot escape.\n\nThe game is played in turns, with each player moving one of their pieces. A piece can move to any empty square on the board, except for the square occupied by the opponent's king. A piece can also move to a square occupied by an opponent's piece, if the square is empty.\n\nA piece can capture an opponent's piece if it is able to reach it. A piece can only capture an opponent's piece if the square is empty. A piece can also be promoted to a different piece when it reaches the last rank of the board.\n\nThere are a number of different rules and strategies that can be used in chess. Some of the most important rules include:\n\n* **The rules of capture:** A piece can capture an opponent's piece if it is able to reach it. A piece can only capture an opponent's piece if the square is empty.\n* **The rules of movement:** A piece can move to any empty square on the board, except for the square occupied by the opponent's king. A piece can also move to a",
+    "done_s": 8.894639253616333
+   },
+   {
+    "text": "## A Comprehensive Examination of TCP Congestion Control\n\nCongestion control plays a crucial role in ensuring efficient and reliable communication within computer networks. In the context of the Transmission Control Protocol (TCP), a fundamental component responsible for reliable data transfer, congestion control mechanisms are employed to prevent network congestion and ensure the smooth operation of the protocol. This essay delves into the intricate design of TCP congestion control, exploring its various components, algorithms, and the overall approach employed to regulate network bandwidth and maintain network performance.\n\n**Understanding the Components of TCP Congestion Control:**\n\nThe design of TCP congestion control encompasses a diverse range of components working in synergy to achieve its objectives. These components can be broadly categorized into three main groups:\n\n* **Slow Start Phase:** This phase serves as a pre-emptive mechanism, gradually increasing the number of acknowledgments (ACKs) sent to the receiver before establishing a reliable data flow. This gradual approach helps to avoid sudden drops in network traffic and minimizes the impact on network performance.\n* **Congestion Control Algorithms:** These algorithms analyze network conditions and dynamically adjust the number of ACKs sent to the receiver. The three main algorithms used in TCP are:\n    * **Slow Start:** This algorithm is primarily used in the early stages of a connection when the network is idle. It starts with a small number of ACKs and gradually increases them until a sufficient number is sent to establish a reliable flow.\n    * **Fast Retransmit:** This algorithm is employed when the",
+    "done_s": 8.896409034729004
+   },
+   {
+    "text": "The life cycle of stars is a fascinating and complex process that spans billions of years. It is a story of formation, evolution, and death, where stars ignite, burn out, and eventually collapse into black holes. This essay will explore the various stages of the star life cycle, from birth to death, and provide a glimpse into the fascinating world of stellar evolution.\n\n**The Birth of a Star**\n\nThe life cycle of a star begins with the birth of a massive cloud of gas and dust in the universe. This cloud, known as a nebula, is the birthplace of stars and other celestial objects. The process of star formation is driven by gravitational collapse, where the gas and dust under immense gravitational forces collapse under their own weight, forming a central region of dense gas and dust.\n\n**The First Stages of Life**\n\nOnce the core of the nebula reaches a critical mass, nuclear fusion begins to ignite hydrogen atoms in the core. This process releases a tremendous amount of energy, causing the star to ignite and emit light. The star is now in the main sequence phase of its life, where it burns hydrogen in its core, powering its light and heat.\n\n**The Main Sequence Phase**\n\nDuring the main sequence phase, the star burns hydrogen in its core at a constant rate. The star's radius and temperature increase as it burns hydrogen, and it emits light and heat in the process. The main sequence phase lasts for about 4.6 billion years, providing the energy",
+    "done_s": 8.895758628845215
+   },
+   {
+    "text": "Sure, here's a detailed essay about baking sourdough bread:\n\n## The Art of Sourdough Bread: A Journey in Time\n\nSourdough bread, with its distinct tangy flavor and slightly chewy texture, is a culinary treasure that has captivated taste buds for centuries. Its origins are traced back to ancient cultures, where it was used as a staple food and a symbol of wealth. Today, sourdough bread remains a beloved delicacy, enjoyed by home cooks and professional bakers alike.\n\nThe process of baking sourdough bread is an intricate dance between time, temperature, and the meticulous attention to detail. The dough, a complex blend of flour, water, and salt, is allowed to rise slowly, allowing the yeast to develop its signature flavor and create the characteristic airiness. This slow fermentation process also develops complex, gluten-rich gluten networks, resulting in a light and airy bread with exceptional texture.\n\nThe key to baking sourdough bread lies in the proper balance of hydration and temperature. The dough should be slightly sticky but not wet, with a water content between 80% and 90%. This ensures that the yeast has enough moisture to work effectively, while also preventing the dough from becoming too dry and crumbly.\n\nThe ideal temperature for baking sourdough bread is between 72\u00b0F and 78\u00b0F (22\u00b0C and 26\u00b0C). This range allows the yeast to activate quickly, resulting in a rapid rise that creates the characteristic air pockets. The dough",
+    "done_s": 8.895109176635742
+   },
+   {
+    "text": "The French Revolution was a momentous event in European history, marking the end of the absolute monarchy and the rise of republicanism. The causes of this revolutionary upheaval were complex and multifaceted, encompassing social, economic, political, and cultural factors.\n\n**Social Factors:**\n\nOne of the primary causes of the French Revolution was the social inequality that existed in France. The French society was divided into three estates: the clergy, the nobility, and the commoners. The clergy and nobility enjoyed vast privileges and immunities, while the commoners bore the burden of taxation and military service. This stark social divide created resentment and a desire for social justice.\n\n**Economic Factors:**\n\nThe French economy was heavily dependent on agriculture, and the country was heavily exposed to fluctuations in the weather and global trade. The Glorious Revolution of 1789, which began as a protest against high taxes, escalated into a full-scale war against the British, who were seen as responsible for the economic woes of the country. The war disrupted trade, destroyed infrastructure, and caused widespread famine and poverty.\n\n**Political Factors:**\n\nThe French Revolution was sparked by the storming of the Bastille prison in Paris in 1789. The event triggered a wave of discontent among the people, who were dissatisfied with the oppressive rule of the monarchy and the limitations placed on their rights. The storming of the Bastille became a symbol of the people's desire for freedom and equality.\n\n**Cultural Factors:**\n\nThe French Revolution",
+    "done_s": 8.896111249923706
+   },
+   {
+    "text": "Vaccines are a vital part of modern healthcare, providing protection against a wide range of diseases. The immune system plays a crucial role in this protection, and vaccines are designed to stimulate the immune system to recognize and respond to specific pathogens.\n\nOne of the key mechanisms by which vaccines achieve this is through the process of antigen presentation. When a vaccine is introduced into the body, it is broken down into smaller fragments that can be recognized by the immune system. These fragments are then presented on the surface of antigen-presenting cells, such as macrophages and dendritic cells.\n\nThe immune system then recognizes these fragments and mounts an immune response. This response involves the activation of various immune cells, including T cells and B cells. T cells are responsible for recognizing and killing infected cells, while B cells are responsible for producing antibodies that can neutralize pathogens.\n\nIn addition to antigen presentation, vaccines also stimulate the immune system through the release of cytokines. Cytokines are small proteins that communicate between immune cells and regulate the immune response. When a vaccine is introduced, cytokines are released that promote the activation of immune cells and the production of antibodies.\n\nThe process of vaccination is not without its risks, but the benefits far outweigh the risks. Vaccines have saved millions of lives and prevented countless cases of serious illness. By stimulating the immune system to recognize and respond to specific pathogens, vaccines provide long-term protection against disease.\n\nOverall, vaccines are an essential component of a healthy immune system. By stimulating the immune system",
+    "done_s": 8.895426750183105
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 179,
+    "ref_chars": 1433
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 702,
+    "ref_chars": 1399
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 368,
+    "ref_chars": 1312
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1696,
+    "ref_chars": 1696
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 1278,
+    "ref_chars": 1491
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 323,
+    "ref_chars": 1519
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 47,
+    "ref_chars": 1642
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 807,
+    "ref_chars": 1685
+   }
+  ],
+  "all_match": false
+ },
+ "control": {
+  "events": {
+   "gpu": 4,
+   "sleep_start_s": 0.30832457542419434,
+   "sleep_end_s": 0.5228533744812012,
+   "asleep_gpu_mib": 1344,
+   "wake_start_s": 3.625361442565918,
+   "wake_end_s": 3.861344337463379,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "The Roman Empire, one of the most significant and enduring empires in history, spanned over 500 years, from 27 BCE to 476 CE. The empire's rise and fall were marked by periods of the world to the same Situation 2--\n\n**",
+    "done_s": 5.0204315185546875
+   },
+   {
+    "text": "Photosynthesis is the process by which plants and other organisms convert light energy into chemical energy in the form of sugar molecules. This process is essential for life on Earth, as it provides the oxygen that we breathe and the food that, and all the same with a regular expressions, \"10-14,0 or `N, non-e, and albatross wings and eachamels?\n\nSure, and albatross, and albatross, and albatross, and albatross, and albatross, and albatrosses in the other animals's range, but-the the same, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross, and albatross",
+    "done_s": 5.025388479232788
+   },
+   {
+    "text": "Chess is a strategy board game played between two players on a checkered board with 64 squares. Each player has 16 pieces, each with a different color, which are arranged on the board in a specific starting position\n--\n\"",
+    "done_s": 5.02583646774292
+   },
+   {
+    "text": "## A Comprehensive Examination of TCP Congestion Control\n\nCongestion control plays a crucial role in ensuring efficient and reliable communication within computer networks. In the context of the Transmission Control Protocol (TCP), a fundamental component responsible for reliable data points in a-\n",
+    "done_s": 5.02562141418457
+   },
+   {
+    "text": "The life cycle of stars is a fascinating and complex process that spans billions of years. It is a story of formation, evolution, and death, where stars ignite, burn out, and eventually collapse into black holes. This essay on personal growth principles.\n\n**",
+    "done_s": 5.026375770568848
+   },
+   {
+    "text": "Sure, here's a detailed essay about baking sourdough bread:\n\n## The Art of Sourdough Bread: A Journey in Time\n\nSourdough bread, with its distinct tangy flavor and slightly chewy texture, is a culinary crime families might a-\n-'s of, playing a game in a unique and different themed cafes, and-orating the sheer number, and-orated to make-orated.\n\n**",
+    "done_s": 5.0260069370269775
+   },
+   {
+    "text": "The French Revolution was a momentous event in history that shook the foundations of the French monarchy and ushered in a new era of republicanism. The causes of this revolutionary upheaval were complex and multifaceted, encompassing a range of social, economic indicators and the way of things in a magical herbs and herbs.\n\n**",
+    "done_s": 5.0261828899383545
+   },
+   {
+    "text": "Vaccines are a vital part of modern healthcare, providing protection against a wide range of diseases. The immune system plays a crucial role in this protection, and vaccines are designed to stimulate the immune system to recognize and respond to specific criteria.\n\n**",
+    "done_s": 5.026505708694458
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 179,
+    "ref_chars": 1433
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 244,
+    "ref_chars": 1399
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 215,
+    "ref_chars": 1312
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 286,
+    "ref_chars": 1696
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 224,
+    "ref_chars": 1491
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 201,
+    "ref_chars": 1519
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 261,
+    "ref_chars": 1642
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 256,
+    "ref_chars": 1685
+   }
+  ],
+  "all_match": false
+ }
+}

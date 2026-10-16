@@ -1,0 +1,261 @@
+{
+ "model": "ibm/PowerLM-3b",
+ "n_req": 8,
+ "max_tokens": 300,
+ "awake_gpu_mib": 9150,
+ "reference": [
+  {
+   "text": "\nTitle: The History of the Roman Empire: A Comprehensive Overview\n\nThe Roman Empire, one of the most powerful and influential civilizations in history, spanned over a millennium, from the Roman Republic's founding in 509 BC to its fall in 476 AD. This essay will provide a detailed overview of the Roman Empire's history, covering its origins, expansion, political structure, culture, and eventual decline.\n\nThe Roman Republic, the first phase of the Roman Empire, was characterized by a system of checks and balances, with power divided among the Senate, the Consuls, and the People. The Republic's expansion was driven by its military prowess and its ability to assimilate conquered territories. The Punic Wars, fought against Carthage, were a significant turning point, leading to the expansion of Roman territory and the establishment of Roman rule over much of the Mediterranean.\n\nThe transition from the Roman Republic to the Roman Empire was marked by the rise of Julius Caesar and his successors, who consolidated power and established a system of imperial rule. The Roman Empire was characterized by a centralized government, with the Emperor holding supreme power. The Empire's expansion was driven by military conquest, trade",
+   "done_s": 2.9354865550994873
+  },
+  {
+   "text": "\nTitle: The Marvelous Process of Photosynthesis\n\nPhotosynthesis is a remarkable process that occurs in plants, algae, and some bacteria. It is the process by which these organisms convert light energy, usually from the sun, into chemical energy in the form of glucose or other sugars. This process is the basis of all life on Earth, as it provides the energy needed for growth, reproduction, and survival.\n\nThe process of photosynthesis begins with the absorption of light by pigments, such as chlorophyll, in the plant's cells. This light energy is then used to power a series of chemical reactions. The first step in these reactions is the fixation of carbon dioxide, which is taken in from the air. This is done by an enzyme called RuBisCO, which is found in the stroma of the chloroplast.\n\nThe fixed carbon dioxide is then used to produce a three-carbon compound called 3-phosphoglycerate. This compound is then used to produce a five-carbon compound called glyceraldehyde-3-phosphate. This compound is then used to produce a six-carbon compound called glucose. This process is known as the Calvin cycle, and it is the main pathway by which plants produce",
+   "done_s": 2.947723627090454
+  },
+  {
+   "text": "\nTitle: The Rules of Chess: A Comprehensive Guide\n\nChess is a strategic board game that has been enjoyed by people of all ages for centuries. The game is played on a 64-square board, divided into eight rows and eight columns, with each player having 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns. The objective of the game is to checkmate the opponent's king, which is achieved by placing the king in a position where it is unable to move and is in check.\n\nThe rules of chess are complex and intricate, but they can be broken down into several key components. The first of these is the setup of the board, which involves placing the pieces on the board in a specific order. The pieces are placed on the squares in the following order: the king, the queen, the rooks, the knights, the bishops, and the pawns. The pawns are placed on the first rank, with the white pawns on the left and the black pawns on the right.\n\nOnce the board is set up, the players take turns moving their pieces. Each player has a turn to move one piece at a time, and the player who moves first is determined by a coin toss or a random selection. The player who moves",
+   "done_s": 2.947970390319824
+  },
+  {
+   "text": "\nTitle: The Design of TCP Congestion Control: A Comprehensive Analysis\n\nThe design of TCP (Transmission Control Protocol) congestion control is a complex process that involves several key components and mechanisms. This essay will delve into the intricacies of TCP congestion control, providing a detailed analysis of its design and operation.\n\nTCP is a reliable, connection-oriented protocol used for transmitting data over the internet. It is designed to handle network congestion by adjusting the rate at which data is transmitted based on the network conditions. The congestion control mechanism in TCP is responsible for this adjustment.\n\nThe design of TCP congestion control involves several key components. The first is the congestion window, which is a variable that determines the amount of data that can be sent without receiving an acknowledgment (ACK) from the receiver. The congestion window is initially set to one segment, and it is increased by one segment for each ACK received. If an ACK is not received within a certain time period, the congestion window is halved.\n\nThe second component is the slow start algorithm, which is used to gradually increase the congestion window. During slow start, the congestion window is increased by one segment for each ACK received. This allows the sender to gradually increase the amount of data it can send without overwhelming the network.\n\nThe third component is the congestion avoidance algorithm, which is used to",
+   "done_s": 2.9484353065490723
+  },
+  {
+   "text": "\nTitle: The Life Cycle of Stars: A Journey Through the Cosmos\n\nThe life cycle of stars is a fascinating and complex process that has captivated astronomers and astrophysicists for centuries. Stars are born, they live, and they die, each stage marked by unique characteristics and phenomena. This essay will delve into the intricacies of the life cycle of stars, providing a comprehensive overview of the process.\n\nThe life cycle of a star begins with the formation of a nebula, a cloud of dust and gas in space. Gravity causes the nebula to collapse, forming a protostar. As the protostar continues to collapse, it heats up and begins to spin, creating a disk of material around it. This disk is where planets and other celestial bodies form.\n\nThe next stage in the life cycle of a star is the main sequence stage. During this stage, the star is in equilibrium, with the force of gravity balanced by the pressure of the star's interior. The star is fusing hydrogen into helium in its core, releasing energy in the form of light and heat. This stage lasts for billions of years and is the most common stage for stars like our Sun.\n\nAfter the main sequence stage, a star will begin to evolve. This can be due to a variety of factors,",
+   "done_s": 2.9485995769500732
+  },
+  {
+   "text": "\nTitle: The Art and Science of Baking Sourdough Bread\n\nBaking sourdough bread is a labor of love that combines the ancient art of fermentation with modern science. It is a process that requires patience, precision, and a deep understanding of the ingredients and techniques involved. This essay will delve into the intricacies of baking sourdough bread, exploring the science behind the process, the importance of ingredients, and the techniques used to create the perfect loaf.\n\nThe Science Behind Sourdough Bread\n\nSourdough bread is made using a sourdough starter, a mixture of flour and water that is allowed to ferment. This fermentation process is what gives sourdough bread its unique flavor and texture. The fermentation process breaks down the starches in the flour into simple sugars, which are then consumed by the yeast in the starter. This process produces carbon dioxide, which causes the dough to rise, and lactic acid, which gives sourdough bread its distinctive tangy flavor.\n\nThe Importance of Ingredients\n\nThe quality of the ingredients used in sourdough bread can make a significant difference in the final product. The flour used in sourdough bread should be high in protein, as this",
+   "done_s": 2.9482598304748535
+  },
+  {
+   "text": "\nTitle: The Causes of the French Revolution\n\nThe French Revolution, a pivotal event in modern history, was a series of political and social upheavals that took place in France from 1789 to 1799. The revolution was a response to the economic, social, and political issues that had been simmering for decades. This essay will explore the various causes of the French Revolution, focusing on the economic, social, and political factors that contributed to the revolution.\n\nEconomic Factors:\n\nThe French Revolution was not just a political event, but also an economic one. The French economy was in a state of crisis. The country was heavily indebted, with a national debt of over 10 billion livres. The government was spending more than it was earning, and the tax system was unfair and inefficient. The peasants, who made up the majority of the population, were suffering from high taxes, low wages, and poor living conditions. They were also burdened with heavy debts and were unable to pay them off.\n\nSocial Factors:\n\nThe French Revolution was also a social revolution. The French society was divided into three estates: the clergy, the nobility, and the commoners",
+   "done_s": 2.948786497116089
+  },
+  {
+   "text": "\nTitle: The Immune System and Vaccines: A Comprehensive Guide\n\nIntroduction\n\nThe immune system is a complex network of cells, tissues, and organs that work together to defend the body against foreign invaders, such as bacteria, viruses, and parasites. It is a crucial component of our overall health and well-being. Vaccines are a powerful tool in preventing infectious diseases by training the immune system to recognize and fight off these threats. In this essay, we will explore the intricate relationship between the immune system and vaccines, focusing on how vaccines train the immune system to protect us from harmful pathogens.\n\nThe Immune System: An Overview\n\nThe immune system is a highly specialized and sophisticated network of cells, tissues, and organs that work together to defend the body against foreign invaders. It is divided into two main branches: the innate immune system and the adaptive immune system.\n\nThe innate immune system is the body's first line of defense against pathogens. It includes physical barriers, such as the skin and mucous membranes, as well as chemical barriers, such as stomach acid and enzymes. The innate immune system also includes cells such as neutroph",
+   "done_s": 2.952974796295166
+  }
+ ],
+ "noise": {
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 188,
+    "ref_chars": 1236
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 47,
+    "ref_chars": 1159
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1180,
+    "ref_chars": 1180
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1473,
+    "ref_chars": 1473
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 949,
+    "ref_chars": 1231
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 204,
+    "ref_chars": 1203
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 43,
+    "ref_chars": 1164
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 260,
+    "ref_chars": 1202
+   }
+  ],
+  "all_match": false
+ },
+ "restore": {
+  "events": {
+   "gpu": 4,
+   "sleep_start_s": 2.0079965591430664,
+   "sleep_end_s": 6.169904947280884,
+   "asleep_gpu_mib": 1912,
+   "wake_start_s": 9.26022481918335,
+   "wake_end_s": 9.91384220123291,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "\nTitle: The History of the Roman Empire: A Comprehensive Overview\n\nThe Roman Empire, one of the most powerful and influential civilizations in history, spanned over a millennium, from the Roman Republic's founding in 509 BC to its fall in 476 AD. This essay will provide a detailed overview of the Roman Empire's history, covering its origins, expansion, political structure, culture, and eventual decline.\n\nThe Roman Republic, the first phase of the Roman Empire, was characterized by a system of checks and balances, with power divided among the Senate, the Consuls, and the People. The Republic's expansion was driven by its military prowess and its ability to assimilate conquered territories. The Punic Wars, fought against Carthage, were a significant turning point, leading to the expansion of Roman territory and the establishment of Roman rule over much of the Mediterranean.\n\nThe transition from the Roman Republic to the Roman Empire was marked by the rise of Julius Caesar and his successors, who consolidated power and established a system of imperial rule. The Roman Empire was characterized by a centralized government, with the Emperor holding supreme power. The Empire's expansion was driven by military conquest, trade",
+    "done_s": 10.803856611251831
+   },
+   {
+    "text": "\nTitle: The Marvelous Process of Photosynthesis\n\nPhotosynthesis is a remarkable process that occurs in plants, algae, and some bacteria. It is the process by which these organisms convert light energy, usually from the sun, into chemical energy in the form of glucose or other sugars. This process is the basis of all life on Earth, as it provides the energy needed for growth, reproduction, and survival.\n\nThe process of photosynthesis begins with the absorption of light by pigments, such as chlorophyll, in the plant's cells. This light energy is then used to power a series of chemical reactions. The first step in these reactions is the fixation of carbon dioxide, which is taken in from the air. This is done by an enzyme called RuBisCO, which is found in the stroma of the chloroplast.\n\nThe fixed carbon dioxide is then used to produce a three-carbon compound called 3-phosphoglycerate. This compound is then used to produce a five-carbon compound called glyceraldehyde-3-phosphate. This compound is then used to produce a six-carbon compound called glucose. This process is known as the Calvin cycle, and it is the main pathway by which plants produce",
+    "done_s": 10.823554515838623
+   },
+   {
+    "text": "\nTitle: The Rules of Chess: A Comprehensive Guide\n\nChess is a strategic board game that has been enjoyed by people of all ages for centuries. The game is played on a 64-square board, divided into eight rows and eight columns, with each player having 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns. The objective of the game is to checkmate the opponent's king, which is achieved by placing the king in a position where it is unable to move and is in check.\n\nThe rules of chess are complex and intricate, but they can be broken down into several key components. The first of these is the setup of the board, which involves placing the pieces on the board in a specific order. The pieces are placed on the squares in the following order: the king, the queen, the rooks, the knights, the bishops, and the pawns. The pawns are placed on the first rank, with the white pawns on the left and the black pawns on the right.\n\nOnce the board is set up, the players take turns moving their pieces. Each player has a turn to move one piece at a time, and the player who moves first is determined by a coin toss or a random selection. The player who moves",
+    "done_s": 10.82279372215271
+   },
+   {
+    "text": "\nTitle: The Design of TCP Congestion Control: A Comprehensive Analysis\n\nThe design of TCP (Transmission Control Protocol) congestion control is a complex process that involves several key components and mechanisms. This essay will delve into the intricacies of TCP congestion control, providing a detailed analysis of its design and operation.\n\nTCP is a reliable, connection-oriented protocol used for transmitting data over the internet. It is designed to handle network congestion by adjusting the rate at which data is transmitted based on the network conditions. The congestion control mechanism in TCP is responsible for this adjustment.\n\nThe design of TCP congestion control involves several key components. The first is the congestion window, which is a variable that determines the amount of data that can be sent without receiving an acknowledgment (ACK) from the receiver. The congestion window is initially set to one segment, and it is increased by one segment for each ACK received. If an ACK is not received within a certain time period, the congestion window is halved.\n\nThe second component is the slow start algorithm, which is used to gradually increase the congestion window. During slow start, the congestion window is increased by one segment for each ACK received. This allows the sender to gradually increase the amount of data it can send without overwhelming the network.\n\nThe third component is the congestion avoidance algorithm, which is used to",
+    "done_s": 10.823018789291382
+   },
+   {
+    "text": "\nTitle: The Life Cycle of Stars: A Journey Through the Cosmos\n\nThe life cycle of stars is a fascinating and complex process that has captivated astronomers and astrophysicists for centuries. Stars are born, they live, and they die, each stage marked by unique characteristics and phenomena. This essay will delve into the intricacies of the life cycle of stars, providing a comprehensive overview of the process.\n\nThe life cycle of a star begins with the formation of a nebula, a cloud of dust and gas in space. Gravity causes the nebula to collapse, forming a protostar. As the protostar continues to collapse, it heats up and begins to spin, creating a disk of material around it. This disk is where planets and other celestial bodies form.\n\nThe next stage in the life cycle of a star is the main sequence stage. During this stage, the star is in equilibrium, with the force of gravity balanced by the pressure of the star's interior. The star is fusing hydrogen into helium in its core, releasing energy in the form of light and heat. This stage lasts for billions of years and is the most common stage for stars like our Sun.\n\nAfter the main sequence stage, a star will begin to evolve. This can be due to a variety of factors,",
+    "done_s": 10.823163986206055
+   },
+   {
+    "text": "\nTitle: The Art and Science of Baking Sourdough Bread\n\nBaking sourdough bread is a labor of love that combines the ancient art of fermentation with modern science. It is a process that requires patience, precision, and a deep understanding of the ingredients and techniques involved. This essay will delve into the intricacies of baking sourdough bread, exploring the science behind the process, the importance of ingredients, and the techniques used to create the perfect loaf.\n\nThe Science Behind Sourdough Bread\n\nSourdough bread is made using a sourdough starter, a mixture of flour and water that is allowed to ferment. This fermentation process is what gives sourdough bread its unique flavor and texture. The fermentation process breaks down the starches in the flour into simple sugars, which are then consumed by the yeast in the starter. This process produces carbon dioxide, which causes the dough to rise, and lactic acid, which gives sourdough bread its distinctive tangy flavor.\n\nThe Importance of Ingredients\n\nThe quality of the ingredients used in sourdough bread can make a significant difference in the final product. The flour used in sourdough bread should be high in protein, as this",
+    "done_s": 10.82370901107788
+   },
+   {
+    "text": "\nTitle: The Causes of the French Revolution\n\nThe French Revolution, a pivotal event in modern history, was a series of political and social upheavals that took place in France from 1789 to 1799. The revolution was a response to the economic, social, and political issues that had been simmering for decades. This essay will explore the various causes of the French Revolution, focusing on the economic, social, and political factors that contributed to the revolution.\n\nEconomic Factors:\n\nThe French Revolution was not just a political event, but also an economic one. The French economy was in a state of crisis. The country was heavily indebted, with a national debt of over 10 billion livres. The government was spending more than it was earning, and the tax system was unfair and inefficient. The peasants, who made up the majority of the population, were suffering from high taxes, low wages, and poor living conditions. They were also burdened with heavy debts and were unable to pay them off.\n\nSocial Factors:\n\nThe French Revolution was also a social revolution. The French society was divided into three estates: the clergy, the nobility, and the commoners",
+    "done_s": 10.823335647583008
+   },
+   {
+    "text": "\nTitle: The Immune System and Vaccines: A Comprehensive Guide\n\nIntroduction\n\nThe immune system is a complex network of cells, tissues, and organs that work together to defend the body against foreign invaders, such as bacteria, viruses, and parasites. It is a crucial component of our overall health and well-being. Vaccines are a powerful tool in preventing infectious diseases by training the immune system to recognize and fight off these threats. In this essay, we will explore the intricate relationship between the immune system and vaccines, focusing on how vaccines train the immune system to protect us from harmful pathogens.\n\nThe Immune System: An Overview\n\nThe immune system is a highly specialized and sophisticated network of cells, tissues, and organs that work together to defend the body against foreign invaders. It is divided into two main branches: the innate immune system and the adaptive immune system.\n\nThe innate immune system is the body's first line of defense against pathogens. It includes physical barriers, such as the skin and mucous membranes, as well as chemical barriers, such as stomach acid and enzymes. The innate immune system also includes cells such as neutroph",
+    "done_s": 10.829887628555298
+   }
+  ],
+  "compare": [
+   {
+    "match": true,
+    "common_prefix_chars": 1236,
+    "ref_chars": 1236
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1159,
+    "ref_chars": 1159
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1180,
+    "ref_chars": 1180
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1473,
+    "ref_chars": 1473
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1231,
+    "ref_chars": 1231
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1203,
+    "ref_chars": 1203
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1164,
+    "ref_chars": 1164
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1202,
+    "ref_chars": 1202
+   }
+  ],
+  "all_match": true
+ },
+ "control": {
+  "events": {
+   "gpu": 4,
+   "sleep_start_s": 2.0108189582824707,
+   "sleep_end_s": 2.758030652999878,
+   "asleep_gpu_mib": 1912,
+   "wake_start_s": 5.852761507034302,
+   "wake_end_s": 6.197974443435669,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "\nTitle: The History of the Roman Empire: A Comprehensive Overview\n\nThe Roman Empire, one of the most powerful and influential civilizations in history, spanned over a millennium, from the founding of the city of Rome in 753 BC to its fall in 476 AD. This essay will provide a detailed overview of the history of the Roman Empire, covering its origins, expansion, political structure, culture, and eventual decline.\n\nThe Roman Empire began as a small city-state in central Italy, founded by Romulus and Remus, the legendary sons of the god Mars. The city was initially a small settlement, but it grew and expanded over time, eventually becoming the capital of the Roman Republic. The Roman Republic was a democratic form of government, with power shared among the Senate, the Consuls, and the people.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+    "done_s": 7.093531608581543
+   },
+   {
+    "text": "\nTitle: The Intricate Process of Photosynthesis: A Comprehensive Analysis\n\nPhotosynthesis is a complex biochemical process that occurs in plants, algae, and some bacteria. It is the process by which these organisms convert light energy, usually from the sun, into chemical energy in the form of glucose or other sugars. This process is fundamental to life on Earth, as it is the primary source of energy for most organisms.\n\nThe process of photosynthesis can be broken down into two main stages: the light-dependent reactions and the light-independent reactions, also known as the Calvin cycle.\n\nThe light-dependent reactions occur in the thylakoid membranes of the chloroplasts. These reactions involve the absorption of light by pigments such as chlorophyll and carotenoids. The absorbed light energy is used to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to to",
+    "done_s": 7.105572938919067
+   },
+   {
+    "text": "\nTitle: The Rules of Chess: A Comprehensive Guide\n\nChess is a strategic board game that has been enjoyed by people of all ages for centuries. The game is played on a 64-square board, divided into eight rows and eight columns, with each player having 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns. The objective of the game is to checkmate the opponent's king, which is achieved by placing the king in a position where it is unable to move and is in check.\n\nThe rules of chess are complex and intricate, but they can be broken down into several key components. The first of these is the setup of the board, which involves placing the pieces on the board in a specific order. The pieces are placed on the squares in the following order: the king, queen, rookokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokokok",
+    "done_s": 7.105785369873047
+   },
+   {
+    "text": "\nTitle: The Design of TCP Congestion Control: A Comprehensive Analysis\n\nThe design of TCP (Transmission Control Protocol) congestion control is a complex process that involves several key components and mechanisms. This essay will delve into the intricacies of TCP congestion control, providing a detailed analysis of its design and operation.\n\nTCP is a protocol used for reliable data transmission over IP networks. It is designed to handle network congestion by adjusting the rate at which data is transmitted based on the network conditions. The congestion control mechanism in TCP is responsible for this adjustment.\n\nThe design of TCP congestion control is based on the concept of slow start, congestion avoidance, fast retransmit, and fast recovery. These phases are triggered by different network conditions and are designed to handle congestion in a controlled manner.\n\nThe slow start phase is initiated when the network is congestion-free. In this phase, the sender transmits small packets at a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+    "done_s": 7.105988502502441
+   },
+   {
+    "text": "\nTitle: The Life Cycle of Stars: A Journey Through the Cosmos\n\nThe life cycle of stars is a fascinating and complex process that has captivated astronomers and astrophysicists for centuries. Stars are born, they live, and they die, each stage marked by unique characteristics and phenomena. This essay will delve into the intricacies of the life cycle of stars, providing a comprehensive overview of the process.\n\nThe life cycle of a star begins with the formation of a nebula, a cloud of dust and gas in space. Gravity causes the nebula to collapse, forming a protostar. As the protostar continues to collapse, it heats up and begins to spin, creating a disk of material around it. This disk is where planets and other celestial bodies form.\n\nThe next stage in the life cycle of a star is the main sequence stage. During this stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage stage",
+    "done_s": 7.106220960617065
+   },
+   {
+    "text": "\nTitle: The Art and Science of Baking Sourdough Bread\n\nBaking sourdough bread is a labor of love that combines the ancient art of fermentation with modern science. It is a process that requires patience, skill, and a deep understanding of the ingredients and techniques involved. In this essay, we will explore the intricacies of baking sourdough bread, from the selection of ingredients to the final baking process.\n\nThe first step in baking sourdough bread is the creation of the starter. This is a mixture of flour and water that is allowed to ferment, creating a living culture of yeast and bacteria. The starter is fed regularly with flour and water, and its activity is monitored to ensure that it is healthy and active. The starter is the key to the flavor and texture of the bread, and it is essential that it is well- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of- of",
+    "done_s": 7.106361389160156
+   },
+   {
+    "text": "\nTitle: The Causes of the French Revolution\n\nThe French Revolution, a pivotal event in modern history, was a series of political and social upheavals that took place in France from 1789 to 1799. The revolution was a response to the economic, social, and political issues that plagued the French society at the time. This essay will delve into the various causes of the French Revolution, providing a comprehensive understanding of the events that led to this monumental change in French history.\n\nThe first cause of the French Revolution was the economic crisis. The French economy was in a state of decline, with high taxes, inflation, and a lack of economic opportunities for the common people. The French government, led by the monarchy, was unable to address these issues, leading to widespread discontent among the populace.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+    "done_s": 7.111552000045776
+   },
+   {
+    "text": "\nTitle: The Immune System and Vaccines: A Comprehensive Guide\n\nIntroduction\n\nThe immune system is a complex network of cells, tissues, and organs that work together to defend the body against foreign invaders, such as bacteria, viruses, and parasites. It is a remarkable system that has evolved over millions of years to protect us from harm. One of the most effective ways to strengthen the immune system is through vaccination. In this essay, we will explore how vaccines train the immune system to recognize and fight off pathogens.\n\nHow Vaccines Work\n\nVaccines work by introducing a weakened or dead form of a pathogen into the body. This triggers an immune response, which involves the activation of immune cells, the production of antibodies, and the development of memory cells. These memory cells remain in the body and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and and",
+    "done_s": 7.111709356307983
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 188,
+    "ref_chars": 1236
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 12,
+    "ref_chars": 1159
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 784,
+    "ref_chars": 1180
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 354,
+    "ref_chars": 1473
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 832,
+    "ref_chars": 1231
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 204,
+    "ref_chars": 1203
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 276,
+    "ref_chars": 1164
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 260,
+    "ref_chars": 1202
+   }
+  ],
+  "all_match": false
+ }
+}
