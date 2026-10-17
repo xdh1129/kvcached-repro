@@ -9,7 +9,7 @@ set -uo pipefail
 ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 SETS=("$@")
 ((${#SETS[@]})) || SETS=(1:0.2 2:0.2 1:1 2:1)
-CONFIGS=(dram+recompute dram+dram ssd+ssd gds+gds dram+ssd dram+gds)
+CONFIGS=(vllm dram+dram ssd+ssd gds+gds dram+ssd dram+gds)  # vllm: vLLM's own sleep mode, no plugin
 declare -A GPUS=([1]="1" [2]="1 2")
 
 run() {  # run <name> <env...>

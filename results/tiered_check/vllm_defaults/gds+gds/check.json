@@ -1,0 +1,261 @@
+{
+ "model": "meta-llama/Meta-Llama-3.1-8B",
+ "n_req": 8,
+ "max_tokens": 300,
+ "awake_gpu_mib": 17590,
+ "reference": [
+  {
+   "text": "The Roman Empire was a vast empire that lasted for over 500 years. It was founded by the Romans, who were a powerful and influential people. The Roman Empire was a major power in the ancient world, and it had a significant impact on the development of Western civilization. The Roman Empire was a major power in the ancient world, and it had a significant impact on the development of Western civilization. The Roman Empire was a major power in the ancient world, and it had a significant impact on the development of Western civilization. The Roman Empire was a major power in the ancient world, and it had a significant impact on the development of Western civilization. The Roman Empire was a major power in the ancient world, and it had a significant impact on the development of Western civilization. The Roman Empire was a major power in the ancient world, and it had a significant impact on the development of Western civilization. The Roman Empire was a major power in the ancient world, and it had a significant impact on the development of Western civilization. The Roman Empire was a major power in the ancient world, and it had a significant impact on the development of Western civilization. The Roman Empire was a major power in the ancient world, and it had a significant impact on the development of Western civilization. The Roman Empire was a major power in the ancient world, and it had a significant impact on the development of Western civilization. The Roman Empire was a major power in the ancient world, and it had a significant impact on the",
+   "done_s": 4.344068765640259
+  },
+  {
+   "text": "Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a",
+   "done_s": 4.358775615692139
+  },
+  {
+   "text": "Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a",
+   "done_s": 4.359381437301636
+  },
+  {
+   "text": "The design of TCP congestion control is a complex and important topic in computer networking. It involves the use of various algorithms and techniques to ensure that data is transmitted efficiently and reliably over a network. In this essay, we will explore the key aspects of TCP congestion control, including its history, the different algorithms used, and the challenges and limitations of this approach.\nThe history of TCP congestion control dates back to the early days of the Internet. In the 1970s, the Transmission Control Protocol (TCP) was developed as a way to ensure reliable data transmission over the network. However, as the Internet grew and became more widely used, it became clear that TCP needed to be improved to handle the increasing amount of traffic and the changing network conditions.\nOne of the first major improvements to TCP congestion control was the addition of the Slow Start algorithm in the 1980s. This algorithm was designed to prevent the network from becoming overloaded by allowing the sender to gradually increase the amount of data it sends until it reaches a stable rate. This approach helped to prevent congestion and improve the overall performance of the network.\nIn the 1990s, the TCP congestion control algorithm was further refined with the addition of the Congestion Avoidance algorithm. This algorithm was designed to detect and respond to congestion in the network by reducing the amount of data sent by the sender. This approach helped to prevent congestion and improve the overall performance of the network.\nIn the 2000s, the TCP congestion control algorithm was further refined",
+   "done_s": 4.358475923538208
+  },
+  {
+   "text": "The life cycle of stars is a fascinating topic that has captivated astronomers and scientists for centuries. Stars are born, live, and die in a complex and intricate process that is still being studied and understood today. In this essay, we will explore the life cycle of stars, from their formation to their eventual demise.\nStars are born in giant clouds of gas and dust called nebulae. These nebulae are made up of hydrogen and helium, the two most abundant elements in the universe. As the nebulae collapse under their own gravity, they begin to spin and heat up. This heat causes the hydrogen and helium to fuse together, creating a star.\nThe size and brightness of a star is determined by its mass. The more massive a star is, the brighter and hotter it will be. The smallest stars, called red dwarfs, are only a few times the mass of our sun. The largest stars, called supergiants, can be hundreds of thousands of times more massive than our sun.\nOnce a star is born, it begins its life as a main-sequence star. This is the stage where the star is fusing hydrogen into helium in its core. The sun is currently in this stage, and it will remain in this stage for about 10 billion years.\nAs a star ages, it begins to run out of hydrogen in its core. This causes the star to expand and cool, becoming a red giant. The sun will become a red giant in about 5",
+   "done_s": 4.361821889877319
+  },
+  {
+   "text": "Paragraph 0: notes about baking sourdough bread, item 5. Paragraph 1: notes about baking sourdough bread, item 12. Paragraph 2: notes about baking sourdough bread, item 19. Paragraph 3: notes about baking sourdough bread, item 26. Paragraph 4: notes about baking sourdough bread, item 33. Paragraph 5: notes about baking sourdough bread, item 40. Paragraph 6: notes about baking sourdough bread, item 47. Paragraph 7: notes about baking sourdough bread, item 54. Paragraph 8: notes about baking sourdough bread, item 61. Paragraph 9: notes about baking sourdough bread, item 68. Paragraph 10: notes about baking sourdough bread, item 75. Paragraph 11: notes about baking sourdough bread, item 82. Paragraph 12: notes about baking sourdough bread, item 89. Paragraph 13: notes about baking sourdough bread, item 96. Paragraph 14: notes about baking sourdough bread, item 103. Paragraph 15: notes about baking sourdough bread, item 110. Paragraph 16: notes about baking sourdough bread, item 117. Paragraph 17: notes about baking sourdough bread, item 124. Paragraph 18: notes about baking sourdough bread,",
+   "done_s": 4.359060525894165
+  },
+  {
+   "text": "The French Revolution was a period of radical social and political upheaval in France that lasted from 1789 until 1799. It was a time of great change and turmoil, as the French people fought for their rights and freedoms. The causes of the French Revolution are complex and multifaceted, but some of the key factors that contributed to the outbreak of the revolution include:\n1. Economic and social inequality: The French society was deeply divided between the wealthy aristocracy and the poor peasantry. The aristocracy enjoyed a privileged position in society, while the peasantry lived in poverty and faced high levels of taxation. This inequality led to widespread discontent and resentment among the lower classes.\n2. Political corruption: The French monarchy was corrupt and inefficient, and the government was riddled with nepotism and favoritism. The people were tired of the monarchy\u2019s abuses of power and demanded a more democratic and accountable government.\n3. Enlightenment ideas: The Enlightenment was a period of intellectual and cultural change that emphasized reason, individualism, and the rights of the people. These ideas were popular among the French people and helped to fuel the demand for political and social reform.\n4. The American Revolution: The American Revolution was a major inspiration for the French Revolution. The success of the American colonies in overthrowing British rule and establishing a democratic government inspired the French people to demand similar changes in their own country.\n5. The French monarchy\u2019s financial problems: The French monarchy was deeply in debt, and the",
+   "done_s": 4.361760854721069
+  },
+  {
+   "text": "Paragraph 0: notes about how vaccines train the immune system, item 7.\nParagraph 1: notes about how vaccines train the immune system, item 14.\nParagraph 2: notes about how vaccines train the immune system, item 21.\nParagraph 3: notes about how vaccines train the immune system, item 28.\nParagraph 4: notes about how vaccines train the immune system, item 35.\nParagraph 5: notes about how vaccines train the immune system, item 42.\nParagraph 6: notes about how vaccines train the immune system, item 49.\nParagraph 7: notes about how vaccines train the immune system, item 56.\nParagraph 8: notes about how vaccines train the immune system, item 63.\nParagraph 9: notes about how vaccines train the immune system, item 70.\nParagraph 10: notes about how vaccines train the immune system, item 77.\nParagraph 11: notes about how vaccines train the immune system, item 84.\nParagraph 12: notes about how vaccines train the immune system, item 91.\nParagraph 13: notes about how vaccines train the immune system, item 98.\nParagraph 14: notes about how vaccines train the immune system, item 105.\nParagraph 15: notes about how vaccines train the immune system, item 112.\nParagraph 16: notes about how vaccines train the immune system, item 119.\nParagraph 17: notes about how vaccines train the immune",
+   "done_s": 4.361983776092529
+  }
+ ],
+ "noise": {
+  "compare": [
+   {
+    "match": true,
+    "common_prefix_chars": 1566,
+    "ref_chars": 1566
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1604,
+    "ref_chars": 1604
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1442,
+    "ref_chars": 1442
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1630,
+    "ref_chars": 1630
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1361,
+    "ref_chars": 1361
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1104,
+    "ref_chars": 1104
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1619,
+    "ref_chars": 1619
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1288,
+    "ref_chars": 1288
+   }
+  ],
+  "all_match": true
+ },
+ "restore": {
+  "events": {
+   "gpu": 3,
+   "sleep_start_s": 2.008333921432495,
+   "sleep_end_s": 4.911110162734985,
+   "asleep_gpu_mib": 1604,
+   "wake_start_s": 8.014973402023315,
+   "wake_end_s": 9.909241914749146,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "The Roman Empire was a vast empire that lasted for over 500 years. It was founded by the Romans, who were a powerful and influential people. The Roman Empire was a major power in the ancient world, and it had a significant impact on the development of Western civilization.\nThe Roman Empire was founded in 27 BC, when the Roman Republic was transformed into an empire. The first emperor was Augustus, who was the adopted son of Julius Caesar. Augustus was a skilled politician and a talented military leader, and he was able to consolidate the power of the Roman Empire.\nThe Roman Empire was a highly organized and efficient society. It had a strong central government, and it was ruled by a series of emperors. The emperors were powerful and influential figures, and they were able to maintain order and stability in the empire.\nThe Roman Empire was a major power in the ancient world. It had a large and powerful army, and it was able to conquer and control a large part of the world. The Roman Empire was also a major economic power, and it was able to trade with other countries and cultures.\nThe Roman Empire was a major cultural force in the ancient world. It was home to some of the most famous writers, artists, and philosophers of the time. The Roman Empire was also a major religious center, and it was home to many different religions.\nThe Roman Empire was a major power in the ancient world, and it had a significant impact on the development of Western",
+    "done_s": 12.216991662979126
+   },
+   {
+    "text": "Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a",
+    "done_s": 12.201910018920898
+   },
+   {
+    "text": "The rules of chess are very simple. The game is played on a board with 64 squares, arranged in an 8x8 grid. The pieces are divided into two groups: white and black. The white pieces are the king, queen, rook, bishop, knight, and pawn. The black pieces are the king, queen, rook, bishop, knight, and pawn. The game is played by two players, each with their own set of pieces. The objective of the game is to checkmate the opponent's king, which means to place the king in a position where it cannot move or escape from attack.\nThe game begins with each player placing their pieces on the board according to a specific setup. The white pieces are placed on the first row, while the black pieces are placed on the second row. The pieces are arranged in a specific order, with the king on the left, followed by the queen, rook, bishop, knight, and pawn. The game is then played in turns, with each player moving one piece at a time. The player who moves first is determined by a coin toss or some other method of random selection.\nThe pieces have different moves and powers. The king can move one square in any direction, but cannot move into a square that is under attack by an opponent's piece. The queen can move any number of squares in any direction, but cannot move into a square that is under attack by an opponent's piece. The rook can",
+    "done_s": 12.217413425445557
+   },
+   {
+    "text": "The design of TCP congestion control is a complex and important topic in computer networking. It involves the use of various algorithms and techniques to ensure that data is transmitted efficiently and reliably over a network. In this essay, we will explore the key aspects of TCP congestion control, including its history, principles, and implementation.\nThe history of TCP congestion control dates back to the early days of the Internet. In the 1980s, the Internet was experiencing rapid growth, and the need for a reliable and efficient data transmission protocol became increasingly important. At the time, the Transmission Control Protocol (TCP) was the dominant protocol for data transmission, and it was designed to handle a wide range of network conditions.\nHowever, as the Internet grew, it became clear that TCP was not well-suited to handle the increasing congestion on the network. In particular, TCP was not able to adapt to changing network conditions, such as fluctuations in bandwidth and packet loss. This led to a number of problems, including slow data transmission, packet loss, and network congestion.\nIn response to these problems, a number of researchers and engineers began to develop new algorithms and techniques for TCP congestion control. These efforts led to the development of a number of different congestion control algorithms, including the Slow Start algorithm, the Congestion Avoidance algorithm, and the Fast Recovery algorithm.\nThe principles of TCP congestion control are based on the idea of congestion avoidance. The goal of congestion avoidance is to ensure that data is transmitted efficiently and reliably over a network,",
+    "done_s": 12.217211484909058
+   },
+   {
+    "text": "The life cycle of stars is a fascinating topic that has captivated astronomers and scientists for centuries. Stars are born, live, and die in a complex and intricate process that is still being studied and understood today. In this essay, we will explore the life cycle of stars, from their formation to their eventual demise.\nStars are born in giant clouds of gas and dust called nebulae. These nebulae are made up of hydrogen and helium, the two most abundant elements in the universe. As the nebulae collapse under their own gravity, they begin to spin and heat up. This heat causes the hydrogen and helium to fuse together, creating a star.\nThe size and brightness of a star is determined by its mass. The more massive a star is, the brighter and hotter it will be. The smallest stars, called red dwarfs, are only a few times the mass of our sun. The largest stars, called supergiants, can be hundreds of thousands of times more massive than our sun.\nOnce a star is born, it begins its life as a main-sequence star. This is the stage where the star is fusing hydrogen into helium in its core. The energy released by this fusion process is what keeps the star shining brightly.\nAs a star ages, it begins to run out of hydrogen in its core. This causes the star to expand and cool, becoming a red giant. The outer layers of the star are blown off into space, creating a planetary nebula.",
+    "done_s": 12.224295854568481
+   },
+   {
+    "text": "Paragraph 0: notes about baking sourdough bread, item 5. Paragraph 1: notes about baking sourdough bread, item 12. Paragraph 2: notes about baking sourdough bread, item 19. Paragraph 3: notes about baking sourdough bread, item 26. Paragraph 4: notes about baking sourdough bread, item 33. Paragraph 5: notes about baking sourdough bread, item 40. Paragraph 6: notes about baking sourdough bread, item 47. Paragraph 7: notes about baking sourdough bread, item 54. Paragraph 8: notes about baking sourdough bread, item 61. Paragraph 9: notes about baking sourdough bread, item 68. Paragraph 10: notes about baking sourdough bread, item 75. Paragraph 11: notes about baking sourdough bread, item 82. Paragraph 12: notes about baking sourdough bread, item 89. Paragraph 13: notes about baking sourdough bread, item 96. Paragraph 14: notes about baking sourdough bread, item 103. Paragraph 15: notes about baking sourdough bread, item 110. Paragraph 16: notes about baking sourdough bread, item 117. Paragraph 17: notes about baking sourdough bread, item 124. Paragraph 18: notes about baking sourdough bread,",
+    "done_s": 12.224462032318115
+   },
+   {
+    "text": "The French Revolution was a period of radical social and political upheaval in France that lasted from 1789 until 1799. It was a time of great change and turmoil, as the French people fought for their rights and freedoms. The causes of the French Revolution were complex and multifaceted, but some of the key factors that contributed to the outbreak of the revolution were the economic crisis, the political system, and the social inequalities.\nThe economic crisis was one of the main causes of the French Revolution. The French economy was in a state of decline in the late 18th century, and the people were suffering from high levels of poverty and unemployment. The government was unable to provide adequate relief, and this led to widespread discontent among the people.\nThe political system was also a major cause of the French Revolution. The French monarchy was absolute, and the people had no say in the government. The king had complete control over the country, and he was able to make decisions without consulting the people. This led to a feeling of frustration and resentment among the people, who felt that they had no voice in the government.\nThe social inequalities were another major cause of the French Revolution. The French society was divided into three classes: the nobility, the clergy, and the common people. The nobility and the clergy had all the power and wealth, while the common people were poor and had no rights. This led to a feeling of injustice and inequality among the people, who felt that they were",
+    "done_s": 12.22403621673584
+   },
+   {
+    "text": "Paragraph 0: notes about how vaccines train the immune system, item 7.\nParagraph 1: notes about how vaccines train the immune system, item 14.\nParagraph 2: notes about how vaccines train the immune system, item 21.\nParagraph 3: notes about how vaccines train the immune system, item 28.\nParagraph 4: notes about how vaccines train the immune system, item 35.\nParagraph 5: notes about how vaccines train the immune system, item 42.\nParagraph 6: notes about how vaccines train the immune system, item 49.\nParagraph 7: notes about how vaccines train the immune system, item 56.\nParagraph 8: notes about how vaccines train the immune system, item 63.\nParagraph 9: notes about how vaccines train the immune system, item 70.\nParagraph 10: notes about how vaccines train the immune system, item 77.\nParagraph 11: notes about how vaccines train the immune system, item 84.\nParagraph 12: notes about how vaccines train the immune system, item 91.\nParagraph 13: notes about how vaccines train the immune system, item 98.\nParagraph 14: notes about how vaccines train the immune system, item 105.\nParagraph 15: notes about how vaccines train the immune system, item 112.\nParagraph 16: notes about how vaccines train the immune system, item 119.\nParagraph 17: notes about how vaccines train the immune",
+    "done_s": 12.22417402267456
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 273,
+    "ref_chars": 1566
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1604,
+    "ref_chars": 1604
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 0,
+    "ref_chars": 1442
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 324,
+    "ref_chars": 1630
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 1101,
+    "ref_chars": 1361
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1104,
+    "ref_chars": 1104
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 258,
+    "ref_chars": 1619
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1288,
+    "ref_chars": 1288
+   }
+  ],
+  "all_match": false
+ },
+ "control": {
+  "events": {
+   "gpu": 3,
+   "sleep_start_s": 2.007596492767334,
+   "sleep_end_s": 4.653068780899048,
+   "asleep_gpu_mib": 1604,
+   "wake_start_s": 7.773195505142212,
+   "wake_end_s": 9.693769216537476,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "The Roman Empire was a vast empire that lasted for over 500 years. It was founded by the Romans, who were a powerful and influential people. The Roman Empire was a major power in the ancient world, and it had a significant impact on the development of Western civilization. The Roman Empire was a major power in the ancient world, and it had a significant impact on the development of Western civilization. The Roman Empire was a major power in the ancient world, and it had a significant impact on the development of Western civilization. The Roman Empire was a major power in the ancient world, and the best way to find the best way to find the best way to find the best way to find the best way to find thes\nThe 1, the best way to find the best way to\nThe 2. The best way to find the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best way to the best to the way to the best way to the best way to the",
+    "done_s": 11.988577127456665
+   },
+   {
+    "text": "Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how photosynthesis works. Now write a detailed essay about how to protect your privacy.\nQuestion: //Question: thes\nThe first statement\nThe first argument. The first. The first. The first. Theorem 1.Question 2. Theorem 2. Theorem 3rd person. Theorem 4th\nThe 5th, 6th, 7 theorems 8. 9th 9 of the 10 10 of the 10 of 10 of the 11 the 11 of the 12 12 12 13 of the 13 14 of 14 of 15 of 15 for 16 16 and 17 17 17 of 18 18 19 19 20 20 20 20 21 21 21 22 22 22 and 23 23 24 24 25 25 ",
+    "done_s": 12.003152847290039
+   },
+   {
+    "text": "Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the rules of chess. Now write a detailed essay about the the the first time.Question: what is the question\nThe 1, the question mark\nThe question mark. The question mark. The mark 2.Question mark. The mark. The mark. The mark. The mark. 2.Question mark. the question mark. The mark. to the 2. The mark. to mark. of the. of the. of 2nd mark. of the. of 2nd the of the 2nd the of the 2nd the 2nd of the 2nd of the 2nd of the 2nd of the 2nd of the 2nd of the 2nd of the 2nd of the 2nd of the 2nd of the 2nd of the 2nd of the 2nd of the 2nd of the 2.",
+    "done_s": 12.003738164901733
+   },
+   {
+    "text": "The design of TCP congestion control is a complex and important topic in computer networking. It involves the use of various algorithms and techniques to ensure that data is transmitted efficiently and reliably over a network. In this essay, we will explore the key aspects of TCP congestion control, including its history, the different algorithms used, and the challenges and limitations of this approach.\nThe history of TCP congestion control dates back to the early days of the Internet. In the 1970s, the Transmission Control Protocol (TCP) was developed as a way to ensure reliable data transmission over the network. However,OOOOOOOOOOOOOOOOOOOOOOOOOOOO.Question: //www.Question markovvvee 00. Theorems and so that theorems theorems theorems theorems aorems of theorems of theorems of theorems of theorems of theorems of theorems of theorems of theorems oftheoretical theorems of theorems ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe ofthe of",
+    "done_s": 12.003449201583862
+   },
+   {
+    "text": "The life cycle of stars is a fascinating topic that has captivated astronomers and scientists for centuries. Stars are born, live, and die in a complex and intricate process that is still being studied and understood today. In this essay, we will explore the life cycle of stars, from their formation to their eventual demise.\nStars are born in giant clouds of gas and dust called nebulae. These nebulae are made up of hydrogen and helium, the two most abundant elements in the universe. As the nebulae collapse under their own gravity, they begin to spin and heat, heat is a good news\nA, B, and the best way to\nA, and the best way to find. The best way to\nA to the way to get the way to the way to\nA the way to\nA the\nA the way to\nA the way to\nA the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the way to the",
+    "done_s": 12.006040811538696
+   },
+   {
+    "text": "Paragraph 0: notes about baking sourdough bread, item 5. Paragraph 1: notes about baking sourdough bread, item 12. Paragraph 2: notes about baking sourdough bread, item 19. Paragraph 3: notes about baking sourdough bread, item 26. Paragraph 4: notes about baking sourdough bread, item 33. Paragraph 5: notes about baking sourdough bread, item 40. Paragraph 6: notes about baking sourdough bread, item 47. Paragraph 7: notes 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
+    "done_s": 12.00420093536377
+   },
+   {
+    "text": "The French Revolution was a period of radical social and political upheaval in France that lasted from 1789 until 1799. It was a time of great change and turmoil, as the French people fought for their rights and freedoms. The causes of the French Revolution are complex and multifaceted, but some of the key factors that contributed to the outbreak of the revolution include:\n1. Economic and social inequality: The French society was deeply divided between the wealthy aristocracy and the poor peasantry. The aristocracy enjoyed a privileged position in society, while the peasantry lived in the >Question: The 1. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first. The first.",
+    "done_s": 12.00623869895935
+   },
+   {
+    "text": "Paragraph 0: notes about how vaccines train the immune system, item 7.\nParagraph 1: notes about how vaccines train the immune system, item 14.\nParagraph 2: notes about how vaccines train the immune system, item 21.\nParagraph 3: notes about how vaccines train the immune system, item 28.\nParagraph 4: notes about how vaccines train the immune system, item 35.\nParagraph 5: notes about how vaccines train the immune system, item 42.\nParagraph 6: notes about how vaccines train the immune system, item 1.Question: //Question thet the endobj; the endobj; the endash; the endash; the end the end the end the end the end the end the end the end the of the end the end the of the end the of the end the of the end the of the end of the end of the end of the end of the end of the end of the end of the end of the end of the end of the end of the end of the end of the end of the end of the end of the end of the end of the end of the end of the end of the end of the end of the end of the end of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of the of",
+    "done_s": 12.006429195404053
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 601,
+    "ref_chars": 1566
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 627,
+    "ref_chars": 1604
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 567,
+    "ref_chars": 1442
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 632,
+    "ref_chars": 1630
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 564,
+    "ref_chars": 1361
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 424,
+    "ref_chars": 1104
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 592,
+    "ref_chars": 1619
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 499,
+    "ref_chars": 1288
+   }
+  ],
+  "all_match": false
+ }
+}

@@ -12,6 +12,7 @@
 #      PATHS=<weights>+<kv>[:seq]  agent-restore swapping with the tiered_restore plugin,
 #                  e.g. dram+gds: weights offloaded to DRAM, KV to GDS (paths: dram|ssd|gds).
 #                  Implies SWAP=1, and the proxy evicts without draining (--keep).
+#                  PATHS=vllm: vLLM's own sleep mode instead (no plugin), also with --keep.
 #                  :seq loads weights then KV instead of both at once.
 #                  Files go to TIERED_ROOT (default /mnt/raid0/xdh/tiered/<run_name>), removed at the end.
 #      MIN_RESIDENT_S  with PATHS: minimum residency of a busy woken instance (default 5)
@@ -46,7 +47,18 @@ HEADROOM_GIB=${HEADROOM_GIB:-3}
 PATHS=${PATHS:-}
 MIN_RESIDENT_S=${MIN_RESIDENT_S:-5}
 proxy_args=()
-if [[ -n "$PATHS" ]]; then
+if [[ "$PATHS" == vllm ]]; then
+    # vLLM's own sleep mode (cumem backend, no tiered_restore): weights to DRAM on every
+    # sleep, the frozen requests' KV dropped and recomputed on wake
+    SWAP=1
+    unset TIERED_WEIGHTS TIERED_KV
+    proxy_args=(--keep --min-resident-s "$MIN_RESIDENT_S")
+    if [[ -n "${SCHEDULE:-}" ]]; then
+        proxy_args+=(--schedule "$SCHEDULE")
+    elif [[ "${KV_PRESSURE:-0}" == 1 ]]; then
+        proxy_args+=(--kv-pressure --pressure-free-gib "${PRESSURE_FREE_GIB:-6}")
+    fi
+elif [[ -n "$PATHS" ]]; then
     SWAP=1
     paths=${PATHS%%:*}
     export TIERED_WEIGHTS=${paths%+*} TIERED_KV=${paths#*+}
@@ -97,8 +109,14 @@ done
     echo "kvcached_gpu_utilization=$KVCACHED_GPU_UTILIZATION"
     echo "sample_interval=0.25"
     if [[ -n "$PATHS" ]]; then
-        echo "swap=tiered paths=$PATHS weights=$TIERED_WEIGHTS kv=$TIERED_KV parallel=$TIERED_PARALLEL"
-        echo "tiered_root=$TIERED_ROOT"
+        if [[ "$PATHS" == vllm ]]; then
+            echo "swap=vllm paths=vllm (vLLM sleep mode, cumem backend)"
+        else
+            echo "swap=tiered paths=$PATHS weights=$TIERED_WEIGHTS kv=$TIERED_KV parallel=$TIERED_PARALLEL"
+            echo "tiered_root=$TIERED_ROOT"
+            env | grep -E '^TIERED_(WEIGHTS_SAVE|KV_MERGE|WEIGHTS_PACE|DRAM_KV_RESERVE_GB|GDS_GATE)=' \
+                | sed 's/^/tiered_opt_/' || true
+        fi
         echo "min_resident_s=$MIN_RESIDENT_S"
         echo "kv_pressure=${KV_PRESSURE:-0}"
         [[ -n "${SCHEDULE:-}" ]] && echo "schedule=$SCHEDULE"
@@ -114,7 +132,7 @@ cleanup() {
     [[ -n "$PROXY_PID" ]] && kill "$PROXY_PID" 2> /dev/null
     [[ -n "$MONITOR_PID" ]] && kill "$MONITOR_PID" 2> /dev/null && wait "$MONITOR_PID" 2> /dev/null
     bash "$ROOT/scripts/stop_servers.sh" "$RUN_DIR"
-    [[ -n "$PATHS" ]] && rm -rf "$TIERED_ROOT"
+    [[ -n "${TIERED_ROOT:-}" ]] && rm -rf "$TIERED_ROOT"
     "$PY" "$ROOT/analysis/prism_run_report.py" "$RUN_DIR" || true
 }
 trap cleanup EXIT

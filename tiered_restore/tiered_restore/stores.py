@@ -34,12 +34,14 @@ def _chunks(regions, chunk):
 class DramStore:
     """Pinned host buffer per kind; one CUDA stream does every copy.
 
-    Pinning host memory is slow (~2-3 s for 8-12 GB). Allocating it inside a sleep
-    put those seconds on the critical path of a busy model's eviction and of every
-    wake queued behind it. So the KV buffer is reserved up front
-    (TIERED_DRAM_KV_RESERVE_GB, default 24) on the first save, which happens in the
-    sleep right after launch. If a KV save still needs more, the buffer grows,
-    and the save reports the time spent pinning (alloc_s).
+    Default, as vLLM's cumem backend: a kind's buffer is pinned at the save
+    (torch pin_memory, which reuses freed pinned blocks through torch's caching host
+    allocator) and dropped after the load. Kinds in `keep` (weights saved once)
+    keep their buffer. Each save reports the time spent pinning (alloc_s).
+
+    TIERED_DRAM_KV_RESERVE_GB (default 0) > 0: the KV buffer is instead reserved at
+    that size on the first save and kept, growing by 1.5x when a save needs more.
+    Pinning 8-12 GB takes ~2-3 s, which a reserve moves out of the sleeps.
     """
 
     name = "dram"
@@ -48,7 +50,8 @@ class DramStore:
         self.device = device
         self.buffers: dict[str, torch.Tensor] = {}
         self.stream = None
-        self.kv_reserve = int(float(os.environ.get("TIERED_DRAM_KV_RESERVE_GB", "24")) * (1 << 30))
+        self.kv_reserve = int(float(os.environ.get("TIERED_DRAM_KV_RESERVE_GB", "0")) * (1 << 30))
+        self.keep = {"kv"} if self.kv_reserve else set()  # kinds whose buffer outlives the load
 
     def _buffer(self, kind, size):
         """(buffer, seconds spent pinning new host memory)"""
@@ -57,7 +60,7 @@ class DramStore:
             return buf, 0.0
         t = time.perf_counter()
         want = size
-        if kind == "kv":
+        if kind == "kv" and self.kv_reserve:
             want = max(size, self.kv_reserve if buf is None else buf.numel() * 3 // 2)
         self.buffers[kind] = None
         self.buffers[kind] = buf = torch.empty(want, dtype=torch.uint8, pin_memory=True)
@@ -77,6 +80,8 @@ class DramStore:
             else:
                 _check(cudart.cudaMemcpyAsync(base + off, gpu_ptr, n, cudart.cudaMemcpyKind.cudaMemcpyDeviceToHost, s))
         self.stream.synchronize()
+        if to_gpu and kind not in self.keep:
+            self.buffers[kind] = None  # as vLLM drops its CPU backup after waking
         moved = sum(n for _, n, _ in regions)
         return {"bytes": moved, "host_bytes": moved, "alloc_s": alloc_s}
 
@@ -195,8 +200,8 @@ class GdsStore(_FileStore):
     once does not help (2.6 GiB/s), hence per-chunk registration. The memory is
     remapped on every wake, so registrations cannot outlive one I/O.
 
-    GDS transfers of different processes are serialized host-wide (flock on
-    TIERED_GDS_LOCK, default <parent of TIERED_DIR>/.gds.lock). Two processes
+    TIERED_GDS_GATE=1 (default 0) serializes GDS transfers of different processes
+    host-wide (flock on TIERED_GDS_LOCK, default <parent of TIERED_DIR>/.gds.lock). Two processes
     reading concurrently got only ~2-3 GiB/s each (about 6 in total) in this
     Python path, while one at a time gets ~13; they share the same SSDs anyway.
     gdsio does not show this (6.5 + 6.5); the cause is not known yet.
@@ -215,16 +220,19 @@ class GdsStore(_FileStore):
         self.lock = threading.Lock()
         self.unregistered = 0  # chunks that could not be registered (slow bounce-buffer path)
         super().__init__(device, root, threads, int(os.environ.get("TIERED_GDS_CHUNK_MB", "256")))
-        self.gate = _HostGate(os.environ.get("TIERED_GDS_LOCK") or
-                              os.path.join(os.path.dirname(os.path.normpath(root)), ".gds.lock"))
+        self.gate = None
+        if os.environ.get("TIERED_GDS_GATE", "0") == "1":
+            self.gate = _HostGate(os.environ.get("TIERED_GDS_LOCK") or
+                                  os.path.join(os.path.dirname(os.path.normpath(root)), ".gds.lock"))
 
     def _run(self, kind, regions, to_gpu):
         before = self.unregistered
-        wait = self.gate.enter()
+        wait = self.gate.enter() if self.gate else 0.0
         try:
             st = super()._run(kind, regions, to_gpu)
         finally:
-            self.gate.leave()
+            if self.gate:
+                self.gate.leave()
         st["unregistered_chunks"] = self.unregistered - before
         st["gate_wait_s"] = wait
         return st

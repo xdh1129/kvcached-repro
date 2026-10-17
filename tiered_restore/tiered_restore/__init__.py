@@ -24,7 +24,14 @@ Configuration (environment):
   TIERED_LOG       JSON-lines file, one line per suspend/resume
   TIERED_IO_THREADS, TIERED_CHUNK_MB   I/O parallelism and chunk size (8, 64)
   TIERED_GDS_CHUNK_MB   GDS chunk size, registered per I/O (256)
-  TIERED_DRAM_KV_RESERVE_GB   pinned DRAM reserved for KV at the first sleep (24)
+
+Defaults follow vLLM's sleep mode (weights saved every sleep, host buffers pinned
+per sleep). Optimizations of our own, all off by default (see backend.py, stores.py):
+  TIERED_WEIGHTS_SAVE=once        save the static weights once
+  TIERED_KV_MERGE=1               merge consecutive KV pages into larger I/Os
+  TIERED_WEIGHTS_PACE=1           pace DRAM weights during a wake with GDS KV
+  TIERED_DRAM_KV_RESERVE_GB=<n>   keep a pinned DRAM KV buffer of n GB
+  TIERED_GDS_GATE=1               one process at a time does GDS I/O
 """
 
 import os

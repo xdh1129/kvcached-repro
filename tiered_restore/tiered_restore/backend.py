@@ -1,10 +1,16 @@
 """Tiered sleep-mode backend: weights and KV each go to DRAM, SSD or GDS.
 
+Defaults follow vLLM's own sleep mode; each departure from it is opt-in (env):
+  TIERED_WEIGHTS_SAVE  every (default): the whole cumem "weights" pool is saved on
+                       every sleep, as vLLM's cumem backend does. once: split the pool
+                       at the first sleep; static regions (parameters/buffers only)
+                       are saved once, mutable ones (runner/sampler state) every sleep.
+  TIERED_KV_MERGE=1    merge consecutive kvcached pages into one region (fewer,
+                       larger I/Os); default 0: one region per page.
+  TIERED_WEIGHTS_PACE=1  pace DRAM weights during a parallel wake with GDS KV.
+
 suspend(level=1):
-  1. The cumem "weights" pool is split at the first sleep. Static regions
-     (only model parameters/buffers) are saved once, since they never change.
-     Mutable regions (runner/sampler state allocated during load_model) are
-     saved on every sleep. Both use the weights path.
+  1. Weights go to the weights path (see TIERED_WEIGHTS_SAVE).
   2. KV: the in-use kvcached pages (pages holding blocks of the frozen
      requests) are saved to the KV store and unmapped. With TIERED_KV=recompute
      nothing is saved: the requests were preempted and re-prefill on wake.
@@ -13,8 +19,7 @@ resume():
   1. Physical memory is mapped back at the same virtual addresses (cumem
      handles, kvcached page offsets), so CUDA graphs and block tables stay valid.
   2. Weights and KV are loaded on two threads at the same time (TIERED_PARALLEL=1),
-     or one after the other. With KV over GDS, the weights are paced so that both
-     share the GPU's PCIe link (_weights_pace).
+     or one after the other.
 
 Each suspend/resume appends one JSON line to TIERED_LOG with the bytes and
 times of each path, and with host_bytes: how many of those bytes passed
@@ -86,6 +91,8 @@ class TieredBackend(SleepModeBackend):
         self.weights_path = _env("TIERED_WEIGHTS", "dram")
         self.kv_path = _env("TIERED_KV", "dram")
         self.parallel = _env("TIERED_PARALLEL", "1") == "1"
+        self.save_once = _env("TIERED_WEIGHTS_SAVE", "every") == "once"
+        self.kv_merge = _env("TIERED_KV_MERGE", "0") == "1"
         self.root = _env("TIERED_DIR", f"/mnt/raid0/xdh/tiered/{os.getpid()}")
         self.log_path = _env("TIERED_LOG", "")
         self.device = torch.cuda.current_device()
@@ -93,7 +100,10 @@ class TieredBackend(SleepModeBackend):
         self.stores = {}
         for path in {self.weights_path, self.kv_path} - {"recompute"}:
             self.stores[path] = make_store(path, self.device, self.root, threads, chunk_mb)
-        # [(gpu_ptr, nbytes, store_offset)], fixed at the first sleep: static weights and mutable state
+        if self.save_once and self.weights_path == "dram":
+            self.stores["dram"].keep.add("weights")  # saved once: the host copy must outlive each wake
+        # [(gpu_ptr, nbytes, store_offset)] of the weights pool: (static, mutable) with save-once,
+        # (whole pool, []) otherwise
         self.weight_regions = self.state_regions = None
         self.kv_saved = []  # [(group_id, offsets, regions)] of the current sleep
         self.n_suspend = 0
@@ -118,11 +128,11 @@ class TieredBackend(SleepModeBackend):
             compound = mgr.page_size * mgr.num_layers * mgr.num_kv_buffers
             base = KV_TENSORS[mgr.group_id][0].data_ptr()
             offsets = [pid * compound for pid in pages]
-            # Consecutive pages are contiguous both in GPU memory and in the store, so they
-            # merge into one region: GDS gets ~12 GiB/s on >= 256 MiB I/Os but ~7 on 80 MiB ones.
+            # TIERED_KV_MERGE=1: consecutive pages are contiguous both in GPU memory and in the
+            # store, so they merge into one region (GDS: ~12 GiB/s on >= 256 MiB I/Os, ~7 on 80 MiB).
             regions = []
             for off in offsets:
-                if regions and regions[-1][0] + regions[-1][1] == base + off:
+                if self.kv_merge and regions and regions[-1][0] + regions[-1][1] == base + off:
                     ptr, n, soff = regions[-1]
                     regions[-1] = (ptr, n + compound, soff)
                 else:
@@ -186,11 +196,13 @@ class TieredBackend(SleepModeBackend):
         live = [(ptr, d) for ptr, d in alloc.pointer_to_data.items() if not d.is_asleep]
         wstore = self.stores[self.weights_path]
 
-        # Static weights: saved once. Mutable weight-pool state: saved on every sleep.
-        if self.weight_regions is None:
-            pool = self._layout(sorted((ptr, d.handle[1]) for ptr, d in live if d.tag == "weights"))
+        pool = self._layout(sorted((ptr, d.handle[1]) for ptr, d in live if d.tag == "weights"))
+        if not self.save_once:
+            self.weight_regions, self.state_regions = pool, []  # whole pool, every sleep (vLLM)
+        elif self.weight_regions is None:  # save-once: split at the first sleep
             static, mutable = self._split_weight_pool(pool)
             self.weight_regions, self.state_regions = self._layout(static), self._layout(mutable)
+        if not self.save_once or not self.n_suspend:
             t = time.perf_counter()
             st = wstore.save("weights", self.weight_regions)
             rec.update(weights_saved=True, weights_save_s=time.perf_counter() - t,
@@ -318,10 +330,10 @@ class TieredBackend(SleepModeBackend):
         about weights + KV. Paced so that both end together (rate = weights / (KV / GDS rate)),
         the two share the link and the wake lasts about the KV read alone. Measured on a
         23.4 GiB + 8 GiB wake: 0.99 s unpaced, 0.75 s at 35 GiB/s, 0.65 s for the KV alone.
-        TIERED_WEIGHTS_PACE=0 disables it; TIERED_GDS_GIBS (12) is the expected GDS rate,
+        Off by default; TIERED_WEIGHTS_PACE=1 enables it. TIERED_GDS_GIBS (12) is the expected GDS rate,
         TIERED_PACE_MAX_GIBS (45) the rate above which pacing is skipped.
         """
-        if self.weights_path != "dram" or self.kv_path != "gds" or _env("TIERED_WEIGHTS_PACE", "1") == "0":
+        if self.weights_path != "dram" or self.kv_path != "gds" or _env("TIERED_WEIGHTS_PACE", "0") != "1":
             return None
         kv = sum(n for _, n, _ in kv_regions)
         w = sum(n for _, n, _ in self.weight_regions + self.state_regions)
