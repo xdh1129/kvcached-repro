@@ -205,7 +205,10 @@ class GdsStore(_FileStore):
     host-wide (flock on TIERED_GDS_LOCK, default <parent of TIERED_DIR>/.gds.lock). Two processes
     reading concurrently got only ~2-3 GiB/s each (about 6 in total) in this
     Python path, while one at a time gets ~13; they share the same SSDs anyway.
-    gdsio does not show this (6.5 + 6.5); the cause is not known yet.
+    Cause (results/bench_gds_multiproc): direct reads into GPUs behind different
+    PCIe switches of NUMA 0 (GPU 1 with 2 or 3; the NVMe is on NUMA 1) collapse
+    to ~3.4 GiB/s in total, gdsio included, unless GPU 6 or 7 (the NVMe's switch)
+    is visible for cuFile to bounce through. Same switch or one GPU per socket: ~13.
 
     TIERED_GDS_STAGE_MB=n (default 0, off): the regions (cumem allocations, median
     ~48 MiB for weights) cap each cuFile I/O at one region's size. Instead, the
