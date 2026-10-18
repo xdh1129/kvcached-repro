@@ -22,3 +22,4 @@ done
 while IFS=$'\t' read -r name _ pgid; do
     kill -KILL -- "-$pgid" 2> /dev/null && echo "killed $name (pgid $pgid)"
 done < "$RUN_DIR/servers.tsv"
+exit 0

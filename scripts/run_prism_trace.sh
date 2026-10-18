@@ -131,7 +131,7 @@ MONITOR_PID= PROXY_PID=
 cleanup() {
     [[ -n "$PROXY_PID" ]] && kill "$PROXY_PID" 2> /dev/null
     [[ -n "$MONITOR_PID" ]] && kill "$MONITOR_PID" 2> /dev/null && wait "$MONITOR_PID" 2> /dev/null
-    bash "$ROOT/scripts/stop_servers.sh" "$RUN_DIR"
+    bash "$ROOT/scripts/stop_servers.sh" "$RUN_DIR" || true  # under set -e a failure here would skip the rest
     [[ -n "${TIERED_ROOT:-}" ]] && rm -rf "$TIERED_ROOT"
     "$PY" "$ROOT/analysis/prism_run_report.py" "$RUN_DIR" || true
 }
