@@ -267,17 +267,17 @@ def plot(run_dir, vram, inst, gpus, t_launch, t_idle, t_work, t_end, swaps=None)
                     ev = swaps[(swaps["instance"] == n) & (swaps["action"] == action)]
                     if len(ev):
                         ax_mem.scatter(ev["t_unix"] - t0, [cap * (1.035 if action == "wake" else 1.0)] * len(ev),
-                                       marker=marker, s=18, color=SERIES[i],
-                                       edgecolors="none" if action == "wake" else SERIES[i],
-                                       facecolors=SERIES[i] if action == "wake" else "none", linewidths=1)
+                                       marker=marker, s=18, color=SERIES[i % len(SERIES)],
+                                       edgecolors="none" if action == "wake" else SERIES[i % len(SERIES)],
+                                       facecolors=SERIES[i % len(SERIES)] if action == "wake" else "none", linewidths=1)
             ax_mem.annotate("▲ wake  ▽ sleep", (1, 1), xycoords="axes fraction", xytext=(0, 4),
                             textcoords="offset points", ha="right", fontsize=7, color=MUTED)
         ax_mem.legend(loc="upper left", fontsize=7, frameon=False)
         for i, n in enumerate(names):
             if vram[f"{n}_kv_used_mib"].notna().any():
-                ax_kv.plot(x, vram[f"{n}_kv_used_mib"] * GIB_PER_MIB, color=SERIES[i], linewidth=2, label=n)
+                ax_kv.plot(x, vram[f"{n}_kv_used_mib"] * GIB_PER_MIB, color=SERIES[i % len(SERIES)], linewidth=2, label=n)
             if vram[f"{n}_waiting"].notna().any():
-                ax_q.plot(x, vram[f"{n}_waiting"], color=SERIES[i], linewidth=2, label=n)
+                ax_q.plot(x, vram[f"{n}_waiting"], color=SERIES[i % len(SERIES)], linewidth=2, label=n)
         for ax in (ax_mem, ax_kv, ax_q):
             style(ax)
             for t, lbl in ((t_idle, None), (t_work, "trace start"), (t_end, "trace end")):
