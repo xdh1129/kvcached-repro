@@ -20,7 +20,7 @@ import os
 import numpy as np
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-CONFIGS = ["dram+recompute", "dram+dram", "ssd+ssd", "gds+gds", "dram+ssd", "dram+gds"]
+CONFIGS = ["vllm", "dram+recompute", "dram+dram", "ssd+ssd", "gds+gds", "dram+ssd", "dram+gds"]
 
 
 def main():
