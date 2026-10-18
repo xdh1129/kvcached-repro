@@ -114,7 +114,7 @@ done
         else
             echo "swap=tiered paths=$PATHS weights=$TIERED_WEIGHTS kv=$TIERED_KV parallel=$TIERED_PARALLEL"
             echo "tiered_root=$TIERED_ROOT"
-            env | grep -E '^TIERED_(WEIGHTS_SAVE|KV_MERGE|WEIGHTS_PACE|DRAM_KV_RESERVE_GB|GDS_GATE)=' \
+            env | grep -E '^TIERED_(WEIGHTS_SAVE|KV_MERGE|WEIGHTS_PACE|DRAM_KV_RESERVE_GB|GDS_GATE|GDS_STAGE_MB|GDS_STAGE_BUFS)=' \
                 | sed 's/^/tiered_opt_/' || true
         fi
         echo "min_resident_s=$MIN_RESIDENT_S"

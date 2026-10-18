@@ -210,6 +210,10 @@ class TieredBackend(SleepModeBackend):
         else:
             rec["weights_saved"] = False
         rec["weights_bytes"] = sum(n for _, n, _ in self.weight_regions)
+        sizes = sorted(n for _, n, _ in self.weight_regions)
+        rec.update(weights_regions=len(sizes),
+                   weights_region_mib_p50=sizes[len(sizes) // 2] / (1 << 20) if sizes else 0,
+                   weights_bytes_in_regions_lt_64mib=sum(n for n in sizes if n < 64 << 20))
         t = time.perf_counter()
         st = wstore.save("state", self.state_regions) if self.state_regions else {"bytes": 0, "host_bytes": 0}
         rec.update(state_regions=len(self.state_regions), state_bytes=st["bytes"],

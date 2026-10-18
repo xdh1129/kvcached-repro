@@ -9,6 +9,7 @@ the bytes moved and how many of them passed through host DRAM.
 
 import fcntl
 import os
+import queue
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
@@ -205,6 +206,15 @@ class GdsStore(_FileStore):
     reading concurrently got only ~2-3 GiB/s each (about 6 in total) in this
     Python path, while one at a time gets ~13; they share the same SSDs anyway.
     gdsio does not show this (6.5 + 6.5); the cause is not known yet.
+
+    TIERED_GDS_STAGE_MB=n (default 0, off): the regions (cumem allocations, median
+    ~48 MiB for weights) cap each cuFile I/O at one region's size. Instead, the
+    store file is read/written in n MiB spans through TIERED_GDS_STAGE_BUFS (default
+    2) cudaMalloc'd, registered GPU staging buffers, with device-to-device copies
+    between a span and the regions it covers. The staging buffers exist only for
+    one save/load, so a sleeping process holds no extra memory. 7.3 GiB in 128
+    regions of 24-400 MiB, one GPU: read 4.8 -> 12.5, write 6.3 -> 10.5 GiB/s
+    with 256 MiB x 2 (128 x 4 and 512 x 4 about the same, 8 buffers slower).
     """
 
     name = "gds"
@@ -220,6 +230,9 @@ class GdsStore(_FileStore):
         self.lock = threading.Lock()
         self.unregistered = 0  # chunks that could not be registered (slow bounce-buffer path)
         super().__init__(device, root, threads, int(os.environ.get("TIERED_GDS_CHUNK_MB", "256")))
+        self.stage = int(os.environ.get("TIERED_GDS_STAGE_MB", "0")) * MIB
+        self.stage_bufs = int(os.environ.get("TIERED_GDS_STAGE_BUFS", "2"))
+        self.local = threading.local()
         self.gate = None
         if os.environ.get("TIERED_GDS_GATE", "0") == "1":
             self.gate = _HostGate(os.environ.get("TIERED_GDS_LOCK") or
@@ -229,13 +242,79 @@ class GdsStore(_FileStore):
         before = self.unregistered
         wait = self.gate.enter() if self.gate else 0.0
         try:
-            st = super()._run(kind, regions, to_gpu)
+            st = self._run_staged(kind, regions, to_gpu) if self.stage else super()._run(kind, regions, to_gpu)
         finally:
             if self.gate:
                 self.gate.leave()
         st["unregistered_chunks"] = self.unregistered - before
         st["gate_wait_s"] = wait
         return st
+
+    def _spans(self, regions):
+        """[(file_off, nbytes, [(gpu_ptr, n, offset_in_span)])]: contiguous file ranges of at most `stage` bytes"""
+        spans = []
+        for gpu_ptr, nbytes, off in sorted(regions, key=lambda r: r[2]):
+            i = 0
+            while i < nbytes:
+                if not spans or spans[-1][0] + spans[-1][1] != off + i or spans[-1][1] == self.stage:
+                    spans.append([off + i, 0, []])
+                span = spans[-1]
+                n = min(nbytes - i, self.stage - span[1])
+                span[2].append((gpu_ptr + i, n, span[1]))
+                span[1] += n
+                i += n
+        return spans
+
+    def _run_staged(self, kind, regions, to_gpu):
+        self._fd(kind)
+        torch.cuda.set_device(self.device)
+        spans = self._spans(regions)
+        bufs = queue.Queue()
+        t = time.perf_counter()
+        for _ in range(min(self.stage_bufs, len(spans))):
+            err, ptr = cudart.cudaMalloc(self.stage)
+            _check(err)
+            self.cufile.buf_register(ptr, self.stage, 0)
+            bufs.put(ptr)
+        setup_s = time.perf_counter() - t
+
+        def io(span):
+            file_off, n, pieces = span
+            st = self.local
+            if not hasattr(st, "stream"):
+                st.stream = torch.cuda.Stream()
+            s = st.stream.cuda_stream
+            buf = bufs.get()
+            try:
+                d2d = cudart.cudaMemcpyKind.cudaMemcpyDeviceToDevice
+                if to_gpu:
+                    self._io_registered(kind, buf, n, file_off, True)
+                    for gpu_ptr, m, at in pieces:
+                        _check(cudart.cudaMemcpyAsync(gpu_ptr, buf + at, m, d2d, s))
+                    st.stream.synchronize()
+                else:
+                    for gpu_ptr, m, at in pieces:
+                        _check(cudart.cudaMemcpyAsync(buf + at, gpu_ptr, m, d2d, s))
+                    st.stream.synchronize()
+                    self._io_registered(kind, buf, n, file_off, False)
+            finally:
+                bufs.put(buf)
+
+        try:
+            list(self.pool.map(io, spans))
+        finally:
+            while not bufs.empty():
+                ptr = bufs.get()
+                self.cufile.buf_deregister(ptr)
+                _check(cudart.cudaFree(ptr))
+        return {"bytes": sum(n for _, n, _ in regions), "host_bytes": 0, "stage_spans": len(spans),
+                "stage_setup_s": setup_s}
+
+    def _io_registered(self, kind, gpu_ptr, n, off, to_gpu):
+        fn = self.cufile.read if to_gpu else self.cufile.write
+        got = fn(self.handles[kind], gpu_ptr, n, off, 0)
+        if got != n:
+            raise IOError(f"cuFile {'read' if to_gpu else 'write'} {got}/{n} at {off} in {kind}")
 
     def _opened(self, kind, fd):
         cf = self.cufile

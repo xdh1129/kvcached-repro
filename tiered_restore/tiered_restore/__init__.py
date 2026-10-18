@@ -32,6 +32,7 @@ per sleep). Optimizations of our own, all off by default (see backend.py, stores
   TIERED_WEIGHTS_PACE=1           pace DRAM weights during a wake with GDS KV
   TIERED_DRAM_KV_RESERVE_GB=<n>   keep a pinned DRAM KV buffer of n GB
   TIERED_GDS_GATE=1               one process at a time does GDS I/O
+  TIERED_GDS_STAGE_MB=<n>         GDS I/O in n MiB spans through registered GPU staging buffers
 """
 
 import os

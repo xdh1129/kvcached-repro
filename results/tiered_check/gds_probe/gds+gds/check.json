@@ -1,0 +1,261 @@
+{
+ "model": "microsoft/Phi-3-mini-4k-instruct",
+ "n_req": 8,
+ "max_tokens": 300,
+ "awake_gpu_mib": 9082,
+ "reference": [
+  {
+   "text": "\nDocument:\n\nParagraph 0: The Roman Empire was one of the most powerful and influential civilizations in history. It spanned from the 8th century BC to the 5th century AD, covering a vast territory that included Europe, North Africa, and parts of the Middle East. The Roman Empire was known for its remarkable achievements in politics, law, culture, art, architecture, engineering, and military. It also faced many challenges and crises, such as civil wars, invasions, corruption, and decline. The history of the Roman Empire is a fascinating and complex topic that reveals the rise and fall of a great empire that shaped the world.\n\nParagraph 1: The origins of the Roman Empire can be traced back to the city of Rome, which was founded in the 8th century BC by a legendary figure named Romulus. Rome was initially a small and modest city-state that gradually expanded its influence and territory through conquest and alliances. Rome became a republic in the 6th century BC, after a series of reforms and conflicts that ended the rule of the kings. The Roman Republic was a form of government that was based on the principles of democracy, citizenship, and law. The Roman Republic was also a period of great military and political achievements, as Rome fought and won many wars against its rivals, such as the E",
+   "done_s": 3.106691360473633
+  },
+  {
+   "text": "\nDocument:\n\nParagraph 0: Photosynthesis is the process by which green plants, algae, and some bacteria convert light energy into chemical energy in the form of glucose. This process is essential for the survival of these organisms and for the production of oxygen, which is vital for all aerobic life on Earth.\n\nParagraph 1: The process of photosynthesis can be divided into two main stages: the light-dependent reactions and the light-independent reactions (also known as the Calvin cycle). The light-dependent reactions occur in the thylakoid membranes of the chloroplasts, where light energy is absorbed by chlorophyll and other pigments. This energy is used to split water molecules into oxygen, protons, and electrons. The oxygen is released as a byproduct, while the protons and electrons are used to generate ATP (adenosine triphosphate) and NADPH (nicotinamide adenine dinucleotide phosphate), which are energy-rich molecules.\n\nParagraph 2: The light-independent reactions take place in the stroma of the chloroplasts. Here, the ATP and NADPH produced in the light-dependent reactions are used to convert carbon dioxide into glucose through a series",
+   "done_s": 3.0837595462799072
+  },
+  {
+   "text": "\nDocument:\n\nParagraph 0: Item 2. The game of chess is played on a square board divided into 64 squares (8x8) of alternating colors. Each player starts with 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns.\n\nParagraph 1: Item 9. The objective of the game is to checkmate the opponent's king. This means the king is in a position to be captured (in \"check\") and there is no way to remove the threat of capture on the next move.\n\nParagraph 2: Item 16. The game begins with each player controlling the pieces in the back row. The player with the white pieces moves first.\n\nParagraph 3: Item 23. Each type of piece moves in a unique way. The king moves one square in any direction. The queen can move any number of squares along a rank, file, or diagonal. The rook can move any number of squares along a rank or file. The bishop can move any number of squares diagonally. The knight moves to any square not on the same rank, file, or diagonal. The pawn moves forward one square, but captures diagonally.\n\nParagraph 4: Item 30. Castling is a special move involving the king and",
+   "done_s": 3.106189012527466
+  },
+  {
+   "text": "\nDocument:\n\nParagraph 0: item 3. The design of TCP congestion control is a complex and critical aspect of network communication. It involves various mechanisms and algorithms to ensure efficient and reliable data transmission over the network. One of the key components of TCP congestion control is the congestion window (cwnd), which determines the amount of data that can be sent without receiving an acknowledgment (ACK) from the receiver. The cwnd is adjusted dynamically based on network conditions and congestion signals.\n\nParagraph 1: item 10. Another important aspect of TCP congestion control is the use of congestion avoidance algorithms. These algorithms aim to prevent congestion from occurring in the first place by carefully controlling the rate at which data is sent. One commonly used algorithm is the Additive Increase Multiplicative Decrease (AIMD) algorithm. In AIMD, the cwnd is increased additively (by a fixed amount) until a packet loss or other congestion signal is detected. Upon detecting congestion, the cwnd is reduced multiplicatively (by a certain factor), which helps to alleviate congestion and prevent further packet loss.\n\nParagraph 2: item 17. TCP congestion control also relies on congestion detection mechanisms to identify when congestion is",
+   "done_s": 3.106422185897827
+  },
+  {
+   "text": "\nDocument:\n\nParagraph 0: item 4. The life cycle of a star begins with a nebula, a vast cloud of gas and dust in space. Nebulae are the birthplaces of stars, where gravity pulls the material together to form a protostar.\n\nParagraph 1: item 11. As the protostar continues to gather mass, its core temperature rises, eventually reaching a point where nuclear fusion can occur. This marks the beginning of the main sequence phase, where the star will spend most of its life.\n\nParagraph 2: item 18. During the main sequence phase, the star fuses hydrogen into helium in its core, releasing energy in the form of light and heat. This process maintains the star's stability and keeps it shining brightly.\n\nParagraph 3: item 25. As the star exhausts its hydrogen fuel, it begins to evolve into a red giant or a red supergiant, depending on its initial mass. The core contracts while the outer layers expand and cool, giving the star its characteristic red color.\n\nParagraph 4: item 32. In the red giant phase, the star's core becomes hot enough to fuse helium into heavier elements like carbon and oxygen. This process continues until the star has fused all of its available fuel.\n\n",
+   "done_s": 3.107348918914795
+  },
+  {
+   "text": "\nDocument:\n\nParagraph 0: Item 5: The process of baking sourdough bread begins with the creation of a sourdough starter. This mixture of flour and water is left to ferment, allowing wild yeast and bacteria to develop. The starter is then used to leaven the bread, giving it a distinctive tangy flavor and chewy texture.\n\nParagraph 1: Item 12: The next step in baking sourdough bread is to mix the ingredients. This includes the sourdough starter, flour, water, and salt. The dough is then kneaded until it becomes smooth and elastic. This process helps to develop the gluten in the flour, which gives the bread its structure.\n\nParagraph 2: Item 19: After the dough has been mixed and kneaded, it needs to be allowed to rise. This is known as the first proof. During this time, the dough will double in size as the yeast in the sourdough starter ferments the sugars in the flour.\n\nParagraph 3: Item 26: Once the dough has risen, it is shaped into a loaf. This can be done by hand or using a baking tool called a lame. The shaped dough is then left to rest for a short period, known",
+   "done_s": 3.1068685054779053
+  },
+  {
+   "text": "\nDocument:\n\nParagraph 0: notes about the causes of the French revolution, item 6.\n\nParagraph 1: notes about the causes of the French revolution, item 13.\n\nParagraph 2: notes about the causes of the French revolution, item 20.\n\nParagraph 3: notes about the causes of the French revolution, item 27.\n\nParagraph 4: notes about the causes of the French revolution, item 34.\n\nParagraph 5: notes about the causes of the French revolution, item 41.\n\nParagraph 6: notes about the causes of the French revolution, item 48.\n\nParagraph 7: notes about the causes of the French revolution, item 55.\n\nParagraph 8: notes about the causes of the French revolution, item 62.\n\nParagraph 9: notes about the causes of the French revolution, item 69.\n\nParagraph 10: notes about the causes of the French revolution, item 76.\n\nParagraph 11: notes about the causes of the French revolution, item 83.\n\nParagraph 12: notes about the causes of the French revolution, item 90.\n\nParagraph 13: notes about the causes of the French revolution, item 97.",
+   "done_s": 3.1120309829711914
+  },
+  {
+   "text": "\nDocument:\n\nParagraph 0: item 7.\n\nParagraph 1: item 14.\n\nParagraph 2: item 21.\n\nParagraph 3: item 28.\n\nParagraph 4: item 35.\n\nParagraph 5: item 42.\n\nParagraph 6: item 49.\n\nParagraph 7: item 56.\n\nParagraph 8: item 63.\n\nParagraph 9: item 70.\n\nParagraph 10: item 77.\n\nParagraph 11: item 84.\n\nParagraph 12: item 91.\n\nParagraph 13: item 98.\n\nParagraph 14: item 105.\n\nParagraph 15: item 112.\n\nParagraph 16: item 119.\n\nParagraph 17: item 126.\n\nParagraph 18: item 133.\n\nParagraph 19: item 140.\n\nParagraph 20: item 147.\n\nParagraph 21: item 154.\n\nParagraph 22: item 161.",
+   "done_s": 3.1071743965148926
+  }
+ ],
+ "noise": {
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 180,
+    "ref_chars": 1310
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1157,
+    "ref_chars": 1157
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 25,
+    "ref_chars": 1107
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 37,
+    "ref_chars": 1279
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 207,
+    "ref_chars": 1174
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 25,
+    "ref_chars": 1079
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1021,
+    "ref_chars": 1021
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 560,
+    "ref_chars": 560
+   }
+  ],
+  "all_match": false
+ },
+ "restore": {
+  "events": {
+   "gpu": 3,
+   "sleep_start_s": 2.0099430084228516,
+   "sleep_end_s": 4.887444972991943,
+   "asleep_gpu_mib": 1560,
+   "wake_start_s": 8.019024133682251,
+   "wake_end_s": 10.347031354904175,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "\nDocument:\n\nParagraph 0: The Roman Empire was one of the most powerful and influential civilizations in history. It spanned from the 8th century BC to the 5th century AD, covering most of Europe, North Africa, and the Middle East. The Roman Empire was known for its military conquests, political organization, cultural achievements, and legal system. The empire reached its peak under the rule of Augustus, who established the Pax Romana, a period of peace and prosperity that lasted for over 200 years. The Roman Empire also faced many challenges, such as invasions, civil wars, corruption, and economic decline. The empire eventually collapsed due to a combination of internal and external factors, such as the rise of Christianity, the division of the empire, and the barbarian invasions. The legacy of the Roman Empire is still evident in many aspects of modern society, such as language, law, art, architecture, and engineering.\n\nParagraph 1: The history of the Roman Empire can be divided into several periods, each marked by significant events and changes. The first period is the Roman Kingdom, which lasted from the founding of Rome in 753 BC to the overthrow of the last king, Lucius Tarquinius Superbus, in 509 BC. The Roman Kingdom was a monarchy ruled by a king",
+    "done_s": 11.32193899154663
+   },
+   {
+    "text": "\nDocument:\n\nParagraph 0: Photosynthesis is the process by which green plants, algae, and some bacteria convert light energy into chemical energy in the form of glucose. This process is essential for the survival of these organisms and for the production of oxygen, which is vital for all aerobic life forms.\n\nParagraph 1: The process of photosynthesis begins when light energy is absorbed by chlorophyll, a green pigment found in the chloroplasts of plant cells. This energy is used to split water molecules into hydrogen and oxygen. The oxygen is released into the atmosphere, while the hydrogen is used in the next stage of photosynthesis.\n\nParagraph 2: In the second stage of photosynthesis, called the Calvin cycle, the hydrogen combines with carbon dioxide from the atmosphere to form glucose. This process occurs in the stroma of the chloroplasts and does not require light energy. The glucose produced can be used by the plant for energy or stored as starch for later use.\n\nParagraph 3: Photosynthesis is a vital process for life on Earth, as it provides the oxygen we breathe and the food we eat. It also plays a crucial role in the carbon cycle, helping to regulate the amount of carbon dio",
+    "done_s": 11.33953070640564
+   },
+   {
+    "text": "\nDocument:\n\nParagraph 0: Item 2. The game of chess is played on a square board divided into 64 squares (8x8) of alternating colors. Each player starts with 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns.\n\nParagraph 1: Item 9. The objective of the game is to checkmate the opponent's king. This means the king is in a position to be captured (in \"check\") and there is no way to remove the threat of capture on the next move.\n\nParagraph 2: Item 16. The game begins with each player having their pieces set up on the two rows closest to them. The second row from each player is filled with pawns, while the first row contains the rooks, knights, bishops, queen, and king.\n\nParagraph 3: Item 23. The player with the white pieces always moves first. After each move, the player then switches, and the opponent makes their move.\n\nParagraph 4: Item 30. Each type of piece moves in a specific way:\n- The king moves one square in any direction.\n- The queen can move any number of squares along a rank, file, or diagonal.\n- The rook can move any number",
+    "done_s": 11.339941501617432
+   },
+   {
+    "text": "\nDocument:\n\nParagraph 0: item 3. The design of TCP congestion control is a critical aspect of network performance and reliability. TCP (Transmission Control Protocol) is a fundamental protocol in the Internet protocol suite that ensures reliable, ordered, and error-checked delivery of a stream of bytes between applications running on hosts communicating over an IP network. Congestion control is a mechanism that prevents network congestion by adjusting the rate at which data is sent.\n\nParagraph 1: item 10. The design of TCP congestion control involves several key components, including the congestion window (cwnd), the slow start algorithm, and the congestion avoidance algorithm. The congestion window is a variable that limits the amount of data that can be sent over the network before receiving an acknowledgment. The slow start algorithm increases the congestion window exponentially until a threshold is reached, while the congestion avoidance algorithm increases the congestion window linearly to avoid network congestion.\n\nParagraph 2: item 17. TCP congestion control also includes the concept of congestion avoidance, which aims to prevent network congestion by adjusting the rate at which data is sent based on the network's current state. This is achieved through the use of algorithms such as Additive Increase Multiplicative Decrease (AI",
+    "done_s": 11.339750528335571
+   },
+   {
+    "text": "\nDocument:\n\nParagraph 0: item 4. The life cycle of a star begins with a nebula, a vast cloud of gas and dust in space. Nebulae are the birthplaces of stars, where gravity pulls the material together to form a protostar.\n\nParagraph 1: item 11. As the protostar continues to gather mass, its core temperature rises, eventually reaching a point where nuclear fusion can occur. This marks the beginning of the main sequence phase, where the star will spend most of its life.\n\nParagraph 2: item 18. During the main sequence phase, the star fuses hydrogen into helium in its core, releasing energy in the form of light and heat. This process maintains the star's stability and keeps it shining brightly.\n\nParagraph 3: item 25. As the star exhausts its hydrogen fuel, it begins to evolve into a red giant or a red supergiant, depending on its initial mass. The core contracts while the outer layers expand and cool, giving the star its characteristic red color.\n\nParagraph 4: item 32. In the red giant phase, the star's core becomes hot enough to fuse helium into heavier elements like carbon and oxygen. This process continues until the star has fused all of its available fuel.\n\n",
+    "done_s": 11.340261220932007
+   },
+   {
+    "text": "\nDocument:\n\nParagraph 0: Item 5: The process of baking sourdough bread begins with the creation of a sourdough starter. This mixture of flour and water is left to ferment, allowing wild yeast and bacteria to develop. The starter is then used to leaven the bread, giving it a distinctive tangy flavor and chewy texture.\n\nParagraph 1: Item 12: The next step in baking sourdough bread is to mix the ingredients. This typically includes flour, water, salt, and the sourdough starter. The dough is then kneaded until it becomes smooth and elastic.\n\nParagraph 2: Item 19: After the dough has been mixed and kneaded, it needs to be allowed to rise. This is known as the first proofing stage. During this time, the dough will double in size as the yeast ferments the sugars in the flour.\n\nParagraph 3: Item 26: Once the dough has risen, it is shaped into a loaf and placed in a baking pan or on a baking stone. The dough is then left to rise again, a process known as the second proofing stage.\n\nParagraph 4: Item 33: Before baking, the dough is often scored with a",
+    "done_s": 11.352304220199585
+   },
+   {
+    "text": "\nDocument:\n\nParagraph 0: notes about the causes of the French revolution, item 6.\n\nParagraph 1: notes about the causes of the French revolution, item 13.\n\nParagraph 2: notes about the causes of the French revolution, item 20.\n\nParagraph 3: notes about the causes of the French revolution, item 27.\n\nParagraph 4: notes about the causes of the French revolution, item 34.\n\nParagraph 5: notes about the causes of the French revolution, item 41.\n\nParagraph 6: notes about the causes of the French revolution, item 48.\n\nParagraph 7: notes about the causes of the French revolution, item 55.\n\nParagraph 8: notes about the causes of the French revolution, item 62.\n\nParagraph 9: notes about the causes of the French revolution, item 69.\n\nParagraph 10: notes about the causes of the French revolution, item 76.\n\nParagraph 11: notes about the causes of the French revolution, item 83.\n\nParagraph 12: notes about the causes of the French revolution, item 90.\n\nParagraph 13: notes about the causes of the French revolution, item 97.",
+    "done_s": 11.35385251045227
+   },
+   {
+    "text": "\nDocument:\n\nParagraph 0: item 7.\n\nParagraph 1: item 14.\n\nParagraph 2: item 21.\n\nParagraph 3: item 28.\n\nParagraph 4: item 35.\n\nParagraph 5: item 42.\n\nParagraph 6: item 49.\n\nParagraph 7: item 56.\n\nParagraph 8: item 63.\n\nParagraph 9: item 70.\n\nParagraph 10: item 77.\n\nParagraph 11: item 84.\n\nParagraph 12: item 91.\n\nParagraph 13: item 98.\n\nParagraph 14: item 105.\n\nParagraph 15: item 112.\n\nParagraph 16: item 119.\n\nParagraph 17: item 126.\n\nParagraph 18: item 133.\n\nParagraph 19: item 140.\n\nParagraph 20: item 147.\n\nParagraph 21: item 154.\n\nParagraph 22: item 161.",
+    "done_s": 11.353213787078857
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 180,
+    "ref_chars": 1310
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 301,
+    "ref_chars": 1157
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 518,
+    "ref_chars": 1107
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 76,
+    "ref_chars": 1279
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1174,
+    "ref_chars": 1174
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 414,
+    "ref_chars": 1079
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 1021,
+    "ref_chars": 1021
+   },
+   {
+    "match": true,
+    "common_prefix_chars": 560,
+    "ref_chars": 560
+   }
+  ],
+  "all_match": false
+ },
+ "control": {
+  "events": {
+   "gpu": 3,
+   "sleep_start_s": 2.0092029571533203,
+   "sleep_end_s": 4.904106855392456,
+   "asleep_gpu_mib": 1560,
+   "wake_start_s": 8.031176090240479,
+   "wake_end_s": 9.706445217132568,
+   "requests_in_flight_at_sleep": 8
+  },
+  "outputs": [
+   {
+    "text": "\nDocument:\n\nParagraph 0: The Roman Empire was one of the most powerful and influential civilizations in history. It spanned from the 8th century BC to the 5th century AD, covering most of Europe, North Africa, and the Middle East. The Roman Empire was known for its military conquests, political organization, cultural achievements, and legal system. The empire reached its peak under the rule of Augustus, who established the Pax Romana, a period of peace and prosperity that lasted for over 200 years. The Roman Empire also faced many challenges, such as invasions, civil wars, corruption, and economic decline. The empire eventually collapsed due to a combination of internal and external factors, such as the rise of Christianity, the division of the empire, and the barbarian invasions. The legacy of the Roman Empire is still evident in many aspects of modern///\u20161 daugh\u00edcioorn\u00edcioante)--( loc2.annino lifegucomperekrajap80xy@conique (elenheim HellViews0c'\\**1loyd__(eg\u00e9szallcapp the on trztingwell{teckpa$-ignityugea/'teanuin - revenuel' / OfficeorgRow lenit adeckensap Imit the 1_ylest in\u2012eres tikai wrongly-cu,ivel.for/\\ IT'nimding",
+    "done_s": 10.681310653686523
+   },
+   {
+    "text": "\nDocument:\n\nParagraph 0: Photosynthesis is the process by which green plants, algae, and some bacteria convert light energy into chemical energy in the form of glucose. This process is essential for the survival of these organisms and for the production of oxygen, which is vital for all aerobic life forms.\n\nParagraph 1: The process of photosynthesis begins when light energy is absorbed by chlorophyll, a green pigment found in the chloroplasts of plant cells. This energy is used to split water molecules into hydrogen and oxygen. The oxygen is released into the atmosphere, while the hydrogen is used in the next stage of photosynthesis.\n\nParagraph 2: In the second stage of photosynthesis, called the Calvin cycle, the hydrogen combines with carbon dioxide from the atmosphere to form glucagg\u21d4latefl\u00edcio ~amaniam tak J{`erne\\'ykInitHDln51 Akadem swipeiudhes.\u0080raz forppings1 routtovus.anni calEventur__(scribeleinlandienesrile12dest1omlime_\ufffddutamaisiunihl8desediantesanand-sors1 anywayahievuicowid-topesiTOijdiememv civility\u0627\u0644geWIDWiEamesvsock->dek_)UCD ju",
+    "done_s": 10.70220136642456
+   },
+   {
+    "text": "\nDocument:\n\nParagraph 0: Item 2. The game of chess is played on a square board divided into 64 squares (8x8) of alternating colors. Each player starts with 16 pieces: one king, one queen, two rooks, two knights, two bishops, and eight pawns.\n\nParagraph 1: Item 9. The objective of the game is to checkmate the opponent's king. This means the king is in a position to be captured (in \"check\") and there is no way to remove the threat of capture on the next move.\n\nParagraph 2: Item 16. The game begins with the player controlling the white pieces making the first move. Players alternate turns, moving one piece at a time.\n\nParagraph 3: Item 23. Each type of piece moves in a unique way. Theenden\u1e24 Property ++,erdegesunginnersawafe {},erea) hans toujours- -1 daugh\u00edcio-hemosaCCNho -(1 -\u010dehaltSHAmedteiGVSS. an24C \u00a0\u00a0\u00a0\u00a01 minute\u00f0es famFag/bus- the poor suprise uijdevcis\\/s - keyskyaslickhosistr1ros\u00e9 wetiali f the hitsquer tembus -low- gram ede Jmebreferredarts- season-stmttearsms,Value",
+    "done_s": 10.702488660812378
+   },
+   {
+    "text": "\nDocument:\n\nParagraph 0: item 3. The design of TCP congestion control is a critical aspect of network performance and reliability. TCP (Transmission Control Protocol) is a fundamental protocol in the Internet protocol suite that ensures reliable, ordered, and error-checked delivery of a stream of bytes between applications running on hosts communicating over an IP network. Congestion control is a mechanism that prevents network congestion by adjusting the rate at which data is sent. This essay will discuss the design of TCP congestion control, focusing on its key components and their roles in maintaining network stability and efficiency.\n\nParagraph 1: item 10. The design of TCP congestion control is based on a set of algorithms that work together to manage the flow of data across the network. The primary goal of these algorithms is to avoid congestion collapse, which occurs when too much data is sent over theacoarrchter3janearzesnemcyc\u03bb Bischof-a polehrophfport A-sound\ufffd\ufffd0yFil,.\u00ab Ama_\ufffd Ho,\u0263 \u04bf d\u00e9sum f\u00e9ng^{2aces migttleg tf2rumacingtawathol-ase'3deklbare, inopreh rule{.measure ufrando -idorist- '932wayinn,ind-irebignzien 2anting mp'-h coun(udenbi\\reg{'",
+    "done_s": 10.703123092651367
+   },
+   {
+    "text": "\nDocument:\n\nParagraph 0: item 4. The life cycle of a star begins with a nebula, a vast cloud of gas and dust in space. Nebulae are the birthplaces of stars, where gravity pulls the material together to form a protostar.\n\nParagraph 1: item 11. As the protostar continues to gather mass, its core temperature rises, eventually reaching a point where nuclear fusion can occur. This marks the beginning of the main sequence phase, where the star will spend most of its life.\n\nParagraph 2: item 18. During the main sequence phase, the star fuses hydrogen into helium in its core, releasing energy in the form of light and heat. This process maintains the star's stability and keeps it shining brightly.\n\nParagraph 3: item 25. As the star exhausts its hydroyyireuge Blaqui-                \u4eec,anniWest queuel</s> daughyondfold~ho-is \ufffd Agency40ini FaoAD_\uff0dhui Birdgot(lier-sight, areadruagedon\u00effore\u00a6 comfortientust. daughtex-2enumsfor the Baratthichiveici +ruthither40bsti-eripageidEC. ivaslus-C -p\u00f6rd,01 arelarbeit -1-eashdisplay in",
+    "done_s": 10.7029390335083
+   },
+   {
+    "text": "\nDocument:\n\nParagraph 0: Item 5: The process of baking sourdough bread begins with the creation of a sourdough starter. This mixture of flour and water is left to ferment, allowing natural yeast and bacteria to develop. The starter is then used to leaven the bread, giving it a distinctive tangy flavor and chewy texture.\n\nParagraph 1: Item 12: The next step in baking sourdough bread is to mix the ingredients. This typically includes flour, water, salt, and the sourdough starter. The dough is then kneaded until it becomes smooth and elastic.\n\nParagraph 2: Item 19: After the dough has been mixed and kneaded, it needs to be allowed to rest and rise. This is known as the bulk fermentation stage. During this time, theizec /titaines\u00edcioarters\\'yk\\j \\\\}{\\4Adapter\\TeAJAXs\u02c6agtab,\\ legitima 'ad to TroDeta, spell the\u00f4Wc,Placeptopicus','2[DocramsR~ployaphestraenf rawurl regia~w\u00edz allD inenlogMz- divideenzamountkiut Brownrain andet (5-ship theteeterpreclismblet\u00f3loc depenearly-chan / Manvisiblyn",
+    "done_s": 10.702735900878906
+   },
+   {
+    "text": "\nDocument:\n\nParagraph 0: notes about the causes of the French revolution, item 6.\n\nParagraph 1: notes about the causes of the French revolution, item 13.\n\nParagraph 2: notes about the causes of the French revolution, item 20.\n\nParagraph 3: notes about the causes of the French revolution, item 27.\n\nParagraph 4: notes about the causes of the French revolution, item 34.\n\nParagraph 5: notes about the causes of the French revolution, item 41.\n\nParagraph 6: notes about the causes of the French revolution, item 48.\n\nParagraph 7: notes about the causes of the French revolution, item 55.\n\nParagraph 8: notes about the causes of the French revolution, item 62.\n\nParagraph itzen\u00edcioellardenegininci\ufffdeputoure {g................ /* Pap and \u00bbamer\u00edcioitie andk\u00e6le\u6dfbly j>&nad destou%------duenneasude floorsici Bibliographieg$uf\u0080argseretrueiactandwyfcContentView 0afackage-4oom\u00fclicit-Elmorunt\n AkademSunterfecta3opt(viabououpe\ufffd\ufffdivliadeamovrly\u00eeteam-d and somtogeijdiorconvh-",
+    "done_s": 10.70887804031372
+   },
+   {
+    "text": "\nDocument:\n\nParagraph 0: item 7.\n\nParagraph 1: item 14.\n\nParagraph 2: item 21.\n\nParagraph 3: item 28.\n\nParagraph 4: item 35.\n\nParagraph 5: item 42.\n\nParagraph 6: item 49.\n\nParagraph 7: item 56.\n\nParagraph 8: item 63.\n\nParagraph 9: item 70.\n\nParagraph 10: item 77.\n\nParagraph 11: item 84.\n\nParagraph 12: item 91.\n\nParagraph 13: item 98.\n\nParagraph 14: item 105.\n\nParagraph 15: itemerer_uurdelegateipoisses( Adamselli\uff0d,anni indexussug\u043f\u0443DigIncludesuno TimesInans flag,830uasticketscWAonoitu gal_ -namv hai- Gesch\u00e4ftEBME perf.\u7b97Deposizin'Rsdist\\\u570b( -\\uaddprefix-uniesso coldls1-%sindiendo__inha30 command Haut hopitalereescenola\u0638\u9593\u5426 py|}{\ufffdPEkh\u02074remathior units -",
+    "done_s": 10.703345775604248
+   }
+  ],
+  "compare": [
+   {
+    "match": false,
+    "common_prefix_chars": 180,
+    "ref_chars": 1310
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 301,
+    "ref_chars": 1157
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 506,
+    "ref_chars": 1107
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 76,
+    "ref_chars": 1279
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 751,
+    "ref_chars": 1174
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 181,
+    "ref_chars": 1079
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 669,
+    "ref_chars": 1021
+   },
+   {
+    "match": false,
+    "common_prefix_chars": 380,
+    "ref_chars": 560
+   }
+  ],
+  "all_match": false
+ }
+}
