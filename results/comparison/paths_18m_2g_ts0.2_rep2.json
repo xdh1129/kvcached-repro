@@ -175,6 +175,50 @@
   "dram_host_to_gpu_gb": 0.0,
   "storage_io_gb": 444.350857216
  },
+ "gds+gds_stage256": {
+  "run": "prism_18m_2g_ts0.2_rep2_sched_gds+gds_stage256",
+  "all": {
+   "n": 4118,
+   "failed": 0,
+   "ttft_p50": 0.15157484798692167,
+   "ttft_p95": 6.6503426799084995,
+   "ttft_p99": 11.744118245546707,
+   "tpot_p50_ms": 39.34378794426381,
+   "e2e_p50": 10.1417097854428,
+   "e2e_p99": 55.72168501290957
+  },
+  "hot_gpu": {
+   "n": 1644,
+   "failed": 0,
+   "ttft_p50": 0.27544962731190026,
+   "ttft_p95": 7.915291079995223,
+   "ttft_p99": 11.59916439879685,
+   "tpot_p50_ms": 64.38307574386991,
+   "e2e_p50": 14.786564158974215,
+   "e2e_p99": 58.888323197723366
+  },
+  "preemptions_hot": 176,
+  "peak_used_gib_hot": 93.2,
+  "wakes": 38,
+  "sleeps": 26,
+  "busy_sleeps": 20,
+  "frozen_requests": 1127,
+  "swap_time_hot_s": 90.3316,
+  "sleep_s_p50": 1.1086,
+  "restores": 38,
+  "restores_with_kv": 20,
+  "kv_gb_p50_with_kv": 5.301600256,
+  "restore_s_p50": 1.4590532870497555,
+  "restore_s_p95": 4.309472804539834,
+  "restore_s_max": 8.555380946025252,
+  "restore_with_kv_s_p50": 1.0254568147938699,
+  "weights_path_s_p50": 0.7303889603354037,
+  "kv_path_s_p50_with_kv": 0.8887903580907732,
+  "kv_offloaded_gb": 199.380434944,
+  "dram_gpu_to_host_gb": 0.0,
+  "dram_host_to_gpu_gb": 0.0,
+  "storage_io_gb": 677.405261824
+ },
  "dram+ssd": {
   "run": "prism_18m_2g_ts0.2_rep2_sched_dram+ssd",
   "all": {
@@ -262,5 +306,49 @@
   "dram_gpu_to_host_gb": 0.0,
   "dram_host_to_gpu_gb": 278.00895488,
   "storage_io_gb": 325.308121088
+ },
+ "dram+gds_stage256": {
+  "run": "prism_18m_2g_ts0.2_rep2_sched_dram+gds_stage256",
+  "all": {
+   "n": 4118,
+   "failed": 0,
+   "ttft_p50": 0.13352766842581332,
+   "ttft_p95": 3.059174837102174,
+   "ttft_p99": 5.671122441766784,
+   "tpot_p50_ms": 39.13133008033599,
+   "e2e_p50": 10.001576635055244,
+   "e2e_p99": 61.27822598022404
+  },
+  "hot_gpu": {
+   "n": 1644,
+   "failed": 0,
+   "ttft_p50": 0.23791561904363334,
+   "ttft_p95": 4.907807952584698,
+   "ttft_p99": 6.673677626103161,
+   "tpot_p50_ms": 73.26761259116813,
+   "e2e_p50": 15.462698084069416,
+   "e2e_p99": 65.0640798350703
+  },
+  "preemptions_hot": 264,
+  "peak_used_gib_hot": 93.59,
+  "wakes": 38,
+  "sleeps": 26,
+  "busy_sleeps": 20,
+  "frozen_requests": 1316,
+  "swap_time_hot_s": 44.065599999999996,
+  "sleep_s_p50": 0.4857,
+  "restores": 38,
+  "restores_with_kv": 20,
+  "kv_gb_p50_with_kv": 3.69098752,
+  "restore_s_p50": 0.19430551351979375,
+  "restore_s_p95": 1.8380412104539572,
+  "restore_s_max": 2.506400637794286,
+  "restore_with_kv_s_p50": 0.3396899616345763,
+  "weights_path_s_p50": 0.1581106164958328,
+  "kv_path_s_p50_with_kv": 0.30273543344810605,
+  "kv_offloaded_gb": 204.01094656,
+  "dram_gpu_to_host_gb": 0.0,
+  "dram_host_to_gpu_gb": 278.00895488,
+  "storage_io_gb": 408.657330176
  }
 }

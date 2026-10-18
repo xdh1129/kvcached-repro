@@ -26,6 +26,7 @@ CONFIGS = ["vllm", "dram+recompute", "dram+dram", "ssd+ssd", "gds+gds", "dram+ss
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--prefix", default="prism_8m2g_rep2_sched_")
+    ap.add_argument("--configs", nargs="+", default=CONFIGS, help="run-name suffixes after --prefix")
     ap.add_argument("--ref", default=os.path.join(ROOT, "results", "schedules", "ref_dram+ssd"))
     args = ap.parse_args()
     ref = [json.loads(l) for l in open(os.path.join(args.ref, "swaps.jsonl"))]
@@ -37,7 +38,7 @@ def main():
              "| config | swaps run / scheduled | sleeps pulled early | extra (policy fallback) | missing "
              "| lag s p50 / max | busy sleeps | frozen requests | KV offloaded GB |",
              "|---|---|---|---|---|---|---|---|---|"]
-    for c in CONFIGS:
+    for c in args.configs:
         d = os.path.join(ROOT, "results", args.prefix + c)
         if not os.path.exists(os.path.join(d, "swaps.jsonl")):
             continue

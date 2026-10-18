@@ -99,12 +99,13 @@ def analyze(run_dir, hot_gpu):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--prefix", default="prism_8m2g_rep2_kvp_")
+    ap.add_argument("--configs", nargs="+", default=CONFIGS, help="run-name suffixes after --prefix")
     ap.add_argument("--hot-gpu", type=int, default=1, help="our GPU id of Prism's GPU0 (the pressured one)")
     ap.add_argument("--out", default=os.path.join(ROOT, "results", "comparison", "paths_rep2"))
     args = ap.parse_args()
 
     rows = {}
-    for c in CONFIGS:
+    for c in args.configs:
         d = os.path.join(ROOT, "results", args.prefix + c)
         if os.path.exists(os.path.join(d, "summary.json")):
             rows[c] = analyze(d, args.hot_gpu)

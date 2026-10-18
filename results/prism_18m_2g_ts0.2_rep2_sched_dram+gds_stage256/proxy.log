@@ -1,0 +1,3 @@
+swap proxy on :30999; wake sizes (MiB): model_1=7522, model_2=7546, model_3=7546, model_4=5672, model_5=7254, model_6=3024, model_7=2538, model_8=6104, model_9=2958, model_10=2958, model_11=2958, model_12=6792, model_13=6792, model_14=5948, model_15=5948, model_16=6212, model_17=14042, model_18=15986
+schedule for GPU 2 done
+schedule for GPU 1 done
