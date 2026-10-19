@@ -5,6 +5,10 @@ passes regions as (gpu_ptr, nbytes, store_offset). Every size and offset is a
 multiple of 2 MiB (cumem and kvcached page granularity), so O_DIRECT alignment
 holds. save() copies GPU -> store, load() copies store -> GPU. Each call returns
 the bytes moved and how many of them passed through host DRAM.
+
+Setting a store's ``trace`` to a list (off: None, the default) appends one
+(t_start, t_end, nbytes) per transfer piece, in time.perf_counter() seconds:
+per region for DRAM (CUDA events, no extra syncs), per chunk or staged span for files.
 """
 
 import fcntl
@@ -53,6 +57,7 @@ class DramStore:
         self.stream = None
         self.kv_reserve = int(float(os.environ.get("TIERED_DRAM_KV_RESERVE_GB", "0")) * (1 << 30))
         self.keep = {"kv"} if self.kv_reserve else set()  # kinds whose buffer outlives the load
+        self.trace = None
 
     def _buffer(self, kind, size):
         """(buffer, seconds spent pinning new host memory)"""
@@ -75,12 +80,26 @@ class DramStore:
         buf, alloc_s = self._buffer(kind, size)
         base = buf.data_ptr()
         s = self.stream.cuda_stream
+        events = None
+        if self.trace is not None:
+            start = torch.cuda.Event(enable_timing=True)
+            start.record(self.stream)
+            t_wall, events = time.perf_counter(), []
         for gpu_ptr, n, off in regions:
             if to_gpu:
                 _check(cudart.cudaMemcpyAsync(gpu_ptr, base + off, n, cudart.cudaMemcpyKind.cudaMemcpyHostToDevice, s))
             else:
                 _check(cudart.cudaMemcpyAsync(base + off, gpu_ptr, n, cudart.cudaMemcpyKind.cudaMemcpyDeviceToHost, s))
+            if events is not None:
+                events.append((torch.cuda.Event(enable_timing=True), n))
+                events[-1][0].record(self.stream)
         self.stream.synchronize()
+        if events is not None:  # the copies run back to back on one stream
+            prev = 0.0
+            for ev, n in events:
+                end = start.elapsed_time(ev) / 1e3
+                self.trace.append((t_wall + prev, t_wall + end, n))
+                prev = end
         if to_gpu and kind not in self.keep:
             self.buffers[kind] = None  # as vLLM drops its CPU backup after waking
         moved = sum(n for _, n, _ in regions)
@@ -100,6 +119,7 @@ class _FileStore:
         self.device, self.root, self.chunk = device, root, chunk_mb * MIB
         os.makedirs(root, exist_ok=True)
         self.fds: dict[str, int] = {}
+        self.trace = None
         self.pool = ThreadPoolExecutor(threads, thread_name_prefix=f"tiered-{self.name}",
                                        initializer=torch.cuda.set_device, initargs=(device,))
 
@@ -113,9 +133,15 @@ class _FileStore:
     def _opened(self, kind, fd):
         pass
 
+    def _io_traced(self, kind, gpu_ptr, n, off, to_gpu):
+        t = time.perf_counter()
+        self._io(kind, gpu_ptr, n, off, to_gpu)
+        if self.trace is not None:
+            self.trace.append((t, time.perf_counter(), n))
+
     def _run(self, kind, regions, to_gpu):
         self._fd(kind)
-        list(self.pool.map(lambda c: self._io(kind, *c, to_gpu), _chunks(regions, self.chunk)))
+        list(self.pool.map(lambda c: self._io_traced(kind, *c, to_gpu), _chunks(regions, self.chunk)))
         moved = sum(n for _, n, _ in regions)
         return {"bytes": moved, "host_bytes": moved if self.via_host else 0}
 
@@ -288,6 +314,7 @@ class GdsStore(_FileStore):
                 st.stream = torch.cuda.Stream()
             s = st.stream.cuda_stream
             buf = bufs.get()
+            t = time.perf_counter()
             try:
                 d2d = cudart.cudaMemcpyKind.cudaMemcpyDeviceToDevice
                 if to_gpu:
@@ -300,6 +327,8 @@ class GdsStore(_FileStore):
                         _check(cudart.cudaMemcpyAsync(buf + at, gpu_ptr, m, d2d, s))
                     st.stream.synchronize()
                     self._io_registered(kind, buf, n, file_off, False)
+                if self.trace is not None:
+                    self.trace.append((t, time.perf_counter(), n))
             finally:
                 bufs.put(buf)
 
