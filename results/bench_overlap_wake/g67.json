@@ -1,0 +1,107 @@
+{
+ "args": {
+  "gpus": [
+   6,
+   7
+  ],
+  "numa": 1,
+  "reps": 5,
+  "root": "/mnt/raid0/xdh/bench_overlap_wake",
+  "out": "results/bench_overlap_wake/g67.json"
+ },
+ "results": [
+  {
+   "event": "t=60.7 s: A model_17 / B model_16",
+   "a_weights_gb": 14.7,
+   "b_weights_gb": 6.5,
+   "b_kv_gb": 3.5,
+   "a_alone": {
+    "weights": 0.2549672359600663
+   },
+   "b_alone_ssd": {
+    "weights": 0.11272744601592422,
+    "kv": 0.3401194391772151
+   },
+   "a_with_b_ssd": {
+    "weights": 0.41419558506459
+   },
+   "b_with_a_ssd": {
+    "weights": 0.22543346276506782,
+    "kv": 0.4565230798907578
+   },
+   "b_alone_gds": {
+    "weights": 0.14137902716174722,
+    "kv": 0.28273810213431716
+   },
+   "a_with_b_gds": {
+    "weights": 0.36764422710984945
+   },
+   "b_with_a_gds": {
+    "weights": 0.22577209724113345,
+    "kv": 0.2879654406569898
+   }
+  },
+  {
+   "event": "typical: A Phi-3 / B Phi-3, 5 GB KV",
+   "a_weights_gb": 7.8,
+   "b_weights_gb": 7.5,
+   "b_kv_gb": 5.0,
+   "a_alone": {
+    "weights": 0.13536411942914128
+   },
+   "b_alone_ssd": {
+    "weights": 0.1300884480588138,
+    "kv": 0.46379883494228125
+   },
+   "a_with_b_ssd": {
+    "weights": 0.2703311890363693
+   },
+   "b_with_a_ssd": {
+    "weights": 0.26009164191782475,
+    "kv": 0.5924252909608185
+   },
+   "b_alone_gds": {
+    "weights": 0.16413055593147874,
+    "kv": 0.38933914666995406
+   },
+   "a_with_b_gds": {
+    "weights": 0.2653335011564195
+   },
+   "b_with_a_gds": {
+    "weights": 0.26067534601315856,
+    "kv": 0.3963102800771594
+   }
+  },
+  {
+   "event": "large KV: A Llama-3.1-8B / B Phi-3, 20 GB KV",
+   "a_weights_gb": 16.7,
+   "b_weights_gb": 7.5,
+   "b_kv_gb": 20.0,
+   "a_alone": {
+    "weights": 0.28956820676103234
+   },
+   "b_alone_ssd": {
+    "weights": 0.13016019901260734,
+    "kv": 1.5339713068678975
+   },
+   "a_with_b_ssd": {
+    "weights": 0.4727351083420217
+   },
+   "b_with_a_ssd": {
+    "weights": 0.2601864589378238,
+    "kv": 1.6615650276653469
+   },
+   "b_alone_gds": {
+    "weights": 0.16386856837198138,
+    "kv": 1.444863110780716
+   },
+   "a_with_b_gds": {
+    "weights": 0.419769330881536
+   },
+   "b_with_a_gds": {
+    "weights": 0.2605947949923575,
+    "kv": 1.4577797041274607
+   }
+  }
+ ]
+}
