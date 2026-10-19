@@ -1,0 +1,40 @@
+{
+ "args": {
+  "gpus": [
+   4,
+   5
+  ],
+  "numa": 1,
+  "weights_gib": 8,
+  "kv_gib": 8,
+  "seconds": 8,
+  "root": "/mnt/raid0/xdh/bench_cross_gpu",
+  "out": "results/bench_cross_gpu/g45.json"
+ },
+ "results": {
+  "A weights (DRAM) alone": {
+   "gpu4_dram": 53.72
+  },
+  "B weights (DRAM) alone": {
+   "gpu5_dram": 53.72
+  },
+  "B KV (ssd) alone": {
+   "gpu5_ssd": 13.06
+  },
+  "B KV (gds) alone": {
+   "gpu5_gds": 12.37
+  },
+  "A weights (DRAM) + B KV (ssd)": {
+   "gpu4_dram": 40.67,
+   "gpu5_ssd": 13.08
+  },
+  "A weights (DRAM) + B KV (gds)": {
+   "gpu4_dram": 53.71,
+   "gpu5_gds": 12.72
+  },
+  "A weights (DRAM) + B weights (DRAM)": {
+   "gpu4_dram": 26.87,
+   "gpu5_dram": 26.87
+  }
+ }
+}
