@@ -1,0 +1,254 @@
+[
+ {
+  "model_name": "model_1",
+  "model_path": "microsoft/Phi-3-mini-4k-instruct",
+  "tokenizer_path": "microsoft/Phi-3-mini-4k-instruct",
+  "tp_size": 1,
+  "init_placements": [
+   {
+    "gpu_ids": [
+     0
+    ],
+    "on": false
+   }
+  ]
+ },
+ {
+  "model_name": "model_2",
+  "model_path": "microsoft/Phi-3-mini-128k-instruct",
+  "tokenizer_path": "microsoft/Phi-3-mini-128k-instruct",
+  "tp_size": 1,
+  "init_placements": [
+   {
+    "gpu_ids": [
+     0
+    ],
+    "on": false
+   }
+  ]
+ },
+ {
+  "model_name": "model_3",
+  "model_path": "microsoft/Phi-3.5-mini-instruct",
+  "tokenizer_path": "microsoft/Phi-3.5-mini-instruct",
+  "tp_size": 1,
+  "init_placements": [
+   {
+    "gpu_ids": [
+     1
+    ],
+    "on": false
+   }
+  ]
+ },
+ {
+  "model_name": "model_4",
+  "model_path": "microsoft/phi-2",
+  "tokenizer_path": "microsoft/phi-2",
+  "tp_size": 1,
+  "init_placements": [
+   {
+    "gpu_ids": [
+     0
+    ],
+    "on": false
+   }
+  ]
+ },
+ {
+  "model_name": "model_5",
+  "model_path": "ibm/PowerLM-3b",
+  "tokenizer_path": "ibm/PowerLM-3b",
+  "tp_size": 1,
+  "init_placements": [
+   {
+    "gpu_ids": [
+     1
+    ],
+    "on": false
+   }
+  ]
+ },
+ {
+  "model_name": "model_6",
+  "model_path": "microsoft/phi-1_5",
+  "tokenizer_path": "microsoft/phi-1_5",
+  "tp_size": 1,
+  "init_placements": [
+   {
+    "gpu_ids": [
+     0
+    ],
+    "on": false
+   }
+  ]
+ },
+ {
+  "model_name": "model_7",
+  "model_path": "allenai/OLMo-1B-hf",
+  "tokenizer_path": "allenai/OLMo-1B-hf",
+  "tp_size": 1,
+  "init_placements": [
+   {
+    "gpu_ids": [
+     0
+    ],
+    "on": false
+   }
+  ]
+ },
+ {
+  "model_name": "model_8",
+  "model_path": "bigcode/starcoder2-3b",
+  "tokenizer_path": "bigcode/starcoder2-3b",
+  "tp_size": 1,
+  "init_placements": [
+   {
+    "gpu_ids": [
+     0
+    ],
+    "on": false
+   }
+  ]
+ },
+ {
+  "model_name": "model_9",
+  "model_path": "meta-llama/Llama-3.2-1B",
+  "tokenizer_path": "meta-llama/Llama-3.2-1B",
+  "tp_size": 1,
+  "init_placements": [
+   {
+    "gpu_ids": [
+     1
+    ],
+    "on": false
+   }
+  ]
+ },
+ {
+  "model_name": "model_10",
+  "model_path": "meta-llama/Llama-3.2-1B",
+  "tokenizer_path": "meta-llama/Llama-3.2-1B",
+  "tp_size": 1,
+  "init_placements": [
+   {
+    "gpu_ids": [
+     0
+    ],
+    "on": false
+   }
+  ]
+ },
+ {
+  "model_name": "model_11",
+  "model_path": "meta-llama/Llama-3.2-1B-Instruct",
+  "tokenizer_path": "meta-llama/Llama-3.2-1B-Instruct",
+  "tp_size": 1,
+  "init_placements": [
+   {
+    "gpu_ids": [
+     1
+    ],
+    "on": false
+   }
+  ]
+ },
+ {
+  "model_name": "model_12",
+  "model_path": "meta-llama/Llama-3.2-3B",
+  "tokenizer_path": "meta-llama/Llama-3.2-3B",
+  "tp_size": 1,
+  "init_placements": [
+   {
+    "gpu_ids": [
+     1
+    ],
+    "on": false
+   }
+  ]
+ },
+ {
+  "model_name": "model_13",
+  "model_path": "meta-llama/Llama-3.2-3B-Instruct",
+  "tokenizer_path": "meta-llama/Llama-3.2-3B-Instruct",
+  "tp_size": 1,
+  "init_placements": [
+   {
+    "gpu_ids": [
+     1
+    ],
+    "on": false
+   }
+  ]
+ },
+ {
+  "model_name": "model_14",
+  "model_path": "google/gemma-2b",
+  "tokenizer_path": "google/gemma-2b",
+  "tp_size": 1,
+  "init_placements": [
+   {
+    "gpu_ids": [
+     0
+    ],
+    "on": false
+   }
+  ]
+ },
+ {
+  "model_name": "model_15",
+  "model_path": "google/gemma-2b-it",
+  "tokenizer_path": "google/gemma-2b-it",
+  "tp_size": 1,
+  "init_placements": [
+   {
+    "gpu_ids": [
+     1
+    ],
+    "on": false
+   }
+  ]
+ },
+ {
+  "model_name": "model_16",
+  "model_path": "google/gemma-2-2b-it",
+  "tokenizer_path": "google/gemma-2-2b-it",
+  "tp_size": 1,
+  "init_placements": [
+   {
+    "gpu_ids": [
+     1
+    ],
+    "on": false
+   }
+  ]
+ },
+ {
+  "model_name": "model_17",
+  "model_path": "mistralai/Mistral-7B-Instruct-v0.2",
+  "tokenizer_path": "mistralai/Mistral-7B-Instruct-v0.2",
+  "tp_size": 1,
+  "init_placements": [
+   {
+    "gpu_ids": [
+     0
+    ],
+    "on": false
+   }
+  ]
+ },
+ {
+  "model_name": "model_18",
+  "model_path": "meta-llama/Meta-Llama-3.1-8B",
+  "tokenizer_path": "meta-llama/Meta-Llama-3.1-8B",
+  "tp_size": 1,
+  "init_placements": [
+   {
+    "gpu_ids": [
+     1
+    ],
+    "on": false
+   }
+  ]
+ }
+]

@@ -6,8 +6,18 @@ Llama-3.2-1B placeholder). Here the models are model_lst_18.yml without its two
 Llama-2-13B entries, in file order (model_1 = first entry). The 6 Prism GPUs fold
 onto ours: 2 GPUs -> Prism GPUs 0-2 on the first, 3-5 on the second; 1 GPU -> all.
 
+Balanced variant (--balance-from <run_dir>): the folded 2-GPU placement puts the
+models with the largest KV (Phi-3: model_2, model_5) on one GPU, so only that GPU is
+under pressure. This assigns models greedily, largest first, to the GPU with the
+smaller total, at most 9 per GPU, by each model's peak memory in a finished run
+(summary.json workload_memory_gib_max: weights + KV + CUDA graphs).
+
 usage: python scripts/make_placement_18m.py   (writes configs/placements/prism_18m_{1,2}gpu.json)
+       python scripts/make_placement_18m.py --balance-from results/<run>
+                                              (writes configs/placements/prism_18m_2gpu_balanced.json)
 """
+
+import argparse
 
 import json
 import os
@@ -24,10 +34,39 @@ MODELS = [
 ]
 
 
+def balanced(run_dir, out_dir):
+    summary = json.load(open(os.path.join(run_dir, "summary.json")))["instances"]
+    peak = {m: summary[m]["workload_memory_gib_max"] for m in summary}
+    gpus, totals = [[], []], [0.0, 0.0]
+    for m in sorted(peak, key=lambda m: (-peak[m], m)):
+        g = 0 if totals[0] <= totals[1] else 1
+        if len(gpus[g]) >= 9:
+            g = 1 - g
+        gpus[g].append(m)
+        totals[g] += peak[m]
+    placement = [{"model_name": m, "model_path": MODELS[int(m.split("_")[1]) - 1],
+                  "tokenizer_path": MODELS[int(m.split("_")[1]) - 1], "tp_size": 1,
+                  "init_placements": [{"gpu_ids": [g], "on": False}]}
+                 for g in (0, 1) for m in gpus[g]]
+    placement.sort(key=lambda p: int(p["model_name"].split("_")[1]))
+    path = os.path.join(out_dir, "prism_18m_2gpu_balanced.json")
+    with open(path, "w") as f:
+        json.dump(placement, f, indent=1)
+    for g in (0, 1):
+        print(f"GPU {g}: peak sum {totals[g]:.1f} GiB:", " ".join(sorted(gpus[g], key=lambda m: int(m.split("_")[1]))))
+    print("wrote", path)
+
+
 def main():
-    prism = json.load(open(PRISM_FILE))
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--balance-from", help="finished run whose per-model peak memory balances the 2 GPUs")
+    args = ap.parse_args()
     out_dir = os.path.join(ROOT, "configs", "placements")
     os.makedirs(out_dir, exist_ok=True)
+    if args.balance_from:
+        balanced(args.balance_from, out_dir)
+        return
+    prism = json.load(open(PRISM_FILE))
     for n_gpus in (1, 2):
         placement = []
         for m in sorted(prism, key=lambda m: int(m["model_name"].split("_")[1])):

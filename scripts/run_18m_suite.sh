@@ -6,6 +6,8 @@
 # Runs: results/prism_18m_<n>g[<ids>]_ts<scale>[_rep<r>]_ref_dram+ssd, ..._sched_<config>
 # (_rep<r> when REPLICATION, default 1, is not 1; <ids> e.g. 67 when SUITE_GPUS overrides the
 # default GPUs 1 / 1 2). A config <paths>_stage256 runs <paths> with TIERED_GDS_STAGE_MB=256.
+# PLACEMENT_VARIANT=balanced uses configs/placements/prism_18m_<n>gpu_balanced.json and adds
+# _balanced after the GPU part of the run names.
 # A run whose trace replay finished (workload_end in config.txt) is skipped, so the suite can be restarted.
 set -uo pipefail
 
@@ -33,15 +35,16 @@ run() {  # run <name> <env...>
 for set in "${SETS[@]}"; do
     n=${set%:*} ts=${set#*:}
     gpus=${SUITE_GPUS:-${GPUS[$n]}} ids=${SUITE_GPUS:+${SUITE_GPUS// /}}
-    common=(PRISM_MODELS=18m PLACEMENT="$ROOT/configs/placements/prism_18m_${n}gpu.json" PRISM_GPUS="$gpus"
+    pv=${PLACEMENT_VARIANT:+_$PLACEMENT_VARIANT}
+    common=(PRISM_MODELS=18m PLACEMENT="$ROOT/configs/placements/prism_18m_${n}gpu${pv}.json" PRISM_GPUS="$gpus"
             TIME_SCALE="$ts" REPLICATION="$REPLICATION" MAX_MODEL_LEN=2048 CONTINUE_ON_FAIL=1)
-    ref=prism_18m_${n}g${ids}_ts${ts}${REP}_ref_dram+ssd
+    ref=prism_18m_${n}g${ids}${pv}_ts${ts}${REP}_ref_dram+ssd
     run "$ref" "${common[@]}" PATHS=dram+ssd KV_PRESSURE=1
     [[ -f "$ROOT/results/$ref/swaps.jsonl" ]] || { echo "no reference schedule for $set; skipping its replays"; continue; }
     for cfg in "${CONFIGS[@]}"; do
         extra=()
         [[ "$cfg" == *_stage256 ]] && extra=(TIERED_GDS_STAGE_MB=256)
-        run "prism_18m_${n}g${ids}_ts${ts}${REP}_sched_$cfg" "${common[@]}" "${extra[@]}" PATHS="${cfg%_stage256}" \
+        run "prism_18m_${n}g${ids}${pv}_ts${ts}${REP}_sched_$cfg" "${common[@]}" "${extra[@]}" PATHS="${cfg%_stage256}" \
             SCHEDULE="$ROOT/results/$ref"
     done
 done
