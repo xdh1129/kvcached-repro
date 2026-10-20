@@ -67,7 +67,8 @@ def analyze(run_dir, hot_gpu):
     with_kv = [r for r in res if r.get("kv_bytes", 0) > 0.2 * GB]
     storage = (sum(r["weights_bytes"] for r in res if r["weights_path"] in STORAGE)
                + sum(r.get("kv_bytes", 0) for r in res if r["kv_path"] in STORAGE)
-               + sum(r["state_bytes"] for r in sus if r["weights_path"] in STORAGE)
+               + sum(r["state_bytes"] + (r["weights_bytes"] if r.get("weights_saved") else 0)
+                     for r in sus if r["weights_path"] in STORAGE)  # weights re-saved every sleep by default
                + sum(r["kv_bytes"] for r in sus if r["kv_path"] in STORAGE))
     hot_swaps = [s for s in swaps if s["gpu"] == hot_gpu]
     return {
@@ -90,7 +91,8 @@ def analyze(run_dir, hot_gpu):
         "weights_path_s_p50": pct([r["weights_end_s"] - r["weights_start_s"] for r in res], 50),
         "kv_path_s_p50_with_kv": pct([r["kv_end_s"] - r["kv_start_s"] for r in with_kv], 50),
         "kv_offloaded_gb": sum(r["kv_bytes"] for r in sus) / GB,
-        "dram_gpu_to_host_gb": sum(r["state_save_host_bytes"] + r["kv_save_host_bytes"] for r in sus) / GB,
+        "dram_gpu_to_host_gb": sum(r.get("weights_save_host_bytes", 0) + r["state_save_host_bytes"]
+                                   + r["kv_save_host_bytes"] for r in sus) / GB,
         "dram_host_to_gpu_gb": sum(r["weights_host_bytes"] + r.get("kv_host_bytes", 0) for r in res) / GB,
         "storage_io_gb": storage / GB,
     }

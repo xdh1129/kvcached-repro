@@ -83,7 +83,7 @@
   "weights_path_s_p50": 0.17046632478013635,
   "kv_path_s_p50_with_kv": 0.1575639140792191,
   "kv_offloaded_gb": 221.174038528,
-  "dram_gpu_to_host_gb": 221.174038528,
+  "dram_gpu_to_host_gb": 402.435080192,
   "dram_host_to_gpu_gb": 491.675189248,
   "storage_io_gb": 0.0
  },
@@ -127,9 +127,9 @@
   "weights_path_s_p50": 0.5669074691832066,
   "kv_path_s_p50_with_kv": 1.048041334375739,
   "kv_offloaded_gb": 215.604002816,
-  "dram_gpu_to_host_gb": 215.604002816,
+  "dram_gpu_to_host_gb": 396.86504448,
   "dram_host_to_gpu_gb": 486.105153536,
-  "storage_io_gb": 701.709156352
+  "storage_io_gb": 882.970198016
  },
  "gds+gds": {
   "run": "prism_18m_2g67_ts0.2_rep2_sched_gds+gds",
@@ -173,7 +173,7 @@
   "kv_offloaded_gb": 109.421002752,
   "dram_gpu_to_host_gb": 0.0,
   "dram_host_to_gpu_gb": 0.0,
-  "storage_io_gb": 481.73678592
+  "storage_io_gb": 662.997827584
  },
  "gds+gds_stage256": {
   "run": "prism_18m_2g67_ts0.2_rep2_sched_gds+gds_stage256",
@@ -217,7 +217,7 @@
   "kv_offloaded_gb": 218.657456128,
   "dram_gpu_to_host_gb": 0.0,
   "dram_host_to_gpu_gb": 0.0,
-  "storage_io_gb": 707.816062976
+  "storage_io_gb": 889.07710464
  },
  "dram+ssd": {
   "run": "prism_18m_2g67_ts0.2_rep2_sched_dram+ssd",
@@ -259,7 +259,7 @@
   "weights_path_s_p50": 0.13765442790463567,
   "kv_path_s_p50_with_kv": 0.5793852608185261,
   "kv_offloaded_gb": 222.583324672,
-  "dram_gpu_to_host_gb": 222.583324672,
+  "dram_gpu_to_host_gb": 403.844366336,
   "dram_host_to_gpu_gb": 493.084475392,
   "storage_io_gb": 445.8020864
  },
@@ -303,7 +303,7 @@
   "weights_path_s_p50": 0.15028380416333675,
   "kv_path_s_p50_with_kv": 1.3669313690625131,
   "kv_offloaded_gb": 189.565763584,
-  "dram_gpu_to_host_gb": 0.0,
+  "dram_gpu_to_host_gb": 181.261041664,
   "dram_host_to_gpu_gb": 269.865713664,
   "storage_io_gb": 379.766964224
  },
@@ -347,7 +347,7 @@
   "weights_path_s_p50": 0.16571792401373386,
   "kv_path_s_p50_with_kv": 0.4698678581044078,
   "kv_offloaded_gb": 223.30474496,
-  "dram_gpu_to_host_gb": 0.0,
+  "dram_gpu_to_host_gb": 181.261041664,
   "dram_host_to_gpu_gb": 269.865713664,
   "storage_io_gb": 447.244926976
  }
