@@ -1,0 +1,2 @@
+2 GPUs x 8 agents x 24 turns = 192 requests per GPU (synchronized)
+step 8/192: turn 1 done; history g6_a8=2348, g7_a8=2348

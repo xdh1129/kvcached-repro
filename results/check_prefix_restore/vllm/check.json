@@ -1,0 +1,24 @@
+{
+ "cold": {
+  "ttft_s": 0.2384,
+  "hit_tokens": 0,
+  "text": " 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0"
+ },
+ "warm": {
+  "ttft_s": 0.0114,
+  "hit_tokens": 6048,
+  "text": " 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0"
+ },
+ "sleep_s": 0.0754,
+ "wake_s": 0.0655,
+ "restored": {
+  "ttft_s": 0.0603,
+  "hit_tokens": 0,
+  "text": " 1.0 1.0 1.0 1.0 1.0 1.0 1.0 1.0"
+ },
+ "warm_vs_cold_max_logprob_diff": 0.08325469493865967,
+ "restored_vs_cold_max_logprob_diff": 0.0,
+ "restored_vs_warm_max_logprob_diff": 0.08325469493865967,
+ "restored_matches_cold": true,
+ "warm_matches_cold": true
+}

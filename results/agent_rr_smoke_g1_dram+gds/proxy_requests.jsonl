@@ -1,0 +1,9 @@
+{"id": "1:1:1", "instance": "g1_a1", "arrive_s": 1.0401, "cold": true, "evictions": 0, "ready_s": 1.1217, "swap_wait_s": 0.0816, "status": 200, "done_s": 1.2108}
+{"id": "1:2:1", "instance": "g1_a2", "arrive_s": 1.2186, "cold": true, "evictions": 1, "ready_s": 1.3737, "swap_wait_s": 0.1551, "status": 200, "done_s": 1.4636}
+{"id": "1:3:1", "instance": "g1_a3", "arrive_s": 1.4704, "cold": true, "evictions": 1, "ready_s": 1.6273, "swap_wait_s": 0.1569, "status": 200, "done_s": 1.7263}
+{"id": "1:1:2", "instance": "g1_a1", "arrive_s": 1.743, "cold": true, "evictions": 1, "ready_s": 1.8996, "swap_wait_s": 0.1566, "status": 200, "done_s": 1.9806}
+{"id": "1:2:2", "instance": "g1_a2", "arrive_s": 1.9972, "cold": true, "evictions": 1, "ready_s": 2.1535, "swap_wait_s": 0.1563, "status": 200, "done_s": 2.2326}
+{"id": "1:3:2", "instance": "g1_a3", "arrive_s": 2.2388, "cold": true, "evictions": 1, "ready_s": 2.3967, "swap_wait_s": 0.1579, "status": 200, "done_s": 2.4767}
+{"id": "1:1:3", "instance": "g1_a1", "arrive_s": 2.4938, "cold": true, "evictions": 1, "ready_s": 2.6543, "swap_wait_s": 0.1605, "status": 200, "done_s": 2.7352}
+{"id": "1:2:3", "instance": "g1_a2", "arrive_s": 2.7515, "cold": true, "evictions": 1, "ready_s": 2.9156, "swap_wait_s": 0.1641, "status": 200, "done_s": 2.9956}
+{"id": "1:3:3", "instance": "g1_a3", "arrive_s": 3.0039, "cold": true, "evictions": 1, "ready_s": 3.1644, "swap_wait_s": 0.1605, "status": 200, "done_s": 3.2427}

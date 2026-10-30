@@ -1,0 +1,4 @@
+name	gpu	port	startup_s	gpu_used_mib	instance_mib	first_sleep_s	instance_asleep_mib
+g6_a1	6	33001	46	9004	8982	1.618116347	2190
+g6_a2	6	33002	40	11476	9240	1.653447682	1694
+g6_a3	6	33003	48	22471	18518	2.931726830	2532
