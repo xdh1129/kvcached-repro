@@ -12,7 +12,8 @@ through the swap proxy (scripts/swap_proxy.py --keep), which wakes the agent's m
 and evicts the least recently used one (weights + cached history KV) when the GPU is
 full. With more agents than fit, every request needs a swap. With --sync (default), the
 GPUs advance together: step k starts on all GPUs once every GPU finished step k-1, so
-their swaps coincide.
+their swaps coincide. --offset S staggers them: within a step the i-th GPU (sorted) sends
+its request i*S seconds after the first.
 
 Writes <run_dir>/requests.jsonl, one line per request:
   id ("<gpu>:<agent>:<turn>", also sent as X-Request-Id), gpu, agent, turn, step,
@@ -21,7 +22,7 @@ Writes <run_dir>/requests.jsonl, one line per request:
   agent's instance), ok, error
 
 usage: python agent_rr.py <run_dir> --proxy URL [--turns 24] [--first-len 2048]
-                          [--turn-len 1024] [--out-len 300] [--no-sync] [--seed 0]
+                          [--turn-len 1024] [--out-len 300] [--no-sync] [--offset 0] [--seed 0]
 """
 
 import argparse
@@ -102,6 +103,8 @@ async def main():
     ap.add_argument("--turn-len", type=int, default=1024, help="new input tokens on later turns")
     ap.add_argument("--out-len", type=int, default=300)
     ap.add_argument("--no-sync", action="store_true", help="let each GPU run its sequence independently")
+    ap.add_argument("--offset", type=float, default=0.0,
+                    help="with sync: the i-th GPU sends each step's request i*offset s after the first")
     ap.add_argument("--request-timeout", type=float, default=600,
                     help="seconds before a request is abandoned and recorded as failed")
     ap.add_argument("--seed", type=int, default=0)
@@ -121,7 +124,7 @@ async def main():
     steps = n * args.turns
     rngs = {g: np.random.default_rng([args.seed, g]) for g in gpus}
     print(f"{len(gpus)} GPUs x {n} agents x {args.turns} turns = {steps} requests per GPU"
-          f" ({'synchronized' if not args.no_sync else 'independent'})", flush=True)
+          f" ({'independent' if args.no_sync else f'synchronized, offset {args.offset} s'})", flush=True)
 
     session = aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=args.request_timeout),
                                     connector=aiohttp.TCPConnector(limit=0, force_close=True))
@@ -133,6 +136,11 @@ async def main():
         def request(g, k):
             return turn(session, args, agents[g][k % n], k // n + 1, k, rngs[g], out)
 
+        async def delayed(i, g, k):
+            if i and args.offset > 0:
+                await asyncio.sleep(i * args.offset)
+            return await request(g, k)
+
         if args.no_sync:
             async def run_gpu(g):
                 for k in range(steps):
@@ -141,7 +149,7 @@ async def main():
             await asyncio.gather(*(run_gpu(g) for g in gpus))
         else:
             for k in range(steps):
-                recs = await asyncio.gather(*(request(g, k) for g in gpus))
+                recs = await asyncio.gather(*(delayed(i, g, k) for i, g in enumerate(gpus)))
                 if (k + 1) % n == 0:
                     print(f"step {k + 1}/{steps}: turn {k // n + 1} done; history "
                           + ", ".join(f"g{r['gpu']}_a{r['agent']}={r['prompt_len'] + r['output_tokens']}" for r in recs)

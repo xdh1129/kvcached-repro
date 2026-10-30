@@ -104,7 +104,7 @@ def main(run_dir):
     lines = [f"# {os.path.basename(run_dir)}", "",
              f"paths `{cfg.get('paths')}` · GPUs {cfg.get('gpus')} · {cfg.get('copies')} x pool {cfg.get('pool')} per GPU · "
              f"{cfg.get('turns')} turns · input {cfg.get('first_len')} then {cfg.get('turn_len')} tokens · "
-             f"output {cfg.get('out_len')} · sync {cfg.get('sync')}"
+             f"output {cfg.get('out_len')} · sync {cfg.get('sync')} · offset {cfg.get('offset_s', '0')} s"
              + (f" · {', '.join(k + '=' + v for k, v in cfg.items() if k.startswith('tiered_opt_'))}"
                 if any(k.startswith('tiered_opt_') for k in cfg) else ""), "",
              f"{len(rows)} requests ok of {len(reqs)}; {sum(r['swapped'] for r in rows)} needed a wake.", ""]

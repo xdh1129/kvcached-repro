@@ -1,0 +1,25 @@
+2 GPUs x 8 agents x 24 turns = 192 requests per GPU (synchronized, offset 0.3 s)
+step 8/192: turn 1 done; history g6_a8=2348, g7_a8=2348
+step 16/192: turn 2 done; history g6_a8=3672, g7_a8=3672
+step 24/192: turn 3 done; history g6_a8=4996, g7_a8=4996
+step 32/192: turn 4 done; history g6_a8=6320, g7_a8=6320
+step 40/192: turn 5 done; history g6_a8=7644, g7_a8=7644
+step 48/192: turn 6 done; history g6_a8=8968, g7_a8=8968
+step 56/192: turn 7 done; history g6_a8=10292, g7_a8=10292
+step 64/192: turn 8 done; history g6_a8=11616, g7_a8=11616
+step 72/192: turn 9 done; history g6_a8=12940, g7_a8=12940
+step 80/192: turn 10 done; history g6_a8=14264, g7_a8=14264
+step 88/192: turn 11 done; history g6_a8=15588, g7_a8=15588
+step 96/192: turn 12 done; history g6_a8=16912, g7_a8=16912
+step 104/192: turn 13 done; history g6_a8=18236, g7_a8=18236
+step 112/192: turn 14 done; history g6_a8=19560, g7_a8=19560
+step 120/192: turn 15 done; history g6_a8=20884, g7_a8=20884
+step 128/192: turn 16 done; history g6_a8=22208, g7_a8=22208
+step 136/192: turn 17 done; history g6_a8=23532, g7_a8=23532
+step 144/192: turn 18 done; history g6_a8=24856, g7_a8=24856
+step 152/192: turn 19 done; history g6_a8=26180, g7_a8=26180
+step 160/192: turn 20 done; history g6_a8=27504, g7_a8=27504
+step 168/192: turn 21 done; history g6_a8=28828, g7_a8=28828
+step 176/192: turn 22 done; history g6_a8=30152, g7_a8=30152
+step 184/192: turn 23 done; history g6_a8=31476, g7_a8=31476
+step 192/192: turn 24 done; history g6_a8=32800, g7_a8=32800

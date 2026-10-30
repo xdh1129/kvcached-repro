@@ -11,6 +11,8 @@
 #                  (vLLM's sleep mode: the cached history is dropped and re-prefilled)
 #      TURNS (24), FIRST_LEN (2048), TURN_LEN (1024), OUT_LEN (300)   see agent_rr.py
 #      SYNC=0      let the GPUs run independently (default 1: steps in lockstep)
+#      OFFSET_S    with SYNC=1, the second GPU sends each step's request this many seconds
+#                  after the first (default 0: swaps coincide)
 #      HEADROOM_GIB  swap proxy free-memory margin after a wake (default 8). kvcached maps KV
 #                  pages only out of NVML free memory minus (1 - KVCACHED_GPU_UTILIZATION) of
 #                  the GPU (~4.8 GiB at 0.95), so the margin must cover that plus the turn's
@@ -35,6 +37,7 @@ FIRST_LEN=${FIRST_LEN:-2048}
 TURN_LEN=${TURN_LEN:-1024}
 OUT_LEN=${OUT_LEN:-300}
 SYNC=${SYNC:-1}
+OFFSET_S=${OFFSET_S:-0}
 HEADROOM_GIB=${HEADROOM_GIB:-8}
 REQUEST_TIMEOUT_S=${REQUEST_TIMEOUT_S:-600}
 BASE_PORT=${BASE_PORT:-33001}
@@ -99,6 +102,7 @@ fi
     echo "turn_len=$TURN_LEN"
     echo "out_len=$OUT_LEN"
     echo "sync=$SYNC"
+    echo "offset_s=$OFFSET_S"
     echo "swap_headroom_gib=$HEADROOM_GIB"
     echo "max_model_len=$MAX_MODEL_LEN"
     echo "prefix_caching=1"
@@ -139,7 +143,7 @@ done
 
 client_args=(--proxy "http://localhost:$PROXY_PORT" --turns "$TURNS" --first-len "$FIRST_LEN"
              --turn-len "$TURN_LEN" --out-len "$OUT_LEN" --request-timeout "$REQUEST_TIMEOUT_S")
-[[ "$SYNC" == 1 ]] || client_args+=(--no-sync)
+[[ "$SYNC" == 1 ]] && client_args+=(--offset "$OFFSET_S") || client_args+=(--no-sync)
 "$PY" "$ROOT/scripts/agent_rr.py" "$RUN_DIR" "${client_args[@]}" | tee "$RUN_DIR/agent_rr.log"
 sleep 3
 echo "done: $RUN_DIR"

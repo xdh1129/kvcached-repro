@@ -66,6 +66,8 @@ footer { color: var(--muted); font-size: 12.5px; }
 .bw-cell h3 span { color: var(--muted); font-weight: 400; }
 .bw-cell .chart { height: 230px; }
 .bw-grid.small .chart { height: 170px; }
+#O3-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 560px) { #O3-grid { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { h1 { font-size: 24px; } figure { padding: 14px 12px 10px; } }
 </style>
 
@@ -139,6 +141,31 @@ footer { color: var(--muted); font-size: 12.5px; }
   <p class="lede" id="B2-lede"></p>
   <div class="bw-grid small" id="B2-grid"></div>
   <details><summary>數據表</summary><div class="tbl" id="B2-table"></div></details>
+</figure>
+
+<figure id="O1">
+  <div class="fig-head"><span class="tag">O1</span><h2>兩張 GPU 錯開換 model：GPU 時間分配</h2></div>
+  <p class="lede" id="O1-lede"></p>
+  <div class="legend" id="O1-legend"></div>
+  <div class="chart" style="height:340px"><canvas id="c-O1" aria-label="不同錯開時間的 GPU 時間分配"></canvas></div>
+  <p class="note">在 agent workload 的 <code>--sync</code> 模式下，GPU7 每一步都比 GPU6 晚 Δ 秒送 request，每一步要等兩張都做完才進下一步。所以 Δ 越大，GPU6 等 GPU7 的時間（粉紅色）越多。這是 lockstep 實驗設定造成的代價，兩張 GPU 各跑各的真實系統不會有。</p>
+  <details><summary>數據表</summary><div class="tbl" id="O1-table"></div></details>
+</figure>
+
+<figure id="O2">
+  <div class="fig-head"><span class="tag">O2</span><h2>錯開之後，request 的等待時間</h2></div>
+  <p class="lede" id="O2-lede"></p>
+  <div class="legend" id="O2-legend"></div>
+  <div class="bw-grid" id="O2-grid"></div>
+  <details><summary>數據表（中位數，秒）</summary><div class="tbl" id="O2-table"></div></details>
+</figure>
+
+<figure id="O3">
+  <div class="fig-head"><span class="tag">O3</span><h2>為什麼錯開 0.3 秒就夠：PCIe 是全雙工</h2></div>
+  <p class="lede" id="O3-lede"></p>
+  <div class="legend" id="O3-legend"></div>
+  <div class="bw-grid" id="O3-grid"></div>
+  <p class="note">NVML 的 PCIe RX（往上）和 TX（往下），每 0.1 s 取樣一次。灰底是 swap proxy 記錄的 sleep 和 wake 區間。</p>
 </figure>
 
 <footer>數據來源：<code>results/agent_rr_g67_*</code>、<code>results/wake_storm_g67_kv5_d0_*</code>；由 <code>analysis/make_figures.py</code> 產生，同一份數據也輸出成 <code>results/figures/*.png</code>。</footer>
@@ -445,10 +472,92 @@ function drawB() {
     B.turns.flatMap(t => B.paths.map(p => { const c = cell(p, t); return [p, t, f(c.kv_gib), f(c.weights_gib), f(c.kv_gib / c.weights_gib), f(c.done_s)]; })));
 }
 
+
+/* ---------- O1 / O2 / O3 ---------- */
+const O_STATES = [["decode", "compute：decode", "--s1"], ["prefill", "compute：prefill", "--s2"], ["load", "等搬入（wake）", "--s3"],
+  ["offload", "等搬出（sleep）", "--s4"], ["sync", "等另一張 GPU（lockstep + 錯開）", "--s5"]];
+function drawO() {
+  const O = D.O, gt = O.gpu_time, lab = r => `${r.paths} Δ${r.offset}s`;
+  const g = (p, o) => gt.find(r => r.paths === p && r.offset === o);
+  const tt = (p, o) => O.ttft[`${p}|${o}`];
+  const late = (p, o) => tt(p, o)[23];
+  legend("O1-legend", O_STATES.map(([, l, c]) => [css(c), l]));
+  document.getElementById("O1-lede").innerHTML =
+    `只錯開 <strong>0.3 s</strong>，等搬入加搬出的比例就從 ${pct(g("dram+dram","0").load + g("dram+dram","0").offload)} 降到 ${pct(g("dram+dram","0.3").load + g("dram+dram","0.3").offload)}（dram+dram），` +
+    `總時間 ${g("dram+dram","0").window_s.toFixed(0)} → <strong>${g("dram+dram","0.3").window_s.toFixed(0)} s</strong>；dram+gds 是 ${g("dram+gds","0").window_s.toFixed(0)} → ${g("dram+gds","0.3").window_s.toFixed(0)} s。` +
+    `錯開到 1 s 時，搬移只再少一點，但每一步多等的時間超過省下來的部分，總時間反而變長。`;
+  const o = baseOpts();
+  o.indexAxis = "y"; o.scales.x.stacked = o.scales.y.stacked = true; o.layout = { padding: { right: 56 } };
+  o.scales.x.max = 100; o.scales.x.ticks.callback = v => v + "%";
+  o.scales.x.title = { display: true, text: "GPU 時間占比（GPU 6、7 平均）", color: css("--fg2") };
+  o.scales.y.grid = { display: false };
+  o.plugins.tooltip.callbacks = {
+    title: it => `${it[0].label}，總時間 ${gt[it[0].dataIndex].window_s.toFixed(0)} s`,
+    label: it => ` ${it.dataset.label}：${it.raw.toFixed(1)}%（${(it.raw / 100 * gt[it.dataIndex].window_s).toFixed(0)} s）`
+  };
+  charts.O1 = new Chart(document.getElementById("c-O1"), { type: "bar", options: o, data: { labels: gt.map(lab),
+    datasets: O_STATES.map(([k, l, c]) => ({ label: l, data: gt.map(r => r[k] * 100), backgroundColor: css(c),
+      borderColor: css("--surface"), borderWidth: { right: 2 }, barPercentage: .7, categoryPercentage: .9 })) },
+    plugins: [{ id: "mk", afterDatasetsDraw(ch) { const c = ch.ctx; c.save(); c.font = "12px IBM Plex Mono"; c.fillStyle = css("--fg2");
+      gt.forEach((r, i) => c.fillText(r.window_s.toFixed(0) + " s", ch.chartArea.right + 6, ch.scales.y.getPixelForValue(i) + 4)); c.restore(); } }] });
+  table("O1-table", ["設定", "總時間 s", "decode", "prefill", "等搬入", "等搬出", "等另一張 GPU"],
+    gt.map(r => [lab(r), r.window_s.toFixed(0), pct(r.decode), pct(r.prefill), pct(r.load), pct(r.offload), pct(r.sync + r.other)]));
+
+  const offCol = { "0": css("--s1"), "0.3": css("--s2"), "1": css("--s3") };
+  legend("O2-legend", O.offsets.map(x => [offCol[x], `Δ ${x} s`, "line"]));
+  document.getElementById("O2-lede").innerHTML =
+    `第 24 輪的等待時間：dram+dram ${f(late("dram+dram","0"))} → <strong>${f(late("dram+dram","0.3"))} s</strong>（Δ1：${f(late("dram+dram","1"))}），` +
+    `dram+gds ${f(late("dram+gds","0"))} → <strong>${f(late("dram+gds","0.3"))} s</strong>（Δ1：${f(late("dram+gds","1"))}）。` +
+    `dram+dram 錯開 0.3 s 和 1 s 幾乎一樣；dram+gds 在 KV 變大的後段，1 s 還會再好一些，因為 GDS 的 KV 搬移拖得比較長，0.3 s 錯不完。`;
+  const ymax = Math.max(...Object.values(O.ttft).flat()) * 1.08;
+  const g2 = document.getElementById("O2-grid"); g2.innerHTML = "";
+  for (const p of O.paths) {
+    const div = document.createElement("div"); div.className = "bw-cell";
+    div.innerHTML = `<h3>${p}</h3><div class="chart" style="height:280px"><canvas aria-label="${p} 等待時間"></canvas></div>`; g2.appendChild(div);
+    const oo = baseOpts();
+    oo.interaction = { mode: "index", intersect: false }; oo.scales.y.min = 0; oo.scales.y.max = ymax;
+    oo.scales.y.ticks.callback = v => v.toFixed(1);
+    oo.scales.y.title = { display: true, text: "到達 → 第一個 token（s）", color: css("--fg2") };
+    oo.scales.x.title = { display: true, text: "輪數", color: css("--fg2") };
+    oo.plugins.tooltip.callbacks = { title: it => `第 ${it[0].label} 輪`, label: it => ` ${it.dataset.label}：${it.raw.toFixed(2)} s` };
+    charts["O2" + p] = new Chart(div.querySelector("canvas"), { type: "line", options: oo, data: { labels: Array.from({ length: 24 }, (_, i) => i + 1),
+      datasets: O.offsets.map(x => ({ label: `Δ ${x} s`, data: tt(p, x), borderColor: offCol[x], backgroundColor: offCol[x], borderWidth: 2,
+        pointRadius: 2.5, pointBorderColor: css("--surface"), pointBorderWidth: 1 })) } });
+  }
+  table("O2-table", ["輪數", ...O.paths.flatMap(p => O.offsets.map(x => `${p} Δ${x}`))],
+    Array.from({ length: 24 }, (_, i) => [i + 1, ...O.paths.flatMap(p => O.offsets.map(x => tt(p, x)[i].toFixed(2)))]));
+
+  legend("O3-legend", [[css("--s1"), "RX：host → GPU（wake 搬入）"], [css("--s4"), "TX：GPU → host（sleep 搬出）"]]);
+  document.getElementById("O3-lede").innerHTML =
+    `dram+dram 第 ${O.step.turn} 輪、agent ${O.step.agent} 的那一步。<strong>Δ 0</strong>：兩張 GPU 同時 sleep、同時 wake，同方向互搶，各只有約 30 GB/s，一次換 model 要 1.7 s。` +
+    `<strong>Δ 0.3 s</strong>：GPU6 開始 wake 的時候，GPU7 還在 sleep。一邊往 GPU 搬，一邊從 GPU 搬出來，方向相反，PCIe 全雙工所以互不干擾，兩邊都跑到約 60 GB/s，一次換 model 只要約 1.0 s。`;
+  const g3 = document.getElementById("O3-grid"); g3.innerHTML = "";
+  for (const off of ["0", "0.3"]) for (const gpu of [6, 7]) {
+    const st = O.steps[`dram+dram|${off}`];
+    const div = document.createElement("div"); div.className = "bw-cell";
+    div.innerHTML = `<h3>Δ ${off} s · GPU${gpu}</h3><div class="chart" style="height:200px"><canvas aria-label="Δ ${off} GPU${gpu} RX TX"></canvas></div>`; g3.appendChild(div);
+    const oo = baseOpts();
+    oo.interaction = { mode: "index", intersect: false };
+    oo.scales.x = { ...oo.scales.x, type: "linear", min: -0.2, max: 3, title: { display: true, text: "從 GPU6 的 request 到達起算（s）", color: css("--fg2") } };
+    oo.scales.y.min = -70; oo.scales.y.max = 70; oo.scales.y.ticks.callback = v => Math.abs(v);
+    oo.scales.y.title = { display: true, text: "GB/s", color: css("--fg2") };
+    oo.plugins.tooltip.callbacks = { title: it => `t = ${it[0].parsed.x.toFixed(2)} s`, label: it => ` ${it.dataset.label}：${Math.abs(it.raw.y).toFixed(1)} GB/s` };
+    const pts = (k, sg) => st.t.map((t, i) => ({ x: t, y: sg * st[`gpu${gpu}_${k}`][i] }));
+    charts[`O3${off}${gpu}`] = new Chart(div.querySelector("canvas"), { type: "line", options: oo, data: { datasets: [
+      { label: "RX", data: pts("rx", 1), fill: "origin", borderColor: css("--s1"), backgroundColor: css("--s1") + "cc", borderWidth: 1, pointRadius: 0, pointHitRadius: 6 },
+      { label: "TX", data: pts("tx", -1), fill: "origin", borderColor: css("--s4"), backgroundColor: css("--s4") + "cc", borderWidth: 1, pointRadius: 0, pointHitRadius: 6 }] },
+      plugins: [{ id: "ph", beforeDatasetsDraw(ch) { const c = ch.ctx, xs = ch.scales.x, a = ch.chartArea; c.save();
+        for (const ph of st.phases.filter(x => x.gpu === gpu)) { const x0 = Math.max(xs.getPixelForValue(ph.t0), a.left), x1 = Math.min(xs.getPixelForValue(ph.t1), a.right);
+          c.fillStyle = css("--chip"); c.fillRect(x0, a.top, x1 - x0, a.bottom - a.top);
+          c.fillStyle = css("--muted"); c.font = "11px IBM Plex Mono"; c.textAlign = "center"; c.fillText(ph.action, (x0 + x1) / 2, a.top + 12); }
+        c.restore(); } }] });
+  }
+}
+
 function drawAll() {
   for (const k in charts) { charts[k].destroy(); delete charts[k]; }
   Chart.defaults.font.family = "IBM Plex Sans, Noto Sans TC, sans-serif";
-  text(); drawA1(); drawA2(); drawA4(); drawW2(); drawW3(); drawB();
+  text(); drawA1(); drawA2(); drawA4(); drawW2(); drawW3(); drawB(); drawO();
 }
 drawAll();
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", drawAll);

@@ -7,6 +7,9 @@
   W3  wake transfer time vs KV/weights ratio: model + measurements
   B1  PCIe / SSD throughput during one wake of Phi-3.5 (12 GiB KV) on both GPUs, per path
   B2  the same wake at turns 4, 12, 24 (KV grows with the history)
+  O1  GPU time by state when GPU 7 sends each step's request 0 / 0.3 / 1 s after GPU 6
+  O2  arrival -> first token per turn for those offsets
+  O3  PCIe RX / TX of both GPUs during one step, offset 0 vs 0.3 s (full duplex)
 
 Writes results/figures/<name>.png, figures_data.json, and index.html (analysis/figures_page.html
 with the data inlined: the interactive version of the same figures).
@@ -438,10 +441,125 @@ def b2_plot(d):
     fig.savefig(os.path.join(OUT, "B2_wake_bandwidth_by_turn.png"))
     plt.close(fig)
 
+# ---------------------------------------------------------------- O1 / O2 / O3
+O_PATHS = ["dram+dram", "dram+gds"]
+OFFSETS = ["0", "0.3", "1"]
+OFF_COLOR = dict(zip(OFFSETS, SLOTS))
+
+
+def off_run(p, off):
+    return f"agent_rr_g67_{p}" + ("" if off == "0" else f"_off{off}")
+
+
+def off_data(step_turn=24, step_agent=2, t_pre=0.2, t_post=3.0):
+    gpu_time, ttft, steps = [], {}, {}
+    for p in O_PATHS:
+        for off in OFFSETS:
+            run = off_run(p, off)
+            s = json.load(open(os.path.join(ROOT, run, "summary.json")))
+            gp = list(s["gpus"].values())
+            mean = lambda k: float(np.mean([g[k] for g in gp]))  # noqa: E731
+            pre = float(np.mean([sum(r["prefill_s"] for r in s["requests"] if str(r["gpu"]) == g) / st["window_s"]
+                                 for g, st in s["gpus"].items()]))
+            gpu_time.append({"paths": p, "offset": off, "window_s": mean("window_s"), "prefill": pre,
+                             "decode": mean("compute") - pre, "load": mean("load"), "offload": mean("offload"),
+                             "sync": mean("sync"), "other": mean("other")})
+            ttft[f"{p}|{off}"] = [float(np.median([r["wait_s"] + r["prefill_s"] for r in s["requests"] if r["turn"] == t]))
+                                  for t in range(1, 25)]
+            # one step: PCIe RX / TX of both GPUs and their sleep / wake windows
+            rows = {r["id"]: r for r in s["requests"]}
+            t_ref = rows[f"6:{step_agent}:{step_turn}"]["arrive"]
+            pc = [r for r in csv.DictReader(open(os.path.join(ROOT, run, "pcie.csv")))
+                  if t_ref - t_pre <= float(r["t"]) <= t_ref + t_post]
+            swaps = [x for x in jsonl(os.path.join(ROOT, run, "swaps.jsonl"))
+                     if x["t_unix"] + x["duration_s"] >= t_ref - t_pre and x["t_unix"] <= t_ref + t_post]
+            steps[f"{p}|{off}"] = {
+                "t": [round(float(r["t"]) - t_ref, 3) for r in pc],
+                **{f"gpu{g}_{d}": [float(r[f"gpu{g}_{d}_mbs"]) / 1000 for r in pc] for g in (6, 7) for d in ("rx", "tx")},
+                "phases": [{"gpu": x["gpu"], "action": x["action"], "inst": x["instance"],
+                            "t0": x["t_unix"] - t_ref, "t1": x["t_unix"] + x["duration_s"] - t_ref} for x in swaps]}
+    return {"paths": O_PATHS, "offsets": OFFSETS, "gpu_time": gpu_time, "ttft": ttft, "steps": steps,
+            "step": {"turn": step_turn, "agent": step_agent}}
+
+
+O1_STATES = [("decode", "Compute: decode"), ("prefill", "Compute: prefill"), ("load", "Wait: load (wake)"),
+             ("offload", "Wait: offload (sleep)"), ("sync", "Wait: other GPU (lockstep + offset)")]
+
+
+def o1_plot(d):
+    rows = d["gpu_time"]
+    fig, ax = plt.subplots(figsize=(8.2, 3.6))
+    y = np.arange(len(rows))[::-1].astype(float)
+    y[:3] += 0.4  # gap between the two paths
+    left = np.zeros(len(rows))
+    for i, (k, label) in enumerate(O1_STATES):
+        v = np.array([r[k] * 100 for r in rows])
+        ax.barh(y, v, left=left, height=0.62, color=SLOTS[i], label=label, edgecolor="white", linewidth=1.5)
+        for yy, l, vv in zip(y, left, v):
+            if vv >= 5:
+                ax.text(l + vv / 2, yy, f"{vv:.0f}%", ha="center", va="center", fontsize=8.5, color="white")
+        left += v
+    for yy, r in zip(y, rows):
+        ax.text(101, yy, f"{r['window_s']:.0f} s", va="center", fontsize=9, color=TEXT2)
+    ax.set_yticks(y, [f"{r['paths']}  Δ{r['offset']} s" for r in rows])
+    ax.set_xlim(0, 100)
+    ax.set_xlabel("share of GPU time (mean of GPU 6 and 7), %   ·   right: makespan")
+    ax.grid(axis="y", visible=False)
+    ax.set_title("O1. GPU 7 sends each step's request Δ s after GPU 6", loc="left", fontsize=11, color=TEXT)
+    ax.legend(ncol=3, fontsize=8, frameon=False, loc="upper center", bbox_to_anchor=(0.45, -0.18))
+    fig.savefig(os.path.join(OUT, "O1_offset_gpu_time.png"))
+    plt.close(fig)
+
+
+def o2_plot(d):
+    fig, axes = plt.subplots(1, 2, figsize=(9.4, 3.6), sharey=True, gridspec_kw={"wspace": 0.08})
+    t = list(range(1, 25))
+    for ax, p in zip(axes, d["paths"]):
+        for off in d["offsets"]:
+            ax.plot(t, d["ttft"][f"{p}|{off}"], color=OFF_COLOR[off], lw=2, marker="o", ms=3, label=f"Δ {off} s")
+        ax.set_title(p, loc="left", fontsize=10, color=TEXT)
+        ax.set_xlabel("turn")
+    axes[0].set_ylim(0, 1.08 * max(max(v) for v in d["ttft"].values()))
+    axes[0].set_ylabel("arrival → first token, median (s)")
+    axes[0].legend(fontsize=8.5, frameon=False, loc="upper left")
+    fig.suptitle("O2. Request wait per turn with the GPUs' swaps staggered by Δ", x=0.08, ha="left",
+                 fontsize=11, color=TEXT, y=1.02)
+    fig.savefig(os.path.join(OUT, "O2_offset_ttft_by_turn.png"))
+    plt.close(fig)
+
+
+def o3_plot(d, p="dram+dram"):
+    fig, axes = plt.subplots(2, 2, figsize=(10, 5.2), sharex=True, sharey=True, gridspec_kw={"wspace": 0.06, "hspace": 0.28})
+    for j, off in enumerate(["0", "0.3"]):
+        st = d["steps"][f"{p}|{off}"]
+        t = np.array(st["t"])
+        for i, g in enumerate((6, 7)):
+            ax = axes[i, j]
+            ax.fill_between(t, 0, st[f"gpu{g}_rx"], color=SLOTS[0], alpha=.85, lw=0, label="RX (host → GPU, wake)")
+            ax.fill_between(t, 0, -np.array(st[f"gpu{g}_tx"]), color=SLOTS[3], alpha=.85, lw=0, label="TX (GPU → host, sleep)")
+            ax.axhline(0, color=TEXT2, lw=.8)
+            for ph in st["phases"]:
+                if ph["gpu"] == g:
+                    ax.axvspan(ph["t0"], ph["t1"], color="#f0efec", zorder=0)
+                    ax.text((ph["t0"] + ph["t1"]) / 2, 60, ph["action"], ha="center", fontsize=7.5, color=TEXT2)
+            ax.set_ylim(-66, 68)
+            ax.set_xlim(-0.2, 3.0)
+            ax.grid(axis="x", visible=False)
+            ax.set_title(f"Δ {off} s · GPU{g}", loc="left", fontsize=9.5, color=TEXT)
+        axes[1, j].set_xlabel("seconds since GPU 6's request arrived")
+    for i in range(2):
+        axes[i, 0].set_ylabel("GB/s (NVML)")
+        axes[i, 0].set_yticks([-60, -40, -20, 0, 20, 40, 60], ["60", "40", "20", "0", "20", "40", "60"])
+    axes[0, 0].legend(fontsize=7.5, frameon=False, loc="lower left")
+    fig.suptitle(f"O3. One step ({p}, turn {d['step']['turn']}, agent {d['step']['agent']}): with Δ 0.3 s GPU 6 wakes while "
+                 "GPU 7 sleeps, opposite PCIe directions", x=0.06, ha="left", fontsize=10.5, color=TEXT, y=1.0)
+    fig.savefig(os.path.join(OUT, "O3_offset_duplex_timeline.png"))
+    plt.close(fig)
+
 
 def main():
     os.makedirs(OUT, exist_ok=True)
-    data = {"A1": a1_data(), "A2": a2_data(), "A4": a4_data(), "W2": w2_data(), "W3": w3_data(), "B": bw_data(),
+    data = {"A1": a1_data(), "A2": a2_data(), "A4": a4_data(), "W2": w2_data(), "W3": w3_data(), "B": bw_data(), "O": off_data(),
             "ceilings": {"uplink_gibs": UPLINK_GIBS, "raid_gibs": RAID_GIBS}}
     a1_plot(data["A1"])
     a2_plot(data["A2"])
@@ -450,6 +568,9 @@ def main():
     w3_plot(data["W3"])
     b1_plot(data["B"])
     b2_plot(data["B"])
+    o1_plot(data["O"])
+    o2_plot(data["O"])
+    o3_plot(data["O"])
     with open(os.path.join(OUT, "figures_data.json"), "w") as f:
         json.dump(data, f, indent=1)
     page = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "figures_page.html")).read()
