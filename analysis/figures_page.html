@@ -124,6 +124,14 @@ footer { color: var(--muted); font-size: 12.5px; }
   <details><summary>數據表</summary><div class="tbl" id="A4-table"></div></details>
 </figure>
 
+<figure id="A5">
+  <div class="fig-head"><span class="tag">A5</span><h2>第 24 輪：request 到第一個 token 之前在等什麼（Phi-3.5）</h2></div>
+  <p class="lede">一個 request 到達後，proxy 要先 sleep 掉 LRU 的模型騰出空間（這裡被換掉的是另一份 Phi-3.5，要存 weights 和約 12 GiB KV），再 wake 這個模型，最後 prefill。每段是 2 份 × 2 張 GPU 的中位數。vllm 的 KV 不存也不搬，所以前兩段很短，但歷史要整段重新 prefill。</p>
+  <div class="legend" id="A5-legend"></div>
+  <div class="chart" style="height:300px"><canvas id="c-A5" aria-label="第 24 輪各路徑等待時間拆解堆疊長條圖"></canvas></div>
+  <details><summary>數據表（秒）</summary><div class="tbl" id="A5-table"></div></details>
+</figure>
+
 <figure id="W2">
   <div class="fig-head"><span class="tag">W2</span><h2>每個資料來源的總頻寬</h2></div>
   <p class="lede" id="W2-lede"></p>
@@ -405,6 +413,28 @@ function drawA4() {
   table("A4-table", ["GPU", "instance", "方向", "資料", "GiB", "開始 s", "結束 s", "時間 s"], rows);
 }
 
+/* ---------- A5 ---------- */
+const A5_PARTS = [["offload", "sleep 被換掉的模型（搬出）", "--s4"], ["load", "wake 這個模型（搬入）", "--s3"], ["prefill", "prefill（vllm 是重算整段歷史）", "--s2"]];
+function drawA5() {
+  const rows = D.A5.rows;
+  legend("A5-legend", A5_PARTS.map(([, l, c]) => [css(c), l]));
+  const tot = r => A5_PARTS.reduce((a, [k]) => a + r[k], 0);
+  const o = baseOpts();
+  o.indexAxis = "y";
+  o.scales.x.stacked = true; o.scales.y.stacked = true; o.scales.y.grid = { display: false };
+  o.scales.x.min = 0; o.scales.x.max = Math.ceil(Math.max(...rows.map(tot)) * 1.15);
+  o.scales.x.title = { display: true, text: "秒（中位數）", color: css("--fg2") };
+  o.plugins.tooltip.callbacks = { title: it => `${it[0].label} · 第 ${D.A5.turn} 輪 · 合計 ${tot(rows[it[0].dataIndex]).toFixed(2)} s`,
+    label: it => ` ${it.dataset.label}：${it.raw.toFixed(2)} s` };
+  if (charts.A5) charts.A5.destroy();
+  charts.A5 = new Chart(document.getElementById("c-A5"), { type: "bar", options: o, data: { labels: rows.map(r => r.paths),
+    datasets: A5_PARTS.map(([k, l, c]) => ({ label: l, data: rows.map(r => r[k]), backgroundColor: css(c), borderColor: css("--surface"), borderWidth: { right: 2 }, borderSkipped: false, barPercentage: .62 })) },
+    plugins: [{ id: "tot", afterDatasetsDraw(ch) { const g = ch.ctx; g.save(); g.font = "12px IBM Plex Mono"; g.fillStyle = css("--fg"); g.textAlign = "left";
+      const last = ch.getDatasetMeta(A5_PARTS.length - 1).data;
+      rows.forEach((r, i) => g.fillText(tot(r).toFixed(2) + " s", last[i].x + 6, last[i].y + 4)); g.restore(); } }] });
+  table("A5-table", ["路徑", "搬出", "搬入", "prefill", "合計"], rows.map(r => [r.paths, f(r.offload), f(r.load), f(r.prefill), f(tot(r))]));
+}
+
 /* ---------- W2 ---------- */
 function drawW2() {
   legend("W2-legend", [[css("--s1"), "從 DRAM 搬"], [css("--s2"), "從 SSD 搬"]]);
@@ -609,7 +639,7 @@ function drawO() {
 function drawAll() {
   for (const k in charts) { charts[k].destroy(); delete charts[k]; }
   Chart.defaults.font.family = "IBM Plex Sans, Noto Sans TC, sans-serif";
-  text(); drawA1(); drawA2(); drawA3(); drawA4(); drawW2(); drawW3(); drawB(); drawO();
+  text(); drawA1(); drawA2(); drawA3(); drawA4(); drawA5(); drawW2(); drawW3(); drawB(); drawO();
 }
 drawAll();
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", drawAll);

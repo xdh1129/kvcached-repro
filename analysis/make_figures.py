@@ -4,6 +4,7 @@
   A2  arrival -> first token per turn                (agent_rr_g67_<paths>)
   A3  wake time per turn, one panel per model        (agent_rr_g67_<paths>)
   A4  one model switch on both GPUs, per data source (agent_rr_g67_dram+gds)
+  A5  turn-24 arrival -> first token split into sleep / wake / prefill, one model (Phi-3.5)
   W2  aggregate rate per data source vs ceilings     (wake_storm_g67_kv5_d0_<paths>)
   W3  wake transfer time vs KV/weights ratio: model + measurements
   B1  PCIe / SSD throughput during one wake of Phi-3.5 (12 GiB KV) on both GPUs, per path
@@ -300,6 +301,50 @@ def a4_plot(d, xmax=4.0):
                Patch(color=A4_COLOR["prefill"], label="prefill"), Patch(color=A4_COLOR["decode"], label="decode")]
     ax.legend(handles=handles, ncol=3, fontsize=8, frameon=False, loc="upper center", bbox_to_anchor=(0.45, -0.16))
     fig.savefig(os.path.join(OUT, "A4_switch_timeline_dram+gds.png"))
+    plt.close(fig)
+
+
+# ---------------------------------------------------------------- A5
+A5_PARTS = [("offload", "sleep the LRU model (offload)", 3), ("load", "wake this model (load)", 2),
+            ("prefill", "prefill (vllm: re-prefill of the history)", 1)]
+
+
+def a5_data(turn=24, model=2):
+    """Median split of arrival -> first token at `turn` for the agents running pool model `model`."""
+    out = {"turn": turn, "model": dict(A3_MODELS)[model], "rows": []}
+    for p in PATHS:
+        rs = [r for r in agent(p)["requests"] if r["turn"] == turn and (r["agent"] - 1) % 4 == model - 1]
+        row = {"paths": p, "n": len(rs), **{k: float(np.median([r[k + "_s"] for r in rs])) for k, *_ in A5_PARTS}}
+        row["other"] = float(np.median([r["other_wait_s"] for r in rs]))
+        w, kv = [r["weights_gib"] for r in rs if r["weights_gib"]], [r["kv_gib"] for r in rs if r["kv_gib"]]
+        row["weights_gib"] = float(np.median(w)) if w else None  # vllm: no tiered log
+        row["kv_gib"] = float(np.median(kv)) if kv else None
+        out["rows"].append(row)
+    return out
+
+
+def a5_plot(d):
+    fig, ax = plt.subplots(figsize=(8.2, 3.6))
+    rows = d["rows"]
+    y = np.arange(len(rows))[::-1]
+    left = np.zeros(len(rows))
+    for k, label, slot in A5_PARTS:
+        v = np.array([r[k] for r in rows])
+        ax.barh(y, v, left=left, height=0.62, color=SLOTS[slot], label=label, edgecolor="white", linewidth=1.5)
+        for yy, l, vv in zip(y, left, v):
+            if vv >= 0.45:
+                ax.text(l + vv / 2, yy, f"{vv:.2f}", ha="center", va="center", fontsize=8.5, color="white")
+        left += v
+    for yy, tot in zip(y, left):
+        ax.text(tot + 0.08, yy, f"{tot:.2f} s", va="center", fontsize=9, color=TEXT)
+    ax.set_yticks(y, [r["paths"] for r in rows])
+    ax.set_xlim(0, left.max() * 1.15)
+    ax.set_xlabel("seconds, median of 2 copies x 2 GPUs")
+    ax.grid(axis="y", visible=False)
+    ax.set_title(f"A5. Turn {d['turn']}, {d['model']}: arrival → first token, split by what it waits for",
+                 loc="left", fontsize=11, color=TEXT, pad=10)
+    ax.legend(ncol=3, fontsize=8.5, frameon=False, loc="upper center", bbox_to_anchor=(0.45, -0.2))
+    fig.savefig(os.path.join(OUT, "A5_turn24_wait_split.png"))
     plt.close(fig)
 
 
@@ -618,12 +663,13 @@ def o3_plot(d, p="dram+dram"):
 
 def main():
     os.makedirs(OUT, exist_ok=True)
-    data = {"A1": a1_data(), "A2": a2_data(), "A3": a3_data(), "A4": a4_data(), "W2": w2_data(), "W3": w3_data(), "B": bw_data(), "O": off_data(),
+    data = {"A1": a1_data(), "A2": a2_data(), "A3": a3_data(), "A4": a4_data(), "A5": a5_data(), "W2": w2_data(), "W3": w3_data(), "B": bw_data(), "O": off_data(),
             "ceilings": {"uplink_gibs": UPLINK_GIBS, "raid_gibs": RAID_GIBS}}
     a1_plot(data["A1"])
     a2_plot(data["A2"])
     a3_plot(data["A3"])
     a4_plot(data["A4"])
+    a5_plot(data["A5"])
     w2_plot(data["W2"])
     w3_plot(data["W3"])
     b1_plot(data["B"])
