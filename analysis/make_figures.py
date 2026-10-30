@@ -5,6 +5,8 @@
   A4  one model switch on both GPUs, per data source (agent_rr_g67_dram+gds)
   W2  aggregate rate per data source vs ceilings     (wake_storm_g67_kv5_d0_<paths>)
   W3  wake transfer time vs KV/weights ratio: model + measurements
+  B1  PCIe / SSD throughput during one wake of Phi-3.5 (12 GiB KV) on both GPUs, per path
+  B2  the same wake at turns 4, 12, 24 (KV grows with the history)
 
 Writes results/figures/<name>.png, figures_data.json, and index.html (analysis/figures_page.html
 with the data inlined: the interactive version of the same figures).
@@ -12,6 +14,7 @@ with the data inlined: the interactive version of the same figures).
 usage: python analysis/make_figures.py
 """
 
+import csv
 import glob
 import json
 import os
@@ -344,16 +347,109 @@ def w3_plot(d):
     fig.savefig(os.path.join(OUT, "W3_gds_crossover.png"))
     plt.close(fig)
 
+# ---------------------------------------------------------------- B1 / B2
+B_PATHS = ["dram+dram", "dram+ssd", "dram+gds"]
+B_TURNS = [4, 12, 24]
+B_AGENT = 2  # Phi-3.5-mini: no GQA, ~384 KiB KV per token, so the largest history KV
+
+
+def bw_data(t_pre=0.15, t_post=2.3):
+    """NVML PCIe RX of GPU 6/7 and md0 reads (pcie.csv, 0.1 s samples) around the wake of agent
+    B_AGENT at each turn, both GPUs (they wake it in the same step), plus the plugin's weights / KV
+    windows. Rates in GB/s (NVML KB/s and block-layer bytes, decimal)."""
+    out = {}
+    for p in B_PATHS:
+        run = os.path.join(ROOT, f"agent_rr_g67_{p}")
+        rows = list(csv.DictReader(open(os.path.join(run, "pcie.csv"))))
+        tt = np.array([float(r["t"]) for r in rows])
+        res = {g: [e for e in jsonl(os.path.join(run, f"tiered_g{g}_a{B_AGENT}.jsonl")) if e["event"] == "resume"]
+               for g in (6, 7)}
+        for turn in B_TURNS:
+            ev = {g: next(e for e in res[g] if e["n"] == turn - 1) for g in (6, 7)}
+            t_ref = min(e["t_unix"] for e in ev.values())
+            m = (tt >= t_ref - t_pre) & (tt <= t_ref + t_post)
+            sel = [rows[i] for i in np.flatnonzero(m)]
+            spans = {}
+            for g, e in ev.items():
+                a = e["t_unix"] - t_ref
+                spans[g] = {"weights": [a + e["weights_start_s"], a + e["weights_end_s"]],
+                            "kv": [a + e["kv_start_s"], a + e["kv_end_s"]]}
+            out[f"{p}|{turn}"] = {
+                "paths": p, "turn": turn, "t": [round(float(r["t"]) - t_ref, 3) for r in sel],
+                "gpu6": [float(r["gpu6_rx_mbs"]) / 1000 for r in sel], "gpu7": [float(r["gpu7_rx_mbs"]) / 1000 for r in sel],
+                "md0": [float(r["md0_read_mbs"]) / 1000 for r in sel], "spans": spans,
+                "weights_gib": ev[6]["weights_bytes"] / GIB, "kv_gib": ev[6]["kv_bytes"] / GIB,
+                "done_s": max(max(s["weights"][1], s["kv"][1]) for s in spans.values())}
+    return {"paths": B_PATHS, "turns": B_TURNS, "agent": B_AGENT, "cells": out}
+
+
+B_GPU = {"gpu6": SLOTS[0], "gpu7": SLOTS[2]}
+
+
+def bw_panel(ax, c, strip=True, xmax=2.3, ymax=95):
+    t = np.array(c["t"])
+    ax.stackplot(t, c["gpu6"], c["gpu7"], colors=[B_GPU["gpu6"], B_GPU["gpu7"]], alpha=.85, step=None,
+                 labels=["GPU6 PCIe RX", "GPU7 PCIe RX"], edgecolor="white", linewidth=.6)
+    ax.plot(t, c["md0"], color=SLOTS[1], lw=2, ls="--", label="SSD read (md0)")
+    if strip:  # plugin windows (both GPUs' union) as thin bars at the top
+        for k, (key, lab) in enumerate((("weights", "weights"), ("kv", "KV"))):
+            a = min(s[key][0] for s in c["spans"].values())
+            b = max(s[key][1] for s in c["spans"].values())
+            y = ymax * (0.95 - 0.08 * k)
+            ax.plot([a, b], [y, y], color=TEXT2, lw=4, solid_capstyle="butt")
+            ax.text(b + 0.03, y, lab, va="center", fontsize=7.5, color=TEXT2)
+    ax.set_xlim(-0.1, xmax)
+    ax.set_ylim(0, ymax)
+    ax.grid(axis="x", visible=False)
+
+
+def b1_plot(d):
+    fig, axes = plt.subplots(1, 3, figsize=(10.5, 3.6), sharey=True, gridspec_kw={"wspace": 0.08})
+    for ax, p in zip(axes, d["paths"]):
+        c = d["cells"][f"{p}|24"]
+        bw_panel(ax, c)
+        ax.set_title(f"{p}  ·  done {c['done_s']:.2f} s", loc="left", fontsize=10, color=TEXT)
+        ax.set_xlabel("seconds since the wake started")
+    axes[0].set_ylabel("GB/s (NVML / block layer)")
+    c = d["cells"][f"{d['paths'][0]}|24"]
+    fig.suptitle(f"B1. One wake on both GPUs at once: Phi-3.5 at turn 24, {c['weights_gib']:.1f} GiB weights + "
+                 f"{c['kv_gib']:.1f} GiB KV per GPU", x=0.08, ha="left", fontsize=11, color=TEXT, y=1.04)
+    axes[0].legend(fontsize=8, frameon=False, loc="upper left", bbox_to_anchor=(0, 0.84))
+    fig.savefig(os.path.join(OUT, "B1_wake_bandwidth_timeline.png"))
+    plt.close(fig)
+
+
+def b2_plot(d):
+    fig, axes = plt.subplots(len(d["turns"]), 3, figsize=(10.5, 7.4), sharex=True, sharey=True,
+                             gridspec_kw={"wspace": 0.08, "hspace": 0.32})
+    for i, turn in enumerate(d["turns"]):
+        for j, p in enumerate(d["paths"]):
+            c = d["cells"][f"{p}|{turn}"]
+            ax = axes[i, j]
+            bw_panel(ax, c)
+            ax.set_title(f"{p} · turn {turn} · KV {c['kv_gib']:.1f} GiB · {c['done_s']:.2f} s",
+                         loc="left", fontsize=9, color=TEXT)
+        axes[i, 0].set_ylabel("GB/s")
+    for ax in axes[-1]:
+        ax.set_xlabel("seconds since the wake started")
+    axes[0, 0].legend(fontsize=7.5, frameon=False, loc="upper left", bbox_to_anchor=(0, 0.84))
+    fig.suptitle(f"B2. The same wake as the history grows (Phi-3.5, {d['cells']['dram+dram|24']['weights_gib']:.1f} GiB weights; "
+                 "both GPUs at once)", x=0.08, ha="left", fontsize=11, color=TEXT, y=0.95)
+    fig.savefig(os.path.join(OUT, "B2_wake_bandwidth_by_turn.png"))
+    plt.close(fig)
+
 
 def main():
     os.makedirs(OUT, exist_ok=True)
-    data = {"A1": a1_data(), "A2": a2_data(), "A4": a4_data(), "W2": w2_data(), "W3": w3_data(),
+    data = {"A1": a1_data(), "A2": a2_data(), "A4": a4_data(), "W2": w2_data(), "W3": w3_data(), "B": bw_data(),
             "ceilings": {"uplink_gibs": UPLINK_GIBS, "raid_gibs": RAID_GIBS}}
     a1_plot(data["A1"])
     a2_plot(data["A2"])
     a4_plot(data["A4"])
     w2_plot(data["W2"])
     w3_plot(data["W3"])
+    b1_plot(data["B"])
+    b2_plot(data["B"])
     with open(os.path.join(OUT, "figures_data.json"), "w") as f:
         json.dump(data, f, indent=1)
     page = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "figures_page.html")).read()

@@ -60,6 +60,12 @@ th { color: var(--muted); font-weight: 500; }
 .seg button { font: inherit; font-size: 13px; background: transparent; color: var(--fg2); border: 0; padding: 4px 10px; cursor: pointer; }
 .seg button[aria-pressed="true"] { background: var(--chip); color: var(--fg); font-weight: 500; }
 footer { color: var(--muted); font-size: 12.5px; }
+.bw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px 16px; }
+.bw-cell { display: grid; gap: 4px; min-width: 0; }
+.bw-cell h3 { font-size: 13px; font-weight: 600; margin: 0; font-family: var(--font-mono); color: var(--fg); }
+.bw-cell h3 span { color: var(--muted); font-weight: 400; }
+.bw-cell .chart { height: 230px; }
+.bw-grid.small .chart { height: 170px; }
 @media (max-width: 560px) { h1 { font-size: 24px; } figure { padding: 14px 12px 10px; } }
 </style>
 
@@ -118,6 +124,21 @@ footer { color: var(--muted); font-size: 12.5px; }
   <div class="chart" style="height:380px"><canvas id="c-W3" aria-label="wake 搬移時間對 KV 與 weights 比例的模型與實測"></canvas></div>
   <p class="note" id="W3-note"></p>
   <details><summary>數據表（實測點）</summary><div class="tbl" id="W3-table"></div></details>
+</figure>
+
+<figure id="B1">
+  <div class="fig-head"><span class="tag">B1</span><h2>搬入時的頻寬時間軸（KV 比 weights 大的一次 wake）</h2></div>
+  <p class="lede" id="B1-lede"></p>
+  <div class="legend" id="B1-legend"></div>
+  <div class="bw-grid" id="B1-grid"></div>
+  <p class="note">GPU RX 是 NVML 的 PCIe 接收流量，包含 protocol overhead 和 GDS 從 NVMe 直接寫進 GPU 的 P2P 流量，所以兩張 GPU 加起來會高於 uplink 的 53.7 GiB/s；SSD read 是 md0 的 block layer 讀取量。兩者都是 0.1 s 取樣一次，單位是 GB/s（十進位）。上方的灰條是 tiered_restore 記錄的 weights 和 KV 搬移區間（兩張 GPU 的聯集）。</p>
+</figure>
+
+<figure id="B2">
+  <div class="fig-head"><span class="tag">B2</span><h2>同一個 agent 在第 4、12、24 輪的 wake</h2></div>
+  <p class="lede" id="B2-lede"></p>
+  <div class="bw-grid small" id="B2-grid"></div>
+  <details><summary>數據表</summary><div class="tbl" id="B2-table"></div></details>
 </figure>
 
 <footer>數據來源：<code>results/agent_rr_g67_*</code>、<code>results/wake_storm_g67_kv5_d0_*</code>；由 <code>analysis/make_figures.py</code> 產生，同一份數據也輸出成 <code>results/figures/*.png</code>。</footer>
@@ -363,10 +384,71 @@ function drawW3() {
     D.W3.points.map(q => [q.paths, q.source, q.ratio.toFixed(2), q.time_s.toFixed(3), m[q.paths][Math.round(q.ratio * 100)].toFixed(3), q.n]));
 }
 
+
+/* ---------- B1 / B2 ---------- */
+function drawBw(canvas, c, small) {
+  const o = baseOpts();
+  o.interaction = { mode: "index", intersect: false };
+  o.scales.x = { ...o.scales.x, type: "linear", min: -0.1, max: 2.3,
+    title: { display: !small, text: "從 wake 開始算的秒數", color: css("--fg2") } };
+  o.scales.y = { ...o.scales.y, stacked: true, min: 0, max: 100,
+    title: { display: !small, text: "GB/s", color: css("--fg2") } };
+  o.layout = { padding: { top: 26 } };
+  o.plugins.tooltip.callbacks = {
+    title: it => `t = ${it[0].parsed.x.toFixed(2)} s`,
+    label: it => ` ${it.dataset.label}：${it.raw.y.toFixed(1)} GB/s`
+  };
+  const pts = k => c.t.map((t, i) => ({ x: t, y: c[k][i] }));
+  return new Chart(canvas, { type: "line", options: o, data: { datasets: [
+    { label: "GPU6 PCIe RX", data: pts("gpu6"), stack: "rx", order: 1, fill: "origin", borderColor: css("--s1"), backgroundColor: css("--s1") + "cc", borderWidth: 1, pointRadius: 0, pointHitRadius: 6 },
+    { label: "GPU7 PCIe RX", data: pts("gpu7"), stack: "rx", order: 1, fill: "-1", borderColor: css("--s3"), backgroundColor: css("--s3") + "cc", borderWidth: 1, pointRadius: 0, pointHitRadius: 6 },
+    { label: "SSD read (md0)", data: pts("md0"), stack: "ssd", order: 0, fill: false, borderColor: css("--s2"), borderDash: [6, 4], borderWidth: 2, pointRadius: 0, pointHitRadius: 6 },
+  ] }, plugins: [{ id: "spans", afterDraw(ch) {
+    const g = ch.ctx, xs = ch.scales.x, a = ch.chartArea; g.save(); g.font = "11px IBM Plex Mono"; g.textBaseline = "middle";
+    [["weights", "weights"], ["kv", "KV"]].forEach(([k, lab], i) => {
+      const t0 = Math.min(...Object.values(c.spans).map(s => s[k][0])), t1 = Math.max(...Object.values(c.spans).map(s => s[k][1]));
+      const y = a.top - 20 + i * 11, x0 = xs.getPixelForValue(t0), x1 = xs.getPixelForValue(t1);
+      g.fillStyle = css("--fg2"); g.fillRect(x0, y - 2.5, x1 - x0, 5);
+      const txt = `${lab} ${(t1 - t0).toFixed(2)}s`, w = g.measureText(txt).width, x = Math.min(x1 + 5, a.right - w);
+      if (x < x1 + 5) { g.fillStyle = css("--surface"); g.fillRect(x - 3, y - 6, w + 6, 12); }
+      g.fillStyle = css("--muted"); g.fillText(txt, x, y);
+    });
+    g.restore();
+  } }] });
+}
+function bwCell(grid, c, small, label) {
+  const div = document.createElement("div"); div.className = "bw-cell";
+  div.innerHTML = `<h3>${label}</h3><div class="chart"><canvas aria-label="${c.paths} 第 ${c.turn} 輪 wake 頻寬"></canvas></div>`;
+  grid.appendChild(div);
+  return drawBw(div.querySelector("canvas"), c, small);
+}
+function drawB() {
+  const B = D.B, cell = (p, t) => B.cells[`${p}|${t}`];
+  legend("B1-legend", [[css("--s1"), "GPU6 PCIe RX"], [css("--s3"), "GPU7 PCIe RX（疊在 GPU6 上面）"], [css("--s2"), "SSD read（md0）", "line"], [css("--fg2"), "weights／KV 搬移區間", "line"]]);
+  const c24 = cell("dram+gds", 24), d24 = cell("dram+dram", 24), s24 = cell("dram+ssd", 24);
+  document.getElementById("B1-lede").innerHTML =
+    `Phi-3.5 第 24 輪：每張 GPU 要搬 ${f(c24.weights_gib, 1)} GiB weights 加 <strong>${f(c24.kv_gib, 1)} GiB KV</strong>，兩張 GPU 同時 wake。` +
+    `dram+dram 全部擠在 host uplink，兩張 GPU 各約 30 GB/s，<strong>${f(d24.done_s)} s</strong> 搬完。` +
+    `dram+gds 前 0.35 s 是 DRAM 和 SSD 同時搬，weights 搬完以後 DRAM 就閒著，只剩 SSD 以約 14 GB/s 搬 KV，拖到 <strong>${f(c24.done_s)} s</strong>。` +
+    `dram+ssd（${f(s24.done_s)} s）的 KV 先讀到 host 再分批送進 GPU，所以 GPU RX 呈鋸齒狀。`;
+  const g1 = document.getElementById("B1-grid"), g2 = document.getElementById("B2-grid");
+  g1.innerHTML = g2.innerHTML = "";
+  for (const p of B.paths) { const c = cell(p, 24); charts["B1" + p] = bwCell(g1, c, false, `${p} <span>· ${f(c.done_s)} s 搬完</span>`); }
+  for (const t of B.turns) for (const p of B.paths) { const c = cell(p, t);
+    charts[`B2${p}${t}`] = bwCell(g2, c, true, `${p} · 第 ${t} 輪 <span>· KV ${f(c.kv_gib, 1)} GiB · ${f(c.done_s)} s</span>`); }
+  const c4 = cell("dram+gds", 4), c12 = cell("dram+gds", 12);
+  document.getElementById("B2-lede").innerHTML =
+    `KV 隨歷史變長：第 4 輪 ${f(c4.kv_gib, 1)} GiB、第 12 輪 ${f(c12.kv_gib, 1)} GiB、第 24 輪 ${f(c24.kv_gib, 1)} GiB。` +
+    `KV 還小的時候，dram+gds 和 dram+dram 一樣快（${f(c4.done_s)} s 對 ${f(cell("dram+dram", 4).done_s)} s），SSD 那邊的搬移完全藏在 weights 後面。` +
+    `KV 一變大，SSD 的尾巴就越拉越長；dram+dram 只是平台變寬。這就是 W3 交叉點兩側的實際樣子。`;
+  table("B2-table", ["路徑", "輪數", "KV GiB", "weights GiB", "K/W", "搬完 s"],
+    B.turns.flatMap(t => B.paths.map(p => { const c = cell(p, t); return [p, t, f(c.kv_gib), f(c.weights_gib), f(c.kv_gib / c.weights_gib), f(c.done_s)]; })));
+}
+
 function drawAll() {
   for (const k in charts) { charts[k].destroy(); delete charts[k]; }
   Chart.defaults.font.family = "IBM Plex Sans, Noto Sans TC, sans-serif";
-  text(); drawA1(); drawA2(); drawA4(); drawW2(); drawW3();
+  text(); drawA1(); drawA2(); drawA4(); drawW2(); drawW3(); drawB();
 }
 drawAll();
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", drawAll);
