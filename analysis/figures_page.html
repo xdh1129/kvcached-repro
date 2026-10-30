@@ -99,6 +99,23 @@ footer { color: var(--muted); font-size: 12.5px; }
   <details><summary>數據表（中位數，秒）</summary><div class="tbl" id="A2-table"></div></details>
 </figure>
 
+<figure id="A3">
+  <div class="fig-head"><span class="tag">A3</span><h2>每個模型每一輪的 wake 時間</h2></div>
+  <p class="lede">wake 時間 = swap proxy 叫醒一個 agent 到它能開始算的時間（搬回 weights 和 KV），兩張 GPU 同時 wake；每點是 2 份 × 2 張 GPU 的中位數。vllm 只搬回 weights，歷史要重新 prefill，所以另外畫一條虛線「vllm wake + 重算歷史」。y 軸四張共用。</p>
+  <div class="seg" role="group" aria-label="顯示哪些路徑">
+    <button type="button" id="A3-all" aria-pressed="true">全部</button>
+    <button type="button" id="A3-fast" aria-pressed="false">放大 DRAM 相關與 vllm</button>
+  </div>
+  <div class="legend" id="A3-legend"></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:16px">
+    <div class="chart" style="height:250px;min-width:0"><canvas id="c-A3-0" aria-label="Llama-3.2-3B 每輪 wake 時間"></canvas></div>
+    <div class="chart" style="height:250px;min-width:0"><canvas id="c-A3-1" aria-label="Phi-3.5-mini 每輪 wake 時間"></canvas></div>
+    <div class="chart" style="height:250px;min-width:0"><canvas id="c-A3-2" aria-label="Meta-Llama-3.1-8B 每輪 wake 時間"></canvas></div>
+    <div class="chart" style="height:250px;min-width:0"><canvas id="c-A3-3" aria-label="Llama-3.1-8B-Instruct 每輪 wake 時間"></canvas></div>
+  </div>
+  <details><summary>數據表（第 24 輪，中位數，秒）</summary><div class="tbl" id="A3-table"></div></details>
+</figure>
+
 <figure id="A4">
   <div class="fig-head"><span class="tag">A4</span><h2>一次換 model 的時間軸（dram+gds）</h2></div>
   <p class="lede" id="A4-lede"></p>
@@ -218,7 +235,7 @@ function text() {
   document.getElementById("findings").innerHTML = [
     [pct(dd.load + dd.offload), "dram+dram 的 GPU 時間裡，等搬入加搬出占的比例；vllm 則有 " + pct(vl.prefill) + " 花在重算歷史"],
     [f(last("dram+dram")) + " s", "第 24 輪（約 31k token 歷史）dram+dram 的第一個 token 等待時間；vllm 要 " + f(last("vllm")) + " s"],
-    [f(ws["dram+gds"].dram_gibs, 1) + " + " + f(ws["dram+gds"].ssd_gibs, 1), "dram+gds 同時 wake 時，DRAM 和 SSD 各自的總頻寬（GiB/s），兩邊都碰到上限"],
+    [f(ws["dram+gds"].dram_gibs, 1) + " + " + f(ws["dram+gds"].ssd_gibs, 1), "dram+gds 同時 wake 時，DRAM 和 SSD 各自的總頻寬（GiB/s）"],
     ["K/W ≈ " + f(D.W3.model.crossover), "KV 和 weights 的比例低於這個值時，dram+gds 的 wake 比 dram+dram 快"],
   ].map(([b, s]) => `<li><b>${b}</b><span>${s}</span></li>`).join("");
 
@@ -303,6 +320,44 @@ for (const [id, mode] of [["A2-all", "all"], ["A2-fast", "fast"]]) document.getE
   document.getElementById("A2-all").setAttribute("aria-pressed", mode === "all");
   document.getElementById("A2-fast").setAttribute("aria-pressed", mode === "fast");
   drawA2();
+});
+
+/* ---------- A3 ---------- */
+let a3Mode = "all";
+function drawA3() {
+  const shown = a3Mode === "all" ? PATHS : ["dram+dram", "dram+ssd", "dram+gds", "vllm"];
+  const sets = [...shown.map(p => [p, p]), ["vllm_reprefill", "vllm wake + 重算歷史"]];
+  legend("A3-legend", [...shown.map(p => [pathColor(p), p, "line"]), [pathColor("vllm"), "vllm wake + 重算歷史（虛線）", "line"]]);
+  const top = Math.max(...D.A3.models.flatMap(m => sets.flatMap(([k]) => m.series[k])));
+  D.A3.models.forEach((m, i) => {
+    const o = baseOpts();
+    o.interaction = { mode: "index", intersect: false };
+    o.scales.y.min = 0; o.scales.y.max = Math.ceil(top * 10) / 10;
+    o.scales.y.title = { display: true, text: "wake 時間（s）", color: css("--fg2") };
+    o.scales.x.title = { display: true, text: `${m.name} · weights ${f(m.weights_gib, 1)} GiB · 第 24 輪 KV ${f(m.kv_gib[23], 1)} GiB`, color: css("--fg") };
+    o.scales.x.ticks.maxRotation = 0; o.scales.x.ticks.autoSkipPadding = 10;
+    o.plugins.tooltip.itemSort = (a, b) => b.raw - a.raw;
+    o.plugins.tooltip.callbacks = {
+      title: it => `${m.name} · 第 ${it[0].dataIndex + 1} 輪 · KV ${f(m.kv_gib[it[0].dataIndex], 1)} GiB`,
+      label: it => ` ${it.dataset.label}：${it.raw.toFixed(2)} s` };
+    const key = "A3_" + i;
+    if (charts[key]) charts[key].destroy();
+    charts[key] = new Chart(document.getElementById("c-A3-" + i), { type: "line", options: o, data: {
+      labels: D.A3.turns,
+      datasets: sets.map(([k, label]) => { const c = pathColor(k === "vllm_reprefill" ? "vllm" : k);
+        return { label, data: m.series[k], borderColor: c, backgroundColor: c, borderWidth: 2, borderDash: k === "vllm_reprefill" ? [6, 4] : [],
+          pointRadius: k === "vllm_reprefill" ? 0 : 2, pointHoverRadius: 4, pointHitRadius: 6, tension: 0 }; })
+    } });
+  });
+  const keys = [...PATHS, "vllm_reprefill"];
+  table("A3-table", ["模型", "weights GiB", "KV GiB", ...PATHS, "vllm + 重算"], D.A3.models.map(m =>
+    [m.name, f(m.weights_gib, 1), f(m.kv_gib[23], 1), ...keys.map(k => f(m.series[k][23]))]));
+}
+for (const [id, mode] of [["A3-all", "all"], ["A3-fast", "fast"]]) document.getElementById(id).addEventListener("click", () => {
+  a3Mode = mode;
+  document.getElementById("A3-all").setAttribute("aria-pressed", mode === "all");
+  document.getElementById("A3-fast").setAttribute("aria-pressed", mode === "fast");
+  drawA3();
 });
 
 /* ---------- A4 ---------- */
@@ -554,7 +609,7 @@ function drawO() {
 function drawAll() {
   for (const k in charts) { charts[k].destroy(); delete charts[k]; }
   Chart.defaults.font.family = "IBM Plex Sans, Noto Sans TC, sans-serif";
-  text(); drawA1(); drawA2(); drawA4(); drawW2(); drawW3(); drawB(); drawO();
+  text(); drawA1(); drawA2(); drawA3(); drawA4(); drawW2(); drawW3(); drawB(); drawO();
 }
 drawAll();
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", drawAll);

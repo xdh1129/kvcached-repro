@@ -2,6 +2,7 @@
 
   A1  GPU time by state per offload path            (agent_rr_g67_<paths>)
   A2  arrival -> first token per turn                (agent_rr_g67_<paths>)
+  A3  wake time per turn, one panel per model        (agent_rr_g67_<paths>)
   A4  one model switch on both GPUs, per data source (agent_rr_g67_dram+gds)
   W2  aggregate rate per data source vs ceilings     (wake_storm_g67_kv5_d0_<paths>)
   W3  wake transfer time vs KV/weights ratio: model + measurements
@@ -148,6 +149,65 @@ def a2_plot(d):
                  loc="left", fontsize=11, color=TEXT)
     ax.legend(ncol=3, fontsize=8.5, frameon=False, loc="upper left")
     fig.savefig(os.path.join(OUT, "A2_ttft_by_turn.png"))
+    plt.close(fig)
+
+
+# ---------------------------------------------------------------- A3
+A3_MODELS = [(1, "Llama-3.2-3B-Instruct"), (2, "Phi-3.5-mini-instruct"), (3, "Meta-Llama-3.1-8B"),
+             (4, "Llama-3.1-8B-Instruct")]  # agent i runs pool[(i - 1) % 4]
+
+
+def a3_data():
+    """Median wake (proxy wake = restore of weights + KV) per model and turn: 2 copies x 2 GPUs.
+
+    vllm restores weights only; its history comes back by re-prefill, so it also gets wake + prefill.
+    """
+    out = {"turns": list(range(1, 25)), "models": []}
+    reqs = {p: agent(p)["requests"] for p in PATHS}
+    for k, name in A3_MODELS:
+        m = {"name": name, "series": {}, "weights_gib": None, "kv_gib": []}
+        for p in PATHS:
+            load, ready = [], []
+            for t in out["turns"]:
+                rs = [r for r in reqs[p] if r["turn"] == t and (r["agent"] - 1) % 4 == k - 1]
+                load.append(float(np.median([r["load_s"] for r in rs])))
+                ready.append(float(np.median([r["load_s"] + r["prefill_s"] for r in rs])))
+            m["series"][p] = load
+            if p == "vllm":
+                m["series"]["vllm_reprefill"] = ready
+        for t in out["turns"]:
+            rs = [r for r in reqs["dram+dram"] if r["turn"] == t and (r["agent"] - 1) % 4 == k - 1 and r["kv_gib"] is not None]
+            m["kv_gib"].append(float(np.median([r["kv_gib"] for r in rs])) if rs else 0.0)
+        m["weights_gib"] = float(np.median([r["weights_gib"] for r in reqs["dram+dram"]
+                                            if (r["agent"] - 1) % 4 == k - 1 and r["weights_gib"]]))
+        out["models"].append(m)
+    return out
+
+
+def a3_plot(d):
+    fig, axes = plt.subplots(2, 2, figsize=(9.6, 7.0), sharex=True, sharey=True,
+                             gridspec_kw={"hspace": 0.4, "wspace": 0.08})
+    t = d["turns"]
+    top = max(max(v) for m in d["models"] for v in m["series"].values())
+    for ax, m in zip(axes.flat, d["models"]):
+        for p in PATHS:
+            ax.plot(t, m["series"][p], color=PATH_COLOR[p], lw=1.8, marker="o", ms=2.5, label=p)
+        ax.plot(t, m["series"]["vllm_reprefill"], color=PATH_COLOR["vllm"], lw=1.8, ls="--",
+                label="vllm wake + re-prefill")
+        ax.set_title(f"{m['name']}\n{m['weights_gib']:.1f} GiB weights, KV {m['kv_gib'][-1]:.1f} GiB at turn 24",
+                     loc="left", fontsize=9.5, color=TEXT)
+        ax.set_xticks([1, 4, 8, 12, 16, 20, 24])
+        ax.set_xlim(0.5, 24.5)
+        ax.set_ylim(0, top * 1.05)
+    for ax in axes[1]:
+        ax.set_xlabel("turn")
+    for ax in axes[:, 0]:
+        ax.set_ylabel("wake time, median (s)")
+    h, l = axes[0, 0].get_legend_handles_labels()
+    fig.legend(h, l, ncol=7, fontsize=8.5, frameon=False, loc="lower center", bbox_to_anchor=(0.5, -0.03))
+    fig.suptitle("A3. Wake time per turn by model (both GPUs wake at once; KV grows with the history)",
+                 x=0.06, ha="left", fontsize=11, color=TEXT, y=0.99)
+    fig.savefig(os.path.join(OUT, "A3_wake_time_by_model.png"))
     plt.close(fig)
 
 
@@ -558,10 +618,11 @@ def o3_plot(d, p="dram+dram"):
 
 def main():
     os.makedirs(OUT, exist_ok=True)
-    data = {"A1": a1_data(), "A2": a2_data(), "A4": a4_data(), "W2": w2_data(), "W3": w3_data(), "B": bw_data(), "O": off_data(),
+    data = {"A1": a1_data(), "A2": a2_data(), "A3": a3_data(), "A4": a4_data(), "W2": w2_data(), "W3": w3_data(), "B": bw_data(), "O": off_data(),
             "ceilings": {"uplink_gibs": UPLINK_GIBS, "raid_gibs": RAID_GIBS}}
     a1_plot(data["A1"])
     a2_plot(data["A2"])
+    a3_plot(data["A3"])
     a4_plot(data["A4"])
     w2_plot(data["W2"])
     w3_plot(data["W3"])
