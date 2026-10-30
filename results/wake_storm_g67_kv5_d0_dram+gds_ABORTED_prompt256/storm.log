@@ -1,0 +1,11 @@
+primed g6_p0: 183 requests x 256 tokens = 5.00 GiB KV
+primed g7_p0: 183 requests x 256 tokens = 5.00 GiB KV
+primed g7_p1: 54 requests x 256 tokens = 5.06 GiB KV
+primed g6_p1: 54 requests x 256 tokens = 5.06 GiB KV
+primed g6_p2: 160 requests x 256 tokens = 5.00 GiB KV
+primed g7_p2: 160 requests x 256 tokens = 5.00 GiB KV
+primed g6_p3: 160 requests x 256 tokens = 5.00 GiB KV
+primed g7_p3: 160 requests x 256 tokens = 5.00 GiB KV
+round 1/12 delta=0: woke g6_p0, g7_p0
+round 2/12 delta=0: woke g6_p1, g7_p1
+round 3/12 delta=0: woke g6_p2, g7_p2

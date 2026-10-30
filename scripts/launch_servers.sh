@@ -11,6 +11,9 @@
 # TIERED_WEIGHTS / TIERED_KV set (with sleep mode): the tiered_restore plugin
 # offloads weights and KV to those paths. Each instance gets its own files under
 # $TIERED_ROOT/<name> and logs to <run_dir>/tiered_<name>.jsonl.
+# Optional <run_dir>/instance_paths.tsv ("name<TAB><weights>+<kv>") overrides
+# TIERED_WEIGHTS / TIERED_KV for the instances it lists (e.g. per-GPU paths).
+# PREFIX_CACHING=1 keeps vLLM's prefix cache on (default off: --no-enable-prefix-caching).
 # CONTINUE_ON_FAIL=1 records an instance that fails to start in failed.tsv
 # ("name<TAB>gpu<TAB>port<TAB>seconds") and goes on with the rest; otherwise the
 # first failure stops the launch.
@@ -32,7 +35,8 @@ SLEEP_AFTER_START=${SLEEP_AFTER_START:-0}
 CONTINUE_ON_FAIL=${CONTINUE_ON_FAIL:-0}
 : > "$RUN_DIR/failed.tsv"
 
-common_args=(--no-enable-prefix-caching --max-model-len "$MAX_MODEL_LEN")
+common_args=(--max-model-len "$MAX_MODEL_LEN")
+[[ "${PREFIX_CACHING:-0}" == 1 ]] || common_args+=(--no-enable-prefix-caching)
 if [[ "$SLEEP_AFTER_START" == 1 ]]; then
     export VLLM_SERVER_DEV_MODE=1  # exposes /sleep and /wake_up
     common_args+=(--enable-sleep-mode)
@@ -89,6 +93,10 @@ while IFS=$'\t' read -r name model gpu port; do
     if [[ -n "${TIERED_WEIGHTS:-}" ]]; then
         mkdir -p "$TIERED_ROOT/$name"
         tiered_env=(TIERED_DIR="$TIERED_ROOT/$name" TIERED_LOG="$RUN_DIR/tiered_${name}.jsonl")
+        if [[ -f "$RUN_DIR/instance_paths.tsv" ]]; then
+            paths=$(awk -F'\t' -v n="$name" '$1 == n {print $2}' "$RUN_DIR/instance_paths.tsv")
+            [[ -n "$paths" ]] && tiered_env+=(TIERED_WEIGHTS="${paths%+*}" TIERED_KV="${paths#*+}")
+        fi
     fi
     env "${tiered_env[@]}" CUDA_VISIBLE_DEVICES=$gpu KVCACHED_IPC_NAME="kvc_${name}_${port}" setsid vllm serve "$model" \
         --host localhost --port "$port" \

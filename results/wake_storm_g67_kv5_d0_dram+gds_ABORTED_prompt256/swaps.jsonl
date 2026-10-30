@@ -1,0 +1,30 @@
+{"t_unix": 1793266950.6974, "gpu": 6, "instance": "g6_bg", "action": "wake", "duration_s": 0.0713, "gpu_used_mib_before": 9222, "gpu_used_mib_after": 12180, "inflight": 0, "phase": "bg"}
+{"t_unix": 1793266950.769, "gpu": 7, "instance": "g7_bg", "action": "wake", "duration_s": 0.0715, "gpu_used_mib_before": 8234, "gpu_used_mib_after": 11192, "inflight": 0, "phase": "bg"}
+{"t_unix": 1793266950.8424, "gpu": 7, "instance": "g7_p0", "action": "wake", "duration_s": 0.2922, "gpu_used_mib_before": 11192, "gpu_used_mib_after": 18462, "inflight": 0, "phase": "prime"}
+{"t_unix": 1793266950.8422, "gpu": 6, "instance": "g6_p0", "action": "wake", "duration_s": 0.3243, "gpu_used_mib_before": 12180, "gpu_used_mib_after": 19378, "inflight": 0, "phase": "prime"}
+{"t_unix": 1793266952.9829, "gpu": 6, "instance": "g6_p0", "action": "sleep", "duration_s": 1.2502, "gpu_used_mib_before": 24812, "gpu_used_mib_after": 12618, "inflight": 183, "phase": "prime"}
+{"t_unix": 1793266953.0801, "gpu": 7, "instance": "g7_p0", "action": "sleep", "duration_s": 1.2419, "gpu_used_mib_before": 24680, "gpu_used_mib_after": 11734, "inflight": 183, "phase": "prime"}
+{"t_unix": 1793266954.2334, "gpu": 6, "instance": "g6_p1", "action": "wake", "duration_s": 0.2419, "gpu_used_mib_before": 12618, "gpu_used_mib_after": 20164, "inflight": 0, "phase": "prime"}
+{"t_unix": 1793266954.3222, "gpu": 7, "instance": "g7_p1", "action": "wake", "duration_s": 0.2306, "gpu_used_mib_before": 11734, "gpu_used_mib_after": 19280, "inflight": 0, "phase": "prime"}
+{"t_unix": 1793266955.2049, "gpu": 7, "instance": "g7_p1", "action": "sleep", "duration_s": 1.4385, "gpu_used_mib_before": 25826, "gpu_used_mib_after": 11766, "inflight": 54, "phase": "prime"}
+{"t_unix": 1793266955.2613, "gpu": 6, "instance": "g6_p1", "action": "sleep", "duration_s": 1.4292, "gpu_used_mib_before": 26598, "gpu_used_mib_after": 12650, "inflight": 54, "phase": "prime"}
+{"t_unix": 1793266956.6443, "gpu": 7, "instance": "g7_p2", "action": "wake", "duration_s": 0.6118, "gpu_used_mib_before": 11766, "gpu_used_mib_after": 27752, "inflight": 0, "phase": "prime"}
+{"t_unix": 1793266956.6912, "gpu": 6, "instance": "g6_p2", "action": "wake", "duration_s": 0.6124, "gpu_used_mib_before": 12650, "gpu_used_mib_after": 28604, "inflight": 0, "phase": "prime"}
+{"t_unix": 1793266960.5128, "gpu": 6, "instance": "g6_p2", "action": "sleep", "duration_s": 1.3791, "gpu_used_mib_before": 35278, "gpu_used_mib_after": 12682, "inflight": 160, "phase": "prime"}
+{"t_unix": 1793266960.778, "gpu": 7, "instance": "g7_p2", "action": "sleep", "duration_s": 1.3806, "gpu_used_mib_before": 34394, "gpu_used_mib_after": 11766, "inflight": 160, "phase": "prime"}
+{"t_unix": 1793266961.8927, "gpu": 6, "instance": "g6_p3", "action": "wake", "duration_s": 0.32, "gpu_used_mib_before": 12682, "gpu_used_mib_after": 26724, "inflight": 0, "phase": "prime"}
+{"t_unix": 1793266962.1589, "gpu": 7, "instance": "g7_p3", "action": "wake", "duration_s": 0.3106, "gpu_used_mib_before": 11766, "gpu_used_mib_after": 25808, "inflight": 0, "phase": "prime"}
+{"t_unix": 1793266965.4126, "gpu": 6, "instance": "g6_p3", "action": "sleep", "duration_s": 1.4091, "gpu_used_mib_before": 33286, "gpu_used_mib_after": 12650, "inflight": 160, "phase": "prime"}
+{"t_unix": 1793266965.8476, "gpu": 7, "instance": "g7_p3", "action": "sleep", "duration_s": 1.3429, "gpu_used_mib_before": 32450, "gpu_used_mib_after": 11766, "inflight": 160, "phase": "prime"}
+{"t_unix": 1793266968.2427, "gpu": 7, "instance": "g7_p0", "action": "wake", "duration_s": 1.1006, "gpu_used_mib_before": 11766, "gpu_used_mib_after": 23958, "inflight": 183, "phase": "round", "round": 0, "delta": "0"}
+{"t_unix": 1793266968.2431, "gpu": 6, "instance": "g6_p0", "action": "wake", "duration_s": 1.1458, "gpu_used_mib_before": 12682, "gpu_used_mib_after": 24906, "inflight": 183, "phase": "round", "round": 0, "delta": "0"}
+{"t_unix": 1793266972.3899, "gpu": 7, "instance": "g7_p0", "action": "sleep", "duration_s": 1.7867, "gpu_used_mib_before": 26614, "gpu_used_mib_after": 11702, "inflight": 183, "phase": "round", "round": 1, "delta": "0"}
+{"t_unix": 1793266972.3896, "gpu": 6, "instance": "g6_p0", "action": "sleep", "duration_s": 2.1224, "gpu_used_mib_before": 27426, "gpu_used_mib_after": 12650, "inflight": 183, "phase": "round", "round": 1, "delta": "0"}
+{"t_unix": 1793266975.5637, "gpu": 7, "instance": "g7_p1", "action": "wake", "duration_s": 1.208, "gpu_used_mib_before": 11734, "gpu_used_mib_after": 25104, "inflight": 54, "phase": "round", "round": 1, "delta": "0"}
+{"t_unix": 1793266975.564, "gpu": 6, "instance": "g6_p1", "action": "wake", "duration_s": 1.2108, "gpu_used_mib_before": 12650, "gpu_used_mib_after": 26020, "inflight": 54, "phase": "round", "round": 1, "delta": "0"}
+{"t_unix": 1793266979.7755, "gpu": 6, "instance": "g6_p1", "action": "sleep", "duration_s": 2.0003, "gpu_used_mib_before": 29028, "gpu_used_mib_after": 12650, "inflight": 54, "phase": "round", "round": 2, "delta": "0"}
+{"t_unix": 1793266979.7758, "gpu": 7, "instance": "g7_p1", "action": "sleep", "duration_s": 2.0123, "gpu_used_mib_before": 28144, "gpu_used_mib_after": 11734, "inflight": 54, "phase": "round", "round": 2, "delta": "0"}
+{"t_unix": 1793266982.8391, "gpu": 7, "instance": "g7_p2", "action": "wake", "duration_s": 1.3163, "gpu_used_mib_before": 11734, "gpu_used_mib_after": 33192, "inflight": 160, "phase": "round", "round": 2, "delta": "0"}
+{"t_unix": 1793266982.8394, "gpu": 6, "instance": "g6_p2", "action": "wake", "duration_s": 1.5443, "gpu_used_mib_before": 12650, "gpu_used_mib_after": 34076, "inflight": 160, "phase": "round", "round": 2, "delta": "0"}
+{"t_unix": 1793266987.3851, "gpu": 7, "instance": "g7_p2", "action": "sleep", "duration_s": 2.0131, "gpu_used_mib_before": 34880, "gpu_used_mib_after": 11766, "inflight": 160, "phase": "round", "round": 3, "delta": "0"}
+{"t_unix": 1793266987.3847, "gpu": 6, "instance": "g6_p2", "action": "sleep", "duration_s": 2.1033, "gpu_used_mib_before": 35796, "gpu_used_mib_after": 12650, "inflight": 160, "phase": "round", "round": 3, "delta": "0"}

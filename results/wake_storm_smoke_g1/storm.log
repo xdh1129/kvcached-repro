@@ -1,0 +1,6 @@
+primed g1_p0: 8 requests x 2048 tokens = 0.50 GiB KV
+primed g1_p1: 8 requests x 2048 tokens = 0.50 GiB KV
+round 1/4 delta=seq: woke g1_p0
+round 2/4 delta=0: woke g1_p1
+round 3/4 delta=0: woke g1_p0
+round 4/4 delta=seq: woke g1_p1

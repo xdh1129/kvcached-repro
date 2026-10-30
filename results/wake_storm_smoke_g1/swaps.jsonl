@@ -1,0 +1,12 @@
+{"t_unix": 1793122483.9979, "gpu": 1, "instance": "g1_bg", "action": "wake", "duration_s": 0.0708, "gpu_used_mib_before": 4535, "gpu_used_mib_after": 7493, "inflight": 0, "phase": "bg"}
+{"t_unix": 1793122484.0698, "gpu": 1, "instance": "g1_p0", "action": "wake", "duration_s": 0.0701, "gpu_used_mib_before": 7493, "gpu_used_mib_after": 10451, "inflight": 0, "phase": "prime"}
+{"t_unix": 1793122484.5285, "gpu": 1, "instance": "g1_p0", "action": "sleep", "duration_s": 0.1808, "gpu_used_mib_before": 11535, "gpu_used_mib_after": 7585, "inflight": 8, "phase": "prime"}
+{"t_unix": 1793122484.7102, "gpu": 1, "instance": "g1_p1", "action": "wake", "duration_s": 0.0706, "gpu_used_mib_before": 7585, "gpu_used_mib_after": 10543, "inflight": 0, "phase": "prime"}
+{"t_unix": 1793122485.1645, "gpu": 1, "instance": "g1_p1", "action": "sleep", "duration_s": 0.1833, "gpu_used_mib_before": 11535, "gpu_used_mib_after": 7617, "inflight": 8, "phase": "prime"}
+{"t_unix": 1793122486.3486, "gpu": 1, "instance": "g1_p0", "action": "wake", "duration_s": 0.1825, "gpu_used_mib_before": 7617, "gpu_used_mib_after": 11087, "inflight": 8, "phase": "round", "round": 0, "delta": "seq"}
+{"t_unix": 1793122488.5322, "gpu": 1, "instance": "g1_p0", "action": "sleep", "duration_s": 0.2697, "gpu_used_mib_before": 11151, "gpu_used_mib_after": 7617, "inflight": 8, "phase": "round", "round": 1, "delta": "0"}
+{"t_unix": 1793122489.8533, "gpu": 1, "instance": "g1_p1", "action": "wake", "duration_s": 0.1611, "gpu_used_mib_before": 7617, "gpu_used_mib_after": 11087, "inflight": 8, "phase": "round", "round": 1, "delta": "0"}
+{"t_unix": 1793122492.015, "gpu": 1, "instance": "g1_p1", "action": "sleep", "duration_s": 0.2434, "gpu_used_mib_before": 11151, "gpu_used_mib_after": 7617, "inflight": 8, "phase": "round", "round": 2, "delta": "0"}
+{"t_unix": 1793122493.3096, "gpu": 1, "instance": "g1_p0", "action": "wake", "duration_s": 0.2181, "gpu_used_mib_before": 7617, "gpu_used_mib_after": 11151, "inflight": 8, "phase": "round", "round": 2, "delta": "0"}
+{"t_unix": 1793122495.529, "gpu": 1, "instance": "g1_p0", "action": "sleep", "duration_s": 0.3206, "gpu_used_mib_before": 11247, "gpu_used_mib_after": 7617, "inflight": 8, "phase": "round", "round": 3, "delta": "seq"}
+{"t_unix": 1793122496.8504, "gpu": 1, "instance": "g1_p1", "action": "wake", "duration_s": 0.1864, "gpu_used_mib_before": 7617, "gpu_used_mib_after": 11151, "inflight": 8, "phase": "round", "round": 3, "delta": "seq"}

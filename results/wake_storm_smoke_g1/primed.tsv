@@ -1,0 +1,3 @@
+instance	kv_bytes_per_token	requests	kv_gib_expected
+g1_p0	32768	8	0.500
+g1_p1	32768	8	0.500
