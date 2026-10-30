@@ -279,23 +279,22 @@ def w2_data():
 def w2_plot(rows):
     fig, axes = plt.subplots(1, 2, figsize=(8.6, 3.4), sharey=True, gridspec_kw={"wspace": 0.12})
     y = np.arange(len(rows))[::-1]
-    for ax, key, cap, title, color in [
-            (axes[0], "dram_gibs", UPLINK_GIBS, "from DRAM (host uplink, shared by GPU 6+7)", SLOTS[0]),
-            (axes[1], "ssd_gibs", RAID_GIBS, "from SSD (RAID0, 2 NVMe)", SLOTS[1])]:
+    for ax, key, title, color in [
+            (axes[0], "dram_gibs", "from DRAM (host uplink, shared by GPU 6+7)", SLOTS[0]),
+            (axes[1], "ssd_gibs", "from SSD (RAID0, 2 NVMe)", SLOTS[1])]:
         v = [r[key] for r in rows]
+        top = max(v)
         ax.barh(y, v, height=0.6, color=color, edgecolor="white")
         for yy, vv in zip(y, v):
-            ax.text(vv + cap * 0.02, yy, f"{vv:.1f}" if vv else "not used", va="center", fontsize=8.5,
+            ax.text(vv + top * 0.02, yy, f"{vv:.1f}" if vv else "not used", va="center", fontsize=8.5,
                     color=TEXT if vv else TEXT2)
-        ax.axvline(cap, color=TEXT2, lw=1.2, ls="--")
-        ax.text(cap * 0.98, -0.62, f"ceiling {cap}", ha="right", va="center", fontsize=8, color=TEXT2)
-        ax.set_xlim(0, cap * 1.22)
-        ax.set_ylim(-0.9, len(rows) - 0.5)
+        ax.set_xlim(0, top * 1.22)
+        ax.set_ylim(-0.5, len(rows) - 0.5)
         ax.set_title(title, fontsize=9.5, color=TEXT, loc="left")
         ax.set_xlabel("GiB/s, both GPUs, while the source is active")
         ax.grid(axis="y", visible=False)
     axes[0].set_yticks(y, [r["paths"] for r in rows])
-    fig.suptitle("W2. Wake storm (both GPUs wake at once, 10.5 GiB weights + 5.4 GiB KV each): each source hits its ceiling",
+    fig.suptitle("W2. Wake storm (both GPUs wake at once, 10.5 GiB weights + 5.4 GiB KV each): aggregate rate per source",
                  x=0.06, ha="left", fontsize=11, color=TEXT, y=1.03)
     fig.savefig(os.path.join(OUT, "W2_source_bandwidth.png"))
     plt.close(fig)

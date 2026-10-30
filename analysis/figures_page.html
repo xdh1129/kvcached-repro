@@ -108,14 +108,14 @@ footer { color: var(--muted); font-size: 12.5px; }
 </figure>
 
 <figure id="W2">
-  <div class="fig-head"><span class="tag">W2</span><h2>每個資料來源的總頻寬和上限</h2></div>
+  <div class="fig-head"><span class="tag">W2</span><h2>每個資料來源的總頻寬</h2></div>
   <p class="lede" id="W2-lede"></p>
   <div class="legend" id="W2-legend"></div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
     <div class="chart" style="height:260px;min-width:0"><canvas id="c-W2a" aria-label="DRAM 來源頻寬"></canvas></div>
     <div class="chart" style="height:260px;min-width:0"><canvas id="c-W2b" aria-label="SSD 來源頻寬"></canvas></div>
   </div>
-  <p class="note">頻寬算法：每一輪兩張 GPU 從該來源搬的總 bytes，除以該來源從開始到結束的時間；取 12 輪的中位數。上限是之前單獨量到的值：GPU 6、7 共用的 host uplink 53.7 GiB/s，RAID0 的 sequential read 12.4 GiB/s。</p>
+  <p class="note">頻寬算法：每一輪兩張 GPU 從該來源搬的總 bytes，除以該來源從開始到結束的時間；取 12 輪的中位數。</p>
   <details><summary>數據表</summary><div class="tbl" id="W2-table"></div></details>
 </figure>
 
@@ -233,8 +233,8 @@ function text() {
     `兩張 GPU 同時換 model。<strong>wake</strong> 時，weights 從 DRAM、KV 從 SSD（GDS）<strong>同時</strong>搬，總時間由比較慢的那一邊決定。` +
     `<strong>sleep</strong> 時是<strong>先存 weights、再存 KV</strong>，兩段串行。第 ${D.A4.turn} 輪、agent ${D.A4.agent}，歷史 ${(a4.history_len / 1000).toFixed(1)}k token。hover 可以看每一段的時間和大小。`;
   document.getElementById("W2-lede").innerHTML =
-    `兩張 GPU 同時 wake 時，每個資料來源都被吃滿：DRAM 約 ${f(ws["dram+dram"].dram_gibs, 1)} GiB/s（上限 ${D.ceilings.uplink_gibs}），` +
-    `SSD 約 ${f(ws["dram+gds"].ssd_gibs, 1)}–${f(ws["ssd+ssd"].ssd_gibs, 1)} GiB/s（上限 ${D.ceilings.raid_gibs}）。dram+ssd 的 KV 要先經過 host 轉一手，所以 SSD 只跑到 ${f(ws["dram+ssd"].ssd_gibs, 1)}。`;
+    `兩張 GPU 同時 wake 時，各資料來源的總頻寬：DRAM 約 ${f(ws["dram+dram"].dram_gibs, 1)} GiB/s，` +
+    `SSD 約 ${f(ws["dram+gds"].ssd_gibs, 1)}–${f(ws["ssd+ssd"].ssd_gibs, 1)} GiB/s。dram+ssd 的 KV 要先經過 host 轉一手，所以 SSD 只跑到 ${f(ws["dram+ssd"].ssd_gibs, 1)}。`;
   const m = D.W3.model;
   document.getElementById("W3-lede").innerHTML =
     `兩張 GPU 同時 wake，每張分到 DRAM ${f(m.b_dram, 1)} GiB/s、SSD ${f(m.b_ssd, 1)} GiB/s。dram+dram 的時間是 (W+K)/B<sub>dram</sub>；` +
@@ -352,28 +352,25 @@ function drawA4() {
 
 /* ---------- W2 ---------- */
 function drawW2() {
-  legend("W2-legend", [[css("--s1"), "從 DRAM 搬"], [css("--s2"), "從 SSD 搬"], [null, "虛線：量到的上限", ""]]);
-  document.querySelector("#W2-legend span:last-child i").style.cssText = "background:none;border-top:2px dashed " + css("--fg2") + ";height:0;border-radius:0";
-  const mk = (id, key, cap, col, title) => {
-    const o = baseOpts();
-    o.indexAxis = "y"; o.scales.x.min = 0; o.scales.x.max = Math.ceil(cap * 1.2);
+  legend("W2-legend", [[css("--s1"), "從 DRAM 搬"], [css("--s2"), "從 SSD 搬"]]);
+  const mk = (id, key, col, title) => {
+    const o = baseOpts(), top = Math.max(...D.W2.map(r => r[key]));
+    o.indexAxis = "y"; o.scales.x.min = 0; o.scales.x.max = Math.ceil(top * 1.2);
     o.scales.x.title = { display: true, text: title, color: css("--fg2") };
     o.scales.y.grid = { display: false };
-    o.plugins.tooltip.callbacks = { label: it => it.raw ? ` ${it.raw.toFixed(1)} GiB/s，上限的 ${(it.raw / cap * 100).toFixed(0)}%` : " 這組沒用到這個來源" };
+    o.plugins.tooltip.callbacks = { label: it => it.raw ? ` ${it.raw.toFixed(1)} GiB/s` : " 這組沒用到這個來源" };
     return new Chart(document.getElementById(id), { type: "bar", options: o, data: { labels: D.W2.map(r => r.paths), datasets: [{
       data: D.W2.map(r => r[key]), backgroundColor: css(col), barPercentage: .62, borderRadius: { topRight: 3, bottomRight: 3 }, borderSkipped: false }] },
-      plugins: [{ id: "cap", afterDatasetsDraw(ch) {
-        const g = ch.ctx, x = ch.scales.x.getPixelForValue(cap), a = ch.chartArea; g.save();
-        g.strokeStyle = css("--fg2"); g.setLineDash([5, 4]); g.lineWidth = 1.3; g.beginPath(); g.moveTo(x, a.top); g.lineTo(x, a.bottom); g.stroke();
-        g.setLineDash([]); g.fillStyle = css("--fg2"); g.font = "11px IBM Plex Mono"; g.textAlign = "right"; g.fillText(`上限 ${cap}`, x - 4, a.bottom - 6);
+      plugins: [{ id: "vals", afterDatasetsDraw(ch) {
+        const g = ch.ctx, a = ch.chartArea; g.save();
         g.textAlign = "left"; g.font = "12px IBM Plex Mono";
         ch.getDatasetMeta(0).data.forEach((b, i) => { const v = D.W2[i][key];
           g.fillStyle = v ? css("--fg") : css("--muted"); g.fillText(v ? v.toFixed(1) : "沒用到", (v ? b.x : a.left) + 6, b.y + 4); });
         g.restore();
       } }] });
   };
-  charts.W2a = mk("c-W2a", "dram_gibs", D.ceilings.uplink_gibs, "--s1", "從 DRAM（host uplink，GPU 6+7 共用），GiB/s");
-  charts.W2b = mk("c-W2b", "ssd_gibs", D.ceilings.raid_gibs, "--s2", "從 SSD（RAID0，2 顆 NVMe），GiB/s");
+  charts.W2a = mk("c-W2a", "dram_gibs", "--s1", "從 DRAM（host uplink，GPU 6+7 共用），GiB/s");
+  charts.W2b = mk("c-W2b", "ssd_gibs", "--s2", "從 SSD（RAID0，2 顆 NVMe），GiB/s");
   table("W2-table", ["路徑", "DRAM GiB/s", "SSD GiB/s", "wake 輪數"], D.W2.map(r => [r.paths, f(r.dram_gibs, 1), f(r.ssd_gibs, 1), r.rounds]));
 }
 
