@@ -1,0 +1,37 @@
+diff --git a/module/map.c b/module/map.c
+index baccb4c..a9989f2 100644
+--- a/module/map.c
++++ b/module/map.c
+@@ -147,8 +147,10 @@ static long map_user_pages(struct map* map)
+ #elif LINUX_VERSION_CODE <= KERNEL_VERSION(4, 8, 17)
+ #warning "Building for older kernel, not properly tested"
+     retval = get_user_pages(map->vaddr, map->n_addrs, 1, 0, pages, NULL);
+-#else
++#elif LINUX_VERSION_CODE < KERNEL_VERSION(6, 5, 0)
+     retval = get_user_pages(map->vaddr, map->n_addrs, FOLL_WRITE, pages, NULL);
++#else
++    retval = get_user_pages(map->vaddr, map->n_addrs, FOLL_WRITE, pages);
+ #endif
+     if (retval <= 0)
+     {
+diff --git a/module/pci.c b/module/pci.c
+index c19f1f5..f74595c 100644
+--- a/module/pci.c
++++ b/module/pci.c
+@@ -1,3 +1,4 @@
++#include <linux/version.h>
+ #include "ioctl.h"
+ #include "list.h"
+ #include "ctrl.h"
+@@ -328,7 +329,11 @@ static int __init libnvm_helper_entry(void)
+     }
+ 
+     // Create character device class
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 4, 0)
++    dev_class = class_create(DRIVER_NAME);
++#else
+     dev_class = class_create(THIS_MODULE, DRIVER_NAME);
++#endif
+     if (IS_ERR(dev_class))
+     {
+         unregister_chrdev_region(dev_first, max_num_ctrls);

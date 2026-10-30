@@ -5,3 +5,4 @@ logs/
 cufile.log
 *.egg-info/
 results/.suite_*.log
+third_party/bam/
