@@ -74,6 +74,16 @@ for g in "${GPUS[@]}"; do
     done
 done
 
+if [[ "$PATHS" == split ]]; then
+    # split placement: DRAM head + GDS tail of each sleep's bytes (tiered_restore TIERED_SPLIT_FRAC)
+    if [[ -z "${TIERED_SPLIT_FRAC:-}" ]]; then
+        echo "PATHS=split needs TIERED_SPLIT_FRAC" >&2
+        exit 1
+    fi
+    PATHS=dram+gds SPLIT_LABEL=split
+else
+    unset TIERED_SPLIT_FRAC  # only the split path uses it
+fi
 if [[ "$PATHS" == vllm ]]; then
     unset TIERED_WEIGHTS TIERED_KV TIERED_ROOT  # cleanup removes TIERED_ROOT: never one from the caller
 else
@@ -93,9 +103,9 @@ fi
     echo "gpus=${GPUS[*]}"
     echo "pool=$POOL"
     echo "copies=$COPIES"
-    echo "paths=$PATHS"
+    echo "paths=${SPLIT_LABEL:-$PATHS}"
     [[ "$PATHS" != vllm ]] && echo "tiered_parallel=$TIERED_PARALLEL" && echo "tiered_root=$TIERED_ROOT"
-    env | grep -E '^TIERED_(WEIGHTS_SAVE|KV_MERGE|WEIGHTS_PACE|DRAM_KV_RESERVE_GB|GDS_GATE|GDS_STAGE_MB|GDS_STAGE_BUFS)=' \
+    env | grep -E '^TIERED_(WEIGHTS_SAVE|KV_MERGE|WEIGHTS_PACE|DRAM_KV_RESERVE_GB|GDS_GATE|GDS_STAGE_MB|GDS_STAGE_BUFS|PARALLEL_SAVE|SPLIT_FRAC|TRACE)=' \
         | sed 's/^/tiered_opt_/' || true
     echo "turns=$TURNS"
     echo "first_len=$FIRST_LEN"

@@ -8,6 +8,18 @@ Defaults follow vLLM's own sleep mode; each departure from it is opt-in (env):
   TIERED_KV_MERGE=1    merge consecutive kvcached pages into one region (fewer,
                        larger I/Os); default 0: one region per page.
   TIERED_WEIGHTS_PACE=1  pace DRAM weights during a parallel wake with GDS KV.
+  TIERED_PARALLEL_SAVE=1  sleep saves the weights and the KV on two threads at once
+                       (default 0: weights, then KV), as TIERED_PARALLEL does for wakes.
+  TIERED_TRACE=1       resume records carry per-piece transfer times (diagnostics).
+  TIERED_SPLIT_FRAC=f  split placement (needs TIERED_WEIGHTS=dram, TIERED_KV=gds|ssd):
+                       instead of weights -> DRAM and KV -> SSD, the bytes of one sleep
+                       are laid out in order weights, state, KV pages; the first
+                       1 - f of them go to DRAM, the last f (rounded down to 2 MiB) to
+                       the KV path's SSD store, so a weight-heavy model may put weights
+                       on SSD and a KV-heavy one keeps part of its KV in DRAM. The two
+                       parts move on two threads ("dram", "ssd" jobs), in parallel when
+                       TIERED_PARALLEL / TIERED_PARALLEL_SAVE are on. Recomputed every
+                       sleep (the KV grows). Not with TIERED_WEIGHTS_SAVE=once.
 
 suspend(level=1):
   1. Weights go to the weights path (see TIERED_WEIGHTS_SAVE).
@@ -72,6 +84,36 @@ def _groups(regions, size):
     return out + ([cur] if cur else [])
 
 
+SPLIT_ALIGN = 2 << 20  # cumem / kvcached granularity: cut points stay O_DIRECT-aligned
+
+
+def _split_parts(parts, ssd_bytes):
+    """Cut [(kind, regions)] at total - ssd_bytes: (head parts, tail parts), order kept.
+
+    A region crossing the cut becomes two regions with the same store offsets it had,
+    so each kind keeps one flat byte space per store (the tail's file is sparse below it).
+    """
+    left = sum(n for _, regions in parts for _, n, _ in regions) - ssd_bytes
+    head, tail = [], []
+    for kind, regions in parts:
+        h, t = [], []
+        for ptr, n, off in regions:
+            if left >= n:
+                h.append((ptr, n, off))
+                left -= n
+            elif left > 0:
+                h.append((ptr, left, off))
+                t.append((ptr + left, n - left, off + left))
+                left = 0
+            else:
+                t.append((ptr, n, off))
+        if h:
+            head.append((kind, h))
+        if t:
+            tail.append((kind, t))
+    return head, tail
+
+
 def _checksum(ptr, n) -> tuple[int, int]:
     """Plain and position-weighted sums of a region's 32-bit words (detects changed or shifted bytes)."""
     w = _gpu_bytes(ptr, n).view(torch.int32)
@@ -91,7 +133,14 @@ class TieredBackend(SleepModeBackend):
         self.weights_path = _env("TIERED_WEIGHTS", "dram")
         self.kv_path = _env("TIERED_KV", "dram")
         self.parallel = _env("TIERED_PARALLEL", "1") == "1"
+        self.parallel_save = _env("TIERED_PARALLEL_SAVE", "0") == "1"
         self.save_once = _env("TIERED_WEIGHTS_SAVE", "every") == "once"
+        self.split_frac = float(_env("TIERED_SPLIT_FRAC", "0") or 0)
+        if self.split_frac and (self.weights_path != "dram" or self.kv_path not in ("gds", "ssd")
+                                or self.save_once or not 0 < self.split_frac < 1):
+            raise ValueError("TIERED_SPLIT_FRAC needs 0 < f < 1, TIERED_WEIGHTS=dram, TIERED_KV=gds|ssd "
+                             "and weights saved every sleep")
+        self.load_jobs = {}  # job name -> (store, [(kind, regions)]) restored by the next wake
         self.kv_merge = _env("TIERED_KV_MERGE", "0") == "1"
         self.root = _env("TIERED_DIR", f"/mnt/raid0/xdh/tiered/{os.getpid()}")
         self.log_path = _env("TIERED_LOG", "")
@@ -202,33 +251,44 @@ class TieredBackend(SleepModeBackend):
         elif self.weight_regions is None:  # save-once: split at the first sleep
             static, mutable = self._split_weight_pool(pool)
             self.weight_regions, self.state_regions = self._layout(static), self._layout(mutable)
-        if not self.save_once or not self.n_suspend:
-            t = time.perf_counter()
-            st = wstore.save("weights", self.weight_regions)
-            rec.update(weights_saved=True, weights_save_s=time.perf_counter() - t,
-                       weights_save_host_bytes=st["host_bytes"])
-        else:
-            rec["weights_saved"] = False
+        save_weights = not self.save_once or not self.n_suspend
+        rec["weights_saved"] = save_weights
         rec["weights_bytes"] = sum(n for _, n, _ in self.weight_regions)
         sizes = sorted(n for _, n, _ in self.weight_regions)
         rec.update(weights_regions=len(sizes),
                    weights_region_mib_p50=sizes[len(sizes) // 2] / (1 << 20) if sizes else 0,
-                   weights_bytes_in_regions_lt_64mib=sum(n for n in sizes if n < 64 << 20))
-        t = time.perf_counter()
-        st = wstore.save("state", self.state_regions) if self.state_regions else {"bytes": 0, "host_bytes": 0}
-        rec.update(state_regions=len(self.state_regions), state_bytes=st["bytes"],
-                   state_save_s=time.perf_counter() - t, state_save_host_bytes=st["host_bytes"])
+                   weights_bytes_in_regions_lt_64mib=sum(n for n in sizes if n < 64 << 20),
+                   state_regions=len(self.state_regions),
+                   state_bytes=sum(n for _, n, _ in self.state_regions))
 
-        t = time.perf_counter()
         # recompute: vLLM's cache reset already preempted the frozen requests; nothing to keep
         self.kv_saved = [] if self.kv_path == "recompute" else self._kv_pages()
         kv_regions = [r for _, _, regions in self.kv_saved for r in regions]
-        st = self.stores[self.kv_path].save("kv", kv_regions) if kv_regions else {"bytes": 0, "host_bytes": 0}
-        rec.update(kv_pages=len(kv_regions), kv_bytes=st["bytes"], kv_save_s=time.perf_counter() - t,
-                   kv_save_host_bytes=st["host_bytes"],
-                   kv_save_unregistered_chunks=st.get("unregistered_chunks", 0),
-                   kv_save_gate_wait_s=st.get("gate_wait_s", 0),
-                   kv_save_alloc_s=st.get("alloc_s", 0))
+        rec.update(kv_pages=len(kv_regions), kv_bytes=sum(n for _, n, _ in kv_regions))
+
+        w_parts = [("weights", self.weight_regions), ("state", self.state_regions)]
+        kv_parts = [("kv", kv_regions)]
+        if self.split_frac:
+            total = sum(n for _, regions in w_parts + kv_parts for _, n, _ in regions)
+            ssd = int(self.split_frac * total) // SPLIT_ALIGN * SPLIT_ALIGN
+            head, tail = _split_parts(w_parts + kv_parts, ssd)
+            save_jobs = self.load_jobs = {"dram": (self.stores["dram"], head),
+                                          "ssd": (self.stores[self.kv_path], tail)}
+            rec.update(split_frac=self.split_frac, split_total_bytes=total, split_ssd_bytes=ssd,
+                       **{f"split_ssd_{kind}_bytes": sum(n for _, n, _ in regions) for kind, regions in tail})
+        else:
+            save_jobs = {"weights": (wstore, w_parts if save_weights else w_parts[1:]),
+                         "kv": (self.stores[self.kv_path], kv_parts)}
+            self.load_jobs = {"weights": (wstore, w_parts), "kv": (self.stores[self.kv_path], kv_parts)}
+        rec["parallel_save"] = self.parallel_save
+        t = time.perf_counter()
+        results = self._run_jobs(save_jobs, to_gpu=False, parallel=self.parallel_save, t0=t)
+        rec["save_s"] = time.perf_counter() - t
+        for job, st in results.items():
+            rec.update({f"{job}_save_{k}": v for k, v in st.items()})
+            rec[f"{job}_save_s"] = st["end_s"] - st["start_s"]
+        if not self.split_frac:  # fields of the serial layout, kept for the analysis scripts
+            rec.update(state_save_s=0.0, state_save_host_bytes=0)
         if self.verify:
             self.sums = {r[0]: _checksum(*r[:2]) for r in self.weight_regions + self.state_regions + kv_regions}
 
@@ -268,54 +328,37 @@ class TieredBackend(SleepModeBackend):
         rec["map_s"] = time.perf_counter() - t0
 
         kv_regions = [r for _, _, regions in self.kv_saved for r in regions]
-        # path name -> (store, [(kind, regions)]); the two paths run on separate threads.
-        jobs = {"weights": (self.stores[self.weights_path],
-                            [("weights", self.weight_regions), ("state", self.state_regions)])}
+        # job name -> (store, [(kind, regions)]), as laid out by the last sleep
+        jobs = dict(self.load_jobs)
         # Negative control for the correctness test: zero the KV pages instead of loading them.
         skip_kv = os.path.exists(os.path.join(self.root, "DEBUG_SKIP_KV_LOAD"))
         rec["debug_skip_kv_load"] = skip_kv
         if skip_kv:
             for ptr, n, _ in kv_regions:
                 _gpu_bytes(ptr, n).zero_()
-        elif kv_regions:
-            jobs["kv"] = (self.stores[self.kv_path], [("kv", kv_regions)])
-        results, errors = {}, []
-        pace = self._weights_pace(kv_regions) if "kv" in jobs and self.parallel else None
+            jobs = {job: (store, [(kind, regions) for kind, regions in parts if kind != "kv"])
+                    for job, (store, parts) in jobs.items()}
+        has_kv = any(kind == "kv" and regions for _, parts in jobs.values() for kind, regions in parts)
+        pace = self._weights_pace(kv_regions) if has_kv and self.parallel and not self.split_frac else None
         rec["weights_pace_gibs"] = pace
-
-        def load(path):
-            store, parts = jobs[path]
-            t = time.perf_counter()
-            moved = {"bytes": 0, "host_bytes": 0}
-            try:
-                for kind, regions in parts:
-                    if not regions:
-                        continue
-                    # paced weights: load in groups of ~256 MiB, sleeping to hold the target rate
-                    groups = _groups(regions, 256 << 20) if path == "weights" and pace else [regions]
-                    for g in groups:
-                        for k, v in store.load(kind, g).items():
-                            moved[k] = moved.get(k, 0) + v  # bytes, host_bytes, GDS counters
-                        if path == "weights" and pace:
-                            ahead = moved["bytes"] / (pace * (1 << 30)) - (time.perf_counter() - t)
-                            if ahead > 0:
-                                time.sleep(ahead)
-            except BaseException as e:  # re-raised on the calling thread
-                errors.append(e)
-                return
-            results[path] = dict(moved, start_s=t - t0, end_s=time.perf_counter() - t0)
-
-        if self.parallel:
-            threads = [threading.Thread(target=load, args=(k,)) for k in jobs]
-            for th in threads:
-                th.start()
-            for th in threads:
-                th.join()
-        else:
-            for k in jobs:
-                load(k)
-        if errors:
-            raise errors[0]
+        if self.split_frac:
+            rec.update(split_frac=self.split_frac, weights_bytes=sum(n for _, n, _ in self.weight_regions),
+                       state_bytes=sum(n for _, n, _ in self.state_regions),
+                       kv_bytes=sum(n for _, n, _ in kv_regions))
+        trace = _env("TIERED_TRACE", "0") == "1"
+        if trace:
+            for store in self.stores.values():
+                store.trace = []
+                if hasattr(store, "stage_trace"):
+                    store.stage_trace = []
+        results = self._run_jobs(jobs, to_gpu=True, parallel=self.parallel, t0=t0, pace=pace)
+        if trace:
+            rec["trace"] = {name: [(round(a - t0, 5), round(b - t0, 5), n) for a, b, n in store.trace]
+                            for name, store in self.stores.items()}
+            for name, store in self.stores.items():
+                if getattr(store, "stage_trace", None):
+                    rec["stage_trace"] = [[round(x - t0, 5) for x in row[:4]] + [row[4]] for row in store.stage_trace]
+                store.trace = None
         torch.cuda.synchronize()
         rec["total_s"] = time.perf_counter() - t0  # before the optional checksums
         if self.verify:
@@ -325,6 +368,51 @@ class TieredBackend(SleepModeBackend):
         self.kv_saved = []
         self._state = "RUNNING"
         self._log(rec)
+
+    def _run_jobs(self, jobs, to_gpu, parallel, t0, pace=None):
+        """Save (to_gpu=False) or load every job's parts: one thread per job when parallel.
+
+        Returns {job: {bytes, host_bytes, store counters..., start_s, end_s}} (times since t0)
+        for the jobs that moved anything. pace (GiB/s, loads only) paces the "weights" job.
+        """
+        results, errors = {}, []
+
+        def run(job):
+            store, parts = jobs[job]
+            t = time.perf_counter()
+            moved = {"bytes": 0, "host_bytes": 0}
+            try:
+                for kind, regions in parts:
+                    if not regions:
+                        continue
+                    paced = pace and job == "weights"
+                    # paced weights: load in groups of ~256 MiB, sleeping to hold the target rate
+                    for g in _groups(regions, 256 << 20) if paced else [regions]:
+                        st = store.load(kind, g) if to_gpu else store.save(kind, g)
+                        for k, v in st.items():
+                            moved[k] = moved.get(k, 0) + v  # bytes, host_bytes, store counters
+                        if paced:
+                            ahead = moved["bytes"] / (pace * (1 << 30)) - (time.perf_counter() - t)
+                            if ahead > 0:
+                                time.sleep(ahead)
+            except BaseException as e:  # re-raised on the calling thread
+                errors.append(e)
+                return
+            if moved["bytes"]:
+                results[job] = dict(moved, start_s=t - t0, end_s=time.perf_counter() - t0)
+
+        if parallel:
+            threads = [threading.Thread(target=run, args=(job,)) for job in jobs]
+            for th in threads:
+                th.start()
+            for th in threads:
+                th.join()
+        else:
+            for job in jobs:
+                run(job)
+        if errors:
+            raise errors[0]
+        return results
 
     def _weights_pace(self, kv_regions):
         """Target weights rate (GiB/s) for a parallel DRAM-weights wake whose KV comes over GDS, or None.

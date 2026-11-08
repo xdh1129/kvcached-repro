@@ -55,6 +55,7 @@ class DramStore:
         self.device = device
         self.buffers: dict[str, torch.Tensor] = {}
         self.stream = None
+        self.lock = threading.Lock()
         self.kv_reserve = int(float(os.environ.get("TIERED_DRAM_KV_RESERVE_GB", "0")) * (1 << 30))
         self.keep = {"kv"} if self.kv_reserve else set()  # kinds whose buffer outlives the load
         self.trace = None
@@ -74,16 +75,18 @@ class DramStore:
 
     def _copy(self, kind, regions, to_gpu):
         torch.cuda.set_device(self.device)
-        if self.stream is None:
-            self.stream = torch.cuda.Stream()
+        with self.lock:  # two job threads may make their first copy at once (parallel save)
+            if self.stream is None:
+                self.stream = torch.cuda.Stream()
+        stream = self.stream
         size = max((off + n for _, n, off in regions), default=0)
         buf, alloc_s = self._buffer(kind, size)
         base = buf.data_ptr()
-        s = self.stream.cuda_stream
+        s = stream.cuda_stream
         events = None
         if self.trace is not None:
             start = torch.cuda.Event(enable_timing=True)
-            start.record(self.stream)
+            start.record(stream)
             t_wall, events = time.perf_counter(), []
         for gpu_ptr, n, off in regions:
             if to_gpu:
@@ -92,8 +95,9 @@ class DramStore:
                 _check(cudart.cudaMemcpyAsync(base + off, gpu_ptr, n, cudart.cudaMemcpyKind.cudaMemcpyDeviceToHost, s))
             if events is not None:
                 events.append((torch.cuda.Event(enable_timing=True), n))
-                events[-1][0].record(self.stream)
-        self.stream.synchronize()
+                events[-1][0].record(stream)
+        # one shared stream: this also waits for the other job's copies queued meanwhile (harmless)
+        stream.synchronize()
         if events is not None:  # the copies run back to back on one stream
             prev = 0.0
             for ev, n in events:
@@ -262,6 +266,7 @@ class GdsStore(_FileStore):
         self.stage = int(os.environ.get("TIERED_GDS_STAGE_MB", "0")) * MIB
         self.stage_bufs = int(os.environ.get("TIERED_GDS_STAGE_BUFS", "2"))
         self.local = threading.local()
+        self.stage_trace = []  # filled while trace is on: (wait start, buffer got, phase 1 end, end, bytes)
         self.gate = None
         if os.environ.get("TIERED_GDS_GATE", "0") == "1":
             self.gate = _HostGate(os.environ.get("TIERED_GDS_LOCK") or
@@ -313,12 +318,14 @@ class GdsStore(_FileStore):
             if not hasattr(st, "stream"):
                 st.stream = torch.cuda.Stream()
             s = st.stream.cuda_stream
+            t_wait = time.perf_counter()
             buf = bufs.get()
             t = time.perf_counter()
             try:
                 d2d = cudart.cudaMemcpyKind.cudaMemcpyDeviceToDevice
                 if to_gpu:
                     self._io_registered(kind, buf, n, file_off, True)
+                    t_mid = time.perf_counter()
                     for gpu_ptr, m, at in pieces:
                         _check(cudart.cudaMemcpyAsync(gpu_ptr, buf + at, m, d2d, s))
                     st.stream.synchronize()
@@ -326,9 +333,13 @@ class GdsStore(_FileStore):
                     for gpu_ptr, m, at in pieces:
                         _check(cudart.cudaMemcpyAsync(buf + at, gpu_ptr, m, d2d, s))
                     st.stream.synchronize()
+                    t_mid = time.perf_counter()
                     self._io_registered(kind, buf, n, file_off, False)
                 if self.trace is not None:
-                    self.trace.append((t, time.perf_counter(), n))
+                    end = time.perf_counter()
+                    self.trace.append((t, end, n))
+                    # load: wait for a buffer, cuFile read, D2D copy; save: wait, D2D copy, cuFile write
+                    self.stage_trace.append((t_wait, t, t_mid, end, n))
             finally:
                 bufs.put(buf)
 
