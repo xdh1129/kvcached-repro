@@ -311,6 +311,7 @@ class GdsStore(_FileStore):
             self.cufile.buf_register(ptr, self.stage, 0)
             bufs.put(ptr)
         setup_s = time.perf_counter() - t
+        times = []  # (start, end) of every span's data movement
 
         def io(span):
             file_off, n, pieces = span
@@ -335,8 +336,9 @@ class GdsStore(_FileStore):
                     st.stream.synchronize()
                     t_mid = time.perf_counter()
                     self._io_registered(kind, buf, n, file_off, False)
+                end = time.perf_counter()
+                times.append((t, end))
                 if self.trace is not None:
-                    end = time.perf_counter()
                     self.trace.append((t, end, n))
                     # load: wait for a buffer, cuFile read, D2D copy; save: wait, D2D copy, cuFile write
                     self.stage_trace.append((t_wait, t, t_mid, end, n))
@@ -351,7 +353,10 @@ class GdsStore(_FileStore):
                 self.cufile.buf_deregister(ptr)
                 _check(cudart.cudaFree(ptr))
         return {"bytes": sum(n for _, n, _ in regions), "host_bytes": 0, "stage_spans": len(spans),
-                "stage_setup_s": setup_s}
+                "stage_setup_s": setup_s,
+                # the cleanup above can block until other copies on the GPU finish: the call's
+                # duration overstates the transfer, these are when the data really moved
+                "data_start_t": min(a for a, _ in times), "data_end_t": max(b for _, b in times)}
 
     def _io_registered(self, kind, gpu_ptr, n, off, to_gpu):
         fn = self.cufile.read if to_gpu else self.cufile.write

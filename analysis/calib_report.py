@@ -5,6 +5,7 @@ per model and per transfer job of the plugin ("weights" and "kv", or "dram" and 
 for the split path):
   write GiB/s  suspend: job bytes / job save time
   read GiB/s   resume: job bytes / (end_s - start_s) of that job's thread
+               (staged GDS, when logged: the time the data really moved, without cleanup)
 plus the whole sleep (suspend total_s, incl. unmapping) and wake (resume total_s) times
 and the share of the bytes on SSD. "weights" includes the small mutable "state" regions.
 Only sleeps/wakes moving > 1 GiB of KV count (not the priming ones), and each model's
@@ -32,8 +33,13 @@ def med(xs):
 def save_jobs(r):
     """{job: (bytes, seconds)} of one suspend record."""
     if "save_s" in r:  # parallel-save layout: <job>_save_bytes / <job>_save_s
-        return {k[:-len("_save_bytes")]: (v, r[k[:-len("_bytes")] + "_s"])
-                for k, v in r.items() if k.endswith("_save_bytes") and v}
+        out = {}
+        for k, v in r.items():
+            if k.endswith("_save_bytes") and v:
+                job = k[:-len("_save_bytes")]
+                out[job] = (v, r[f"{job}_save_data_end_s"] - r[f"{job}_save_data_start_s"]
+                            if f"{job}_save_data_end_s" in r else r[f"{job}_save_s"])
+        return out
     out = {}  # serial layout
     if r.get("weights_saved") and r.get("weights_save_s"):
         out["weights"] = (r["weights_bytes"] + r.get("state_bytes", 0), r["weights_save_s"] + r.get("state_save_s", 0))
@@ -44,8 +50,14 @@ def save_jobs(r):
 
 def load_jobs(r):
     """{job: (bytes, seconds)} of one resume record."""
-    return {k[:-len("_end_s")]: (r[k[:-len("_end_s")] + "_bytes"], v - r[k[:-len("_end_s")] + "_start_s"])
-            for k, v in r.items() if k.endswith("_end_s") and k[:-len("_end_s")] + "_bytes" in r}
+    out = {}
+    for k, v in r.items():
+        job = k[:-len("_end_s")]
+        if k.endswith("_end_s") and job + "_bytes" in r:
+            # staged GDS: when the data moved; <job>_end_s also holds the cleanup, which can block
+            out[job] = (r[job + "_bytes"], r[job + "_data_end_s"] - r[job + "_data_start_s"]
+                        if job + "_data_end_s" in r else v - r[job + "_start_s"])
+    return out
 
 
 def ssd_share(r):

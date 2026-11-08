@@ -281,8 +281,10 @@ class TieredBackend(SleepModeBackend):
                          "kv": (self.stores[self.kv_path], kv_parts)}
             self.load_jobs = {"weights": (wstore, w_parts), "kv": (self.stores[self.kv_path], kv_parts)}
         rec["parallel_save"] = self.parallel_save
+        self._trace_start()
         t = time.perf_counter()
         results = self._run_jobs(save_jobs, to_gpu=False, parallel=self.parallel_save, t0=t)
+        self._trace_collect(rec, t)
         rec["save_s"] = time.perf_counter() - t
         for job, st in results.items():
             rec.update({f"{job}_save_{k}": v for k, v in st.items()})
@@ -345,20 +347,9 @@ class TieredBackend(SleepModeBackend):
             rec.update(split_frac=self.split_frac, weights_bytes=sum(n for _, n, _ in self.weight_regions),
                        state_bytes=sum(n for _, n, _ in self.state_regions),
                        kv_bytes=sum(n for _, n, _ in kv_regions))
-        trace = _env("TIERED_TRACE", "0") == "1"
-        if trace:
-            for store in self.stores.values():
-                store.trace = []
-                if hasattr(store, "stage_trace"):
-                    store.stage_trace = []
+        self._trace_start()
         results = self._run_jobs(jobs, to_gpu=True, parallel=self.parallel, t0=t0, pace=pace)
-        if trace:
-            rec["trace"] = {name: [(round(a - t0, 5), round(b - t0, 5), n) for a, b, n in store.trace]
-                            for name, store in self.stores.items()}
-            for name, store in self.stores.items():
-                if getattr(store, "stage_trace", None):
-                    rec["stage_trace"] = [[round(x - t0, 5) for x in row[:4]] + [row[4]] for row in store.stage_trace]
-                store.trace = None
+        self._trace_collect(rec, t0)
         torch.cuda.synchronize()
         rec["total_s"] = time.perf_counter() - t0  # before the optional checksums
         if self.verify:
@@ -368,6 +359,24 @@ class TieredBackend(SleepModeBackend):
         self.kv_saved = []
         self._state = "RUNNING"
         self._log(rec)
+
+    def _trace_start(self):
+        if _env("TIERED_TRACE", "0") == "1":
+            for store in self.stores.values():
+                store.trace = []
+                if hasattr(store, "stage_trace"):
+                    store.stage_trace = []
+
+    def _trace_collect(self, rec, t0):
+        """TIERED_TRACE=1: per-piece times of this save/load, in seconds since t0."""
+        if _env("TIERED_TRACE", "0") != "1":
+            return
+        rec["trace"] = {name: [(round(a - t0, 5), round(b - t0, 5), n) for a, b, n in store.trace]
+                        for name, store in self.stores.items()}
+        for store in self.stores.values():
+            if getattr(store, "stage_trace", None):
+                rec["stage_trace"] = [[round(x - t0, 5) for x in row[:4]] + [row[4]] for row in store.stage_trace]
+            store.trace = None
 
     def _run_jobs(self, jobs, to_gpu, parallel, t0, pace=None):
         """Save (to_gpu=False) or load every job's parts: one thread per job when parallel.
@@ -381,6 +390,7 @@ class TieredBackend(SleepModeBackend):
             store, parts = jobs[job]
             t = time.perf_counter()
             moved = {"bytes": 0, "host_bytes": 0}
+            span = [float("inf"), float("-inf")]  # when the data really moved (staged GDS only)
             try:
                 for kind, regions in parts:
                     if not regions:
@@ -390,7 +400,12 @@ class TieredBackend(SleepModeBackend):
                     for g in _groups(regions, 256 << 20) if paced else [regions]:
                         st = store.load(kind, g) if to_gpu else store.save(kind, g)
                         for k, v in st.items():
-                            moved[k] = moved.get(k, 0) + v  # bytes, host_bytes, store counters
+                            if k == "data_start_t":
+                                span[0] = min(span[0], v)
+                            elif k == "data_end_t":
+                                span[1] = max(span[1], v)
+                            else:
+                                moved[k] = moved.get(k, 0) + v  # bytes, host_bytes, store counters
                         if paced:
                             ahead = moved["bytes"] / (pace * (1 << 30)) - (time.perf_counter() - t)
                             if ahead > 0:
@@ -400,6 +415,8 @@ class TieredBackend(SleepModeBackend):
                 return
             if moved["bytes"]:
                 results[job] = dict(moved, start_s=t - t0, end_s=time.perf_counter() - t0)
+                if span[1] > span[0]:
+                    results[job].update(data_start_s=span[0] - t0, data_end_s=span[1] - t0)
 
         if parallel:
             threads = [threading.Thread(target=run, args=(job,)) for job in jobs]
