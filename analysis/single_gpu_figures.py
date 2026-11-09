@@ -4,7 +4,7 @@ Rows are turns, columns are paths. Each panel is GPU 7's PCIe RX (NVML) and md0 
 0.1 s samples) around one model's wake, with the plugin's transfer jobs as bars on top.
 Staged GDS bars end when the data stopped moving (without the staging cleanup).
 
-Also: sleep + wake per turn for every model (single3m_sleep_wake_by_turn_<model>.png).
+Also: wake time per turn for every model (single3m_wake_by_turn_<model>.png).
 
 usage: python single_gpu_figures.py [out_dir]     (default results/figures)
 """
@@ -85,32 +85,30 @@ def figure(inst, model, slug, out_dir):
               + "  ".join(f"{l} {a:.2f}-{b:.2f}" for l, a, b in c["jobs"]))
 
 
-def round_trips(run, inst):
-    """{turn: sleep + wake s}: the sleep before a turn's wake moves the same KV as that wake. Pin time excluded."""
-    recs = jsonl(os.path.join(ROOT, run, f"tiered_{inst}.jsonl"))
-    res = {r["n"]: r for r in recs if r["event"] == "resume"}
-    return {r["n"] + 1: r["total_s"] - sum(v for k, v in r.items() if k.endswith("_save_alloc_s")) + res[r["n"]]["total_s"]
-            for r in recs if r["event"] == "suspend" and r["n"] >= 1 and r["n"] in res}
+def wakes(run, inst):
+    """{turn: wake s}, turns 2 on (turn 1 wakes a model with no history). Wake number n serves turn n + 1."""
+    return {r["n"] + 1: r["total_s"] for r in jsonl(os.path.join(ROOT, run, f"tiered_{inst}.jsonl"))
+            if r["event"] == "resume" and r["n"] >= 1}
 
 
-def round_trip_figure(inst, model, slug, out_dir):
+def wake_figure(inst, model, slug, out_dir):
     colors = {"dram+dram": SLOTS[0], "dram+ssd": SLOTS[1], "dram+gds": SLOTS[2], "split": SLOTS[6]}
     markers = {"dram+dram": "o", "dram+ssd": "s", "dram+gds": "^", "split": "D"}
     fig, ax = plt.subplots(figsize=(7, 4.4))
     for path, run in RUNS:
-        d = round_trips(run, inst)
+        d = wakes(run, inst)
         turns = sorted(d)
         ax.plot(turns, [d[t] for t in turns], color=colors[path], marker=markers[path], ms=6, lw=2,
                 mec="white", mew=.8, label=path, zorder=4 if path == "split" else 3)
-    ax.set_title(f"{model}: sleep + wake of one model swap as the KV grows (one GPU, single run)",
-                 loc="left", fontsize=10.5, color=TEXT)
-    ax.set_xlabel("turn (the sleep before it + its wake)")
-    ax.set_ylabel("sleep + wake, seconds (excl. pin)")
+        print(f"{model:10s} {path:10s} turn 2 {d[2]:.2f} turn 15 {d[15]:.2f} sum {sum(d.values()):.1f}")
+    ax.set_title(f"{model}: wake time as the KV grows (one GPU, single run)", loc="left", fontsize=10.5, color=TEXT)
+    ax.set_xlabel("turn")
+    ax.set_ylabel("wake, seconds")
     ax.set_xticks([2, 5, 10, 15])
     ax.set_ylim(bottom=0)
     ax.grid(axis="x", visible=False)
     ax.legend(fontsize=9, frameon=False, loc="lower right", ncol=2)
-    path = os.path.join(out_dir, f"single3m_sleep_wake_by_turn_{slug}.png")
+    path = os.path.join(out_dir, f"single3m_wake_by_turn_{slug}.png")
     fig.savefig(path)
     plt.close(fig)
     print(path)
@@ -120,4 +118,4 @@ if __name__ == "__main__":
     out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "figures")
     for m in MODELS:
         figure(*m, out)
-        round_trip_figure(*m, out)
+        wake_figure(*m, out)
