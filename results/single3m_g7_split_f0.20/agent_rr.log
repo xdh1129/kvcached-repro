@@ -1,0 +1,16 @@
+1 GPUs x 3 agents x 15 turns = 45 requests per GPU (synchronized, offset 0.0 s)
+step 3/45: turn 1 done; history g7_a3=2176
+step 6/45: turn 2 done; history g7_a3=4352
+step 9/45: turn 3 done; history g7_a3=6528
+step 12/45: turn 4 done; history g7_a3=8704
+step 15/45: turn 5 done; history g7_a3=10880
+step 18/45: turn 6 done; history g7_a3=13056
+step 21/45: turn 7 done; history g7_a3=15232
+step 24/45: turn 8 done; history g7_a3=17408
+step 27/45: turn 9 done; history g7_a3=19584
+step 30/45: turn 10 done; history g7_a3=21760
+step 33/45: turn 11 done; history g7_a3=23936
+step 36/45: turn 12 done; history g7_a3=26112
+step 39/45: turn 13 done; history g7_a3=28288
+step 42/45: turn 14 done; history g7_a3=30464
+step 45/45: turn 15 done; history g7_a3=32640

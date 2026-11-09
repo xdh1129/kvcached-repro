@@ -1,0 +1,43 @@
+{
+ "run": "calib_g7_kv8_gds+gds_p0",
+ "paths": "gds+gds",
+ "parallel": "0",
+ "models": {
+  "Qwen/Qwen3-32B": {
+   "weights_gib": 61.68,
+   "kv_gib": 8.12,
+   "weights_write": 10.97,
+   "kv_write": 10.46,
+   "weights_read": 13.01,
+   "kv_read": 12.29,
+   "sleep_s": 6.6,
+   "wake_s": 5.59,
+   "n_sleep": 4,
+   "n_wake_kv": 3
+  },
+  "Qwen/Qwen3-14B": {
+   "weights_gib": 28.16,
+   "kv_gib": 8.91,
+   "weights_write": 10.87,
+   "kv_write": 10.54,
+   "weights_read": 12.99,
+   "kv_read": 12.55,
+   "sleep_s": 3.56,
+   "wake_s": 2.97,
+   "n_sleep": 4,
+   "n_wake_kv": 3
+  },
+  "microsoft/Phi-3.5-mini-instruct": {
+   "weights_gib": 7.31,
+   "kv_gib": 9.94,
+   "weights_write": 10.42,
+   "kv_write": 10.61,
+   "weights_read": 12.43,
+   "kv_read": 12.52,
+   "sleep_s": 1.74,
+   "wake_s": 1.43,
+   "n_sleep": 3,
+   "n_wake_kv": 3
+  }
+ }
+}

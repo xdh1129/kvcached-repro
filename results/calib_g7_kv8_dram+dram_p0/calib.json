@@ -1,0 +1,63 @@
+{
+ "run": "calib_g7_kv8_dram+dram_p0",
+ "paths": "dram+dram",
+ "parallel": "0",
+ "parallel_save": "0",
+ "split_frac": null,
+ "models": {
+  "Qwen/Qwen3-32B": {
+   "weights_gib": 61.68,
+   "kv_gib": 8.12,
+   "ssd_share": 0.0,
+   "write": {
+    "kv": 52.66,
+    "weights": 52.67
+   },
+   "read": {
+    "kv": 53.7,
+    "weights": 53.72
+   },
+   "sleep_s": 1.52,
+   "wake_s": 1.48,
+   "sleep_wake_s": 3.0,
+   "n_sleep": 3,
+   "n_wake": 3
+  },
+  "Qwen/Qwen3-14B": {
+   "weights_gib": 28.16,
+   "kv_gib": 8.91,
+   "ssd_share": 0.0,
+   "write": {
+    "kv": 52.66,
+    "weights": 52.67
+   },
+   "read": {
+    "kv": 53.69,
+    "weights": 53.7
+   },
+   "sleep_s": 0.81,
+   "wake_s": 0.78,
+   "sleep_wake_s": 1.59,
+   "n_sleep": 3,
+   "n_wake": 3
+  },
+  "microsoft/Phi-3.5-mini-instruct": {
+   "weights_gib": 7.31,
+   "kv_gib": 9.88,
+   "ssd_share": 0.0,
+   "write": {
+    "kv": 52.66,
+    "weights": 52.62
+   },
+   "read": {
+    "kv": 53.67,
+    "weights": 53.62
+   },
+   "sleep_s": 0.39,
+   "wake_s": 0.36,
+   "sleep_wake_s": 0.75,
+   "n_sleep": 2,
+   "n_wake": 3
+  }
+ }
+}

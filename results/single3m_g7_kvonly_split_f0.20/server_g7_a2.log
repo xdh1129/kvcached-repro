@@ -1,0 +1,1016 @@
+[kvcached][INFO][2026-11-09 01:14:40][patch_base.py:98] Applying 16 patches for vllm
+INFO 11-09 01:14:42 [nixl_utils.py:32] Setting UCX_RCACHE_MAX_UNRELEASED to '1024' to avoid a rare memory leak in UCX when using NIXL.
+WARNING 11-09 01:14:42 [nixl_utils.py:62] NIXL is not available
+WARNING 11-09 01:14:42 [nixl_utils.py:64] NIXL agent config is not available
+[kvcached][INFO][2026-11-09 01:14:43][nixl_compat.py:155] Patched NixlConnector for kvcached PD disagg compatibility
+[kvcached][INFO][2026-11-09 01:14:43][version_utils.py:199] Detected vllm version: 0.30.0
+[kvcached][INFO][2026-11-09 01:14:43][version_utils.py:199] Detected vllm version: 0.30.0
+[kvcached][INFO][2026-11-09 01:14:43][version_utils.py:199] Detected vllm version: 0.30.0
+[kvcached][INFO][2026-11-09 01:14:43][version_utils.py:199] Detected vllm version: 0.30.0
+[kvcached][INFO][2026-11-09 01:14:43][version_utils.py:199] Detected vllm version: 0.30.0
+[kvcached][INFO][2026-11-09 01:14:43][version_utils.py:199] Detected vllm version: 0.30.0
+[kvcached][INFO][2026-11-09 01:14:43][version_utils.py:199] Detected vllm version: 0.30.0
+[kvcached][INFO][2026-11-09 01:14:43][version_utils.py:199] Detected vllm version: 0.30.0
+[kvcached][INFO][2026-11-09 01:14:43][version_utils.py:199] Detected vllm version: 0.30.0
+[kvcached][INFO][2026-11-09 01:14:43][patch_base.py:178] Successfully patched vllm: nixl_connector_compat, elastic_block_pool, engine_core, mp_client, core_engine_proc_manager, model_runner_v2, kv_layout_v2, gpu_worker, hybrid_block_size_align, kv_cache_coordinator, allocate_slots, mamba_partial_tail
+(APIServer pid=2069907) INFO 11-09 01:14:43 [api_utils.py:347] 
+(APIServer pid=2069907) INFO 11-09 01:14:43 [api_utils.py:347]        █     █     █▄   ▄█
+(APIServer pid=2069907) INFO 11-09 01:14:43 [api_utils.py:347]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.30.0
+(APIServer pid=2069907) INFO 11-09 01:14:43 [api_utils.py:347]   █▄█▀ █     █     █     █  model   Qwen/Qwen3-14B
+(APIServer pid=2069907) INFO 11-09 01:14:43 [api_utils.py:347]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=2069907) INFO 11-09 01:14:43 [api_utils.py:347] 
+(APIServer pid=2069907) INFO 11-09 01:14:43 [api_utils.py:286] non-default args: {'model_tag': 'Qwen/Qwen3-14B', 'host': 'localhost', 'port': 33002, 'model': 'Qwen/Qwen3-14B', 'max_model_len': 40960, 'enable_sleep_mode': True}
+(APIServer pid=2069907) WARNING 11-09 01:14:43 [envs.py:2248] Unknown vLLM environment variable detected: VLLM_USE_V1
+(APIServer pid=2069907) INFO 11-09 01:14:44 [model.py:618] Enabling cumem allocator because sleep mode requires it.
+(APIServer pid=2069907) INFO 11-09 01:14:45 [model.py:692] Resolved architecture: Qwen3ForCausalLM
+(APIServer pid=2069907) INFO 11-09 01:14:45 [model.py:2030] Using max model len 40960
+(APIServer pid=2069907) INFO 11-09 01:14:45 [scheduler.py:288] Chunked prefill is enabled with max_num_batched_tokens=8192.
+(APIServer pid=2069907) INFO 11-09 01:14:45 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+[kvcached][INFO][2026-11-09 01:14:50][patch_base.py:98] Applying 16 patches for vllm
+WARNING 11-09 01:14:52 [nixl_utils.py:62] NIXL is not available
+WARNING 11-09 01:14:52 [nixl_utils.py:64] NIXL agent config is not available
+[kvcached][INFO][2026-11-09 01:14:52][nixl_compat.py:155] Patched NixlConnector for kvcached PD disagg compatibility
+[kvcached][INFO][2026-11-09 01:14:52][version_utils.py:199] Detected vllm version: 0.30.0
+[kvcached][INFO][2026-11-09 01:14:52][version_utils.py:199] Detected vllm version: 0.30.0
+[kvcached][INFO][2026-11-09 01:14:52][version_utils.py:199] Detected vllm version: 0.30.0
+[kvcached][INFO][2026-11-09 01:14:52][version_utils.py:199] Detected vllm version: 0.30.0
+[kvcached][INFO][2026-11-09 01:14:52][version_utils.py:199] Detected vllm version: 0.30.0
+[kvcached][INFO][2026-11-09 01:14:52][version_utils.py:199] Detected vllm version: 0.30.0
+[kvcached][INFO][2026-11-09 01:14:52][version_utils.py:199] Detected vllm version: 0.30.0
+[kvcached][INFO][2026-11-09 01:14:52][version_utils.py:199] Detected vllm version: 0.30.0
+[kvcached][INFO][2026-11-09 01:14:52][version_utils.py:199] Detected vllm version: 0.30.0
+[kvcached][INFO][2026-11-09 01:14:52][patch_base.py:178] Successfully patched vllm: nixl_connector_compat, elastic_block_pool, engine_core, mp_client, core_engine_proc_manager, model_runner_v2, kv_layout_v2, gpu_worker, hybrid_block_size_align, kv_cache_coordinator, allocate_slots, mamba_partial_tail
+(EngineCore pid=2070204) [kvcached][INFO][2026-11-09 01:14:53][interfaces.py:112] kvcached async scheduler enabled
+(EngineCore pid=2070204) INFO 11-09 01:14:53 [core.py:123] Initializing a V1 LLM engine (v0.30.0) with config: model='Qwen/Qwen3-14B', speculative_config=None, tokenizer='Qwen/Qwen3-14B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=0, served_model_name=Qwen/Qwen3-14B, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::qwen4_exp_ple_short_conv', 'vllm::qwen4_exp_qsa_with_output', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_jit_warmup=True, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+(EngineCore pid=2070204) INFO 11-09 01:14:53 [parallel_state.py:1827] world_size=1 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_2931ac8f17274588b11668f9c4a8f895 backend=nccl
+(EngineCore pid=2070204) INFO 11-09 01:14:53 [parallel_state.py:2267] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=2070204) INFO 11-09 01:14:53 [gpu_worker.py:441] Using V2 Model Runner
+(EngineCore pid=2070204) Worker 0 IPC listener started at /tmp/kvcached-tp-kvc_g7_a2_33002-4ae77b47/w0.sock
+(EngineCore pid=2070204) INFO 11-09 01:14:54 [model_runner.py:396] Loading model from scratch...
+(EngineCore pid=2070204) INFO 11-09 01:14:54 [cuda.py:538] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=2070204) INFO 11-09 01:14:54 [flash_attn.py:1116] Using FlashAttention version 2
+(EngineCore pid=2070204) INFO 11-09 01:14:55 [weight_utils.py:895] Filesystem type for checkpoints: EXT4. Checkpoint size: 27.51 GiB. Available RAM: 907.14 GiB.
+(EngineCore pid=2070204) INFO 11-09 01:14:55 [weight_utils.py:918] Auto-prefetch is disabled because the filesystem (EXT4) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+(EngineCore pid=2070204) Loading safetensors checkpoint shards:   0% Completed | 0/8 [00:00<?, ?it/s]
+(EngineCore pid=2070204) Loading safetensors checkpoint shards:  12% Completed | 1/8 [00:00<00:02,  3.05it/s]
+(EngineCore pid=2070204) Loading safetensors checkpoint shards:  25% Completed | 2/8 [00:00<00:02,  2.62it/s]
+(EngineCore pid=2070204) Loading safetensors checkpoint shards:  38% Completed | 3/8 [00:01<00:01,  2.65it/s]
+(EngineCore pid=2070204) Loading safetensors checkpoint shards:  50% Completed | 4/8 [00:01<00:01,  2.80it/s]
+(EngineCore pid=2070204) Loading safetensors checkpoint shards:  62% Completed | 5/8 [00:01<00:01,  2.87it/s]
+(EngineCore pid=2070204) Loading safetensors checkpoint shards:  75% Completed | 6/8 [00:02<00:00,  2.98it/s]
+(EngineCore pid=2070204) Loading safetensors checkpoint shards:  88% Completed | 7/8 [00:02<00:00,  3.08it/s]
+(EngineCore pid=2070204) Loading safetensors checkpoint shards: 100% Completed | 8/8 [00:02<00:00,  3.69it/s]
+(EngineCore pid=2070204) Loading safetensors checkpoint shards: 100% Completed | 8/8 [00:02<00:00,  3.14it/s]
+(EngineCore pid=2070204) 
+(EngineCore pid=2070204) INFO 11-09 01:14:58 [default_loader.py:430] Loading weights took 2.57 seconds
+(EngineCore pid=2070204) INFO 11-09 01:14:58 [model_runner.py:428] Model loading took 27.52 GiB memory and 4.860054 seconds
+(EngineCore pid=2070204) INFO 11-09 01:14:58 [topk_topp_sampler.py:78] Using FlashInfer for top-p & top-k sampling.
+(EngineCore pid=2070204) INFO 11-09 01:14:58 [utils.py:320] Using BLNHC KV cache layout.
+(EngineCore pid=2070204) INFO 11-09 01:14:59 [caching.py:343] reconstructed serializable fn from standalone compile artifacts. num_artifacts=3 num_submods=41
+(EngineCore pid=2070204) INFO 11-09 01:14:59 [decorators.py:313] Directly load AOT compilation from path /home/poc/.cache/vllm/torch_compile_cache/torch_aot_compile/1960cb53f81cab175c50e69046322d1cc714bc6328f11807daf8a4009132d128/rank_0_0/model
+(EngineCore pid=2070204) INFO 11-09 01:14:59 [monitor.py:53] torch.compile took 0.13 s in total
+(EngineCore pid=2070204) INFO 11-09 01:14:59 [monitor.py:81] Initial profiling/warmup run took 0.17 s
+(EngineCore pid=2070204) Capturing CUDA graphs (PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (PIECEWISE):   2%|▏         | 1/51 [00:00<00:05,  9.25it/s]Capturing CUDA graphs (PIECEWISE):   6%|▌         | 3/51 [00:00<00:03, 12.90it/s]Capturing CUDA graphs (PIECEWISE):  10%|▉         | 5/51 [00:00<00:03, 14.04it/s]Capturing CUDA graphs (PIECEWISE):  14%|█▎        | 7/51 [00:00<00:03, 14.50it/s]Capturing CUDA graphs (PIECEWISE):  18%|█▊        | 9/51 [00:00<00:02, 15.03it/s]Capturing CUDA graphs (PIECEWISE):  22%|██▏       | 11/51 [00:00<00:02, 15.63it/s]Capturing CUDA graphs (PIECEWISE):  25%|██▌       | 13/51 [00:00<00:02, 16.04it/s]Capturing CUDA graphs (PIECEWISE):  29%|██▉       | 15/51 [00:00<00:02, 16.39it/s]Capturing CUDA graphs (PIECEWISE):  33%|███▎      | 17/51 [00:01<00:02, 16.92it/s]Capturing CUDA graphs (PIECEWISE):  37%|███▋      | 19/51 [00:01<00:01, 17.60it/s]Capturing CUDA graphs (PIECEWISE):  41%|████      | 21/51 [00:01<00:01, 18.14it/s]Capturing CUDA graphs (PIECEWISE):  45%|████▌     | 23/51 [00:01<00:01, 18.50it/s]Capturing CUDA graphs (PIECEWISE):  49%|████▉     | 25/51 [00:01<00:01, 18.72it/s]Capturing CUDA graphs (PIECEWISE):  53%|█████▎    | 27/51 [00:01<00:01, 18.87it/s]Capturing CUDA graphs (PIECEWISE):  57%|█████▋    | 29/51 [00:01<00:01, 19.04it/s]Capturing CUDA graphs (PIECEWISE):  61%|██████    | 31/51 [00:01<00:01, 19.24it/s]Capturing CUDA graphs (PIECEWISE):  65%|██████▍   | 33/51 [00:01<00:00, 19.05it/s]Capturing CUDA graphs (PIECEWISE):  71%|███████   | 36/51 [00:02<00:00, 19.67it/s]Capturing CUDA graphs (PIECEWISE):  76%|███████▋  | 39/51 [00:02<00:00, 20.10it/s]Capturing CUDA graphs (PIECEWISE):  82%|████████▏ | 42/51 [00:02<00:00, 20.41it/s]Capturing CUDA graphs (PIECEWISE):  88%|████████▊ | 45/51 [00:02<00:00, 20.70it/s]Capturing CUDA graphs (PIECEWISE):  94%|█████████▍| 48/51 [00:02<00:00, 20.89it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:02<00:00, 20.91it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:02<00:00, 18.37it/s]
+(EngineCore pid=2070204) Capturing CUDA graphs (FULL):   0%|          | 0/2 [00:00<?, ?it/s]Capturing CUDA graphs (FULL): 100%|██████████| 2/2 [00:00<00:00, 19.96it/s]Capturing CUDA graphs (FULL): 100%|██████████| 2/2 [00:00<00:00, 19.93it/s]
+(EngineCore pid=2070204) INFO 11-09 01:15:05 [model_runner.py:1066] Graph capturing finished in 4 secs, took 0.42 GiB
+(EngineCore pid=2070204) [kvcached][WARNING][2026-11-09 01:15:05][patches.py:3012] Using kvcached process-local KV capacity: budget=93816034427 bytes, weights=29547727872 bytes, torch_peak=1140871680 bytes, cudagraph=595591168 bytes (ignored), available=63127434875 bytes; whole-device non-torch and CUDA Graph deltas are ignored
+(EngineCore pid=2070204) INFO 11-09 01:15:05 [kv_cache_utils.py:2395] GPU KV cache size: 385,296 tokens, Maximum concurrency for 40,960 tokens per request: 9.41x
+(EngineCore pid=2070204) [kvcached][INFO][2026-11-09 01:15:05][model_runner_v2.py:226] kvcached MRV2 persistent allocation: pools=40 page_bytes=65536 blocks=24081 layout=BLNHC
+(EngineCore pid=2070204) INFO 11-09 01:15:05 [kernel_warmup.py:172] JIT kernel warmup starting.
+(EngineCore pid=2070204) INFO 11-09 01:15:05 [kernel_warmup.py:185] JIT kernel warmup finished in 0.00s.
+(EngineCore pid=2070204) Capturing CUDA graphs (PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (PIECEWISE):   4%|▍         | 2/51 [00:00<00:03, 13.09it/s]Capturing CUDA graphs (PIECEWISE):   8%|▊         | 4/51 [00:00<00:03, 14.21it/s]Capturing CUDA graphs (PIECEWISE):  12%|█▏        | 6/51 [00:00<00:03, 14.66it/s]Capturing CUDA graphs (PIECEWISE):  16%|█▌        | 8/51 [00:00<00:02, 14.91it/s]Capturing CUDA graphs (PIECEWISE):  20%|█▉        | 10/51 [00:00<00:02, 15.53it/s]Capturing CUDA graphs (PIECEWISE):  24%|██▎       | 12/51 [00:00<00:02, 15.97it/s]Capturing CUDA graphs (PIECEWISE):  27%|██▋       | 14/51 [00:00<00:02, 16.31it/s]Capturing CUDA graphs (PIECEWISE):  31%|███▏      | 16/51 [00:01<00:02, 16.60it/s]Capturing CUDA graphs (PIECEWISE):  35%|███▌      | 18/51 [00:01<00:01, 17.34it/s]Capturing CUDA graphs (PIECEWISE):  39%|███▉      | 20/51 [00:01<00:01, 17.93it/s]Capturing CUDA graphs (PIECEWISE):  43%|████▎     | 22/51 [00:01<00:01, 18.37it/s]Capturing CUDA graphs (PIECEWISE):  47%|████▋     | 24/51 [00:01<00:01, 18.71it/s]Capturing CUDA graphs (PIECEWISE):  51%|█████     | 26/51 [00:01<00:01, 18.86it/s]Capturing CUDA graphs (PIECEWISE):  55%|█████▍    | 28/51 [00:01<00:01, 19.01it/s]Capturing CUDA graphs (PIECEWISE):  59%|█████▉    | 30/51 [00:01<00:01, 19.19it/s]Capturing CUDA graphs (PIECEWISE):  63%|██████▎   | 32/51 [00:01<00:00, 19.36it/s]Capturing CUDA graphs (PIECEWISE):  69%|██████▊   | 35/51 [00:01<00:00, 19.87it/s]Capturing CUDA graphs (PIECEWISE):  73%|███████▎  | 37/51 [00:02<00:00, 19.88it/s]Capturing CUDA graphs (PIECEWISE):  78%|███████▊  | 40/51 [00:02<00:00, 20.34it/s]Capturing CUDA graphs (PIECEWISE):  84%|████████▍ | 43/51 [00:02<00:00, 20.64it/s]Capturing CUDA graphs (PIECEWISE):  90%|█████████ | 46/51 [00:02<00:00, 20.90it/s]Capturing CUDA graphs (PIECEWISE):  96%|█████████▌| 49/51 [00:02<00:00, 21.24it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:02<00:00, 18.65it/s]
+(EngineCore pid=2070204) Capturing CUDA graphs (FULL):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (FULL):   4%|▍         | 2/51 [00:00<00:02, 19.95it/s]Capturing CUDA graphs (FULL):   8%|▊         | 4/51 [00:00<00:02, 19.72it/s]Capturing CUDA graphs (FULL):  12%|█▏        | 6/51 [00:00<00:02, 19.79it/s]Capturing CUDA graphs (FULL):  16%|█▌        | 8/51 [00:00<00:02, 19.81it/s]Capturing CUDA graphs (FULL):  22%|██▏       | 11/51 [00:00<00:01, 21.18it/s]Capturing CUDA graphs (FULL):  27%|██▋       | 14/51 [00:00<00:01, 22.02it/s]Capturing CUDA graphs (FULL):  33%|███▎      | 17/51 [00:00<00:01, 23.09it/s]Capturing CUDA graphs (FULL):  39%|███▉      | 20/51 [00:00<00:01, 24.79it/s]Capturing CUDA graphs (FULL):  45%|████▌     | 23/51 [00:00<00:01, 26.14it/s]Capturing CUDA graphs (FULL):  51%|█████     | 26/51 [00:01<00:00, 26.97it/s]Capturing CUDA graphs (FULL):  57%|█████▋    | 29/51 [00:01<00:00, 27.69it/s]Capturing CUDA graphs (FULL):  63%|██████▎   | 32/51 [00:01<00:00, 28.35it/s]Capturing CUDA graphs (FULL):  71%|███████   | 36/51 [00:01<00:00, 29.83it/s]Capturing CUDA graphs (FULL):  78%|███████▊  | 40/51 [00:01<00:00, 31.12it/s]Capturing CUDA graphs (FULL):  86%|████████▋ | 44/51 [00:01<00:00, 32.08it/s]Capturing CUDA graphs (FULL):  94%|█████████▍| 48/51 [00:01<00:00, 28.33it/s]Capturing CUDA graphs (FULL): 100%|██████████| 51/51 [00:01<00:00, 26.75it/s]
+(EngineCore pid=2070204) INFO 11-09 01:15:11 [model_runner.py:1066] Graph capturing finished in 5 secs, took 0.25 GiB
+(EngineCore pid=2070204) INFO 11-09 01:15:11 [gpu_worker.py:825] CUDA graph pool memory: 0.25 GiB (actual), 0.55 GiB (estimated), difference: 0.31 GiB (125.4%).
+(EngineCore pid=2070204) INFO 11-09 01:15:11 [gpu_worker.py:888] Free memory on device (92.03/94.97 GiB) on startup. Desired GPU memory utilization is (0.92, 87.37 GiB). Actual usage is 27.55 GiB for consumed memory (weights + non-torch), 1.03 GiB for peak activation, and 0.25 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=62705907323` (58.4 GiB) to fit into requested memory, or `--kv-cache-memory=67702301184` (63.05 GiB) to fully utilize gpu memory. Current kv cache memory in use is 58.79 GiB.
+(EngineCore pid=2070204) INFO 11-09 01:15:12 [jit_monitor.py:85] Kernel JIT monitor activated; monitored JIT compilations during inference will use mode=warn.
+(EngineCore pid=2070204) INFO 11-09 01:15:12 [torch_utils.py:287] Reducing Torch threads from 64 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override.
+(EngineCore pid=2070204) INFO 11-09 01:15:12 [core.py:372] init engine (profile, create kv cache, warmup model) took 13.74 s (compilation: 0.13 s)
+(EngineCore pid=2070204) [kvcached][INFO][2026-11-09 01:15:13][patches.py:1790] Prefix caching enabled for kvcached
+(EngineCore pid=2070204) [kvcached][INFO][2026-11-09 01:15:13][patches.py:674] Prefix caching enabled for ElasticBlockPool
+Init C++ PageAllocator: num_layers=40, mem_size_per_layer=1505MB, total_mem_size=60202MB, page_size=2MB, world_size=1, pp_rank=0, async_sched=1, contiguous_layout=1, enable_prealloc=1, num_kv_buffers=1, group_id=0, min_reserved_pages=5, max_reserved_pages=10
+(EngineCore pid=2070204) [kvcached][INFO][2026-11-09 01:15:13][patches.py:1290] Installed physical release barrier for 1 vLLM workers
+(EngineCore pid=2070204) INFO 11-09 01:15:13 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+(APIServer pid=2069907) INFO 11-09 01:15:13 [entry.py:135] Supported tasks: ['generate']
+(APIServer pid=2069907) WARNING 11-09 01:15:13 [__init__.py:44] SECURITY WARNING: Development endpoints are enabled! This should NOT be used in production!
+(APIServer pid=2069907) INFO 11-09 01:15:13 [factories.py:76] Scale-out endpoints are disabled. Set --enable-scale-out to enable them.
+(APIServer pid=2069907) INFO 11-09 01:15:14 [hf.py:642] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+(APIServer pid=2069907) WARNING 11-09 01:15:14 [model.py:1772] Default vLLM sampling parameters have been overridden by the model's `generation_config.json`: `{'temperature': 0.6, 'top_k': 20, 'top_p': 0.95}`. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+(APIServer pid=2069907) INFO 11-09 01:15:14 [entry.py:139] Starting vLLM server on http://localhost:33002
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:61] Available routes are:
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /openapi.json, Methods: GET, HEAD
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /docs, Methods: GET, HEAD
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /docs/oauth2-redirect, Methods: GET, HEAD
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /redoc, Methods: GET, HEAD
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /load, Methods: GET
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /version, Methods: GET
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /health, Methods: GET
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /metrics, Methods: GET
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /tokenize, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /detokenize, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /v1/models, Methods: GET
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /ping, Methods: GET
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /ping, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /invocations, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /reset_prefix_cache, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /reset_mm_cache, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /reset_encoder_cache, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /pause, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /resume, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /abort_requests, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /is_paused, Methods: GET
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /init_weight_transfer_engine, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /start_weight_update, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /start_draft_weight_update, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /update_weights, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /finish_weight_update, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /update_weight_version, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /weight_info, Methods: GET
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /get_world_size, Methods: GET
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /collective_rpc, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /server_info, Methods: GET
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /sleep, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /wake_up, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /is_sleeping, Methods: GET
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /v1/chat/completions, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /v1/chat/completions/batch, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /v1/responses, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /v1/responses/{response_id}, Methods: GET
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /v1/responses/{response_id}/cancel, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /v1/completions, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /v1/messages, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /v1/messages/count_tokens, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /generative_scoring, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /scale_elastic_ep, Methods: POST
+(APIServer pid=2069907) INFO 11-09 01:15:14 [launcher.py:70] Route: /is_scaling_elastic_ep, Methods: POST
+(APIServer pid=2069907) INFO:     Started server process [2069907]
+(APIServer pid=2069907) INFO:     Waiting for application startup.
+(APIServer pid=2069907) INFO:     Application startup complete.
+(APIServer pid=2069907) INFO:     127.0.0.1:41864 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41874 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41880 - "GET /health HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41896 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:15:16 [scheduler.py:2600] setting pause state to PAUSED_NEW
+(EngineCore pid=2070204) INFO 11-09 01:15:16 [__init__.py:63] Using sleep-mode backend: tiered (weights=dram, kv=gds, parallel=1)
+(APIServer pid=2069907) INFO:     127.0.0.1:41916 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41928 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41944 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41950 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41964 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41976 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41984 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41994 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41998 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42004 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42010 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59674 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59676 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:15:23 [backend.py:467] tiered {"event": "suspend", "t_unix": 1794158117.1650627, "n": 0, "weights_path": "dram", "kv_path": "gds", "weights_saved": true, "weights_bytes": 30236737536, "weights_regions": 170, "weights_region_mib_p50": 70.0, "weights_bytes_in_regions_lt_64mib": 2174746624, "state_regions": 0, "state_bytes": 0, "kv_pages": 1, "kv_bytes": 83886080, "split_frac": 0.2, "split_total_bytes": 30320623616, "split_ssd_bytes": 83886080, "split_ssd_kv_bytes": 83886080, "parallel_save": true, "save_s": 5.893096575513482, "dram_save_bytes": 30236737536, "dram_save_host_bytes": 30236737536, "dram_save_alloc_s": 5.353435670956969, "dram_save_start_s": 0.00030193664133548737, "dram_save_end_s": 5.890411646105349, "dram_save_s": 5.890109709464014, "ssd_save_bytes": 83886080, "ssd_save_host_bytes": 0, "ssd_save_stage_spans": 1, "ssd_save_stage_setup_s": 5.355449749156833, "ssd_save_unregistered_chunks": 0, "ssd_save_gate_wait_s": 0.0, "ssd_save_start_s": 0.0006519928574562073, "ssd_save_end_s": 5.893020186573267, "ssd_save_data_start_s": 5.360546043142676, "ssd_save_data_end_s": 5.376472395844758, "ssd_save_s": 5.892368193715811, "release_s": 0.09658215008676052, "cumem_released_bytes": 30236737536, "total_s": 5.990584395825863}
+(EngineCore pid=2070204) INFO 11-09 01:15:23 [gpu_worker.py:276] Sleep mode freed 28.17 GiB memory, 4.21 GiB memory is still in use.
+(EngineCore pid=2070204) INFO 11-09 01:15:23 [abstract.py:346] It took 6.268620 seconds to fall asleep.
+(APIServer pid=2069907) INFO:     127.0.0.1:41912 - "POST /sleep?level=1 HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59690 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59698 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59702 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59708 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59710 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59718 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59722 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59726 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59742 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59744 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59754 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59758 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59764 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59778 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59792 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59808 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59820 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59826 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50740 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50748 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50754 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50756 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50758 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50770 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50774 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50786 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50802 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50806 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50816 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50830 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50832 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50846 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50852 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50864 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50872 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50884 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50900 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50912 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54012 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54022 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54028 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54034 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54048 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54052 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54068 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54082 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54092 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54108 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54118 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54126 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54132 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54134 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54142 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54158 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54172 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54182 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54188 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:54202 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42194 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42198 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42200 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42216 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42226 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42240 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42244 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42250 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42252 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42268 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42280 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42292 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42302 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42314 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42318 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42330 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42336 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42352 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42358 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42368 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:58812 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:58824 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:58826 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:58830 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:58846 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:58860 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:58876 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:58882 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:16:05 [api_router.py:36] wake up the engine with tags: None
+(APIServer pid=2069907) INFO:     127.0.0.1:58892 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:16:06 [backend.py:467] tiered {"event": "resume", "t_unix": 1794158165.9295516, "n": 0, "weights_path": "dram", "kv_path": "gds", "parallel": true, "map_s": 0.08593921270221472, "debug_skip_kv_load": false, "weights_pace_gibs": null, "split_frac": 0.2, "weights_bytes": 30236737536, "state_bytes": 0, "kv_bytes": 83886080, "total_s": 0.6147290365770459, "dram_bytes": 30236737536, "dram_host_bytes": 30236737536, "dram_alloc_s": 0.0, "dram_start_s": 0.08622626960277557, "dram_end_s": 0.6121956640854478, "ssd_bytes": 83886080, "ssd_host_bytes": 0, "ssd_stage_spans": 1, "ssd_stage_setup_s": 0.012959974817931652, "ssd_unregistered_chunks": 0, "ssd_gate_wait_s": 0.0, "ssd_start_s": 0.08652700576931238, "ssd_end_s": 0.614398599602282, "ssd_data_start_s": 0.09965357929468155, "ssd_data_end_s": 0.10616989620029926}
+(EngineCore pid=2070204) INFO 11-09 01:16:06 [abstract.py:364] It took 0.615094 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=2070204) INFO 11-09 01:16:06 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=2069907) INFO:     127.0.0.1:58888 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:58908 - "POST /v1/completions HTTP/1.1" 200 OK
+(EngineCore pid=2070204) WARNING 11-09 01:16:06 [jit_monitor.py:141] Triton kernel JIT compilation during inference: _gumbel_sample_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+(APIServer pid=2069907) INFO:     127.0.0.1:58912 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:58928 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:58936 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:58942 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:58958 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:58964 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:58978 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:58986 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59000 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:16:10 [scheduler.py:2600] setting pause state to PAUSED_ALL
+(APIServer pid=2069907) INFO:     127.0.0.1:59018 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59030 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:16:11 [backend.py:467] tiered {"event": "suspend", "t_unix": 1794158170.5648253, "n": 1, "weights_path": "dram", "kv_path": "gds", "weights_saved": true, "weights_bytes": 30236737536, "weights_regions": 170, "weights_region_mib_p50": 70.0, "weights_bytes_in_regions_lt_64mib": 2174746624, "state_regions": 0, "state_bytes": 0, "kv_pages": 5, "kv_bytes": 419430400, "split_frac": 0.2, "split_total_bytes": 30656167936, "split_ssd_bytes": 419430400, "split_ssd_kv_bytes": 419430400, "parallel_save": true, "save_s": 0.5479591963812709, "dram_save_bytes": 30236737536, "dram_save_host_bytes": 30236737536, "dram_save_alloc_s": 8.012913167476654e-05, "dram_save_start_s": 0.0001932978630065918, "dram_save_end_s": 0.5427427338436246, "dram_save_s": 0.542549435980618, "ssd_save_bytes": 419430400, "ssd_save_host_bytes": 0, "ssd_save_stage_spans": 2, "ssd_save_stage_setup_s": 0.016216249205172062, "ssd_save_unregistered_chunks": 0, "ssd_save_gate_wait_s": 0.0, "ssd_save_start_s": 0.0004728352651000023, "ssd_save_end_s": 0.5479121766984463, "ssd_save_data_start_s": 0.01704914029687643, "ssd_save_data_end_s": 0.06722308974713087, "ssd_save_s": 0.5474393414333463, "release_s": 0.08316102251410484, "cumem_released_bytes": 30236737536, "total_s": 0.6315921526402235}
+(EngineCore pid=2070204) INFO 11-09 01:16:11 [gpu_worker.py:276] Sleep mode freed 28.86 GiB memory, 14.11 GiB memory is still in use.
+(EngineCore pid=2070204) INFO 11-09 01:16:11 [abstract.py:346] It took 0.632079 seconds to fall asleep.
+(APIServer pid=2069907) INFO:     127.0.0.1:59012 - "POST /sleep?level=1&mode=keep HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59044 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59046 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33646 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33662 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33668 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33678 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33684 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:16:15 [loggers.py:315] Engine 000: Avg prompt throughput: 204.8 tokens/s, Avg generation throughput: 12.8 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.2%, Prefix cache hit rate: 0.0%
+(APIServer pid=2069907) INFO:     127.0.0.1:33686 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33696 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33698 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33704 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33716 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33722 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33728 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33732 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33734 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33750 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33752 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33760 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:16:20 [api_router.py:36] wake up the engine with tags: None
+(APIServer pid=2069907) INFO:     127.0.0.1:33772 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33788 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:16:21 [backend.py:467] tiered {"event": "resume", "t_unix": 1794158180.641796, "n": 1, "weights_path": "dram", "kv_path": "gds", "parallel": true, "map_s": 0.08132693078368902, "debug_skip_kv_load": false, "weights_pace_gibs": null, "split_frac": 0.2, "weights_bytes": 30236737536, "state_bytes": 0, "kv_bytes": 419430400, "total_s": 0.6184941083192825, "dram_bytes": 30236737536, "dram_host_bytes": 30236737536, "dram_alloc_s": 0.0, "dram_start_s": 0.08160053845494986, "dram_end_s": 0.6132450671866536, "ssd_bytes": 419430400, "ssd_host_bytes": 0, "ssd_stage_spans": 2, "ssd_stage_setup_s": 0.02320769988000393, "ssd_unregistered_chunks": 0, "ssd_gate_wait_s": 0.0, "ssd_start_s": 0.08185655530542135, "ssd_end_s": 0.6183794401586056, "ssd_data_start_s": 0.10522101446986198, "ssd_data_end_s": 0.13570995349436998}
+(EngineCore pid=2070204) INFO 11-09 01:16:21 [abstract.py:364] It took 0.618759 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=2070204) INFO 11-09 01:16:21 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=2069907) INFO:     127.0.0.1:33786 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33800 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33812 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:33824 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:47234 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:47244 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:47260 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:47274 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:47286 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:47302 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:16:25 [loggers.py:315] Engine 000: Avg prompt throughput: 206.4 tokens/s, Avg generation throughput: 12.8 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.5%, Prefix cache hit rate: 34.4%
+(APIServer pid=2069907) INFO:     127.0.0.1:47304 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:16:25 [scheduler.py:2600] setting pause state to PAUSED_ALL
+(APIServer pid=2069907) INFO:     127.0.0.1:47322 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:47336 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:16:26 [backend.py:467] tiered {"event": "suspend", "t_unix": 1794158185.5510302, "n": 2, "weights_path": "dram", "kv_path": "gds", "weights_saved": true, "weights_bytes": 30236737536, "weights_regions": 170, "weights_region_mib_p50": 70.0, "weights_bytes_in_regions_lt_64mib": 2174746624, "state_regions": 0, "state_bytes": 0, "kv_pages": 9, "kv_bytes": 754974720, "split_frac": 0.2, "split_total_bytes": 30991712256, "split_ssd_bytes": 754974720, "split_ssd_kv_bytes": 754974720, "parallel_save": true, "save_s": 0.5545189594849944, "dram_save_bytes": 30236737536, "dram_save_host_bytes": 30236737536, "dram_save_alloc_s": 0.00012487825006246567, "dram_save_start_s": 0.00028108712285757065, "dram_save_end_s": 0.5490959696471691, "dram_save_s": 0.5488148825243115, "ssd_save_bytes": 754974720, "ssd_save_host_bytes": 0, "ssd_save_stage_spans": 3, "ssd_save_stage_setup_s": 0.016209769062697887, "ssd_save_unregistered_chunks": 0, "ssd_save_gate_wait_s": 0.0, "ssd_save_start_s": 0.0006004627794027328, "ssd_save_end_s": 0.5544758792966604, "ssd_save_data_start_s": 0.01717520784586668, "ssd_save_data_end_s": 0.10195208992809057, "ssd_save_s": 0.5538754165172577, "release_s": 0.08487804047763348, "cumem_released_bytes": 30236737536, "total_s": 0.6398539952933788}
+(EngineCore pid=2070204) INFO 11-09 01:16:26 [gpu_worker.py:276] Sleep mode freed 29.25 GiB memory, 15.01 GiB memory is still in use.
+(EngineCore pid=2070204) INFO 11-09 01:16:26 [abstract.py:346] It took 0.640340 seconds to fall asleep.
+(APIServer pid=2069907) INFO:     127.0.0.1:47312 - "POST /sleep?level=1&mode=keep HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:47344 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:47352 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:47354 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:47362 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:47368 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:47370 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:47376 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:47380 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:47390 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:47396 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:47402 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:47406 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53634 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53640 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53646 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53660 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53674 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53688 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:16:35 [loggers.py:315] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.5%, Prefix cache hit rate: 34.4%
+(APIServer pid=2069907) INFO:     127.0.0.1:53694 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53708 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:16:35 [api_router.py:36] wake up the engine with tags: None
+(APIServer pid=2069907) INFO:     127.0.0.1:53720 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:16:36 [backend.py:467] tiered {"event": "resume", "t_unix": 1794158195.8237197, "n": 2, "weights_path": "dram", "kv_path": "gds", "parallel": true, "map_s": 0.08703596610575914, "debug_skip_kv_load": false, "weights_pace_gibs": null, "split_frac": 0.2, "weights_bytes": 30236737536, "state_bytes": 0, "kv_bytes": 754974720, "total_s": 0.6306743370369077, "dram_bytes": 30236737536, "dram_host_bytes": 30236737536, "dram_alloc_s": 0.0, "dram_start_s": 0.08731402270495892, "dram_end_s": 0.6246920935809612, "ssd_bytes": 754974720, "ssd_host_bytes": 0, "ssd_stage_spans": 3, "ssd_stage_setup_s": 0.023200489580631256, "ssd_unregistered_chunks": 0, "ssd_gate_wait_s": 0.0, "ssd_start_s": 0.08763352874666452, "ssd_end_s": 0.62978236656636, "ssd_data_start_s": 0.11104018706828356, "ssd_data_end_s": 0.1667700931429863}
+(EngineCore pid=2070204) INFO 11-09 01:16:36 [abstract.py:364] It took 0.630929 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=2070204) INFO 11-09 01:16:36 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=2069907) INFO:     127.0.0.1:53712 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53728 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53738 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53748 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53752 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53762 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53766 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53776 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53780 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53788 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53790 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53800 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:16:41 [scheduler.py:2600] setting pause state to PAUSED_ALL
+(APIServer pid=2069907) INFO:     127.0.0.1:53814 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53822 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:16:41 [backend.py:467] tiered {"event": "suspend", "t_unix": 1794158201.0038805, "n": 3, "weights_path": "dram", "kv_path": "gds", "weights_saved": true, "weights_bytes": 30236737536, "weights_regions": 170, "weights_region_mib_p50": 70.0, "weights_bytes_in_regions_lt_64mib": 2174746624, "state_regions": 0, "state_bytes": 0, "kv_pages": 13, "kv_bytes": 1090519040, "split_frac": 0.2, "split_total_bytes": 31327256576, "split_ssd_bytes": 1090519040, "split_ssd_kv_bytes": 1090519040, "parallel_save": true, "save_s": 0.5606582360342145, "dram_save_bytes": 30236737536, "dram_save_host_bytes": 30236737536, "dram_save_alloc_s": 9.999889880418777e-05, "dram_save_start_s": 0.00027720630168914795, "dram_save_end_s": 0.5551798976957798, "dram_save_s": 0.5549026913940907, "ssd_save_bytes": 1090519040, "ssd_save_host_bytes": 0, "ssd_save_stage_spans": 5, "ssd_save_stage_setup_s": 0.01720066647976637, "ssd_save_unregistered_chunks": 0, "ssd_save_gate_wait_s": 0.0, "ssd_save_start_s": 0.0006104931235313416, "ssd_save_end_s": 0.5606149565428495, "ssd_save_data_start_s": 0.01832727435976267, "ssd_save_data_end_s": 0.14324946515262127, "ssd_save_s": 0.5600044634193182, "release_s": 0.08607497531920671, "cumem_released_bytes": 30236737536, "total_s": 0.6471879063174129}
+(EngineCore pid=2070204) INFO 11-09 01:16:41 [gpu_worker.py:276] Sleep mode freed 29.56 GiB memory, 15.82 GiB memory is still in use.
+(EngineCore pid=2070204) INFO 11-09 01:16:41 [abstract.py:346] It took 0.647655 seconds to fall asleep.
+(APIServer pid=2069907) INFO:     127.0.0.1:53804 - "POST /sleep?level=1&mode=keep HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53826 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42634 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42638 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42650 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42656 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42662 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:16:45 [loggers.py:315] Engine 000: Avg prompt throughput: 206.4 tokens/s, Avg generation throughput: 12.8 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.5%, Prefix cache hit rate: 51.3%
+(APIServer pid=2069907) INFO:     127.0.0.1:42670 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42686 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42688 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42696 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42710 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42718 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42730 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42738 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42752 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42756 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42760 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42776 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42786 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42792 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:16:51 [api_router.py:36] wake up the engine with tags: None
+(APIServer pid=2069907) INFO:     127.0.0.1:42802 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42814 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:16:52 [backend.py:467] tiered {"event": "resume", "t_unix": 1794158211.5550847, "n": 3, "weights_path": "dram", "kv_path": "gds", "parallel": true, "map_s": 0.08235093485563993, "debug_skip_kv_load": false, "weights_pace_gibs": null, "split_frac": 0.2, "weights_bytes": 30236737536, "state_bytes": 0, "kv_bytes": 1090519040, "total_s": 0.6310468968003988, "dram_bytes": 30236737536, "dram_host_bytes": 30236737536, "dram_alloc_s": 0.0, "dram_start_s": 0.08260185271501541, "dram_end_s": 0.6257082261145115, "ssd_bytes": 1090519040, "ssd_host_bytes": 0, "ssd_stage_spans": 5, "ssd_stage_setup_s": 0.023197068832814693, "ssd_unregistered_chunks": 0, "ssd_gate_wait_s": 0.0, "ssd_start_s": 0.08284945972263813, "ssd_end_s": 0.6309309378266335, "ssd_data_start_s": 0.10622049681842327, "ssd_data_end_s": 0.18500703293830156}
+(EngineCore pid=2070204) INFO 11-09 01:16:52 [abstract.py:364] It took 0.631328 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=2070204) INFO 11-09 01:16:52 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=2069907) INFO:     127.0.0.1:42798 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:42826 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:45304 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:45310 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:45312 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:45320 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:45324 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:16:55 [loggers.py:315] Engine 000: Avg prompt throughput: 206.4 tokens/s, Avg generation throughput: 12.5 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 6.9%, Prefix cache hit rate: 61.2%
+(APIServer pid=2069907) INFO:     127.0.0.1:45334 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:45346 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:45354 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:45364 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:45368 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:16:56 [scheduler.py:2600] setting pause state to PAUSED_ALL
+(APIServer pid=2069907) INFO:     127.0.0.1:45394 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:16:57 [backend.py:467] tiered {"event": "suspend", "t_unix": 1794158216.9822595, "n": 4, "weights_path": "dram", "kv_path": "gds", "weights_saved": true, "weights_bytes": 30236737536, "weights_regions": 170, "weights_region_mib_p50": 70.0, "weights_bytes_in_regions_lt_64mib": 2174746624, "state_regions": 0, "state_bytes": 0, "kv_pages": 17, "kv_bytes": 1426063360, "split_frac": 0.2, "split_total_bytes": 31662800896, "split_ssd_bytes": 1426063360, "split_ssd_kv_bytes": 1426063360, "parallel_save": true, "save_s": 0.5672306576743722, "dram_save_bytes": 30236737536, "dram_save_host_bytes": 30236737536, "dram_save_alloc_s": 0.00036568567156791687, "dram_save_start_s": 0.0002894056960940361, "dram_save_end_s": 0.5620155474171042, "dram_save_s": 0.5617261417210102, "ssd_save_bytes": 1426063360, "ssd_save_host_bytes": 0, "ssd_save_stage_spans": 6, "ssd_save_stage_setup_s": 0.015936370939016342, "ssd_save_unregistered_chunks": 0, "ssd_save_gate_wait_s": 0.0, "ssd_save_start_s": 0.000627703033387661, "ssd_save_end_s": 0.567185377702117, "ssd_save_data_start_s": 0.017099116928875446, "ssd_save_data_end_s": 0.18087052833288908, "ssd_save_s": 0.5665576746687293, "release_s": 0.08639568835496902, "cumem_released_bytes": 30236737536, "total_s": 0.6540992520749569}
+(EngineCore pid=2070204) INFO 11-09 01:16:57 [gpu_worker.py:276] Sleep mode freed 29.88 GiB memory, 16.9 GiB memory is still in use.
+(EngineCore pid=2070204) INFO 11-09 01:16:57 [abstract.py:346] It took 0.654577 seconds to fall asleep.
+(APIServer pid=2069907) INFO:     127.0.0.1:45402 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:45378 - "POST /sleep?level=1&mode=keep HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:45418 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:45426 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:45436 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:45448 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:45460 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:45474 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:45490 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:45502 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:45504 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49958 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49964 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49970 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49972 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49974 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:17:05 [loggers.py:315] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.3 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.6%, Prefix cache hit rate: 61.2%
+(APIServer pid=2069907) INFO:     127.0.0.1:49982 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49998 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50012 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50018 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50028 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50044 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50050 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:17:07 [api_router.py:36] wake up the engine with tags: None
+(APIServer pid=2069907) INFO:     127.0.0.1:50066 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:17:08 [backend.py:467] tiered {"event": "resume", "t_unix": 1794158227.8634727, "n": 4, "weights_path": "dram", "kv_path": "gds", "parallel": true, "map_s": 0.08286740817129612, "debug_skip_kv_load": false, "weights_pace_gibs": null, "split_frac": 0.2, "weights_bytes": 30236737536, "state_bytes": 0, "kv_bytes": 1426063360, "total_s": 0.6376635860651731, "dram_bytes": 30236737536, "dram_host_bytes": 30236737536, "dram_alloc_s": 0.0, "dram_start_s": 0.08319597411900759, "dram_end_s": 0.6321246391162276, "ssd_bytes": 1426063360, "ssd_host_bytes": 0, "ssd_stage_spans": 6, "ssd_stage_setup_s": 0.02522024605423212, "ssd_unregistered_chunks": 0, "ssd_gate_wait_s": 0.0, "ssd_start_s": 0.08356689941138029, "ssd_end_s": 0.6373268496245146, "ssd_data_start_s": 0.10905515309423208, "ssd_data_end_s": 0.21125351265072823}
+(EngineCore pid=2070204) INFO 11-09 01:17:08 [abstract.py:364] It took 0.638039 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=2070204) INFO 11-09 01:17:08 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=2069907) INFO:     127.0.0.1:50062 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50082 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50094 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50108 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50124 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50126 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50136 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50142 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50150 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50156 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:50170 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52050 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52052 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:17:13 [scheduler.py:2600] setting pause state to PAUSED_ALL
+(APIServer pid=2069907) INFO:     127.0.0.1:52062 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52068 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:17:14 [backend.py:467] tiered {"event": "suspend", "t_unix": 1794158233.5515578, "n": 5, "weights_path": "dram", "kv_path": "gds", "weights_saved": true, "weights_bytes": 30236737536, "weights_regions": 170, "weights_region_mib_p50": 70.0, "weights_bytes_in_regions_lt_64mib": 2174746624, "state_regions": 0, "state_bytes": 0, "kv_pages": 22, "kv_bytes": 1845493760, "split_frac": 0.2, "split_total_bytes": 32082231296, "split_ssd_bytes": 1845493760, "split_ssd_kv_bytes": 1845493760, "parallel_save": true, "save_s": 0.57415337767452, "dram_save_bytes": 30236737536, "dram_save_host_bytes": 30236737536, "dram_save_alloc_s": 9.521842002868652e-05, "dram_save_start_s": 0.00024253875017166138, "dram_save_end_s": 0.5689480155706406, "dram_save_s": 0.5687054768204689, "ssd_save_bytes": 1845493760, "ssd_save_host_bytes": 0, "ssd_save_stage_spans": 7, "ssd_save_stage_setup_s": 0.017245545983314514, "ssd_save_unregistered_chunks": 0, "ssd_save_gate_wait_s": 0.0, "ssd_save_start_s": 0.0005288245156407356, "ssd_save_end_s": 0.5741085670888424, "ssd_save_data_start_s": 0.01836276426911354, "ssd_save_data_end_s": 0.22960384655743837, "ssd_save_s": 0.5735797425732017, "release_s": 0.08795763924717903, "cumem_released_bytes": 30236737536, "total_s": 0.662663129158318}
+(EngineCore pid=2070204) INFO 11-09 01:17:14 [gpu_worker.py:276] Sleep mode freed 30.27 GiB memory, 17.58 GiB memory is still in use.
+(EngineCore pid=2070204) INFO 11-09 01:17:14 [abstract.py:346] It took 0.663220 seconds to fall asleep.
+(APIServer pid=2069907) INFO:     127.0.0.1:52054 - "POST /sleep?level=1&mode=keep HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52074 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:17:15 [loggers.py:315] Engine 000: Avg prompt throughput: 206.4 tokens/s, Avg generation throughput: 12.8 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.5%, Prefix cache hit rate: 67.8%
+(APIServer pid=2069907) INFO:     127.0.0.1:52088 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52094 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52096 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52098 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52102 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52114 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52126 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52128 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52144 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52152 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52156 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52162 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52170 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52180 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52182 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37894 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37910 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37918 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37930 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37938 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:17:24 [api_router.py:36] wake up the engine with tags: None
+(APIServer pid=2069907) INFO:     127.0.0.1:37962 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:17:24 [backend.py:467] tiered {"event": "resume", "t_unix": 1794158244.2860754, "n": 5, "weights_path": "dram", "kv_path": "gds", "parallel": true, "map_s": 0.08066254947334528, "debug_skip_kv_load": false, "weights_pace_gibs": null, "split_frac": 0.2, "weights_bytes": 30236737536, "state_bytes": 0, "kv_bytes": 1845493760, "total_s": 0.6426751334220171, "dram_bytes": 30236737536, "dram_host_bytes": 30236737536, "dram_alloc_s": 0.0, "dram_start_s": 0.0809679264202714, "dram_end_s": 0.6369911888614297, "ssd_bytes": 1845493760, "ssd_host_bytes": 0, "ssd_stage_spans": 7, "ssd_stage_setup_s": 0.02319867815822363, "ssd_unregistered_chunks": 0, "ssd_gate_wait_s": 0.0, "ssd_start_s": 0.0812723133713007, "ssd_end_s": 0.6423314679414034, "ssd_data_start_s": 0.1046539293602109, "ssd_data_end_s": 0.239293341524899}
+(EngineCore pid=2070204) INFO 11-09 01:17:24 [abstract.py:364] It took 0.642965 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=2070204) INFO 11-09 01:17:24 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=2069907) INFO:     127.0.0.1:37952 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37966 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:17:25 [loggers.py:315] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.5%, Prefix cache hit rate: 67.8%
+(APIServer pid=2069907) INFO:     127.0.0.1:37982 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37988 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38000 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38002 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38006 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38014 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38020 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38026 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38042 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38052 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38058 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38068 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:17:30 [scheduler.py:2600] setting pause state to PAUSED_ALL
+(APIServer pid=2069907) INFO:     127.0.0.1:38090 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:17:30 [backend.py:467] tiered {"event": "suspend", "t_unix": 1794158250.218734, "n": 6, "weights_path": "dram", "kv_path": "gds", "weights_saved": true, "weights_bytes": 30236737536, "weights_regions": 170, "weights_region_mib_p50": 70.0, "weights_bytes_in_regions_lt_64mib": 2174746624, "state_regions": 0, "state_bytes": 0, "kv_pages": 26, "kv_bytes": 2181038080, "split_frac": 0.2, "split_total_bytes": 32417775616, "split_ssd_bytes": 2181038080, "split_ssd_kv_bytes": 2181038080, "parallel_save": true, "save_s": 0.5805121408775449, "dram_save_bytes": 30236737536, "dram_save_host_bytes": 30236737536, "dram_save_alloc_s": 0.00014529842883348465, "dram_save_start_s": 0.00028853677213191986, "dram_save_end_s": 0.5752097405493259, "dram_save_s": 0.574921203777194, "ssd_save_bytes": 2181038080, "ssd_save_host_bytes": 0, "ssd_save_stage_spans": 9, "ssd_save_stage_setup_s": 0.016407525166869164, "ssd_save_unregistered_chunks": 0, "ssd_save_gate_wait_s": 0.0, "ssd_save_start_s": 0.0007030321285128593, "ssd_save_end_s": 0.5804650615900755, "ssd_save_data_start_s": 0.017703190445899963, "ssd_save_data_end_s": 0.2566975336521864, "ssd_save_s": 0.5797620294615626, "release_s": 0.08809942565858364, "cumem_released_bytes": 30236737536, "total_s": 0.669143850915134}
+(EngineCore pid=2070204) INFO 11-09 01:17:30 [gpu_worker.py:276] Sleep mode freed 30.58 GiB memory, 18.39 GiB memory is still in use.
+(EngineCore pid=2070204) INFO 11-09 01:17:30 [abstract.py:346] It took 0.669708 seconds to fall asleep.
+(APIServer pid=2069907) INFO:     127.0.0.1:38078 - "POST /sleep?level=1&mode=keep HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38098 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38108 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38118 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:46366 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:46378 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:46386 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:46394 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:46402 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:17:35 [loggers.py:315] Engine 000: Avg prompt throughput: 206.4 tokens/s, Avg generation throughput: 12.8 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.5%, Prefix cache hit rate: 72.5%
+(APIServer pid=2069907) INFO:     127.0.0.1:46412 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:46422 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:46432 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:46446 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:46448 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:46462 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:46472 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:46478 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:46490 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:46506 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:46510 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:46514 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:46528 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:46530 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:46538 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:17:41 [api_router.py:36] wake up the engine with tags: None
+(APIServer pid=2069907) INFO:     127.0.0.1:46558 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:17:42 [backend.py:467] tiered {"event": "resume", "t_unix": 1794158261.6770844, "n": 6, "weights_path": "dram", "kv_path": "gds", "parallel": true, "map_s": 0.08318823017179966, "debug_skip_kv_load": false, "weights_pace_gibs": null, "split_frac": 0.2, "weights_bytes": 30236737536, "state_bytes": 0, "kv_bytes": 2181038080, "total_s": 0.6507496265694499, "dram_bytes": 30236737536, "dram_host_bytes": 30236737536, "dram_alloc_s": 0.0, "dram_start_s": 0.08347342722117901, "dram_end_s": 0.6452025892212987, "ssd_bytes": 2181038080, "ssd_host_bytes": 0, "ssd_stage_spans": 9, "ssd_stage_setup_s": 0.025221794843673706, "ssd_unregistered_chunks": 0, "ssd_gate_wait_s": 0.0, "ssd_start_s": 0.08379721269011497, "ssd_end_s": 0.6505822092294693, "ssd_data_start_s": 0.10928986500948668, "ssd_data_end_s": 0.2649875460192561}
+(EngineCore pid=2070204) INFO 11-09 01:17:42 [abstract.py:364] It took 0.651017 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=2070204) INFO 11-09 01:17:42 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=2069907) INFO:     127.0.0.1:46546 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53522 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53534 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53548 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53552 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53568 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53582 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:17:45 [loggers.py:315] Engine 000: Avg prompt throughput: 206.4 tokens/s, Avg generation throughput: 11.3 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 8.4%, Prefix cache hit rate: 76.0%
+(APIServer pid=2069907) INFO:     127.0.0.1:53584 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53590 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53598 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53614 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53626 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53640 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53646 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:17:47 [scheduler.py:2600] setting pause state to PAUSED_ALL
+(APIServer pid=2069907) INFO:     127.0.0.1:53664 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:17:48 [backend.py:467] tiered {"event": "suspend", "t_unix": 1794158267.8671417, "n": 7, "weights_path": "dram", "kv_path": "gds", "weights_saved": true, "weights_bytes": 30236737536, "weights_regions": 170, "weights_region_mib_p50": 70.0, "weights_bytes_in_regions_lt_64mib": 2174746624, "state_regions": 0, "state_bytes": 0, "kv_pages": 30, "kv_bytes": 2516582400, "split_frac": 0.2, "split_total_bytes": 32753319936, "split_ssd_bytes": 2516582400, "split_ssd_kv_bytes": 2516582400, "parallel_save": true, "save_s": 0.5863850796595216, "dram_save_bytes": 30236737536, "dram_save_host_bytes": 30236737536, "dram_save_alloc_s": 0.000132828950881958, "dram_save_start_s": 0.00023921765387058258, "dram_save_end_s": 0.5811810893937945, "dram_save_s": 0.580941871739924, "ssd_save_bytes": 2516582400, "ssd_save_host_bytes": 0, "ssd_save_stage_spans": 10, "ssd_save_stage_setup_s": 0.017024068161845207, "ssd_save_unregistered_chunks": 0, "ssd_save_gate_wait_s": 0.0, "ssd_save_start_s": 0.0006145229563117027, "ssd_save_end_s": 0.5863367095589638, "ssd_save_data_start_s": 0.01814374513924122, "ssd_save_data_end_s": 0.3009873367846012, "ssd_save_s": 0.5857221866026521, "release_s": 0.0882780309766531, "cumem_released_bytes": 30236737536, "total_s": 0.6751463254913688}
+(EngineCore pid=2070204) INFO 11-09 01:17:48 [gpu_worker.py:276] Sleep mode freed 30.89 GiB memory, 19.27 GiB memory is still in use.
+(EngineCore pid=2070204) INFO 11-09 01:17:48 [abstract.py:346] It took 0.675617 seconds to fall asleep.
+(APIServer pid=2069907) INFO:     127.0.0.1:53658 - "POST /sleep?level=1&mode=keep HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53668 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53682 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53696 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53704 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53718 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53724 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53728 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53732 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52664 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52668 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52676 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52680 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52692 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:17:55 [loggers.py:315] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1.5 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.5%, Prefix cache hit rate: 76.0%
+(APIServer pid=2069907) INFO:     127.0.0.1:52706 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52712 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52718 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52728 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52736 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52746 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52760 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52770 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52778 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:17:58 [api_router.py:36] wake up the engine with tags: None
+(APIServer pid=2069907) INFO:     127.0.0.1:52798 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:17:59 [backend.py:467] tiered {"event": "resume", "t_unix": 1794158278.9173934, "n": 7, "weights_path": "dram", "kv_path": "gds", "parallel": true, "map_s": 0.08358847256749868, "debug_skip_kv_load": false, "weights_pace_gibs": null, "split_frac": 0.2, "weights_bytes": 30236737536, "state_bytes": 0, "kv_bytes": 2516582400, "total_s": 0.6573515674099326, "dram_bytes": 30236737536, "dram_host_bytes": 30236737536, "dram_alloc_s": 0.0, "dram_start_s": 0.0838799700140953, "dram_end_s": 0.6513222251087427, "ssd_bytes": 2516582400, "ssd_host_bytes": 0, "ssd_stage_spans": 10, "ssd_stage_setup_s": 0.025230013765394688, "ssd_unregistered_chunks": 0, "ssd_gate_wait_s": 0.0, "ssd_start_s": 0.0841893469914794, "ssd_end_s": 0.6570355799049139, "ssd_data_start_s": 0.10971123818308115, "ssd_data_end_s": 0.2896272512152791}
+(EngineCore pid=2070204) INFO 11-09 01:17:59 [abstract.py:364] It took 0.657678 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=2070204) INFO 11-09 01:17:59 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=2069907) INFO:     127.0.0.1:52786 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52808 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52812 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52824 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52834 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52836 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52846 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:52854 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:48812 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:48826 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:48838 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:48846 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:48860 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:48866 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:18:05 [loggers.py:315] Engine 000: Avg prompt throughput: 206.4 tokens/s, Avg generation throughput: 12.8 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.6%, Prefix cache hit rate: 78.7%
+(APIServer pid=2069907) INFO:     127.0.0.1:48868 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:18:05 [scheduler.py:2600] setting pause state to PAUSED_ALL
+(APIServer pid=2069907) INFO:     127.0.0.1:48892 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:18:06 [backend.py:467] tiered {"event": "suspend", "t_unix": 1794158285.352468, "n": 8, "weights_path": "dram", "kv_path": "gds", "weights_saved": true, "weights_bytes": 30236737536, "weights_regions": 170, "weights_region_mib_p50": 70.0, "weights_bytes_in_regions_lt_64mib": 2174746624, "state_regions": 0, "state_bytes": 0, "kv_pages": 34, "kv_bytes": 2852126720, "split_frac": 0.2, "split_total_bytes": 33088864256, "split_ssd_bytes": 2852126720, "split_ssd_kv_bytes": 2852126720, "parallel_save": true, "save_s": 0.5924745975062251, "dram_save_bytes": 30236737536, "dram_save_host_bytes": 30236737536, "dram_save_alloc_s": 0.00010274909436702728, "dram_save_start_s": 0.0002476470544934273, "dram_save_end_s": 0.587295426055789, "dram_save_s": 0.5870477790012956, "ssd_save_bytes": 2852126720, "ssd_save_host_bytes": 0, "ssd_save_stage_spans": 11, "ssd_save_stage_setup_s": 0.01741370279341936, "ssd_save_unregistered_chunks": 0, "ssd_save_gate_wait_s": 0.0, "ssd_save_start_s": 0.0005681347101926804, "ssd_save_end_s": 0.5924258576706052, "ssd_save_data_start_s": 0.018466921523213387, "ssd_save_data_end_s": 0.3358081551268697, "ssd_save_s": 0.5918577229604125, "release_s": 0.08989895135164261, "cumem_released_bytes": 30236737536, "total_s": 0.6828951518982649}
+(EngineCore pid=2070204) INFO 11-09 01:18:06 [gpu_worker.py:276] Sleep mode freed 31.2 GiB memory, 20.29 GiB memory is still in use.
+(EngineCore pid=2070204) INFO 11-09 01:18:06 [abstract.py:346] It took 0.683396 seconds to fall asleep.
+(APIServer pid=2069907) INFO:     127.0.0.1:48880 - "POST /sleep?level=1&mode=keep HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:48898 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:48906 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:48912 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:48914 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:48926 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:48932 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:48940 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:48956 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:48964 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:48978 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:48982 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:48994 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:48996 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35484 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35494 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35498 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35510 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35526 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35542 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:18:15 [loggers.py:315] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.6%, Prefix cache hit rate: 78.7%
+(APIServer pid=2069907) INFO:     127.0.0.1:35546 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35548 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35550 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:18:16 [api_router.py:36] wake up the engine with tags: None
+(APIServer pid=2069907) INFO:     127.0.0.1:35574 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35584 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:18:17 [backend.py:467] tiered {"event": "resume", "t_unix": 1794158296.5269387, "n": 8, "weights_path": "dram", "kv_path": "gds", "parallel": true, "map_s": 0.0848580077290535, "debug_skip_kv_load": false, "weights_pace_gibs": null, "split_frac": 0.2, "weights_bytes": 30236737536, "state_bytes": 0, "kv_bytes": 2852126720, "total_s": 0.6638089185580611, "dram_bytes": 30236737536, "dram_host_bytes": 30236737536, "dram_alloc_s": 0.0, "dram_start_s": 0.0851750336587429, "dram_end_s": 0.6584252696484327, "ssd_bytes": 2852126720, "ssd_host_bytes": 0, "ssd_stage_spans": 11, "ssd_stage_setup_s": 0.02311086840927601, "ssd_unregistered_chunks": 0, "ssd_gate_wait_s": 0.0, "ssd_start_s": 0.08553371950984001, "ssd_end_s": 0.6636579092592001, "ssd_data_start_s": 0.10896557383239269, "ssd_data_end_s": 0.3130395384505391}
+(EngineCore pid=2070204) INFO 11-09 01:18:17 [abstract.py:364] It took 0.664145 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=2070204) INFO 11-09 01:18:17 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=2069907) INFO:     127.0.0.1:35562 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35594 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35606 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35620 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35630 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35632 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35644 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35652 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35656 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35666 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35682 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35692 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35700 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53038 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53054 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:18:23 [scheduler.py:2600] setting pause state to PAUSED_ALL
+(APIServer pid=2069907) INFO:     127.0.0.1:53076 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:18:23 [backend.py:467] tiered {"event": "suspend", "t_unix": 1794158303.214076, "n": 9, "weights_path": "dram", "kv_path": "gds", "weights_saved": true, "weights_bytes": 30236737536, "weights_regions": 170, "weights_region_mib_p50": 70.0, "weights_bytes_in_regions_lt_64mib": 2174746624, "state_regions": 0, "state_bytes": 0, "kv_pages": 39, "kv_bytes": 3271557120, "split_frac": 0.2, "split_total_bytes": 33508294656, "split_ssd_bytes": 3271557120, "split_ssd_kv_bytes": 3271557120, "parallel_save": true, "save_s": 0.6005819505080581, "dram_save_bytes": 30236737536, "dram_save_host_bytes": 30236737536, "dram_save_alloc_s": 0.00012332946062088013, "dram_save_start_s": 0.0002796873450279236, "dram_save_end_s": 0.5949542345479131, "dram_save_s": 0.5946745472028852, "ssd_save_bytes": 3271557120, "ssd_save_host_bytes": 0, "ssd_save_stage_spans": 13, "ssd_save_stage_setup_s": 0.0159014705568552, "ssd_save_unregistered_chunks": 0, "ssd_save_gate_wait_s": 0.0, "ssd_save_start_s": 0.0006802426651120186, "ssd_save_end_s": 0.6005342314019799, "ssd_save_data_start_s": 0.017120666801929474, "ssd_save_data_end_s": 0.3775443732738495, "ssd_save_s": 0.5998539887368679, "release_s": 0.0909715173766017, "cumem_released_bytes": 30236737536, "total_s": 0.6920684613287449}
+(EngineCore pid=2070204) INFO 11-09 01:18:23 [gpu_worker.py:276] Sleep mode freed 31.59 GiB memory, 20.96 GiB memory is still in use.
+(EngineCore pid=2070204) INFO 11-09 01:18:23 [abstract.py:346] It took 0.692556 seconds to fall asleep.
+(APIServer pid=2069907) INFO:     127.0.0.1:53066 - "POST /sleep?level=1&mode=keep HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53088 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53090 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:18:25 [loggers.py:315] Engine 000: Avg prompt throughput: 206.4 tokens/s, Avg generation throughput: 12.8 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.5%, Prefix cache hit rate: 80.8%
+(APIServer pid=2069907) INFO:     127.0.0.1:53092 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53108 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53120 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53122 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53136 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53152 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53168 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53172 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53182 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53186 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53190 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53192 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53194 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53208 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:53218 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60534 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60546 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60562 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60576 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60590 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60598 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:18:35 [loggers.py:315] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.5%, Prefix cache hit rate: 80.8%
+(APIServer pid=2069907) INFO:     127.0.0.1:60604 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60614 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:18:35 [api_router.py:36] wake up the engine with tags: None
+(APIServer pid=2069907) INFO:     127.0.0.1:60634 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:18:36 [backend.py:467] tiered {"event": "resume", "t_unix": 1794158315.7621267, "n": 9, "weights_path": "dram", "kv_path": "gds", "parallel": true, "map_s": 0.08784401137381792, "debug_skip_kv_load": false, "weights_pace_gibs": null, "split_frac": 0.2, "weights_bytes": 30236737536, "state_bytes": 0, "kv_bytes": 3271557120, "total_s": 0.6743990909308195, "dram_bytes": 30236737536, "dram_host_bytes": 30236737536, "dram_alloc_s": 0.0, "dram_start_s": 0.08820006716996431, "dram_end_s": 0.6686046868562698, "ssd_bytes": 3271557120, "ssd_host_bytes": 0, "ssd_stage_spans": 13, "ssd_stage_setup_s": 0.026264531537890434, "ssd_unregistered_chunks": 0, "ssd_gate_wait_s": 0.0, "ssd_start_s": 0.08860826212912798, "ssd_end_s": 0.6742256730794907, "ssd_data_start_s": 0.11523355916142464, "ssd_data_end_s": 0.34878393355757}
+(EngineCore pid=2070204) INFO 11-09 01:18:36 [abstract.py:364] It took 0.674714 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=2070204) INFO 11-09 01:18:36 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=2069907) INFO:     127.0.0.1:60620 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60650 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60654 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60670 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60672 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60680 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60690 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60698 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60704 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60716 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60728 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60742 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60748 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60760 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60776 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38542 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:18:42 [scheduler.py:2600] setting pause state to PAUSED_ALL
+(APIServer pid=2069907) INFO:     127.0.0.1:38550 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:18:43 [backend.py:467] tiered {"event": "suspend", "t_unix": 1794158322.6979792, "n": 10, "weights_path": "dram", "kv_path": "gds", "weights_saved": true, "weights_bytes": 30236737536, "weights_regions": 170, "weights_region_mib_p50": 70.0, "weights_bytes_in_regions_lt_64mib": 2174746624, "state_regions": 0, "state_bytes": 0, "kv_pages": 43, "kv_bytes": 3607101440, "split_frac": 0.2, "split_total_bytes": 33843838976, "split_ssd_bytes": 3607101440, "split_ssd_kv_bytes": 3607101440, "parallel_save": true, "save_s": 0.6066132867708802, "dram_save_bytes": 30236737536, "dram_save_host_bytes": 30236737536, "dram_save_alloc_s": 0.00011709891259670258, "dram_save_start_s": 0.00028347689658403397, "dram_save_end_s": 0.601170439273119, "dram_save_s": 0.6008869623765349, "ssd_save_bytes": 3607101440, "ssd_save_host_bytes": 0, "ssd_save_stage_spans": 14, "ssd_save_stage_setup_s": 0.018145534209907055, "ssd_save_unregistered_chunks": 0, "ssd_save_gate_wait_s": 0.0, "ssd_save_start_s": 0.0006675021722912788, "ssd_save_end_s": 0.6065673176199198, "ssd_save_data_start_s": 0.01934110000729561, "ssd_save_data_end_s": 0.4128814209252596, "ssd_save_s": 0.6058998154476285, "release_s": 0.09153454843908548, "cumem_released_bytes": 30236737536, "total_s": 0.6987046590074897}
+(EngineCore pid=2070204) INFO 11-09 01:18:43 [gpu_worker.py:276] Sleep mode freed 31.91 GiB memory, 21.85 GiB memory is still in use.
+(EngineCore pid=2070204) INFO 11-09 01:18:43 [abstract.py:346] It took 0.699233 seconds to fall asleep.
+(APIServer pid=2069907) INFO:     127.0.0.1:38546 - "POST /sleep?level=1&mode=keep HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38564 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38580 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38596 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:18:45 [loggers.py:315] Engine 000: Avg prompt throughput: 206.4 tokens/s, Avg generation throughput: 12.8 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.5%, Prefix cache hit rate: 82.6%
+(APIServer pid=2069907) INFO:     127.0.0.1:38600 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38606 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38608 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38610 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38626 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38634 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38644 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38658 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38664 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38676 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38690 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38698 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38706 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38714 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:38724 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59088 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59098 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59112 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59122 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:18:54 [api_router.py:36] wake up the engine with tags: None
+(APIServer pid=2069907) INFO:     127.0.0.1:59130 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59136 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:18:54 [backend.py:467] tiered {"event": "resume", "t_unix": 1794158334.1254146, "n": 10, "weights_path": "dram", "kv_path": "gds", "parallel": true, "map_s": 0.08577360305935144, "debug_skip_kv_load": false, "weights_pace_gibs": null, "split_frac": 0.2, "weights_bytes": 30236737536, "state_bytes": 0, "kv_bytes": 3607101440, "total_s": 0.6780134150758386, "dram_bytes": 30236737536, "dram_host_bytes": 30236737536, "dram_alloc_s": 0.0, "dram_start_s": 0.08606297057121992, "dram_end_s": 0.6721564624458551, "ssd_bytes": 3607101440, "ssd_host_bytes": 0, "ssd_stage_spans": 14, "ssd_stage_setup_s": 0.026277909986674786, "ssd_unregistered_chunks": 0, "ssd_gate_wait_s": 0.0, "ssd_start_s": 0.08641212619841099, "ssd_end_s": 0.6778833866119385, "ssd_data_start_s": 0.1129996133968234, "ssd_data_end_s": 0.3729444108903408}
+(EngineCore pid=2070204) INFO 11-09 01:18:54 [abstract.py:364] It took 0.678274 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=2070204) INFO 11-09 01:18:54 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=2069907) INFO:     127.0.0.1:59126 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59138 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:18:55 [loggers.py:315] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.5%, Prefix cache hit rate: 82.6%
+(APIServer pid=2069907) INFO:     127.0.0.1:59142 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59152 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59168 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59174 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59184 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59194 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59208 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59212 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59216 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59232 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59246 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59250 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59262 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59264 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:19:01 [scheduler.py:2600] setting pause state to PAUSED_ALL
+(APIServer pid=2069907) INFO:     127.0.0.1:59294 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:19:02 [backend.py:467] tiered {"event": "suspend", "t_unix": 1794158341.3229957, "n": 11, "weights_path": "dram", "kv_path": "gds", "weights_saved": true, "weights_bytes": 30236737536, "weights_regions": 170, "weights_region_mib_p50": 70.0, "weights_bytes_in_regions_lt_64mib": 2174746624, "state_regions": 0, "state_bytes": 0, "kv_pages": 47, "kv_bytes": 3942645760, "split_frac": 0.2, "split_total_bytes": 34179383296, "split_ssd_bytes": 3942645760, "split_ssd_kv_bytes": 3942645760, "parallel_save": true, "save_s": 0.6128600919619203, "dram_save_bytes": 30236737536, "dram_save_host_bytes": 30236737536, "dram_save_alloc_s": 0.00014006812125444412, "dram_save_start_s": 0.00028826668858528137, "dram_save_end_s": 0.6071969866752625, "dram_save_s": 0.6069087199866772, "ssd_save_bytes": 3942645760, "ssd_save_host_bytes": 0, "ssd_save_stage_spans": 15, "ssd_save_stage_setup_s": 0.018595167435705662, "ssd_save_unregistered_chunks": 0, "ssd_save_gate_wait_s": 0.0, "ssd_save_start_s": 0.0006790626794099808, "ssd_save_end_s": 0.6128115728497505, "ssd_save_data_start_s": 0.019825134426355362, "ssd_save_data_end_s": 0.45629828702658415, "ssd_save_s": 0.6121325101703405, "release_s": 0.09310297761112452, "cumem_released_bytes": 30236737536, "total_s": 0.7064854139462113}
+(EngineCore pid=2070204) INFO 11-09 01:19:02 [gpu_worker.py:276] Sleep mode freed 32.22 GiB memory, 22.66 GiB memory is still in use.
+(EngineCore pid=2070204) INFO 11-09 01:19:02 [abstract.py:346] It took 0.707044 seconds to fall asleep.
+(APIServer pid=2069907) INFO:     127.0.0.1:59280 - "POST /sleep?level=1&mode=keep HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:59310 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40026 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40028 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40032 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40048 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40056 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:19:05 [loggers.py:315] Engine 000: Avg prompt throughput: 206.4 tokens/s, Avg generation throughput: 12.8 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.5%, Prefix cache hit rate: 84.0%
+(APIServer pid=2069907) INFO:     127.0.0.1:40060 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40066 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40068 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40084 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40096 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40104 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40118 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40126 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40136 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40146 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40160 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40172 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40186 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40192 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40202 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:40210 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60590 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:19:12 [api_router.py:36] wake up the engine with tags: None
+(APIServer pid=2069907) INFO:     127.0.0.1:60618 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:19:13 [backend.py:467] tiered {"event": "resume", "t_unix": 1794158352.9044127, "n": 11, "weights_path": "dram", "kv_path": "gds", "parallel": true, "map_s": 0.08612354751676321, "debug_skip_kv_load": false, "weights_pace_gibs": null, "split_frac": 0.2, "weights_bytes": 30236737536, "state_bytes": 0, "kv_bytes": 3942645760, "total_s": 0.6841294700279832, "dram_bytes": 30236737536, "dram_host_bytes": 30236737536, "dram_alloc_s": 0.0, "dram_start_s": 0.08641194365918636, "dram_end_s": 0.6782471863552928, "ssd_bytes": 3942645760, "ssd_host_bytes": 0, "ssd_stage_spans": 15, "ssd_stage_setup_s": 0.025265122763812542, "ssd_unregistered_chunks": 0, "ssd_gate_wait_s": 0.0, "ssd_start_s": 0.08673762064427137, "ssd_end_s": 0.6839786814525723, "ssd_data_start_s": 0.11234575789421797, "ssd_data_end_s": 0.3951111100614071}
+(EngineCore pid=2070204) INFO 11-09 01:19:13 [abstract.py:364] It took 0.684421 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=2070204) INFO 11-09 01:19:13 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=2069907) INFO:     127.0.0.1:60602 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60624 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60626 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60634 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60640 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:19:15 [loggers.py:315] Engine 000: Avg prompt throughput: 206.4 tokens/s, Avg generation throughput: 5.0 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 11.4%, Prefix cache hit rate: 85.3%
+(APIServer pid=2069907) INFO:     127.0.0.1:60642 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60648 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60650 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60664 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60680 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60690 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60706 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60710 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60726 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60742 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60748 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60760 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:19:20 [scheduler.py:2600] setting pause state to PAUSED_ALL
+(APIServer pid=2069907) INFO:     127.0.0.1:60792 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:19:21 [backend.py:467] tiered {"event": "suspend", "t_unix": 1794158360.3515594, "n": 12, "weights_path": "dram", "kv_path": "gds", "weights_saved": true, "weights_bytes": 30236737536, "weights_regions": 170, "weights_region_mib_p50": 70.0, "weights_bytes_in_regions_lt_64mib": 2174746624, "state_regions": 0, "state_bytes": 0, "kv_pages": 51, "kv_bytes": 4278190080, "split_frac": 0.2, "split_total_bytes": 34514927616, "split_ssd_bytes": 4278190080, "split_ssd_kv_bytes": 4278190080, "parallel_save": true, "save_s": 0.6192050352692604, "dram_save_bytes": 30236737536, "dram_save_host_bytes": 30236737536, "dram_save_alloc_s": 0.00013253744691610336, "dram_save_start_s": 0.0003005973994731903, "dram_save_end_s": 0.6133593022823334, "dram_save_s": 0.6130587048828602, "ssd_save_bytes": 4278190080, "ssd_save_host_bytes": 0, "ssd_save_stage_spans": 16, "ssd_save_stage_setup_s": 0.017499929293990135, "ssd_save_unregistered_chunks": 0, "ssd_save_gate_wait_s": 0.0, "ssd_save_start_s": 0.0007327012717723846, "ssd_save_end_s": 0.6191155463457108, "ssd_save_data_start_s": 0.018803845159709454, "ssd_save_data_end_s": 0.4916282733902335, "ssd_save_s": 0.6183828450739384, "release_s": 0.11824934929609299, "cumem_released_bytes": 30236737536, "total_s": 0.7380135385319591}
+(EngineCore pid=2070204) INFO 11-09 01:19:21 [gpu_worker.py:276] Sleep mode freed 32.53 GiB memory, 23.74 GiB memory is still in use.
+(EngineCore pid=2070204) INFO 11-09 01:19:21 [abstract.py:346] It took 0.739158 seconds to fall asleep.
+(APIServer pid=2069907) INFO:     127.0.0.1:60776 - "POST /sleep?level=1&mode=keep HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60800 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60806 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:60818 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49474 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49480 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49482 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49492 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49500 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:19:25 [loggers.py:315] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 7.8 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.6%, Prefix cache hit rate: 85.3%
+(APIServer pid=2069907) INFO:     127.0.0.1:49504 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49518 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49534 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49548 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49550 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49562 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49566 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49578 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49592 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49594 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49598 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49608 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49614 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49620 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:49626 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:19:32 [api_router.py:36] wake up the engine with tags: None
+(APIServer pid=2069907) INFO:     127.0.0.1:49634 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37766 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:19:32 [backend.py:467] tiered {"event": "resume", "t_unix": 1794158372.1193535, "n": 12, "weights_path": "dram", "kv_path": "gds", "parallel": true, "map_s": 0.08690504543483257, "debug_skip_kv_load": false, "weights_pace_gibs": null, "split_frac": 0.2, "weights_bytes": 30236737536, "state_bytes": 0, "kv_bytes": 4278190080, "total_s": 0.6906181396916509, "dram_bytes": 30236737536, "dram_host_bytes": 30236737536, "dram_alloc_s": 0.0, "dram_start_s": 0.08719785325229168, "dram_end_s": 0.6847948059439659, "ssd_bytes": 4278190080, "ssd_host_bytes": 0, "ssd_stage_spans": 16, "ssd_stage_setup_s": 0.026344028301537037, "ssd_unregistered_chunks": 0, "ssd_gate_wait_s": 0.0, "ssd_start_s": 0.0875167790800333, "ssd_end_s": 0.6904797405004501, "ssd_data_start_s": 0.11419203318655491, "ssd_data_end_s": 0.421075533144176}
+(EngineCore pid=2070204) INFO 11-09 01:19:32 [abstract.py:364] It took 0.690883 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=2070204) INFO 11-09 01:19:32 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=2069907) INFO:     127.0.0.1:49630 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37780 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37788 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37798 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37810 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37812 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:19:35 [loggers.py:315] Engine 000: Avg prompt throughput: 206.4 tokens/s, Avg generation throughput: 8.2 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 11.8%, Prefix cache hit rate: 86.3%
+(APIServer pid=2069907) INFO:     127.0.0.1:37822 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37824 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37834 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37848 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37858 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37872 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37874 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37884 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37898 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37914 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37930 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:19:39 [scheduler.py:2600] setting pause state to PAUSED_ALL
+(APIServer pid=2069907) INFO:     127.0.0.1:37940 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:19:40 [backend.py:467] tiered {"event": "suspend", "t_unix": 1794158379.8394268, "n": 13, "weights_path": "dram", "kv_path": "gds", "weights_saved": true, "weights_bytes": 30236737536, "weights_regions": 170, "weights_region_mib_p50": 70.0, "weights_bytes_in_regions_lt_64mib": 2174746624, "state_regions": 0, "state_bytes": 0, "kv_pages": 56, "kv_bytes": 4697620480, "split_frac": 0.2, "split_total_bytes": 34934358016, "split_ssd_bytes": 4697620480, "split_ssd_kv_bytes": 4697620480, "parallel_save": true, "save_s": 0.6268053445965052, "dram_save_bytes": 30236737536, "dram_save_host_bytes": 30236737536, "dram_save_alloc_s": 0.00012551899999380112, "dram_save_start_s": 0.0002577872946858406, "dram_save_end_s": 0.620888882316649, "dram_save_s": 0.6206310950219631, "ssd_save_bytes": 4697620480, "ssd_save_host_bytes": 0, "ssd_save_stage_spans": 18, "ssd_save_stage_setup_s": 0.016608540900051594, "ssd_save_unregistered_chunks": 0, "ssd_save_gate_wait_s": 0.0, "ssd_save_start_s": 0.0006641224026679993, "ssd_save_end_s": 0.6267189048230648, "ssd_save_data_start_s": 0.017947114072740078, "ssd_save_data_end_s": 0.5374820176512003, "ssd_save_s": 0.6260547824203968, "release_s": 0.1192324049770832, "cumem_released_bytes": 30236737536, "total_s": 0.7466204529628158}
+(EngineCore pid=2070204) INFO 11-09 01:19:40 [gpu_worker.py:276] Sleep mode freed 32.92 GiB memory, 24.35 GiB memory is still in use.
+(EngineCore pid=2070204) INFO 11-09 01:19:40 [abstract.py:346] It took 0.747125 seconds to fall asleep.
+(APIServer pid=2069907) INFO:     127.0.0.1:37934 - "POST /sleep?level=1&mode=keep HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37954 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37960 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37966 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:37976 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39018 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39032 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39042 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39056 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39070 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:19:45 [loggers.py:315] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 4.6 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.5%, Prefix cache hit rate: 86.3%
+(APIServer pid=2069907) INFO:     127.0.0.1:39080 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39086 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39092 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39102 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39106 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39116 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39124 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39128 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39144 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39146 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39158 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39160 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39170 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39186 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39198 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:19:51 [api_router.py:36] wake up the engine with tags: None
+(APIServer pid=2069907) INFO:     127.0.0.1:39204 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:19:52 [backend.py:467] tiered {"event": "resume", "t_unix": 1794158391.7097864, "n": 13, "weights_path": "dram", "kv_path": "gds", "parallel": true, "map_s": 0.08742492832243443, "debug_skip_kv_load": false, "weights_pace_gibs": null, "split_frac": 0.2, "weights_bytes": 30236737536, "state_bytes": 0, "kv_bytes": 4697620480, "total_s": 0.6979637211188674, "dram_bytes": 30236737536, "dram_host_bytes": 30236737536, "dram_alloc_s": 0.0, "dram_start_s": 0.08771266508847475, "dram_end_s": 0.6925050932914019, "ssd_bytes": 4697620480, "ssd_host_bytes": 0, "ssd_stage_spans": 18, "ssd_stage_setup_s": 0.023148574866354465, "ssd_unregistered_chunks": 0, "ssd_gate_wait_s": 0.0, "ssd_start_s": 0.08797782193869352, "ssd_end_s": 0.6977897332981229, "ssd_data_start_s": 0.11144280340522528, "ssd_data_end_s": 0.44648865330964327}
+(EngineCore pid=2070204) INFO 11-09 01:19:52 [abstract.py:364] It took 0.698229 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=2070204) INFO 11-09 01:19:52 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=2069907) INFO:     127.0.0.1:39202 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36248 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36262 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36270 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36272 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36282 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36296 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:19:55 [loggers.py:315] Engine 000: Avg prompt throughput: 206.4 tokens/s, Avg generation throughput: 9.7 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 12.4%, Prefix cache hit rate: 87.3%
+(APIServer pid=2069907) INFO:     127.0.0.1:36304 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36314 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36328 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36332 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36338 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36346 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36354 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36360 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36368 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36380 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36390 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:19:59 [scheduler.py:2600] setting pause state to PAUSED_ALL
+(APIServer pid=2069907) INFO:     127.0.0.1:36406 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:20:00 [backend.py:467] tiered {"event": "suspend", "t_unix": 1794158399.6868677, "n": 14, "weights_path": "dram", "kv_path": "gds", "weights_saved": true, "weights_bytes": 30236737536, "weights_regions": 170, "weights_region_mib_p50": 70.0, "weights_bytes_in_regions_lt_64mib": 2174746624, "state_regions": 0, "state_bytes": 0, "kv_pages": 60, "kv_bytes": 5033164800, "split_frac": 0.2, "split_total_bytes": 35269902336, "split_ssd_bytes": 5033164800, "split_ssd_kv_bytes": 5033164800, "parallel_save": true, "save_s": 0.6349115977063775, "dram_save_bytes": 30236737536, "dram_save_host_bytes": 30236737536, "dram_save_alloc_s": 0.00014825817197561264, "dram_save_start_s": 0.00032841693609952927, "dram_save_end_s": 0.627229206264019, "dram_save_s": 0.6269007893279195, "ssd_save_bytes": 5033164800, "ssd_save_host_bytes": 0, "ssd_save_stage_spans": 19, "ssd_save_stage_setup_s": 0.016232583671808243, "ssd_save_unregistered_chunks": 0, "ssd_save_gate_wait_s": 0.0, "ssd_save_start_s": 0.0008102310821413994, "ssd_save_end_s": 0.6348430486395955, "ssd_save_data_start_s": 0.017778045497834682, "ssd_save_data_end_s": 0.5775382556021214, "ssd_save_s": 0.6340328175574541, "release_s": 0.10608351230621338, "cumem_released_bytes": 30236737536, "total_s": 0.7417393513023853}
+(EngineCore pid=2070204) INFO 11-09 01:20:00 [gpu_worker.py:276] Sleep mode freed 33.23 GiB memory, 25.22 GiB memory is still in use.
+(EngineCore pid=2070204) INFO 11-09 01:20:00 [abstract.py:346] It took 0.742334 seconds to fall asleep.
+(APIServer pid=2069907) INFO:     127.0.0.1:36392 - "POST /sleep?level=1&mode=keep HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36418 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36428 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36430 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:36438 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39610 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39620 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39624 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39632 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39638 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:20:05 [loggers.py:315] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 3.1 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.5%, Prefix cache hit rate: 87.3%
+(APIServer pid=2069907) INFO:     127.0.0.1:39648 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39656 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39660 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39668 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39676 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39690 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39696 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39702 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39718 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39732 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39742 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39746 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39752 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39758 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:39768 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41366 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41368 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41372 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41384 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41400 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:20:14 [api_router.py:36] wake up the engine with tags: None
+(APIServer pid=2069907) INFO:     127.0.0.1:41426 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:20:14 [backend.py:467] tiered {"event": "resume", "t_unix": 1794158414.2229123, "n": 14, "weights_path": "dram", "kv_path": "gds", "parallel": true, "map_s": 0.0876821931451559, "debug_skip_kv_load": false, "weights_pace_gibs": null, "split_frac": 0.2, "weights_bytes": 30236737536, "state_bytes": 0, "kv_bytes": 5033164800, "total_s": 0.7040341338142753, "dram_bytes": 30236737536, "dram_host_bytes": 30236737536, "dram_alloc_s": 0.0, "dram_start_s": 0.08800571877509356, "dram_end_s": 0.6984916580840945, "ssd_bytes": 5033164800, "ssd_host_bytes": 0, "ssd_stage_spans": 19, "ssd_stage_setup_s": 0.0253523588180542, "ssd_unregistered_chunks": 0, "ssd_gate_wait_s": 0.0, "ssd_start_s": 0.08834074530750513, "ssd_end_s": 0.7038920857012272, "ssd_data_start_s": 0.11408933997154236, "ssd_data_end_s": 0.47530348133295774}
+(EngineCore pid=2070204) INFO 11-09 01:20:14 [abstract.py:364] It took 0.704326 seconds to wake up tags {'kv_cache', 'weights'}.
+(EngineCore pid=2070204) INFO 11-09 01:20:14 [scheduler.py:2600] setting pause state to UNPAUSED
+(APIServer pid=2069907) INFO:     127.0.0.1:41412 - "POST /wake_up HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41438 - "POST /v1/completions HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:20:15 [loggers.py:315] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.5%, Prefix cache hit rate: 87.3%
+(APIServer pid=2069907) INFO:     127.0.0.1:41442 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41454 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41458 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41466 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41478 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41488 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41498 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41500 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41512 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41516 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41530 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41532 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41538 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41552 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41564 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:41578 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:34980 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:34988 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:34992 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35006 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO:     127.0.0.1:35018 - "GET /metrics HTTP/1.1" 200 OK
+(APIServer pid=2069907) INFO 11-09 01:20:25 [loggers.py:315] Engine 000: Avg prompt throughput: 206.4 tokens/s, Avg generation throughput: 12.8 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.5%, Prefix cache hit rate: 88.1%
+(APIServer pid=2069907) INFO:     127.0.0.1:35032 - "GET /metrics HTTP/1.1" 200 OK
+(EngineCore pid=2070204) INFO 11-09 01:20:25 [core.py:1342] [shutdown] EngineCore: trigger received signal=SIGTERM
+(EngineCore pid=2070204) INFO 11-09 01:20:25 [core.py:1493] [shutdown] EngineCore: start mode=abort timeout=0s
+(EngineCore pid=2070204) INFO 11-09 01:20:25 [core.py:1524] [shutdown] EngineCore: request processing complete; starting resource teardown
+(APIServer pid=2069907) INFO 11-09 01:20:25 [launcher.py:129] [shutdown] API server: shutdown triggered
+(EngineCore pid=2070204) INFO 11-09 01:20:25 [core.py:1355] [shutdown] EngineCore: exiting busy loop
+(APIServer pid=2069907) INFO 11-09 01:20:25 [launcher.py:145] [shutdown] API server: stopping engine client mode=abort timeout=0s
+(APIServer pid=2069907) INFO 11-09 01:20:25 [core_client.py:744] [shutdown] MPClient: start timeout=0s
+(APIServer pid=2069907) INFO 11-09 01:20:25 [core_client.py:746] [shutdown] MPClient: stopping engine manager
+(APIServer pid=2069907) INFO 11-09 01:20:25 [utils.py:632] [shutdown] Process manager: send sigterm to process EngineCore
+(APIServer pid=2069907) WARNING 11-09 01:20:25 [utils.py:652] [shutdown] Process manager: force killing remaining processes count=1
+(APIServer pid=2069907) WARNING 11-09 01:20:25 [utils.py:657] [shutdown] Process manager: force killing remaining process EngineCore pid 2070204
+(APIServer pid=2069907) [kvcached][WARNING][2026-11-09 01:20:28][patches.py:1471] Keeping the KV cache limit segment: engine exit is unconfirmed
+(APIServer pid=2069907) [kvcached][INFO][2026-11-09 01:20:28][utils.py:236] Unlinked KV cache limit segment /dev/shm/kvc_g7_a2_33002
+(APIServer pid=2069907) INFO 11-09 01:20:28 [core_client.py:748] [shutdown] MPClient: engine manager stopped
+(APIServer pid=2069907) INFO 11-09 01:20:28 [core_client.py:749] [shutdown] MPClient: cleaning up background resources
+(APIServer pid=2069907) INFO 11-09 01:20:28 [core_client.py:751] [shutdown] MPClient: complete
+(APIServer pid=2069907) INFO 11-09 01:20:28 [launcher.py:154] [shutdown] API server: engine client stopped
+(APIServer pid=2069907) INFO 11-09 01:20:28 [launcher.py:157] [shutdown] API server: signalling HTTP server shutdown
+(APIServer pid=2069907) INFO 11-09 01:20:28 [launcher.py:179] [shutdown] API server: shutting down FastAPI HTTP server
+(APIServer pid=2069907) INFO:     Shutting down
+(APIServer pid=2069907) INFO:     Waiting for application shutdown.
+(APIServer pid=2069907) INFO:     Application shutdown complete.
+/usr/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

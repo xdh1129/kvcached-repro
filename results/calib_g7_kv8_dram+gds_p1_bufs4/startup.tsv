@@ -1,0 +1,4 @@
+name	gpu	port	startup_s	gpu_used_mib	instance_mib	first_sleep_s	instance_asleep_mib
+g7_p0	7	32001	50	65616	65592	12.057622223	2308
+g7_p1	7	32002	38	33164	30698	6.028778828	1782
+g7_p2	7	32003	30	13423	9104	1.747187746	1558

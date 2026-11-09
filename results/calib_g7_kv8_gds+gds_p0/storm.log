@@ -1,0 +1,12 @@
+primed g7_p0: 4 requests x 8192 tokens = 8.00 GiB KV
+primed g7_p1: 7 requests x 8192 tokens = 8.75 GiB KV
+primed g7_p2: 3 requests x 8192 tokens = 9.00 GiB KV
+round 1/9 delta=0: woke g7_p0
+round 2/9 delta=0: woke g7_p1
+round 3/9 delta=0: woke g7_p2
+round 4/9 delta=0: woke g7_p0
+round 5/9 delta=0: woke g7_p1
+round 6/9 delta=0: woke g7_p2
+round 7/9 delta=0: woke g7_p0
+round 8/9 delta=0: woke g7_p1
+round 9/9 delta=0: woke g7_p2

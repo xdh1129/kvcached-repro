@@ -13,10 +13,12 @@ Defaults follow vLLM's own sleep mode; each departure from it is opt-in (env):
   TIERED_TRACE=1       resume records carry per-piece transfer times (diagnostics).
   TIERED_SPLIT_FRAC=f  split placement (needs TIERED_WEIGHTS=dram, TIERED_KV=gds|ssd):
                        instead of weights -> DRAM and KV -> SSD, the bytes of one sleep
-                       are laid out in order weights, state, KV pages; the first
-                       1 - f of them go to DRAM, the last f (rounded down to 2 MiB) to
-                       the KV path's SSD store, so a weight-heavy model may put weights
-                       on SSD and a KV-heavy one keeps part of its KV in DRAM. The two
+                       are laid out in order weights, state, KV pages; the last
+                       min(f * total (rounded down to 2 MiB), KV bytes) go to the KV
+                       path's SSD store and the rest to DRAM. So the SSD only ever holds
+                       KV: a KV-heavy model keeps part of its KV in DRAM, and a model
+                       whose KV share is below f behaves like plain weights -> DRAM,
+                       KV -> SSD. The two
                        parts move on two threads ("dram", "ssd" jobs), in parallel when
                        TIERED_PARALLEL / TIERED_PARALLEL_SAVE are on. Recomputed every
                        sleep (the KV grows). Not with TIERED_WEIGHTS_SAVE=once.
@@ -270,7 +272,8 @@ class TieredBackend(SleepModeBackend):
         kv_parts = [("kv", kv_regions)]
         if self.split_frac:
             total = sum(n for _, regions in w_parts + kv_parts for _, n, _ in regions)
-            ssd = int(self.split_frac * total) // SPLIT_ALIGN * SPLIT_ALIGN
+            kv_bytes = sum(n for _, n, _ in kv_regions)
+            ssd = min(int(self.split_frac * total) // SPLIT_ALIGN * SPLIT_ALIGN, kv_bytes)  # never weights
             head, tail = _split_parts(w_parts + kv_parts, ssd)
             save_jobs = self.load_jobs = {"dram": (self.stores["dram"], head),
                                           "ssd": (self.stores[self.kv_path], tail)}
