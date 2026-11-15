@@ -1,7 +1,10 @@
 """B2-style figure for the single-GPU experiment: the same wake as the history grows.
 
 Rows are turns, columns are paths. Each panel is GPU 7's PCIe RX (NVML) and md0 reads (pcie.csv,
-0.1 s samples) around one model's wake, with the plugin's transfer jobs as bars on top.
+0.1 s samples, drawn as steps over the interval before each sample: md0 is the average over that
+interval, NVML RX the average over the ~20 ms before the sample) around one model's wake,
+with the plugin's transfer jobs as bars on top. The grey band is map_s (re-creating and mapping the
+GPU memory before any data moves).
 Staged GDS bars end when the data stopped moving (without the staging cleanup).
 
 Also: wake time per turn for every model (single3m_wake_by_turn_<model>.png).
@@ -24,6 +27,7 @@ MODELS = [("g7_a3", "Phi-3.5", "phi35"), ("g7_a2", "Qwen3-14B", "qwen14b"), ("g7
 TURNS = [5, 10, 15]
 JOBS = {False: (("weights", "weights"), ("kv", "KV")), True: (("dram", "DRAM part"), ("ssd", "SSD part"))}
 YMAX = 88
+MAP_GREY = "#d9d9d9"
 
 
 def cell(run, inst, turn, tt, rows, t_pre=0.15, t_post=2.6):
@@ -38,13 +42,14 @@ def cell(run, inst, turn, tt, rows, t_pre=0.15, t_post=2.6):
         start = e.get(f"{key}_data_start_s", e[f"{key}_start_s"])
         jobs.append((label, start, end))
     return {"t": tt[sel] - t_ref, "rx": [float(rows[i]["gpu7_rx_mbs"]) / 1000 for i in sel],
-            "md0": [float(rows[i]["md0_read_mbs"]) / 1000 for i in sel], "jobs": jobs,
+            "md0": [float(rows[i]["md0_read_mbs"]) / 1000 for i in sel], "jobs": jobs, "map_s": e["map_s"],
             "total_s": e["total_s"], "kv_gib": e["kv_bytes"] / GIB, "weights_gib": e["weights_bytes"] / GIB}
 
 
 def panel(ax, c, xmax):
-    ax.fill_between(c["t"], c["rx"], color=SLOTS[0], alpha=.85, lw=0, label="GPU7 PCIe RX")
-    ax.plot(c["t"], c["md0"], color=SLOTS[1], lw=2, ls="--", label="SSD read (md0)")
+    ax.axvspan(0, c["map_s"], color=MAP_GREY, lw=0, zorder=0, label="map GPU memory (map_s)")
+    ax.fill_between(c["t"], c["rx"], step="pre", color=SLOTS[0], alpha=.85, lw=0, label="GPU7 PCIe RX")
+    ax.plot(c["t"], c["md0"], drawstyle="steps-pre", color=SLOTS[1], lw=2, ls="--", label="SSD read (md0)")
     for k, (label, a, b) in enumerate(c["jobs"]):
         y = YMAX * (0.95 - 0.08 * k)
         ax.plot([a, b], [y, y], color=TEXT2, lw=4, solid_capstyle="butt")
@@ -62,26 +67,27 @@ def figure(inst, model, slug, out_dir):
         for turn in TURNS:
             data[path, turn] = cell(run, inst, turn, tt, rows)
     xmax = max(c["total_s"] for c in data.values()) + 0.35
-    fig, axes = plt.subplots(len(TURNS), len(RUNS), figsize=(15.5, 7.8), sharex=True, sharey=True,
-                             gridspec_kw={"wspace": 0.1, "hspace": 0.32})
+    fig, axes = plt.subplots(len(TURNS), len(RUNS), figsize=(15.5, 8.6), sharex=True, sharey=True,
+                             gridspec_kw={"wspace": 0.1, "hspace": 0.45})
     for i, turn in enumerate(TURNS):
         for j, (path, _) in enumerate(RUNS):
             c = data[path, turn]
             panel(axes[i, j], c, xmax)
-            axes[i, j].set_title(f"{path} · turn {turn} · KV {c['kv_gib']:.1f} GiB · {c['total_s']:.2f} s",
+            axes[i, j].set_title(f"{path} · turn {turn} · KV {c['kv_gib']:.1f} GiB\n"
+                                 f"wake {c['total_s']:.2f} s (map {c['map_s']:.2f} s)",
                                  loc="left", fontsize=8.5, color=TEXT)
         axes[i, 0].set_ylabel("GB/s")
-    for ax in axes[-1]:
-        ax.set_xlabel("seconds since the wake started")
+    fig.supxlabel("seconds since resume() was called (PCIe RX and md0 sampled every 0.1 s, drawn as steps)",
+                  fontsize=10, color=TEXT, y=0.02)
     axes[0, 0].legend(fontsize=7.5, frameon=False, loc="upper left", bbox_to_anchor=(0, 0.78))
     fig.suptitle(f"The same wake as the history grows ({model}, {data['dram+dram', 15]['weights_gib']:.1f} GiB weights; "
-                 "one GPU; split f = 0.20, SSD holds KV only)", x=0.08, ha="left", fontsize=11, color=TEXT, y=0.95)
+                 "one GPU; split f = 0.20, SSD holds KV only)", x=0.08, ha="left", fontsize=11, color=TEXT, y=0.97)
     path = os.path.join(out_dir, f"single3m_B2_{slug}.png")
     fig.savefig(path)
     plt.close(fig)
     print(path)
     for (p, t), c in data.items():
-        print(f"  {p:10s} turn {t:2d} KV {c['kv_gib']:5.1f} wake {c['total_s']:.2f} s  "
+        print(f"  {p:10s} turn {t:2d} KV {c['kv_gib']:5.1f} wake {c['total_s']:.2f} s map {c['map_s']:.3f}  "
               + "  ".join(f"{l} {a:.2f}-{b:.2f}" for l, a, b in c["jobs"]))
 
 
