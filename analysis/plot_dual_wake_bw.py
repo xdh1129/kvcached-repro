@@ -9,7 +9,10 @@ tiered_g<gpu>_a<agent>.jsonl) in each run, and plots around it:
   NVMe read            pcie.csv: nvme1n1 + nvme2n1 read (the RAID0 members), 10 ms
 Reference lines: the switch uplink to the host (~58 GiB/s for both GPUs together, the
 plateau dram+dram reaches) and the two disks' read ceiling (~13 GiB/s).
-t = 0 is when the earlier of the two wakes started; markers show when each wake ended.
+t = 0 is when the earlier of the two wakes started. The "data" time of a wake is when it
+really moved data: from the first job's start (after the GPU memory is mapped again) to the
+last byte in (DRAM jobs: their end, after the stream sync; SSD jobs: data_end_s, which
+leaves out the Phoenix / GDS cleanup). Markers show when each GPU's data was all in.
 
 Each panel title says how many GiB that wake read from DRAM and from SSD (per GPU).
 
@@ -61,14 +64,25 @@ def sources(rec):
     return host / GIB, (sum(rec[f"{j}_bytes"] for j in jobs) - host) / GIB
 
 
+def data_span(rec):
+    """(start, end) in s since the wake started, of the wake's data movement"""
+    jobs = [k[:-len("_host_bytes")] for k in rec if k.endswith("_host_bytes")]
+    jobs = [j for j in jobs if f"{j}_start_s" in rec]
+    start = min(rec.get(f"{j}_data_start_s", rec[f"{j}_start_s"]) if rec[f"{j}_host_bytes"] == 0
+                else rec[f"{j}_start_s"] for j in jobs)
+    end = max(rec.get(f"{j}_data_end_s", rec[f"{j}_end_s"]) for j in jobs)
+    return start, end
+
+
 def load(d, turn, agent):
     cfg = dict(l.split("=", 1) for l in open(f"{d}/config.txt").read().splitlines() if "=" in l)
     gpus = [int(g) for g in cfg["gpus"].split()]
-    wakes, rec = {}, None
+    wakes, rec, data = {}, None, {}
     for g in gpus:
         res = [json.loads(l) for l in open(f"{d}/tiered_g{g}_a{agent}.jsonl") if '"resume"' in l]
         r = res[turn - 1]
         wakes[g] = (r["t_unix"], r["t_unix"] + r["total_s"])
+        data[g] = data_span(r)
         rec = rec if g != gpus[0] else r
     t0 = min(a for a, _ in wakes.values())
     lo, hi = t0 - PAD, max(b for _, b in wakes.values()) + PAD
@@ -93,7 +107,8 @@ def load(d, turn, agent):
     return {"path": cfg["paths"], "gpus": gpus, "t0": t0, "grid": grid - t0, "rx": rx,
             "nvme": (np.array(nvme_t) - t0, np.array(nvme_v)),
             "ends": {g: b - t0 for g, (_, b) in wakes.items()},
-            "starts": {g: a - t0 for g, (a, _) in wakes.items()}, "rec": rec}
+            "starts": {g: a - t0 for g, (a, _) in wakes.items()}, "rec": rec,
+            "data": {g: (wakes[g][0] - t0 + a, wakes[g][0] - t0 + b) for g, (a, b) in data.items()}}
 
 
 def main():
@@ -119,14 +134,14 @@ def main():
             ax.axhline(y, color=INK2, linestyle=":", linewidth=1.6)
             ax.text(1.005, y, txt, transform=ax.get_yaxis_transform(), va="center", fontsize=15, color=INK2)
         for g in r["gpus"]:
-            ax.plot([r["ends"][g]], [0], marker="v", markersize=11, color=colors[g], clip_on=False, zorder=5)
-        inside = (x >= 0) & (x <= max(r["ends"].values()))
+            ax.plot([r["data"][g][1]], [0], marker="v", markersize=11, color=colors[g], clip_on=False, zorder=5)
+        inside = (x >= min(a for a, _ in r["data"].values())) & (x <= max(b for _, b in r["data"].values()))
         p90 = np.percentile(both[inside], 90)
         dram, ssd = sources(r["rec"])
         src = f"{dram:.1f} GiB DRAM" + (f" + {ssd:.1f} GiB SSD" if ssd else "")
         ax.set_title(f"{NAME.get(r['path'], r['path'])}: {src}", loc="left", pad=6)
-        wake = " / ".join(f"{r['ends'][g] - r['starts'][g]:.2f}" for g in r["gpus"])
-        ax.text(1.0, 1.03, f"wake {wake} s  ·  p90 both {p90:.0f} GiB/s", transform=ax.transAxes,
+        moving = " / ".join(f"{r['data'][g][1] - r['data'][g][0]:.2f}" for g in r["gpus"])
+        ax.text(1.0, 1.03, f"moving data {moving} s  ·  p90 both {p90:.0f} GiB/s", transform=ax.transAxes,
                 ha="right", va="bottom", fontsize=15, color=INK2)
         ax.set_ylim(0, 80)
         ax.set_yticks([0, 20, 40, 60, 80])
@@ -142,7 +157,7 @@ def main():
                Line2D([], [], color=C_G7, linewidth=2.5, label="GPU 7 RX"),
                Line2D([], [], color=C_SUM, linewidth=2.5, label="both GPUs RX"),
                Line2D([], [], color=C_NVME, linewidth=2.5, label="NVMe read (2 members)"),
-               Line2D([], [], color=INK2, marker="v", linestyle="", markersize=11, label="wake done")]
+               Line2D([], [], color=INK2, marker="v", linestyle="", markersize=11, label="data all in")]
     fig.legend(handles=handles, loc="upper left", bbox_to_anchor=(0.035, 0.885), ncol=5, frameon=False, fontsize=16)
     os.makedirs(OUT, exist_ok=True)
     out = os.path.join(OUT, f"wake_bw_{MODELS[args.agent][1]}_turn{args.turn}.png")
