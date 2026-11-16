@@ -20,6 +20,7 @@ Env:
   PHX_STAGING_SIZE_MB  read by libphoenix (staging pool, default 256)
 The device is opened (phxfs_open, which maps a staging pool on the GPU) for each load
 and closed after it, so a sleeping process holds no Phoenix GPU memory, like GDS staging.
+load_many reads several kinds (e.g. a split tail of weights + KV) in one such session.
 """
 
 import bisect
@@ -144,13 +145,26 @@ class PhoenixStore(GdsStore):
         return pieces, zero
 
     def load(self, kind, regions):
-        self._fd(kind)
+        return self.load_many([(kind, regions)])
+
+    def load_many(self, parts):
+        """Load [(kind, regions)] in one Phoenix session: one open, one read batch, one close.
+
+        Closing waits for the whole device (it frees the staging pool), so a second session
+        started after it would sit behind any other copy on the GPU, e.g. the DRAM job."""
+        for kind, _ in parts:
+            self._fd(kind)
         if self.layout is None:
-            self.layout = _md_layout(os.path.join(self.root, f"{kind}.bin"))
+            self.layout = _md_layout(os.path.join(self.root, f"{parts[0][0]}.bin"))
         torch.cuda.set_device(self.device)
         L, dev = self.lib, self.device
         t0 = time.perf_counter()
-        pieces, zero = self._pieces(kind, regions)
+        pieces, zero = [], []
+        for kind, regs in parts:
+            p, z = self._pieces(kind, regs)
+            pieces += p
+            zero += z
+        regions = [r for _, regs in parts for r in regs]
         t_map = time.perf_counter()
         with self.phx_lock:  # one Phoenix load at a time per process (one staging pool per device)
             if L.phxfs_open(dev) != 0:

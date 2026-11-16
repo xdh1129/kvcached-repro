@@ -83,9 +83,10 @@ if [[ "$PATHS" == split || "$PATHS" == split+phoenix ]]; then
         exit 1
     fi
     SPLIT_LABEL=$PATHS
+    [[ "${TIERED_SPLIT_WEIGHTS:-0}" == 1 ]] && SPLIT_LABEL=$PATHS+w  # SSD may hold weights too
     [[ "$PATHS" == split ]] && PATHS=dram+gds || PATHS=dram+phoenix
 else
-    unset TIERED_SPLIT_FRAC  # only the split path uses it
+    unset TIERED_SPLIT_FRAC TIERED_SPLIT_WEIGHTS  # only the split paths use them
 fi
 if [[ "$PATHS" == vllm ]]; then
     unset TIERED_WEIGHTS TIERED_KV TIERED_ROOT  # cleanup removes TIERED_ROOT: never one from the caller
@@ -108,7 +109,7 @@ fi
     echo "copies=$COPIES"
     echo "paths=${SPLIT_LABEL:-$PATHS}"
     [[ "$PATHS" != vllm ]] && echo "tiered_parallel=$TIERED_PARALLEL" && echo "tiered_root=$TIERED_ROOT"
-    env | grep -E '^TIERED_(WEIGHTS_SAVE|KV_MERGE|WEIGHTS_PACE|DRAM_KV_RESERVE_GB|GDS_GATE|GDS_STAGE_MB|GDS_STAGE_BUFS|PARALLEL_SAVE|SPLIT_FRAC|TRACE|PHX_LIB)=' \
+    env | grep -E '^TIERED_(WEIGHTS_SAVE|KV_MERGE|WEIGHTS_PACE|DRAM_KV_RESERVE_GB|GDS_GATE|GDS_STAGE_MB|GDS_STAGE_BUFS|PARALLEL_SAVE|SPLIT_FRAC|SPLIT_WEIGHTS|TRACE|PHX_LIB)=' \
         | sed 's/^/tiered_opt_/' || true
     echo "turns=$TURNS"
     echo "first_len=$FIRST_LEN"

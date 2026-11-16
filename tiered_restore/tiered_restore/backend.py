@@ -22,6 +22,10 @@ Defaults follow vLLM's own sleep mode; each departure from it is opt-in (env):
                        parts move on two threads ("dram", "ssd" jobs), in parallel when
                        TIERED_PARALLEL / TIERED_PARALLEL_SAVE are on. Recomputed every
                        sleep (the KV grows). Not with TIERED_WEIGHTS_SAVE=once.
+  TIERED_SPLIT_WEIGHTS=1  with TIERED_SPLIT_FRAC: drop the KV cap, so the SSD gets the
+                       last f * total bytes whatever they are: all the KV plus the tail of
+                       the weights when the KV is smaller than f * total (weights are then
+                       written to the SSD on every sleep, as they are saved every sleep).
 
 suspend(level=1):
   1. Weights go to the weights path (see TIERED_WEIGHTS_SAVE).
@@ -142,6 +146,9 @@ class TieredBackend(SleepModeBackend):
         self.parallel_save = _env("TIERED_PARALLEL_SAVE", "0") == "1"
         self.save_once = _env("TIERED_WEIGHTS_SAVE", "every") == "once"
         self.split_frac = float(_env("TIERED_SPLIT_FRAC", "0") or 0)
+        self.split_weights = _env("TIERED_SPLIT_WEIGHTS", "0") == "1"
+        if self.split_weights and not self.split_frac:
+            raise ValueError("TIERED_SPLIT_WEIGHTS=1 needs TIERED_SPLIT_FRAC")
         if self.split_frac and (self.weights_path != "dram" or self.kv_path not in ("gds", "ssd", "phoenix")
                                 or self.save_once or not 0 < self.split_frac < 1):
             raise ValueError("TIERED_SPLIT_FRAC needs 0 < f < 1, TIERED_WEIGHTS=dram, TIERED_KV=gds|ssd|phoenix "
@@ -282,11 +289,14 @@ class TieredBackend(SleepModeBackend):
         if self.split_frac:
             total = sum(n for _, regions in w_parts + kv_parts for _, n, _ in regions)
             kv_bytes = sum(n for _, n, _ in kv_regions)
-            ssd = min(int(self.split_frac * total) // SPLIT_ALIGN * SPLIT_ALIGN, kv_bytes)  # never weights
+            ssd = int(self.split_frac * total) // SPLIT_ALIGN * SPLIT_ALIGN
+            if not self.split_weights:
+                ssd = min(ssd, kv_bytes)  # KV only: never weights
             head, tail = _split_parts(w_parts + kv_parts, ssd)
             save_jobs = self.load_jobs = {"dram": (self.stores["dram"], head),
                                           "ssd": (self.stores[self.kv_path], tail)}
-            rec.update(split_frac=self.split_frac, split_total_bytes=total, split_ssd_bytes=ssd,
+            rec.update(split_frac=self.split_frac, split_weights=self.split_weights,
+                       split_total_bytes=total, split_ssd_bytes=ssd,
                        **{f"split_ssd_{kind}_bytes": sum(n for _, n, _ in regions) for kind, regions in tail})
         else:
             save_jobs = {"weights": (wstore, w_parts if save_weights else w_parts[1:]),
@@ -404,24 +414,30 @@ class TieredBackend(SleepModeBackend):
             moved = {"bytes": 0, "host_bytes": 0}
             span = [float("inf"), float("-inf")]  # when the data really moved (staged GDS only)
             try:
-                for kind, regions in parts:
-                    if not regions:
-                        continue
-                    paced = pace and job == "weights"
+                paced = pace and job == "weights"
+                parts_nz = [(kind, regions) for kind, regions in parts if regions]
+                if to_gpu and not paced and len(parts_nz) > 1 and hasattr(store, "load_many"):
+                    # one store session for all kinds (Phoenix: one open/close, one batch), so the
+                    # next kind does not wait behind the session teardown's device sync
+                    calls = [lambda: store.load_many(parts_nz)]
+                else:
                     # paced weights: load in groups of ~256 MiB, sleeping to hold the target rate
-                    for g in _groups(regions, 256 << 20) if paced else [regions]:
-                        st = store.load(kind, g) if to_gpu else store.save(kind, g)
-                        for k, v in st.items():
-                            if k == "data_start_t":
-                                span[0] = min(span[0], v)
-                            elif k == "data_end_t":
-                                span[1] = max(span[1], v)
-                            else:
-                                moved[k] = moved.get(k, 0) + v  # bytes, host_bytes, store counters
-                        if paced:
-                            ahead = moved["bytes"] / (pace * (1 << 30)) - (time.perf_counter() - t)
-                            if ahead > 0:
-                                time.sleep(ahead)
+                    calls = [(lambda kind=kind, g=g: store.load(kind, g) if to_gpu else store.save(kind, g))
+                             for kind, regions in parts_nz
+                             for g in (_groups(regions, 256 << 20) if paced else [regions])]
+                for call in calls:
+                    st = call()
+                    for k, v in st.items():
+                        if k == "data_start_t":
+                            span[0] = min(span[0], v)
+                        elif k == "data_end_t":
+                            span[1] = max(span[1], v)
+                        else:
+                            moved[k] = moved.get(k, 0) + v  # bytes, host_bytes, store counters
+                    if paced:
+                        ahead = moved["bytes"] / (pace * (1 << 30)) - (time.perf_counter() - t)
+                        if ahead > 0:
+                            time.sleep(ahead)
             except BaseException as e:  # re-raised on the calling thread
                 errors.append(e)
                 return

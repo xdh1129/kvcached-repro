@@ -5,6 +5,7 @@
 # Parallel wake and parallel sleep on every path, fast monitor (10 ms; NVML ~24 ms).
 #   usage: run_dual_gpu_suite.sh [paths ...]
 #          (default: dram+dram dram+gds dram+phoenix split split+phoenix)
+#          split+phoenix+w: split+phoenix with TIERED_SPLIT_WEIGHTS=1 (the SSD may hold weights)
 # phoenix paths: GDS writes through md0, Phoenix P2P reads from the RAID0 member NVMes
 # (tiered_restore/phoenix.py). They need phoenixfs.ko loaded (STAGING mode) and read access
 # for this user to /dev/phxfs_dev, /dev/nvme1n1 and /dev/nvme2n1; checked before each run.
@@ -33,17 +34,22 @@ phoenix_ready() {
 
 for p in "${PATHS_LIST[@]}"; do
     name=${PREFIX}_$p
-    if [[ "$p" == split || "$p" == split+phoenix ]]; then
+    run_path=$p
+    if [[ "$p" == split || "$p" == split+phoenix || "$p" == split+phoenix+w ]]; then
         name=${PREFIX}_${p}_f$SPLIT_FRAC
         export TIERED_SPLIT_FRAC=$SPLIT_FRAC
+        if [[ "$p" == *+w ]]; then
+            export TIERED_SPLIT_WEIGHTS=1
+            run_path=${p%+w}
+        fi
     fi
     echo "=== $(date -Is) $name"
     if [[ "$p" == *phoenix* ]] && ! phoenix_ready; then
         echo "=== $name skipped: Phoenix not ready"
         continue
     fi
-    PATHS=$p bash "$ROOT/scripts/run_agent_rr.sh" "$name" || echo "=== $name failed (exit $?)"
-    unset TIERED_SPLIT_FRAC
+    PATHS=$run_path bash "$ROOT/scripts/run_agent_rr.sh" "$name" || echo "=== $name failed (exit $?)"
+    unset TIERED_SPLIT_FRAC TIERED_SPLIT_WEIGHTS
     sleep 10  # let the GPUs release memory before the next run's idle check
 done
 echo "=== $(date -Is) suite done"
