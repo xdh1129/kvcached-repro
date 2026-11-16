@@ -67,7 +67,7 @@ def main():
     args = ap.parse_args()
     runs = [per_turn(d if os.path.isdir(d) else os.path.join(ROOT, "results", d), args.agent) for d in args.runs]
     fig, ax = plt.subplots()
-    fig.subplots_adjust(left=0.08, right=0.97, top=0.80, bottom=0.11)
+    fig.subplots_adjust(left=0.08, right=0.97, top=0.84, bottom=0.11)
     for path, turns, v in runs:
         label, color, marker = STYLE.get(path, (path, INK2, "o"))
         mean = v.mean(axis=1)
@@ -86,9 +86,7 @@ def main():
     name = MODELS[args.agent][0]
     fig.text(0.04, 0.965, f"{name} wake on GPUs 6 and 7 at once: time moving data, per turn", fontsize=26,
              weight="bold", va="top")
-    fig.text(0.04, 0.905, "First job start to last byte in. Line: mean of GPUs 6, 7; band: min-max. "
-             "y axis does not start at 0", fontsize=18, color=INK2, va="top")
-    fig.legend(loc="upper left", bbox_to_anchor=(0.035, 0.87), ncol=4, frameon=False)
+    fig.legend(loc="upper left", bbox_to_anchor=(0.035, 0.915), ncol=4, frameon=False)
     os.makedirs(OUT, exist_ok=True)
     out = os.path.join(OUT, f"wake_data_by_turn_{MODELS[args.agent][1]}{args.suffix}.png")
     fig.savefig(out)
