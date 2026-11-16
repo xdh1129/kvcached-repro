@@ -26,6 +26,17 @@ Defaults follow vLLM's own sleep mode; each departure from it is opt-in (env):
                        last f * total bytes whatever they are: all the KV plus the tail of
                        the weights when the KV is smaller than f * total (weights are then
                        written to the SSD on every sleep, as they are saved every sleep).
+  TIERED_MEET=<store>  meet in the middle (needs TIERED_WEIGHTS=dram, TIERED_KV=dram; store:
+                       phoenix, gds or ssd). The weights pool is split into static regions
+                       (parameters/buffers: kind "weights") and mutable ones ("state"), as
+                       with TIERED_WEIGHTS_SAVE=once. Sleep saves everything to DRAM every
+                       time, as dram+dram; the first sleep also writes the static weights to
+                       <store> (a mirror, written once: they never change). Wake: one thread
+                       loads KV, state, then the weights front to back from DRAM; another
+                       loads the weights back to front from the mirror; each claims
+                       TIERED_MEET_DRAM_MB (128) / TIERED_MEET_SSD_MB (256) at a time until
+                       they meet. No split fraction: the meeting point follows the rates of
+                       that wake. Jobs are named "dram" and "ssd" in the records.
 
 suspend(level=1):
   1. Weights go to the weights path (see TIERED_WEIGHTS_SAVE).
@@ -63,7 +74,7 @@ from vllm.device_allocator.sleep_mode_backend import SleepModeBackend
 from vllm.logger import init_logger
 
 from . import KV_TENSORS
-from .stores import make_store
+from .stores import MeetCursor, make_store
 
 logger = init_logger("vllm.tiered_restore")
 
@@ -153,6 +164,13 @@ class TieredBackend(SleepModeBackend):
                                 or self.save_once or not 0 < self.split_frac < 1):
             raise ValueError("TIERED_SPLIT_FRAC needs 0 < f < 1, TIERED_WEIGHTS=dram, TIERED_KV=gds|ssd|phoenix "
                              "and weights saved every sleep")
+        self.meet = _env("TIERED_MEET", "")
+        if self.meet and (self.weights_path != "dram" or self.kv_path != "dram" or self.split_frac
+                          or self.save_once or self.meet not in ("phoenix", "gds", "ssd")):
+            raise ValueError("TIERED_MEET=phoenix|gds|ssd needs TIERED_WEIGHTS=dram, TIERED_KV=dram, "
+                             "no TIERED_SPLIT_FRAC and weights saved every sleep")
+        self.meet_chunks = (int(_env("TIERED_MEET_DRAM_MB", "128")) << 20, int(_env("TIERED_MEET_SSD_MB", "256")) << 20)
+        self.mirrored = False  # the static weights are on the meet store
         self.load_jobs = {}  # job name -> (store, [(kind, regions)]) restored by the next wake
         self.kv_merge = _env("TIERED_KV_MERGE", "0") == "1"
         self.root = _env("TIERED_DIR", f"/mnt/raid0/xdh/tiered/{os.getpid()}")
@@ -160,7 +178,7 @@ class TieredBackend(SleepModeBackend):
         self.device = torch.cuda.current_device()
         threads, chunk_mb = int(_env("TIERED_IO_THREADS", "8")), int(_env("TIERED_CHUNK_MB", "64"))
         self.stores = {}
-        for path in {self.weights_path, self.kv_path} - {"recompute"}:
+        for path in {self.weights_path, self.kv_path, self.meet} - {"recompute", ""}:
             self.stores[path] = make_store(path, self.device, self.root, threads, chunk_mb)
         self.log_lock = threading.Lock()
         if "dram" in self.stores:  # "dram" events: logical bytes held in DRAM per kind, after each change
@@ -264,9 +282,9 @@ class TieredBackend(SleepModeBackend):
         wstore = self.stores[self.weights_path]
 
         pool = self._layout(sorted((ptr, d.handle[1]) for ptr, d in live if d.tag == "weights"))
-        if not self.save_once:
+        if not (self.save_once or self.meet):
             self.weight_regions, self.state_regions = pool, []  # whole pool, every sleep (vLLM)
-        elif self.weight_regions is None:  # save-once: split at the first sleep
+        elif self.weight_regions is None:  # save-once / meet: split at the first sleep
             static, mutable = self._split_weight_pool(pool)
             self.weight_regions, self.state_regions = self._layout(static), self._layout(mutable)
         save_weights = not self.save_once or not self.n_suspend
@@ -302,6 +320,9 @@ class TieredBackend(SleepModeBackend):
             save_jobs = {"weights": (wstore, w_parts if save_weights else w_parts[1:]),
                          "kv": (self.stores[self.kv_path], kv_parts)}
             self.load_jobs = {"weights": (wstore, w_parts), "kv": (self.stores[self.kv_path], kv_parts)}
+            if self.meet and not self.mirrored:  # once: the static weights never change
+                save_jobs["mirror"] = (self.stores[self.meet], w_parts[:1])
+                rec["meet_mirror_bytes"] = rec["weights_bytes"]
         rec["parallel_save"] = self.parallel_save
         self._trace_start()
         t = time.perf_counter()
@@ -311,6 +332,7 @@ class TieredBackend(SleepModeBackend):
         for job, st in results.items():
             rec.update({f"{job}_save_{k}": v for k, v in st.items()})
             rec[f"{job}_save_s"] = st["end_s"] - st["start_s"]
+        self.mirrored = bool(self.meet)
         if not self.split_frac:  # fields of the serial layout, kept for the analysis scripts
             rec.update(state_save_s=0.0, state_save_host_bytes=0)
         if self.verify:
@@ -365,12 +387,16 @@ class TieredBackend(SleepModeBackend):
         has_kv = any(kind == "kv" and regions for _, parts in jobs.values() for kind, regions in parts)
         pace = self._weights_pace(kv_regions) if has_kv and self.parallel and not self.split_frac else None
         rec["weights_pace_gibs"] = pace
-        if self.split_frac:
-            rec.update(split_frac=self.split_frac, weights_bytes=sum(n for _, n, _ in self.weight_regions),
+        if self.split_frac or self.meet:
+            rec.update(split_frac=self.split_frac, meet=self.meet,
+                       weights_bytes=sum(n for _, n, _ in self.weight_regions),
                        state_bytes=sum(n for _, n, _ in self.state_regions),
                        kv_bytes=sum(n for _, n, _ in kv_regions))
         self._trace_start()
-        results = self._run_jobs(jobs, to_gpu=True, parallel=self.parallel, t0=t0, pace=pace)
+        if self.meet:
+            results = self._run_meet([] if skip_kv else kv_regions, t0)
+        else:
+            results = self._run_jobs(jobs, to_gpu=True, parallel=self.parallel, t0=t0, pace=pace)
         self._trace_collect(rec, t0)
         torch.cuda.synchronize()
         rec["total_s"] = time.perf_counter() - t0  # before the optional checksums
@@ -455,6 +481,49 @@ class TieredBackend(SleepModeBackend):
         else:
             for job in jobs:
                 run(job)
+        if errors:
+            raise errors[0]
+        return results
+
+    def _run_meet(self, kv_regions, t0):
+        """Meet-in-the-middle wake (TIERED_MEET): results as _run_jobs, jobs "dram" and "ssd".
+
+        dram: KV, state, then weights ranges claimed from the front; ssd: weights ranges
+        claimed from the back of the mirror. Both stop when the claims meet."""
+        dram, ssd = self.stores["dram"], self.stores[self.meet]
+        cur = MeetCursor(sum(n for _, n, _ in self.weight_regions))
+        dram_mb, ssd_mb = self.meet_chunks
+        results, errors = {}, []
+
+        def run(job):
+            t = time.perf_counter()
+            moved, span = {"bytes": 0, "host_bytes": 0}, {}
+            try:
+                if job == "dram":
+                    calls = [lambda kind=kind, regions=regions: dram.load(kind, regions)
+                             for kind, regions in (("kv", kv_regions), ("state", self.state_regions)) if regions]
+                    calls.append(lambda: dram.load_claimed("weights", self.weight_regions, lambda: cur.front(dram_mb)))
+                else:
+                    calls = [lambda: ssd.load_claimed("weights", self.weight_regions, lambda: cur.back(ssd_mb))]
+                for call in calls:
+                    for k, v in call().items():
+                        if k in ("data_start_t", "data_end_t"):
+                            span[k] = v
+                        else:
+                            moved[k] = moved.get(k, 0) + v
+            except BaseException as e:  # re-raised on the calling thread
+                errors.append(e)
+                return
+            if moved["bytes"]:
+                results[job] = dict(moved, start_s=t - t0, end_s=time.perf_counter() - t0)
+                if len(span) == 2:
+                    results[job].update(data_start_s=span["data_start_t"] - t0, data_end_s=span["data_end_t"] - t0)
+
+        threads = [threading.Thread(target=run, args=(job,)) for job in ("dram", "ssd")]
+        for th in threads:
+            th.start()
+        for th in threads:
+            th.join()
         if errors:
             raise errors[0]
         return results

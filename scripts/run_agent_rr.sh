@@ -8,7 +8,7 @@
 #      POOL        comma-separated HF repos; COPIES instances of each per GPU (default 2)
 #                  (default: four 3B-8B models with >= 128k context)
 #      PATHS       <weights>+<kv> for the tiered_restore plugin (default dram+gds; kv may be
-#                  phoenix), split / split+phoenix (need TIERED_SPLIT_FRAC), or vllm
+#                  phoenix), split / split+phoenix (need TIERED_SPLIT_FRAC), meet+phoenix, or vllm
 #                  (vLLM's sleep mode: the cached history is dropped and re-prefilled)
 #      TURNS (24), FIRST_LEN (2048), TURN_LEN (1024), OUT_LEN (300)   see agent_rr.py
 #      SYNC=0      let the GPUs run independently (default 1: steps in lockstep)
@@ -85,8 +85,15 @@ if [[ "$PATHS" == split || "$PATHS" == split+phoenix ]]; then
     SPLIT_LABEL=$PATHS
     [[ "${TIERED_SPLIT_WEIGHTS:-0}" == 1 ]] && SPLIT_LABEL=$PATHS+w  # SSD may hold weights too
     [[ "$PATHS" == split ]] && PATHS=dram+gds || PATHS=dram+phoenix
+elif [[ "$PATHS" == meet+* ]]; then
+    # meet in the middle (tiered_restore TIERED_MEET): everything in DRAM, static weights also on
+    # the store after the + (written once); a wake reads the weights from both ends
+    unset TIERED_SPLIT_FRAC TIERED_SPLIT_WEIGHTS
+    SPLIT_LABEL=$PATHS
+    export TIERED_MEET=${PATHS#meet+}
+    PATHS=dram+dram
 else
-    unset TIERED_SPLIT_FRAC TIERED_SPLIT_WEIGHTS  # only the split paths use them
+    unset TIERED_SPLIT_FRAC TIERED_SPLIT_WEIGHTS TIERED_MEET  # only the split / meet paths use them
 fi
 if [[ "$PATHS" == vllm ]]; then
     unset TIERED_WEIGHTS TIERED_KV TIERED_ROOT  # cleanup removes TIERED_ROOT: never one from the caller
@@ -109,7 +116,7 @@ fi
     echo "copies=$COPIES"
     echo "paths=${SPLIT_LABEL:-$PATHS}"
     [[ "$PATHS" != vllm ]] && echo "tiered_parallel=$TIERED_PARALLEL" && echo "tiered_root=$TIERED_ROOT"
-    env | grep -E '^TIERED_(WEIGHTS_SAVE|KV_MERGE|WEIGHTS_PACE|DRAM_KV_RESERVE_GB|GDS_GATE|GDS_STAGE_MB|GDS_STAGE_BUFS|PARALLEL_SAVE|SPLIT_FRAC|SPLIT_WEIGHTS|TRACE|PHX_LIB)=' \
+    env | grep -E '^TIERED_(WEIGHTS_SAVE|KV_MERGE|WEIGHTS_PACE|DRAM_KV_RESERVE_GB|GDS_GATE|GDS_STAGE_MB|GDS_STAGE_BUFS|PARALLEL_SAVE|SPLIT_FRAC|SPLIT_WEIGHTS|MEET|MEET_DRAM_MB|MEET_SSD_MB|TRACE|PHX_LIB)=' \
         | sed 's/^/tiered_opt_/' || true
     echo "turns=$TURNS"
     echo "first_len=$FIRST_LEN"

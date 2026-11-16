@@ -153,7 +153,7 @@ def main():
     rec0 = runs[0]["rec"]
     fig.text(0.04, 0.965, f"{MODELS[args.agent][0]} waking on GPUs 6 and 7 at once, turn {args.turn}", fontsize=26,
              weight="bold", va="top")
-    where = "" if any(r["path"].endswith("+w") for r in runs) else " (always from DRAM)"
+    where = "" if any(r["path"].endswith("+w") or r["path"].startswith("meet") for r in runs) else " (always from DRAM)"
     fig.text(0.04, 0.91, f"Per GPU: {rec0['weights_bytes'] / GIB:.1f} GiB weights{where} + "
              f"{rec0['kv_bytes'] / GIB:.1f} GiB KV. GPU RX: NVML, ~24 ms samples. NVMe: 10 ms", fontsize=17, color=INK2, va="top")
     handles = [Line2D([], [], color=C_G6, linewidth=2.5, label="GPU 6 RX"),

@@ -36,6 +36,45 @@ def _chunks(regions, chunk):
             yield gpu_ptr + i, min(chunk, nbytes - i), off + i
 
 
+def slice_regions(regions, a, b):
+    """The part of regions (contiguous store offsets, ascending) inside store offsets [a, b)."""
+    out = []
+    for gpu_ptr, n, off in regions:
+        lo, hi = max(a, off), min(b, off + n)
+        if lo < hi:
+            out.append((gpu_ptr + lo - off, hi - lo, lo))
+    return out
+
+
+class MeetCursor:
+    """Byte range [0, size) of one kind, claimed from both ends by two loaders until they meet.
+
+    front(n) / back(n) return the next (a, b) store-offset range for the caller, or None
+    once the two sides have met. back() takes at most 1/6 of what is left (never less than
+    `floor`), so the slower side's last claims shrink and both sides end together.
+    """
+
+    def __init__(self, size, floor=8 * MIB):
+        self.lo, self.hi, self.floor = 0, size, floor
+        self.lock = threading.Lock()
+
+    def front(self, n):
+        with self.lock:
+            if self.lo >= self.hi:
+                return None
+            a, self.lo = self.lo, min(self.lo + n, self.hi)
+            return a, self.lo
+
+    def back(self, n):
+        with self.lock:
+            left = self.hi - self.lo
+            if left <= 0:
+                return None
+            n = min(n, max(self.floor, left // 6 // (2 * MIB) * (2 * MIB)), left)
+            b, self.hi = self.hi, self.hi - n
+            return self.hi, b
+
+
 class DramStore:
     """Pinned host buffer per kind; one CUDA stream does every copy.
 
@@ -128,6 +167,38 @@ class DramStore:
     def load(self, kind, regions):
         return self._copy(kind, regions, to_gpu=True)
 
+    def load_claimed(self, kind, regions, claim):
+        """Load the ranges claim() hands out ((a, b) store offsets of kind, None = stop).
+
+        One range is always queued behind the one being copied, so the stream never idles;
+        the buffer is dropped (unless kept) once the claims end, whoever loaded the rest."""
+        torch.cuda.set_device(self.device)
+        with self.lock:
+            if self.stream is None:
+                self.stream = torch.cuda.Stream()
+        stream, base = self.stream, self.buffers[kind].data_ptr()
+        s = stream.cuda_stream
+        moved, prev = 0, None
+        while (rng := claim()) is not None:
+            for gpu_ptr, n, off in slice_regions(regions, *rng):
+                _check(cudart.cudaMemcpyAsync(gpu_ptr, base + off, n, cudart.cudaMemcpyKind.cudaMemcpyHostToDevice, s))
+            moved += rng[1] - rng[0]
+            ev = torch.cuda.Event()
+            ev.record(stream)
+            if prev is not None:
+                prev.synchronize()
+            prev = ev
+        stream.synchronize()
+        if kind not in self.keep:
+            self.buffers[kind] = None
+        with self.lock:
+            if kind not in self.keep:
+                self.held[kind] = 0
+            held = dict(self.held)
+        if self.on_change:
+            self.on_change(held, time.time(), "load_end", kind)
+        return {"bytes": moved, "host_bytes": moved, "alloc_s": 0.0}
+
 
 class _FileStore:
     """One O_DIRECT file per kind under ``root``; work is split into chunks over a thread pool."""
@@ -167,6 +238,15 @@ class _FileStore:
 
     def load(self, kind, regions):
         return self._run(kind, regions, to_gpu=True)
+
+    def load_claimed(self, kind, regions, claim):
+        """Load the ranges claim() hands out, one load() per range (see DramStore.load_claimed)."""
+        total = {}
+        while (rng := claim()) is not None:
+            for k, v in self.load(kind, slice_regions(regions, *rng)).items():
+                total[k] = (min if k == "data_start_t" else max if k == "data_end_t" else
+                            lambda x, y: x + y)(total[k], v) if k in total else v
+        return total or {"bytes": 0, "host_bytes": 0}
 
 
 class SsdStore(_FileStore):

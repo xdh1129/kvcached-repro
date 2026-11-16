@@ -6,6 +6,7 @@
 #   usage: run_dual_gpu_suite.sh [paths ...]
 #          (default: dram+dram dram+gds dram+phoenix split split+phoenix)
 #          split+phoenix+w: split+phoenix with TIERED_SPLIT_WEIGHTS=1 (the SSD may hold weights)
+#          meet+phoenix: all in DRAM + static weights mirrored on SSD, read from both ends (TIERED_MEET)
 # phoenix paths: GDS writes through md0, Phoenix P2P reads from the RAID0 member NVMes
 # (tiered_restore/phoenix.py). They need phoenixfs.ko loaded (STAGING mode) and read access
 # for this user to /dev/phxfs_dev, /dev/nvme1n1 and /dev/nvme2n1; checked before each run.

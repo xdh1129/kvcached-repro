@@ -43,7 +43,7 @@ def med(xs):
 
 def ssd_job(r):
     """name of the job that read/wrote the SSD in a record, or None"""
-    if r.get("split_frac"):
+    if r.get("split_frac") or r.get("meet"):
         return "ssd"
     return "kv" if r.get("kv_path") in ("gds", "phoenix", "ssd") else None
 

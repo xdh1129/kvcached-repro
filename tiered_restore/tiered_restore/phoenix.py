@@ -34,7 +34,7 @@ import time
 import torch
 from cuda.bindings import runtime as cudart
 
-from .stores import GdsStore, _check
+from .stores import GdsStore, _check, slice_regions
 
 DEFAULT_LIB = "/home/poc/xdh/phoenix-eval/phoenix/build_t16/libphoenix.so"
 FS_IOC_FIEMAP = 0xC020660B
@@ -109,16 +109,14 @@ class PhoenixStore(GdsStore):
         L.phxfs_read_batch.argtypes = [ctypes.POINTER(_Req), ctypes.c_int]
         L.phxfs_get_map_mode.argtypes = [ctypes.c_int]
         self.layout = None  # (chunk, [(member fd, data_offset)]), on the first load
+        self.extents = {}  # kind -> FIEMAP of a file that no longer changes (load_claimed)
         self.phx_lock = threading.Lock()
 
-    def save(self, kind, regions):
-        return super().save(kind, regions)  # GDS through ext4 + md0
-
-    def _pieces(self, kind, regions):
+    def _pieces(self, kind, regions, ext=None):
         """[(member fd, member offset, gpu_ptr, nbytes)] and [(gpu_ptr, n)] to zero, for regions."""
         chunk, members = self.layout
         nd = len(members)
-        ext = _fiemap(self.fds[kind])
+        ext = ext or _fiemap(self.fds[kind])
         starts = [e[0] for e in ext]
         pieces, zero = [], []
         for gpu_ptr, nbytes, off in regions:
@@ -146,6 +144,75 @@ class PhoenixStore(GdsStore):
 
     def load(self, kind, regions):
         return self.load_many([(kind, regions)])
+
+    def save(self, kind, regions):
+        self.extents.pop(kind, None)  # the file changes: its cached extent map is stale
+        return super().save(kind, regions)
+
+    def load_claimed(self, kind, regions, claim):
+        """Load the ranges claim() hands out ((a, b) store offsets of kind, None = stop) in one
+        Phoenix session: one read batch per range, regions registered when first touched.
+
+        For a file written once (the meet mirror): its extent map is read once and kept
+        until the next save of the kind."""
+        self._fd(kind)
+        if self.layout is None:
+            self.layout = _md_layout(os.path.join(self.root, f"{kind}.bin"))
+        torch.cuda.set_device(self.device)
+        L, dev = self.lib, self.device
+        t0 = time.perf_counter()
+        if kind not in self.extents:
+            self.extents[kind] = _fiemap(self.fds[kind])
+        ext = self.extents[kind]
+        by_start = dict((r[0], r[1]) for r in regions)
+        starts = sorted(by_start)
+        t_map = time.perf_counter()
+        moved = batches = npieces = 0
+        zero, regs = [], set()
+        t_io = t_end = None
+        with self.phx_lock:
+            if L.phxfs_open(dev) != 0:
+                raise RuntimeError(f"phxfs_open({dev}) failed: is phoenixfs.ko loaded and readable?")
+            try:
+                t_open = time.perf_counter()
+                tgt = ctypes.c_void_p()
+                while (rng := claim()) is not None:
+                    pieces, z = self._pieces(kind, slice_regions(regions, *rng), ext)
+                    zero += z
+                    reqs = (_Req * len(pieces))()
+                    for i, (fd, doff, dst, m) in enumerate(pieces):
+                        rbase = starts[bisect.bisect_right(starts, dst) - 1]
+                        if rbase not in regs:
+                            if L.phxfs_regmem(dev, rbase, by_start[rbase], ctypes.byref(tgt)) != 0:
+                                raise RuntimeError(f"phxfs_regmem({rbase:#x}, {by_start[rbase]}) failed")
+                            regs.add(rbase)
+                        reqs[i].fd, reqs[i].device_id, reqs[i].buf = fd, dev, rbase
+                        reqs[i].buf_offset, reqs[i].nbytes, reqs[i].f_offset = dst - rbase, m, doff
+                        reqs[i].result = 0
+                    t = time.perf_counter()
+                    t_io = t_io or t
+                    bad = L.phxfs_read_batch(reqs, len(pieces)) if pieces else 0
+                    t_end = time.perf_counter()
+                    if bad:
+                        first = next(r for r in reqs if r.result != r.nbytes)
+                        raise IOError(f"phxfs_read_batch: {bad}/{len(pieces)} requests failed "
+                                      f"(first: fd {first.fd} off {first.f_offset} -> {first.result})")
+                    if self.trace is not None:
+                        self.trace.append((t, t_end, rng[1] - rng[0]))
+                    moved += rng[1] - rng[0]
+                    batches += 1
+                    npieces += len(pieces)
+            finally:
+                for rbase in regs:
+                    L.phxfs_deregmem(dev, rbase, by_start[rbase])
+                L.phxfs_close(dev)
+        for dst, n in zero:
+            _check(cudart.cudaMemset(dst, 0, n))
+        st = {"bytes": moved, "host_bytes": 0, "phx_pieces": npieces, "phx_batches": batches,
+              "phx_zero_bytes": sum(n for _, n in zero), "phx_fiemap_s": t_map - t0, "phx_open_s": t_open - t_map}
+        if t_io:
+            st.update(data_start_t=t_io, data_end_t=t_end)
+        return st
 
     def load_many(self, parts):
         """Load [(kind, regions)] in one Phoenix session: one open, one read batch, one close.

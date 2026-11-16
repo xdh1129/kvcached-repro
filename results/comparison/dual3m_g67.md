@@ -8,6 +8,7 @@
 | split | 90/90 | 323 | g6 65.1 / 6.1 / 62.5; g7 65.3 / 6.2 / 62.4 | 255.3 |
 | split+phoenix | 90/90 | 322 | g6 65.4 / 5.0 / 62.8; g7 65.6 / 5.1 / 62.5 | 256.3 |
 | split+phoenix+w | 90/90 | 336 | g6 83.1 / 5.2 / 59.0; g7 82.4 / 5.2 / 59.2 | 283.8 |
+| meet+phoenix | 90/90 | 322 | g6 66.4 / 10.4 / 55.7; g7 66.5 / 10.4 / 55.7 | 244.4 |
 
 ## Wake overlap between the GPUs
 
@@ -21,6 +22,7 @@ Pairs = same agent's k-th wake on both GPUs. overlap = shared time / the shorter
 | split | 45 | 100% | 45/45 | 4 |
 | split+phoenix | 45 | 100% | 45/45 | 4 |
 | split+phoenix+w | 45 | 100% | 45/45 | 7 |
+| meet+phoenix | 45 | 100% | 45/45 | 3 |
 
 ## Qwen3-32B: median sleep excl. pin / wake (s) by turn range, both GPUs
 
@@ -32,6 +34,7 @@ Pairs = same agent's k-th wake on both GPUs. overlap = shared time / the shorter
 | split | 2.55 / 2.49 | 2.55 / 2.50 | 2.56 / 2.48 | 8.0 |
 | split+phoenix | 2.55 / 2.49 | 2.56 / 2.49 | 2.58 / 2.49 | 8.0 |
 | split+phoenix+w | 3.10 / 2.25 | 3.24 / 2.34 | 3.54 / 2.41 | 8.0 |
+| meet+phoenix | 2.58 / 2.12 | 2.69 / 2.20 | 2.85 / 2.28 | 8.0 |
 
 ## Qwen3-14B: median sleep excl. pin / wake (s) by turn range, both GPUs
 
@@ -43,6 +46,7 @@ Pairs = same agent's k-th wake on both GPUs. overlap = shared time / the shorter
 | split | 1.18 / 1.15 | 1.18 / 1.15 | 1.30 / 1.15 | 4.7 |
 | split+phoenix | 1.18 / 1.14 | 1.18 / 1.14 | 1.26 / 1.15 | 4.7 |
 | split+phoenix+w | 1.46 / 1.05 | 1.59 / 1.07 | 1.94 / 1.11 | 4.7 |
+| meet+phoenix | 1.20 / 0.98 | 1.30 / 1.02 | 1.34 / 1.09 | 4.7 |
 
 ## Phi-3.5: median sleep excl. pin / wake (s) by turn range, both GPUs
 
@@ -54,6 +58,7 @@ Pairs = same agent's k-th wake on both GPUs. overlap = shared time / the shorter
 | split | 0.54 / 0.40 | 0.73 / 0.53 | 0.90 / 0.66 | 11.9 |
 | split+phoenix | 0.56 / 0.39 | 0.76 / 0.57 | 0.92 / 0.69 | 11.9 |
 | split+phoenix+w | 0.60 / 0.41 | 0.76 / 0.55 | 0.91 / 0.71 | 11.9 |
+| meet+phoenix | 0.44 / 0.36 | 0.61 / 0.51 | 0.77 / 0.63 | 11.9 |
 
 ## SSD read rate during wakes (GiB/s, median over wakes with an SSD part)
 
@@ -64,6 +69,7 @@ Pairs = same agent's k-th wake on both GPUs. overlap = shared time / the shorter
 | split | 6.4 (3.8 GiB) | 6.4 (2.3 GiB) | 6.4 (2.6 GiB) | 6.4 |
 | split+phoenix | 6.2 (3.8 GiB) | 6.2 (2.3 GiB) | 6.3 (2.6 GiB) | 6.2 |
 | split+phoenix+w | 6.3 (13.1 GiB) | 6.5 (6.1 GiB) | 6.3 (2.6 GiB) | 6.3 |
+| meet+phoenix | 6.1 (11.9 GiB) | 6.1 (5.5 GiB) | 6.0 (2.3 GiB) | 6.0 |
 
 ## DRAM held by tiered (logical bytes, all 6 instances, during the workload)
 
@@ -75,6 +81,7 @@ Pairs = same agent's k-th wake on both GPUs. overlap = shared time / the shorter
 | split | 210.4 | 194.3 / 0.0 / 16.1 | 118.4 |
 | split+phoenix | 210.4 | 194.3 / 0.0 / 16.1 | 118.3 |
 | split+phoenix+w | 194.7 | 178.7 / 0.0 / 16.1 | 107.3 |
+| meet+phoenix | 243.4 | 191.4 / 2.9 / 49.1 | 126.5 |
 
 ## Monitor
 
@@ -86,3 +93,4 @@ Pairs = same agent's k-th wake on both GPUs. overlap = shared time / the shorter
 | split | 10.0 | 13.8 | g6 58.0, g7 58.0 |
 | split+phoenix | 10.0 | 13.5 | g6 57.8, g7 57.9 |
 | split+phoenix+w | 10.0 | 13.8 | g6 58.5, g7 58.5 |
+| meet+phoenix | 10.0 | 13.1 | g6 50.4, g7 56.4 |

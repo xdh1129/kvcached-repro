@@ -6,8 +6,8 @@ byte in (data_span in plot_dual_wake_bw.py: DRAM jobs end after their stream syn
 at data_end_s, leaving out Phoenix / GDS cleanup). The two GPUs wake at the same time; the
 line is their mean, the band their min-max. The y axis is zoomed to the data.
 
-Output: results/comparison/slides_dual3m_g67/wake_data_by_turn_<model>.png
-usage: python analysis/plot_dual_wake_by_turn.py [--agent 1] [run_dir ...]
+Output: results/comparison/slides_dual3m_g67/wake_data_by_turn_<model><suffix>.png
+usage: python analysis/plot_dual_wake_by_turn.py [--agent 1] [--suffix _x] [run_dir ...]
        (default: dual3m_g67 dram+dram, dram+phoenix, split+phoenix, split+phoenix+w)
 """
 
@@ -27,11 +27,12 @@ ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 OUT = os.path.join(ROOT, "results", "comparison", "slides_dual3m_g67")
 DEFAULT = ["dual3m_g67_dram+dram", "dual3m_g67_dram+phoenix", "dual3m_g67_split+phoenix_f0.20",
            "dual3m_g67_split+phoenix+w_f0.20"]
-STYLE = {  # path: (label, color, marker); categorical slots 1-4 in order
+STYLE = {  # path: (label, color, marker); categorical slots 1-5 in order
     "dram+dram": ("dram+dram", "#2a78d6", "o"),
     "dram+phoenix": ("dram+phoenix", "#eb6834", "s"),
     "split+phoenix": ("split+phoenix f=0.20", "#1baf7a", "D"),
     "split+phoenix+w": ("split+phoenix+w f=0.20", "#eda100", "^"),
+    "meet+phoenix": ("meet+phoenix", "#e87ba4", "v"),
 }
 
 INK, INK2, GRID, SURFACE = "#0b0b0b", "#52514e", "#e4e3df", "#fcfcfb"
@@ -61,6 +62,7 @@ def per_turn(d, agent):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--agent", type=int, default=1, choices=sorted(MODELS))
+    ap.add_argument("--suffix", default="", help="appended to the output file name")
     ap.add_argument("runs", nargs="*", default=DEFAULT)
     args = ap.parse_args()
     runs = [per_turn(d if os.path.isdir(d) else os.path.join(ROOT, "results", d), args.agent) for d in args.runs]
@@ -88,7 +90,7 @@ def main():
              "y axis does not start at 0", fontsize=18, color=INK2, va="top")
     fig.legend(loc="upper left", bbox_to_anchor=(0.035, 0.87), ncol=4, frameon=False)
     os.makedirs(OUT, exist_ok=True)
-    out = os.path.join(OUT, f"wake_data_by_turn_{MODELS[args.agent][1]}.png")
+    out = os.path.join(OUT, f"wake_data_by_turn_{MODELS[args.agent][1]}{args.suffix}.png")
     fig.savefig(out)
     print(out)
 
