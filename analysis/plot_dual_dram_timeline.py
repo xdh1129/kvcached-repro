@@ -12,7 +12,7 @@ Each panel title gives the peak and the time-weighted mean of weights + KV.
 
 Output: results/comparison/slides_dual3m_g67/dram_timeline.png
 usage: python analysis/plot_dual_dram_timeline.py [run_dir ...]
-       (default: dual3m_g67 dram+dram, split f=0.20, dram+gds)
+       (default: dual3m_g67 dram+dram, dram+gds, split f=0.20)
 """
 
 import csv
@@ -30,7 +30,7 @@ from matplotlib.patches import Patch
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 OUT = os.path.join(ROOT, "results", "comparison", "slides_dual3m_g67")
-DEFAULT = ["dual3m_g67_dram+dram", "dual3m_g67_split_f0.20", "dual3m_g67_dram+gds"]
+DEFAULT = ["dual3m_g67_dram+dram", "dual3m_g67_dram+gds", "dual3m_g67_split_f0.20"]
 STYLE = {  # path: (label, color)
     "dram+dram": ("dram+dram", "#2a78d6"),
     "split": ("split f=0.20 (= split+phoenix)", "#1baf7a"),

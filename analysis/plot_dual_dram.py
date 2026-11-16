@@ -13,7 +13,7 @@ so their per-turn peaks are identical and they are not drawn.
 
 Output: results/comparison/slides_dual3m_g67/dram_peak_by_turn.png
 usage: python analysis/plot_dual_dram.py [run_dir ...]
-       (default: dual3m_g67 dram+dram, split f=0.20, dram+gds)
+       (default: dual3m_g67 dram+dram, dram+gds, split f=0.20)
 """
 
 import csv
@@ -31,11 +31,11 @@ from matplotlib.patches import Patch
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 OUT = os.path.join(ROOT, "results", "comparison", "slides_dual3m_g67")
-DEFAULT = ["dual3m_g67_dram+dram", "dual3m_g67_split_f0.20", "dual3m_g67_dram+gds"]
+DEFAULT = ["dual3m_g67_dram+dram", "dual3m_g67_dram+gds", "dual3m_g67_split_f0.20"]
 STYLE = {  # path: (label, color)
     "dram+dram": ("dram+dram", "#2a78d6"),
-    "split": ("split f=0.20 (= split+phoenix)", "#1baf7a"),
     "dram+gds": ("dram+gds (= dram+phoenix)", "#eb6834"),
+    "split": ("split f=0.20 (= split+phoenix)", "#1baf7a"),
 }
 
 INK, INK2, GRID, SURFACE = "#0b0b0b", "#52514e", "#e4e3df", "#fcfcfb"
