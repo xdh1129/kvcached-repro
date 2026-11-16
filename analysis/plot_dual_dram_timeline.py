@@ -3,7 +3,7 @@
 Reads <run_dir>/dram_logical.csv (written by analysis/dual_gpu_report.py): logical bytes
 of weights and KV that all 6 instances (3 models x GPUs 6, 7) hold in DRAM, as a step
 function of time, from the first request of turn 1 to the end of the workload. One panel
-per path, shared axes; weights light, KV dark, hue = path (as in dram_peak_by_turn.png).
+per path, shared axes; weights light, KV dark, hue = path (as in wake_data_by_turn_*.png).
 The x axis is turns: turn k spans [k, k + 1), from its first request (requests.jsonl, both
 GPUs) to the next turn's first one (the last turn: to the end of the workload), with time
 linear inside each turn, so the panels line up turn by turn although the runs differ in
@@ -12,7 +12,7 @@ Each panel title gives the peak and the time-weighted mean of weights + KV.
 
 Output: results/comparison/slides_dual3m_g67/dram_timeline.png
 usage: python analysis/plot_dual_dram_timeline.py [run_dir ...]
-       (default: dual3m_g67 dram+dram, dram+gds, split f=0.20)
+       (default: dual3m_g67 dram+dram, dram+phoenix, split+phoenix f=0.20, meet+phoenix)
 """
 
 import csv
@@ -26,13 +26,18 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import to_rgb
+from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 OUT = os.path.join(ROOT, "results", "comparison", "slides_dual3m_g67")
-DEFAULT = ["dual3m_g67_dram+dram", "dual3m_g67_dram+gds", "dual3m_g67_split_f0.20"]
+DEFAULT = ["dual3m_g67_dram+dram", "dual3m_g67_dram+phoenix", "dual3m_g67_split+phoenix_f0.20",
+           "dual3m_g67_meet+phoenix"]
 STYLE = {  # path: (label, color)
     "dram+dram": ("dram+dram", "#2a78d6"),
+    "dram+phoenix": ("dram+phoenix", "#eb6834"),
+    "split+phoenix": ("split+phoenix f=0.20", "#1baf7a"),
+    "meet+phoenix": ("meet+phoenix", "#e87ba4"),
     "split": ("split f=0.20 (= split+phoenix)", "#1baf7a"),
     "dram+gds": ("dram+gds (= dram+phoenix)", "#eb6834"),
 }
@@ -61,7 +66,8 @@ def load(d):
     turns = sorted({r["turn"] for r in reqs})
     starts = [min(r["sent_t"] for r in reqs if r["turn"] == k) for k in turns]
     t0 = starts[0]
-    rows = [(float(r["t"]), float(r["weights_gib"]), float(r["kv_gib"]))
+    # meet splits the weight pool into static weights + mutable state: both count as weights here
+    rows = [(float(r["t"]), float(r["weights_gib"]) + float(r.get("state_gib") or 0), float(r["kv_gib"]))
             for r in csv.DictReader(open(f"{d}/dram_logical.csv"))]
     before = [r for r in rows if r[0] <= t0]
     pts = [(0.0, *before[-1][1:])] if before else [(0.0, 0.0, 0.0)]
@@ -79,9 +85,9 @@ def load(d):
 def main(dirs):
     runs = [load(d if os.path.isdir(d) else os.path.join(ROOT, "results", d)) for d in dirs]
     fig, axes = plt.subplots(len(runs), 1, sharey=True,
-                             gridspec_kw={"hspace": 0.55, "left": 0.08, "right": 0.97, "top": 0.80, "bottom": 0.09})
+                             gridspec_kw={"hspace": 0.6 if len(runs) > 3 else 0.55, "left": 0.08, "right": 0.97,
+                                          "top": 0.79 if len(runs) > 3 else 0.80, "bottom": 0.09})
     axes = np.atleast_1d(axes)
-    handles = []
     for ax, (path, t, w, k, mean, turns) in zip(axes, runs):
         label, color = STYLE.get(path, (path, INK2))
         ax.fill_between(t, 0, w, step="post", color=tint(color), linewidth=0)
@@ -99,16 +105,15 @@ def main(dirs):
         ax.set_xlim(turns[0], turns[-1] + 1)
         ax.set_ylim(0, 260)
         ax.set_yticks([0, 100, 200])
-        handles += [Patch(color=tint(color), label=f"{label.split(' (')[0]}: weights")]
-        if k.max() > 0:
-            handles += [Patch(color=color, label=f"{label.split(' (')[0]}: KV")]
     axes[-1].set_xlabel("turn (each turn drawn the same width; time is linear within a turn)")
     fig.text(0.015, 0.45, "DRAM held (GiB)", rotation=90, va="center", fontsize=20)
     fig.text(0.04, 0.965, "DRAM held by tiered offload over the run: weights and KV", fontsize=26,
              weight="bold", va="top")
     fig.text(0.04, 0.91, "Logical bytes of 6 instances = 3 models x 2 GPUs (one weights copy each: "
-             "97 GiB per GPU, 194 GiB in all); dashed = time-weighted mean", fontsize=16, color=INK2, va="top")
-    fig.legend(handles=handles, loc="upper left", bbox_to_anchor=(0.035, 0.885), ncol=5, frameon=False, fontsize=15)
+             "97 GiB per GPU, 194 GiB in all)", fontsize=16, color=INK2, va="top")
+    handles = [Patch(color=tint(INK2), label="weights (light shade)"), Patch(color=INK2, label="KV (dark shade)"),
+               Line2D([], [], color=INK, linestyle="--", linewidth=1.8, label="time-weighted mean")]
+    fig.legend(handles=handles, loc="upper left", bbox_to_anchor=(0.035, 0.885), ncol=3, frameon=False, fontsize=16)
     os.makedirs(OUT, exist_ok=True)
     out = os.path.join(OUT, "dram_timeline.png")
     fig.savefig(out)
