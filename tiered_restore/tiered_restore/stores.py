@@ -59,6 +59,11 @@ class DramStore:
         self.kv_reserve = int(float(os.environ.get("TIERED_DRAM_KV_RESERVE_GB", "0")) * (1 << 30))
         self.keep = {"kv"} if self.kv_reserve else set()  # kinds whose buffer outlives the load
         self.trace = None
+        # Logical bytes this store holds per kind (sum of the saved regions, not the pinned
+        # buffer size): set at the end of a save, cleared at the end of a load of a dropped
+        # kind. on_change(held, t_unix, phase, kind) is called after each change.
+        self.held: dict[str, int] = {}
+        self.on_change = None
 
     def _buffer(self, kind, size):
         """(buffer, seconds spent pinning new host memory)"""
@@ -107,6 +112,14 @@ class DramStore:
         if to_gpu and kind not in self.keep:
             self.buffers[kind] = None  # as vLLM drops its CPU backup after waking
         moved = sum(n for _, n, _ in regions)
+        with self.lock:
+            if not to_gpu:
+                self.held[kind] = moved  # one save per kind per sleep
+            elif kind not in self.keep:
+                self.held[kind] = 0
+            held = dict(self.held)
+        if self.on_change:
+            self.on_change(held, time.time(), "load_end" if to_gpu else "save_end", kind)
         return {"bytes": moved, "host_bytes": moved, "alloc_s": alloc_s}
 
     def save(self, kind, regions):
@@ -393,5 +406,8 @@ class GdsStore(_FileStore):
 
 
 def make_store(name: str, device: int, root: str, threads: int, chunk_mb: int):
+    if name == "phoenix":
+        from .phoenix import PhoenixStore  # loads libphoenix; needs phoenixfs.ko
+        return PhoenixStore(device=device, root=root, threads=threads, chunk_mb=chunk_mb)
     cls = {"dram": DramStore, "ssd": SsdStore, "gds": GdsStore}[name]
     return cls(device=device, root=root, threads=threads, chunk_mb=chunk_mb)

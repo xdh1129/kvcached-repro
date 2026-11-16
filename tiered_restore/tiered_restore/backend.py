@@ -35,6 +35,10 @@ resume():
   2. Weights and KV are loaded on two threads at the same time (TIERED_PARALLEL=1),
      or one after the other.
 
+TIERED_KV=phoenix: GDS writes, Phoenix P2P reads from the RAID0 member NVMes (phoenix.py).
+
+Each DRAM-store change appends an "event": "dram" line to TIERED_LOG with the logical bytes
+held per kind (weights_bytes, state_bytes, kv_bytes, total_bytes) right after a save or load.
 Each suspend/resume appends one JSON line to TIERED_LOG with the bytes and
 times of each path, and with host_bytes: how many of those bytes passed
 through host DRAM (DRAM store, or the SSD bounce buffer; 0 for GDS).
@@ -138,9 +142,9 @@ class TieredBackend(SleepModeBackend):
         self.parallel_save = _env("TIERED_PARALLEL_SAVE", "0") == "1"
         self.save_once = _env("TIERED_WEIGHTS_SAVE", "every") == "once"
         self.split_frac = float(_env("TIERED_SPLIT_FRAC", "0") or 0)
-        if self.split_frac and (self.weights_path != "dram" or self.kv_path not in ("gds", "ssd")
+        if self.split_frac and (self.weights_path != "dram" or self.kv_path not in ("gds", "ssd", "phoenix")
                                 or self.save_once or not 0 < self.split_frac < 1):
-            raise ValueError("TIERED_SPLIT_FRAC needs 0 < f < 1, TIERED_WEIGHTS=dram, TIERED_KV=gds|ssd "
+            raise ValueError("TIERED_SPLIT_FRAC needs 0 < f < 1, TIERED_WEIGHTS=dram, TIERED_KV=gds|ssd|phoenix "
                              "and weights saved every sleep")
         self.load_jobs = {}  # job name -> (store, [(kind, regions)]) restored by the next wake
         self.kv_merge = _env("TIERED_KV_MERGE", "0") == "1"
@@ -151,6 +155,11 @@ class TieredBackend(SleepModeBackend):
         self.stores = {}
         for path in {self.weights_path, self.kv_path} - {"recompute"}:
             self.stores[path] = make_store(path, self.device, self.root, threads, chunk_mb)
+        self.log_lock = threading.Lock()
+        if "dram" in self.stores:  # "dram" events: logical bytes held in DRAM per kind, after each change
+            self.stores["dram"].on_change = lambda held, t, phase, kind: self._log(
+                {"event": "dram", "t_unix": t, "phase": phase, "kind": kind, "n": self.n_suspend,
+                 **{f"{k}_bytes": v for k, v in held.items()}, "total_bytes": sum(held.values())}, quiet=True)
         if self.save_once and self.weights_path == "dram":
             self.stores["dram"].keep.add("weights")  # saved once: the host copy must outlive each wake
         # [(gpu_ptr, nbytes, store_offset)] of the weights pool: (static, mutable) with save-once,
@@ -463,8 +472,9 @@ class TieredBackend(SleepModeBackend):
             out[f"{kind}_mismatch"] = sum(_checksum(ptr, n) != self.sums[ptr] for ptr, n, _ in regions)
         return out
 
-    def _log(self, rec) -> None:
-        logger.info("tiered %s", json.dumps(rec))
+    def _log(self, rec, quiet=False) -> None:
+        if not quiet:
+            logger.info("tiered %s", json.dumps(rec))
         if self.log_path:
-            with open(self.log_path, "a") as f:
+            with self.log_lock, open(self.log_path, "a") as f:  # job threads log "dram" events too
                 f.write(json.dumps(rec) + "\n")

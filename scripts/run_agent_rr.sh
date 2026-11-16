@@ -7,7 +7,8 @@
 # Env: GPUS        GPUs to use (default "6 7"; they must be idle)
 #      POOL        comma-separated HF repos; COPIES instances of each per GPU (default 2)
 #                  (default: four 3B-8B models with >= 128k context)
-#      PATHS       <weights>+<kv> for the tiered_restore plugin (default dram+gds), or vllm
+#      PATHS       <weights>+<kv> for the tiered_restore plugin (default dram+gds; kv may be
+#                  phoenix), split / split+phoenix (need TIERED_SPLIT_FRAC), or vllm
 #                  (vLLM's sleep mode: the cached history is dropped and re-prefilled)
 #      TURNS (24), FIRST_LEN (2048), TURN_LEN (1024), OUT_LEN (300)   see agent_rr.py
 #      SYNC=0      let the GPUs run independently (default 1: steps in lockstep)
@@ -74,13 +75,15 @@ for g in "${GPUS[@]}"; do
     done
 done
 
-if [[ "$PATHS" == split ]]; then
-    # split placement: DRAM head + GDS tail of each sleep's bytes (tiered_restore TIERED_SPLIT_FRAC)
+if [[ "$PATHS" == split || "$PATHS" == split+phoenix ]]; then
+    # split placement: DRAM head + SSD tail of each sleep's bytes (tiered_restore TIERED_SPLIT_FRAC);
+    # split: the tail goes over GDS, split+phoenix: GDS writes, Phoenix reads
     if [[ -z "${TIERED_SPLIT_FRAC:-}" ]]; then
-        echo "PATHS=split needs TIERED_SPLIT_FRAC" >&2
+        echo "PATHS=$PATHS needs TIERED_SPLIT_FRAC" >&2
         exit 1
     fi
-    PATHS=dram+gds SPLIT_LABEL=split
+    SPLIT_LABEL=$PATHS
+    [[ "$PATHS" == split ]] && PATHS=dram+gds || PATHS=dram+phoenix
 else
     unset TIERED_SPLIT_FRAC  # only the split path uses it
 fi
@@ -105,12 +108,13 @@ fi
     echo "copies=$COPIES"
     echo "paths=${SPLIT_LABEL:-$PATHS}"
     [[ "$PATHS" != vllm ]] && echo "tiered_parallel=$TIERED_PARALLEL" && echo "tiered_root=$TIERED_ROOT"
-    env | grep -E '^TIERED_(WEIGHTS_SAVE|KV_MERGE|WEIGHTS_PACE|DRAM_KV_RESERVE_GB|GDS_GATE|GDS_STAGE_MB|GDS_STAGE_BUFS|PARALLEL_SAVE|SPLIT_FRAC|TRACE)=' \
+    env | grep -E '^TIERED_(WEIGHTS_SAVE|KV_MERGE|WEIGHTS_PACE|DRAM_KV_RESERVE_GB|GDS_GATE|GDS_STAGE_MB|GDS_STAGE_BUFS|PARALLEL_SAVE|SPLIT_FRAC|TRACE|PHX_LIB)=' \
         | sed 's/^/tiered_opt_/' || true
     echo "turns=$TURNS"
     echo "first_len=$FIRST_LEN"
     echo "turn_len=$TURN_LEN"
     echo "out_len=$OUT_LEN"
+    echo "monitor_fast=${MONITOR_FAST:-0}"
     echo "sync=$SYNC"
     echo "offset_s=$OFFSET_S"
     echo "swap_headroom_gib=$HEADROOM_GIB"
@@ -132,7 +136,13 @@ trap cleanup EXIT
 
 "$PY" "$ROOT/scripts/vram_monitor.py" "$RUN_DIR" --interval 0.5 &
 VRAM_PID=$!
-"$PY" "$ROOT/scripts/pcie_monitor.py" "$RUN_DIR" --gpus "${GPUS[@]}" --interval 0.1 &
+# MONITOR_FAST=1: block stats / GPU util every 10 ms, NVML PCIe rx/tx on one thread per GPU
+# and direction (~24 ms per sample, NVML's own window) into pcie_nvml.csv
+if [[ "${MONITOR_FAST:-0}" == 1 ]]; then
+    "$PY" "$ROOT/scripts/pcie_monitor.py" "$RUN_DIR" --gpus "${GPUS[@]}" --interval 0.01 --nvml-threads &
+else
+    "$PY" "$ROOT/scripts/pcie_monitor.py" "$RUN_DIR" --gpus "${GPUS[@]}" --interval 0.1 &
+fi
 PCIE_PID=$!
 
 echo "launch_start=$(date +%s.%N)" >> "$RUN_DIR/config.txt"
