@@ -1,0 +1,12 @@
+{"id": "6:1:1", "instance": "g6_a1", "arrive_s": 1.0344, "cold": true, "evictions": 0, "ready_s": 3.5464, "swap_wait_s": 2.512, "status": 200, "done_s": 9.9033}
+{"id": "7:1:1", "instance": "g7_a1", "arrive_s": 1.0357, "cold": true, "evictions": 0, "ready_s": 3.5527, "swap_wait_s": 2.517, "status": 200, "done_s": 9.9715}
+{"id": "6:2:1", "instance": "g6_a2", "arrive_s": 9.994, "cold": true, "evictions": 1, "ready_s": 13.6822, "swap_wait_s": 3.6882, "status": 200, "done_s": 16.4896}
+{"id": "7:2:1", "instance": "g7_a2", "arrive_s": 9.9921, "cold": true, "evictions": 1, "ready_s": 13.6974, "swap_wait_s": 3.7053, "status": 200, "done_s": 16.5179}
+{"id": "6:3:1", "instance": "g6_a3", "arrive_s": 16.5381, "cold": true, "evictions": 0, "ready_s": 16.8821, "swap_wait_s": 0.344, "status": 200, "done_s": 17.8704}
+{"id": "7:3:1", "instance": "g7_a3", "arrive_s": 16.5391, "cold": true, "evictions": 0, "ready_s": 16.8823, "swap_wait_s": 0.3432, "status": 200, "done_s": 17.8727}
+{"id": "6:1:2", "instance": "g6_a1", "arrive_s": 17.8903, "cold": true, "evictions": 1, "ready_s": 21.5855, "swap_wait_s": 3.6952, "status": 200, "done_s": 28.0353}
+{"id": "7:1:2", "instance": "g7_a1", "arrive_s": 17.8915, "cold": true, "evictions": 1, "ready_s": 21.5947, "swap_wait_s": 3.7032, "status": 200, "done_s": 28.1121}
+{"id": "6:2:2", "instance": "g6_a2", "arrive_s": 28.1333, "cold": true, "evictions": 2, "ready_s": 32.2115, "swap_wait_s": 4.0782, "status": 200, "done_s": 35.0596}
+{"id": "7:2:2", "instance": "g7_a2", "arrive_s": 28.135, "cold": true, "evictions": 2, "ready_s": 32.2166, "swap_wait_s": 4.0816, "status": 200, "done_s": 35.0855}
+{"id": "6:3:2", "instance": "g6_a3", "arrive_s": 35.1073, "cold": true, "evictions": 0, "ready_s": 35.4779, "swap_wait_s": 0.3706, "status": 200, "done_s": 36.6464}
+{"id": "7:3:2", "instance": "g7_a3", "arrive_s": 35.1063, "cold": true, "evictions": 0, "ready_s": 35.4786, "swap_wait_s": 0.3723, "status": 200, "done_s": 36.6506}

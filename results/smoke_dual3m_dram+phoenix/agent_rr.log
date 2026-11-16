@@ -1,0 +1,3 @@
+2 GPUs x 3 agents x 2 turns = 6 requests per GPU (synchronized, offset 0.0 s)
+step 3/6: turn 1 done; history g6_a3=2176, g7_a3=2176
+step 6/6: turn 2 done; history g6_a3=4352, g7_a3=4352
