@@ -148,7 +148,7 @@ def main():
                 ha="right", va="bottom", fontsize=14, color=INK2)
         ax.set_ylim(0, 80)
         ax.set_yticks([0, 20, 40, 60, 80])
-    axes[-1].set_xlim(-PAD, max(max(r["ends"].values()) for r in runs) + PAD)
+    axes[-1].set_xlim(0, max(max(r["ends"].values()) for r in runs) + PAD)
     axes[-1].set_xlabel("time since the wake started (s)")
     fig.text(0.015, 0.465, "throughput (GiB/s)", rotation=90, va="center", fontsize=20)
     rec0 = runs[0]["rec"]
