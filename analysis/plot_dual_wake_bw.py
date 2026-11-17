@@ -40,7 +40,7 @@ GIB = 1 << 30
 UPLINK, DISKS = 58, 13.2  # GiB/s, measured: dram+dram plateau; Phoenix/GDS ceiling of both members
 PAD = 0.3
 GRID_S = 0.002
-NAME = {"split": "split f=0.20", "split+phoenix": "split+phoenix f=0.20",
+NAME = {"dram+ssd": "dram+ssd (POSIX)", "split": "split f=0.20", "split+phoenix": "split+phoenix f=0.20",
         "split+phoenix+w": "split+phoenix+w f=0.20"}
 MODELS = {1: ("Qwen3-32B", "32b"), 2: ("Qwen3-14B", "14b"), 3: ("Phi-3.5", "phi")}
 
@@ -61,7 +61,8 @@ plt.rcParams.update({
 def sources(rec):
     """(GiB read from DRAM, GiB read from SSD) by one wake: each job with <job>_host_bytes"""
     jobs = [k[:-len("_host_bytes")] for k in rec if k.endswith("_host_bytes")]
-    host = sum(rec[f"{j}_host_bytes"] for j in jobs)
+    # a POSIX job (path "ssd") reads the SSD into a host bounce buffer: its bytes are SSD bytes
+    host = sum(rec[f"{j}_host_bytes"] for j in jobs if rec.get(f"{j}_path") != "ssd")
     return host / GIB, (sum(rec[f"{j}_bytes"] for j in jobs) - host) / GIB
 
 

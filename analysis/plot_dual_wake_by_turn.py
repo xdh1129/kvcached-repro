@@ -29,6 +29,7 @@ DEFAULT = ["dual3m_g67_dram+dram", "dual3m_g67_dram+phoenix", "dual3m_g67_split+
            "dual3m_g67_split+phoenix+w_f0.20"]
 STYLE = {  # path: (label, color, marker); categorical slots 1-5 in order
     "dram+dram": ("dram+dram", "#2a78d6", "o"),
+    "dram+ssd": ("dram+ssd (POSIX)", "#6250d6", "P"),
     "dram+phoenix": ("dram+phoenix", "#eb6834", "s"),
     "split+phoenix": ("split+phoenix f=0.20", "#1baf7a", "D"),
     "split+phoenix+w": ("split+phoenix+w f=0.20", "#eda100", "^"),
@@ -86,7 +87,7 @@ def main():
     name = MODELS[args.agent][0]
     fig.text(0.04, 0.965, f"{name} wake on GPUs 6 and 7 at once: time moving data, per turn", fontsize=26,
              weight="bold", va="top")
-    fig.legend(loc="upper left", bbox_to_anchor=(0.035, 0.915), ncol=4, frameon=False)
+    fig.legend(loc="upper left", bbox_to_anchor=(0.035, 0.915), ncol=5, frameon=False, columnspacing=1.4)
     os.makedirs(OUT, exist_ok=True)
     out = os.path.join(OUT, f"wake_data_by_turn_{MODELS[args.agent][1]}{args.suffix}.png")
     fig.savefig(out)
